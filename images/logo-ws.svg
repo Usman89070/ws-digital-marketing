@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 60" width="220" height="60" role="img" aria-label="W&amp;S Digital Marketing">
+  <defs>
+    <linearGradient id="wsGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#22D3EE"/>
+      <stop offset="55%" stop-color="#38BDF8"/>
+      <stop offset="100%" stop-color="#818CF8"/>
+    </linearGradient>
+  </defs>
+  <rect x="0" y="8" width="46" height="46" rx="12" fill="url(#wsGrad)"/>
+  <text x="23" y="39" font-family="'Sora', 'Segoe UI', sans-serif" font-weight="700" font-size="22" fill="#0B1120" text-anchor="middle">W&amp;S</text>
+  <text x="58" y="30" font-family="'Sora', 'Segoe UI', sans-serif" font-weight="700" font-size="19" fill="#0B1120">DIGITAL</text>
+  <text x="58" y="48" font-family="'Sora', 'Segoe UI', sans-serif" font-weight="500" font-size="13" letter-spacing="2" fill="#64748B">MARKETING</text>
+</svg>
