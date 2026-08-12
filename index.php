@@ -11,28 +11,27 @@
             <p class="hero-subtitle fade-up">Data-driven strategies for Google Ads, Meta Ads, SEO and custom web solutions that generate high-intent leads, sales, and revenue for ambitious Australian businesses.</p>
 
             <div class="hero-buttons fade-up">
-                <a href="#contact" class="btn-primary"><span>GET MY FREE GROWTH PLAN</span> <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
+                <a href="#contact" class="btn-primary"><span>GET MY FREE GROWTH PLAN <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></span></a>
                 <a href="#case-studies" class="btn-secondary">SEE OUR RESULTS</a>
             </div>
         </div>
-        <div class="hero-scroll-cue fade-up"><span></span></div>
     </section>
 
     <!-- SECTION 2: MASTER CINEMATIC STAGE -->
     <div class="cinematic-wrapper">
-        <div class="devices-stage" id="devicesStage">
-            <div class="stage-header fade-up">
+        <div class="devices-stage">
+            <div class="stage-header">
                 <span class="eyebrow">Real Time Analytics</span>
                 <h2>MARKETING THAT MOVES THE NUMBERS</h2>
             </div>
 
-            <div class="scatter-item fs-1"><span>Total Clicks</span> <div class="val" data-count data-suffix="">135 <i class="fa-solid fa-arrow-trend-up"></i></div></div>
-            <div class="scatter-item fs-2"><span>Total Impressions</span> <div class="val" data-count data-suffix="K">10.2K <i class="fa-solid fa-chart-column"></i></div></div>
-            <div class="scatter-item fs-3"><span>Average CTR</span> <div class="val" data-count data-suffix="%">1.3% <i class="fa-solid fa-bullseye"></i></div></div>
-            <div class="scatter-item fs-4"><span>Average Position</span> <div class="val" data-count data-suffix="">27.7 <i class="fa-solid fa-trophy"></i></div></div>
+            <div class="scatter-item fs-1"><span>Total Clicks</span> <div class="val">135 <i class="fa-solid fa-arrow-trend-up"></i></div></div>
+            <div class="scatter-item fs-2"><span>Total Impressions</span> <div class="val">10.2K <i class="fa-solid fa-chart-column"></i></div></div>
+            <div class="scatter-item fs-3"><span>Average CTR</span> <div class="val">1.3% <i class="fa-solid fa-bullseye"></i></div></div>
+            <div class="scatter-item fs-4"><span>Average Position</span> <div class="val">27.7 <i class="fa-solid fa-trophy"></i></div></div>
 
             <!-- Laptop (Hidden on Mobile) -->
-            <div class="laptop-container" id="laptopTilt">
+            <div class="laptop-container">
                 <div class="mac-screen-bezel">
                     <div class="mac-camera"></div>
                     <div class="dashboard-ui">
@@ -46,14 +45,14 @@
                                 <div class="dash-title">SEO Ranking Results</div>
                             </div>
                             <div class="dash-cards">
-                                <div class="dash-card"><div class="dash-card-title">Total Clicks</div><div class="dash-card-value" data-count>135</div></div>
-                                <div class="dash-card"><div class="dash-card-title">Total Impressions</div><div class="dash-card-value" data-count>10.2K</div></div>
-                                <div class="dash-card"><div class="dash-card-title">Average CTR</div><div class="dash-card-value" data-count>1.3%</div></div>
-                                <div class="dash-card"><div class="dash-card-title">Average Position</div><div class="dash-card-value" data-count>27.7</div></div>
+                                <div class="dash-card"><div class="dash-card-title">Total Clicks</div><div class="dash-card-value">135</div></div>
+                                <div class="dash-card"><div class="dash-card-title">Total Impressions</div><div class="dash-card-value">10.2K</div></div>
+                                <div class="dash-card"><div class="dash-card-title">Average CTR</div><div class="dash-card-value">1.3%</div></div>
+                                <div class="dash-card"><div class="dash-card-title">Average Position</div><div class="dash-card-value">27.7</div></div>
                             </div>
                             <div class="dash-chart-area">
                                 <div class="dash-chart-bars">
-                                    <span style="--h:35%"></span><span style="--h:52%"></span><span style="--h:44%"></span><span style="--h:68%"></span><span style="--h:58%"></span><span style="--h:80%"></span><span style="--h:72%"></span><span style="--h:94%"></span>
+                                    <span style="--h:32%"></span><span style="--h:48%"></span><span style="--h:40%"></span><span style="--h:62%"></span><span style="--h:54%"></span><span style="--h:76%"></span><span style="--h:68%"></span><span style="--h:92%"></span>
                                 </div>
                                 <svg class="dash-chart-line" viewBox="0 0 300 80" preserveAspectRatio="none">
                                     <polyline points="0,65 40,55 80,58 120,35 160,42 200,20 240,28 300,8" />
@@ -67,7 +66,7 @@
             </div>
 
             <!-- Mobile Phone -->
-            <div class="mobile-container" id="mobileTilt">
+            <div class="mobile-container">
                 <div class="iphone-island"></div>
                 <div class="phone-inner">
                     <div class="serp-screen-wrapper">
@@ -127,10 +126,10 @@
                     <span style="font-size: 11px; color: var(--text-muted); background: var(--bg-secondary); padding: 5px 12px; border-radius: 15px; border: 1px solid var(--border-light);">Last 30 Days <i class="fa-solid fa-chevron-down" style="margin-left:3px;"></i></span>
                 </div>
                 <div class="mobile-dash-cards">
-                    <div class="m-dash-card"><div class="m-dash-card-title">Total Clicks</div><div class="m-dash-card-value" data-count>135</div></div>
-                    <div class="m-dash-card"><div class="m-dash-card-title">Impressions</div><div class="m-dash-card-value" data-count>10.2K</div></div>
-                    <div class="m-dash-card"><div class="m-dash-card-title">Avg CTR</div><div class="m-dash-card-value" data-count>1.3%</div></div>
-                    <div class="m-dash-card"><div class="m-dash-card-title">Avg Position</div><div class="m-dash-card-value" data-count>27.7</div></div>
+                    <div class="m-dash-card"><div class="m-dash-card-title">Total Clicks</div><div class="m-dash-card-value">135</div></div>
+                    <div class="m-dash-card"><div class="m-dash-card-title">Impressions</div><div class="m-dash-card-value">10.2K</div></div>
+                    <div class="m-dash-card"><div class="m-dash-card-title">Avg CTR</div><div class="m-dash-card-value">1.3%</div></div>
+                    <div class="m-dash-card"><div class="m-dash-card-title">Avg Position</div><div class="m-dash-card-value">27.7</div></div>
                 </div>
             </div>
         </div>
@@ -200,9 +199,9 @@
     </section>-->
 
     <!-- UPGRADED SERVICES SECTION WITH REAL IMAGES -->
-    <section id="services" class="services-section fade-up">
+    <section id="services" class="services-section">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header fade-up">
                 <span class="eyebrow">OUR EXPERTISE</span>
                 <h2 style="font-size: clamp(1.8rem, 4vw, 2.8rem); margin-top: 10px;">Tailored Solutions For Maximum ROI</h2>
             </div>
@@ -260,9 +259,9 @@
     </section>
 
     <!-- PREMIUM SPLIT METHODOLOGY -->
-    <section class="methodology-section fade-up">
+    <section class="methodology-section">
         <div class="container">
-            <div class="section-header left">
+            <div class="section-header left fade-up">
                 <span class="eyebrow">OUR METHODOLOGY</span>
                 <h2 style="font-size: clamp(1.8rem, 4vw, 2.8rem); margin-top: 10px;">No Guesswork. Just A Proven Growth System.</h2>
             </div>
@@ -310,9 +309,9 @@
 
     <!-- TESTIMONIALS WITH REAL HEADSHOTS -->
 
-    <section class="testimonials-section fade-up" id="case-studies">
+    <section class="testimonials-section" id="case-studies">
         <div class="container">
-            <div class="section-header" style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; text-align: left; gap: 20px; margin-bottom: 20px;">
+            <div class="section-header fade-up" style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; text-align: left; gap: 20px; margin-bottom: 20px;">
                 <div>
                     <span class="eyebrow">CLIENT FEEDBACK</span>
                     <h2 style="font-size: clamp(1.8rem, 4vw, 2.8rem); margin-top: 10px;">What Our Clients Say</h2>
@@ -377,9 +376,9 @@
 
 
     <!-- UPGRADED REALISTIC IMAGE INDUSTRIES -->
-    <section class="industries-section fade-up" id="industries">
+    <section class="industries-section" id="industries">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header fade-up">
                 <span class="eyebrow" style="color: var(--cyan-neon);">INDUSTRY EXPERTISE</span>
                 <h2 style="font-size: clamp(1.8rem, 4vw, 2.8rem); margin-top: 10px;">Tailored Campaigns That Drive Results</h2>
             </div>
@@ -432,9 +431,9 @@
 
     <!-- PREMIUM FINAL CTA SECTION -->
     <section class="cta-section" id="contact">
-        <div class="cta-glow"></div>
         <div class="container">
             <div class="cta-box fade-up">
+                <div class="cta-glow"></div>
                 <div class="cta-badge"><i class="fa-solid fa-rocket"></i> Let's Scale Together</div>
                 <h2>Ready To Grow Your Business?</h2>
                 <p>Partner with W&S Digital Marketing to build a custom, data-driven growth plan that generates high-intent leads, sales, and maximum ROAS.</p>
@@ -444,7 +443,7 @@
                     <span><i class="fa-solid fa-check" style="color: var(--cyan-neon);"></i> Proven Australian Results</span>
                 </div>
                 <div class="cta-btn-wrapper">
-                    <a href="#hero" class="btn-primary" style="padding: 18px 45px; font-size: 1.1rem;"><span>GET MY FREE GROWTH PLAN</span> <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
+                    <a href="#hero" class="btn-primary" style="padding: 18px 45px; font-size: 1.1rem;"><span>GET MY FREE GROWTH PLAN <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></span></a>
                 </div>
             </div>
         </div>
