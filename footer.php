@@ -1,0 +1,198 @@
+<!-- PREMIUM FOOTER -->
+    <style>
+        footer { 
+            background: linear-gradient(to bottom, #0B0F25, #050814) !important; 
+            color: #fff !important; padding: 100px 0 30px !important; border-top: 1px solid rgba(0, 242, 254, 0.2) !important; position: relative !important; overflow: hidden !important; width: 100% !important; display: block !important;
+        }
+        footer::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 1px; background: linear-gradient(90deg, transparent, var(--cyan-neon), transparent); }
+        
+        .footer-logo { height: auto !important; margin-bottom: 25px !important; display: inline-flex !important; }
+        .footer-grid { display: grid !important; grid-template-columns: 2fr 1fr 1fr 1.5fr !important; gap: clamp(30px, 4vw, 50px) !important; width: 100% !important; }
+        
+        .footer-brand p { color: rgba(255,255,255,0.6) !important; line-height: 1.7 !important; max-width: 320px !important; font-size: 0.95rem !important; }
+        .footer-heading { font-size: 1.1rem !important; font-weight: 700 !important; color: #fff !important; margin-bottom: 25px !important; text-transform: uppercase !important; letter-spacing: 1px !important; }
+        
+        .footer-links { list-style: none !important; padding: 0 !important; margin: 0 !important; }
+        .footer-links li { margin-bottom: 16px !important; }
+        .footer-links a { color: rgba(255,255,255,0.6) !important; text-decoration: none !important; transition: var(--transition-smooth) !important; display: inline-block !important; font-size: 0.95rem !important; }
+        .footer-links a:hover { color: var(--cyan-neon) !important; transform: translateX(5px) !important; }
+        
+        .footer-contact { list-style: none !important; padding: 0 !important; margin: 0 !important; }
+        .footer-contact li { display: flex !important; align-items: flex-start !important; gap: 15px !important; color: rgba(255,255,255,0.7) !important; margin-bottom: 18px !important; font-size: 0.95rem !important; line-height: 1.5 !important; word-break: break-word !important; }
+        .footer-contact i { color: var(--cyan-neon) !important; font-size: 1.1rem !important; background: rgba(0, 242, 254, 0.05) !important; width: 35px !important; height: 35px !important; display: flex !important; align-items: center !important; justify-content: center !important; border-radius: 50% !important; flex-shrink: 0 !important; border: 1px solid rgba(0, 242, 254, 0.1) !important; }
+        
+        .social-links { display: flex !important; gap: 15px !important; margin-top: 25px !important; }
+        .social-links a { width: 40px !important; height: 40px !important; border-radius: 50% !important; background: rgba(255,255,255,0.05) !important; border: 1px solid rgba(255,255,255,0.1) !important; display: flex !important; align-items: center !important; justify-content: center !important; color: #fff !important; transition: var(--transition-smooth) !important; text-decoration: none !important; font-size: 1rem !important; }
+        .social-links a:hover { background: var(--cyan-neon) !important; color: var(--navy) !important; transform: translateY(-3px) !important; box-shadow: 0 5px 15px rgba(0, 242, 254, 0.3) !important; }
+        
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1) !important; margin-top: 80px !important; padding-top: 30px !important; display: flex !important; justify-content: space-between !important; align-items: center !important; color: rgba(255,255,255,0.5) !important; font-size: 0.9rem !important; flex-wrap: wrap !important; gap: 20px !important;}
+
+        @media(max-width: 1024px) {
+            .footer-grid { grid-template-columns: 1fr 1fr !important; gap: 50px !important; }
+            .footer-brand p { max-width: 100% !important; } 
+        }
+
+        @media(max-width: 768px) {
+            .footer-grid { grid-template-columns: 1fr !important; text-align: center !important; gap: 40px !important; }
+            .footer-logo { justify-content: center !important; margin: 0 auto 20px !important; display: flex !important; height: auto !important; }
+            .footer-brand p { margin: 0 auto !important; text-align: center !important; max-width: 400px !important; }
+            .social-links { justify-content: center !important; }
+            .footer-contact li { flex-direction: column !important; align-items: center !important; text-align: center !important; gap: 10px !important; }
+            .footer-bottom { flex-direction: column !important; text-align: center !important; gap: 15px !important; }
+            .footer-bottom div { justify-content: center !important; width: 100% !important; }
+        }
+    </style>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid fade-up">
+                <!-- Brand Col -->
+                <div class="footer-brand">
+                    <a href="index.php" class="logo footer-logo">
+                        <img src="images/logo-ws.webp" alt="W&S Digital Marketing Logo" class="logo-img" style="filter: brightness(0) invert(1);">
+                    </a>
+                    <p>
+                        Helping ambitious Australian businesses confidently grow online with data-driven strategies that consistently deliver real results.
+                    </p>
+                    <div class="social-links">
+                        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="footer-heading">Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.php">Home</a></li>
+                        <li><a href="about.php">About Us</a></li>
+                        <li><a href="services.php">Services</a></li>
+                        <li><a href="index.php#case-studies">Case Studies</a></li>
+                        <li><a href="index.php#contact">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <!-- Services -->
+                <div>
+                    <h4 class="footer-heading">Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="services.php#seo">Search Engine Optimization</a></li>
+                        <li><a href="services.php#ecom">E-commerce</a></li>
+                        <li><a href="services.php#web">Website Development</a></li>
+                        <li><a href="services.php#social">Social Media & PPC</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div>
+                    <h4 class="footer-heading">Get In Touch</h4>
+                    <ul class="footer-contact">
+                        <li><i class="fa-solid fa-phone"></i> <span>1300 123 456</span></li>
+                        <li><i class="fa-solid fa-envelope"></i> <span>info@wsdigital.com.au</span></li>
+                        <li><i class="fa-solid fa-location-dot"></i> <span>Level 32, Sydney, NSW 2000, Australia</span></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom fade-up">
+                <p>© 2026 W&S Digital Marketing. All Rights Reserved.</p>
+                <div style="display: flex; gap: 20px;">
+                    <a href="#" style="color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.3s;">Privacy Policy</a>
+                    <a href="#" style="color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.3s;">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SCRIPTS -->
+    <script>
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        function toggleMenu() {
+            const menu = document.getElementById('navMenu');
+            menu.classList.toggle('active');
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            gsap.registerPlugin(ScrollTrigger);
+            
+            let mm = gsap.matchMedia();
+
+            mm.add("(min-width: 769px)", () => {
+                gsap.set(".laptop-container", { xPercent: -50, yPercent: 0 });
+                gsap.set(".mobile-container", { xPercent: -50, yPercent: -50, scale: 1 });
+                gsap.set(".scatter-item", { xPercent: -50, yPercent: -50, opacity: 1, scale: 1 });
+                gsap.set(".stage-header", { opacity: 0, y: -20 });
+
+                let masterTl = gsap.timeline({
+                    scrollTrigger: {
+                        trigger: ".cinematic-wrapper",
+                        start: "top 80px",        
+                        end: "+=3500",            
+                        pin: true,                
+                        scrub: 1                  
+                    }
+                });
+
+                masterTl.to(".scatter-item", {
+                    x: (index) => (index % 2 === 0) ? -250 : 250, 
+                    y: (index) => (index < 2) ? -150 : 150, 
+                    duration: 1, 
+                    ease: "power2.out"
+                }, 0);
+
+                masterTl.to(".serp-screen", { y: "-55%", duration: 1.5, ease: "none" }, 0.5);
+                masterTl.to(".serp-screen", { opacity: 0, duration: 0.2 }, 2.0);
+                masterTl.to(".logo-screen", { opacity: 1, duration: 0.3 }, 2.2);
+                masterTl.to(".scatter-item", { opacity: 0, scale: 0.8, duration: 0.3 }, 2.0);
+
+                masterTl.to(".laptop-container", { yPercent: 0, opacity: 1, duration: 2, ease: "power3.inOut" }, 2.5); 
+                masterTl.to(".mobile-container", { left: "86%", top: "70%", scale: 0.35, boxShadow: "0 20px 40px rgba(0,0,0,0.5)", duration: 2, ease: "power3.inOut" }, 2.5); 
+                masterTl.to(".stage-header", { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" }, 3.0);
+                
+                return () => {}; 
+            });
+
+            mm.add("(max-width: 768px)", () => {
+                gsap.set(".stage-header", { opacity: 1, y: 0 });
+                gsap.set(".serp-screen", { y: "0%", opacity: 1 });
+                gsap.set(".logo-screen", { opacity: 0 });
+                
+                let mobileTl = gsap.timeline({
+                    scrollTrigger: {
+                        trigger: ".cinematic-wrapper",
+                        start: "top 85px", 
+                        end: "+=800", 
+                        pin: true,
+                        scrub: 1
+                    }
+                });
+
+                mobileTl.to(".serp-screen", { y: "-55%", duration: 2, ease: "none" });
+                mobileTl.to(".serp-screen", { opacity: 0, duration: 0.3 });
+                mobileTl.to(".logo-screen", { opacity: 1, duration: 0.5 });
+                
+                return () => {}; 
+            });
+
+            gsap.utils.toArray('.fade-up').forEach(element => {
+                gsap.fromTo(element, 
+                    { opacity: 0, y: 40 },
+                    { opacity: 1, y: 0, duration: 0.6, ease: "power2.out",
+                      scrollTrigger: { trigger: element, start: "top 85%", toggleActions: "play none none none" }
+                    }
+                );
+            });
+        });
+    </script>
+</body>
+</html>
