@@ -13,7 +13,7 @@ include 'header.php';
             
             <div class="hero-buttons fade-up">
                 <a href="#contact" class="btn-primary">GET MY FREE GROWTH PLAN <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
-                <a href="#case-studies" class="btn-secondary">SEE OUR RESULTS</a>
+                <a href="case-studies.php" class="btn-secondary">SEE OUR RESULTS</a>
             </div>
         </div>
     </section>
@@ -201,7 +201,7 @@ include 'header.php';
                 <h2 style="font-size: clamp(1.8rem, 4vw, 2.8rem); margin-top: 10px;">Tailored Solutions For Maximum ROI</h2>
             </div>
             <div class="services-grid">
-                <!-- Service 1 -->
+                <!-- Service 1: SEO -->
                 <div class="service-card">
                     <div class="service-image">
                         <img src="https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?auto=format&fit=crop&w=800&q=80" alt="Search Engine Optimisation">
@@ -210,22 +210,22 @@ include 'header.php';
                     <div class="service-content">
                         <h3>Search Engine Optimisation</h3>
                         <p>Dominate local search and Google Maps to attract high-intent traffic directly to your website organically.</p>
-                        <a href="#contact" class="service-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+                        <a href="seo.php" class="service-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
                     </div>
                 </div>
-                <!-- Service 2 -->
+                <!-- Service 2: E-commerce -->
                 <div class="service-card">
                     <div class="service-image">
-                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" alt="Google Ads & PPC">
-                        <div class="service-icon-badge"><i class="fa-solid fa-hand-pointer"></i></div>
+                        <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=80" alt="E-commerce">
+                        <div class="service-icon-badge"><i class="fa-solid fa-cart-shopping"></i></div>
                     </div>
                     <div class="service-content">
-                        <h3>Google Ads & PPC</h3>
-                        <p>Drive instant, high-converting traffic and get more phone calls, quality leads, and immediate sales.</p>
-                        <a href="#contact" class="service-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+                        <h3>E-commerce</h3>
+                        <p>Shopify and WooCommerce builds, catalog strategy, and conversion-focused checkout flows that turn browsers into repeat customers.</p>
+                        <a href="ecommerce.php" class="service-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
                     </div>
                 </div>
-                <!-- Service 3 -->
+                <!-- Service 3: Website Design & CRO -->
                 <div class="service-card">
                     <div class="service-image">
                         <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80" alt="Website Design & CRO">
@@ -234,10 +234,10 @@ include 'header.php';
                     <div class="service-content">
                         <h3>Website Design & CRO</h3>
                         <p>Beautiful, fast-loading, and mobile-responsive websites engineered specifically to convert visitors into clients.</p>
-                        <a href="#contact" class="service-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+                        <a href="website-development.php" class="service-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
                     </div>
                 </div>
-                <!-- Service 4 -->
+                <!-- Service 4: Social Media -->
                 <div class="service-card">
                     <div class="service-image">
                         <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=800&q=80" alt="Social Media Marketing">
@@ -246,9 +246,48 @@ include 'header.php';
                     <div class="service-content">
                         <h3>Social Media Marketing</h3>
                         <p>Build a strong brand presence and engage your target audience strategically on Meta and TikTok platforms.</p>
-                        <a href="#contact" class="service-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+                        <a href="social-media.php" class="service-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
                     </div>
                 </div>
+                <!-- Service 5: Google Ads & PPC -->
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" alt="Google Ads & PPC">
+                        <div class="service-icon-badge"><i class="fa-solid fa-hand-pointer"></i></div>
+                    </div>
+                    <div class="service-content">
+                        <h3>Google Ads & PPC</h3>
+                        <p>Drive instant, high-converting traffic and get more phone calls, quality leads, and immediate sales.</p>
+                        <a href="ppc-advertising.php" class="service-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <!-- Service 6: Graphic Design -->
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=800&q=80" alt="Graphic Design">
+                        <div class="service-icon-badge"><i class="fa-solid fa-palette"></i></div>
+                    </div>
+                    <div class="service-content">
+                        <h3>Graphic Design</h3>
+                        <p>Brand identity, ad creative, and marketing collateral designed to stand out and stay consistent across every channel.</p>
+                        <a href="graphic-design.php" class="service-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <!-- Service 7: Content Writing -->
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=800&q=80" alt="Content Writing">
+                        <div class="service-icon-badge"><i class="fa-solid fa-pen-nib"></i></div>
+                    </div>
+                    <div class="service-content">
+                        <h3>Content Writing</h3>
+                        <p>SEO-optimized copy, blog content, and website content that ranks, builds authority, and speaks directly to your customers.</p>
+                        <a href="content-writing.php" class="service-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: clamp(30px, 4vw, 40px);">
+                <a href="services.php" class="btn-secondary">VIEW ALL SERVICES <i class="fa-solid fa-arrow-right" style="margin-left: 6px;"></i></a>
             </div>
         </div>
     </section>
@@ -297,10 +336,6 @@ include 'header.php';
             </div>
         </div>
     </section>
-
-    <!-- REAL IMAGE CASE STUDIES SECTION -->
-
-    
 
     <!-- TESTIMONIALS WITH REAL HEADSHOTS -->
 
@@ -377,49 +412,101 @@ include 'header.php';
                 <span class="eyebrow" style="color: var(--cyan-neon);">INDUSTRY EXPERTISE</span>
                 <h2 style="font-size: clamp(1.8rem, 4vw, 2.8rem); margin-top: 10px;">Tailored Campaigns That Drive Results</h2>
             </div>
-            <div class="industries-grid">
-                <div class="industry-card">
-                    <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=600&q=80" alt="Trades & Services">
-                    <div class="industry-overlay">
-                        <i class="fa-solid fa-helmet-safety"></i>
-                        <h5>Trades & Services</h5>
-                    </div>
+            <div class="industry-tile-grid">
+                <div class="industry-tile">
+                    <div class="industry-tile-icon"><i class="fa-solid fa-helmet-safety"></i></div>
+                    <h5>Trades & Services</h5>
+                    <p>Plumbing, electrical, refrigeration & local contractors — high-intent local leads that convert.</p>
                 </div>
-                <div class="industry-card">
-                    <img src="https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=600&q=80" alt="Healthcare">
-                    <div class="industry-overlay">
-                        <i class="fa-solid fa-user-doctor"></i>
-                        <h5>Healthcare</h5>
-                    </div>
+                <div class="industry-tile">
+                    <div class="industry-tile-icon"><i class="fa-solid fa-user-doctor"></i></div>
+                    <h5>Healthcare</h5>
+                    <p>Clinics, medical practices, and health specialists building trusted, compliant patient pipelines.</p>
                 </div>
-                <div class="industry-card">
-                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=80" alt="Professional Services">
-                    <div class="industry-overlay">
-                        <i class="fa-solid fa-user-tie"></i>
-                        <h5>Professional</h5>
-                    </div>
+                <div class="industry-tile">
+                    <div class="industry-tile-icon"><i class="fa-solid fa-user-tie"></i></div>
+                    <h5>Professional Services</h5>
+                    <p>Legal, financial, consulting & corporate services that need consistent, qualified inquiries.</p>
                 </div>
-                <div class="industry-card">
-                    <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=600&q=80" alt="eCommerce">
-                    <div class="industry-overlay">
-                        <i class="fa-solid fa-cart-shopping"></i>
-                        <h5>eCommerce</h5>
-                    </div>
+                <div class="industry-tile">
+                    <div class="industry-tile-icon"><i class="fa-solid fa-cart-shopping"></i></div>
+                    <h5>eCommerce</h5>
+                    <p>Shopify stores, retail brands & digital products scaled with full-funnel paid and organic growth.</p>
                 </div>
-                <div class="industry-card">
-                    <img src="https://images.unsplash.com/photo-1551882547-ff40c0d5bf8f?auto=format&fit=crop&w=600&q=80" alt="Hospitality">
-                    <div class="industry-overlay">
-                        <i class="fa-solid fa-utensils"></i>
-                        <h5>Hospitality</h5>
-                    </div>
+                <div class="industry-tile">
+                    <div class="industry-tile-icon"><i class="fa-solid fa-utensils"></i></div>
+                    <h5>Hospitality</h5>
+                    <p>Restaurants, cafes, venues & booking services turning local searches into full tables.</p>
                 </div>
-                <div class="industry-card">
-                    <img src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?auto=format&fit=crop&w=600&q=80" alt="Automotive">
-                    <div class="industry-overlay">
-                        <i class="fa-solid fa-car"></i>
-                        <h5>Automotive</h5>
-                    </div>
+                <div class="industry-tile">
+                    <div class="industry-tile-icon"><i class="fa-solid fa-car"></i></div>
+                    <h5>Automotive</h5>
+                    <p>Repair shops, dealerships & auto detailing services winning more service bookings.</p>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LATEST FROM THE BLOG -->
+    <section class="case-studies-section fade-up">
+        <div class="container">
+            <div class="section-header">
+                <span class="eyebrow">INSIGHTS</span>
+                <h2 style="font-size: clamp(1.8rem, 4vw, 2.8rem); margin-top: 10px;">Latest From The Blog</h2>
+            </div>
+            <div class="case-grid">
+
+                <article class="case-card">
+                    <div class="case-image">
+                        <span class="case-tag">SEO</span>
+                        <img src="https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?auto=format&fit=crop&w=800&q=80" alt="Local SEO strategy for Australian small businesses">
+                        <h3>5 Local SEO Wins Every Small Business Should Make</h3>
+                    </div>
+                    <div class="case-content">
+                        <div>
+                            <p>From Google Business Profile optimization to local link building, here are the highest-leverage local SEO moves for Australian businesses.</p>
+                        </div>
+                        <div>
+                            <a href="contact.php" class="service-link">Talk To Our Team <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="case-card">
+                    <div class="case-image">
+                        <span class="case-tag">PPC</span>
+                        <img src="https://images.unsplash.com/photo-1533750349088-cd871a92f312?auto=format&fit=crop&w=800&q=80" alt="Google Ads budget optimization">
+                        <h3>How To Stop Wasting Ad Spend On Google Ads</h3>
+                    </div>
+                    <div class="case-content">
+                        <div>
+                            <p>Negative keywords, dayparting, and audience layering — the tactics we use to cut cost-per-lead without sacrificing volume.</p>
+                        </div>
+                        <div>
+                            <a href="contact.php" class="service-link">Talk To Our Team <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="case-card">
+                    <div class="case-image">
+                        <span class="case-tag">CRO</span>
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" alt="Website conversion rate optimization">
+                        <h3>Why Your Website Isn't Converting Traffic Into Leads</h3>
+                    </div>
+                    <div class="case-content">
+                        <div>
+                            <p>Traffic isn't the problem for most businesses — conversion is. Here's how we audit and fix leaky landing pages.</p>
+                        </div>
+                        <div>
+                            <a href="contact.php" class="service-link">Talk To Our Team <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+            <div style="text-align: center; margin-top: clamp(30px, 4vw, 40px);">
+                <a href="blog.php" class="btn-secondary">VIEW ALL ARTICLES <i class="fa-solid fa-arrow-right" style="margin-left: 6px;"></i></a>
             </div>
         </div>
     </section>
@@ -437,7 +524,7 @@ include 'header.php';
                     <span><i class="fa-solid fa-check" style="color: var(--cyan-neon);"></i> Proven Australian Results</span>
                 </div>
                 <div class="cta-btn-wrapper">
-                    <a href="#hero" class="btn-primary" style="padding: 18px 45px; font-size: 1.1rem;">GET MY FREE GROWTH PLAN <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
+                    <a href="contact.php" class="btn-primary" style="padding: 18px 45px; font-size: 1.1rem;">GET MY FREE GROWTH PLAN <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
                 </div>
             </div>
         </div>

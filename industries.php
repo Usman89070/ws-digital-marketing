@@ -21,66 +21,37 @@ include 'header.php';
                 <h2 style="font-size: clamp(1.8rem, 4vw, 2.8rem); margin-top: 10px; color: var(--navy);">Built For Performance In Every Market</h2>
             </div>
             
-            <div class="industries-grid">
-                <!-- 1. Trades & Services -->
-                <div class="industry-card" onclick="window.location.href='contact.php'">
-                    <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=600&q=80" alt="Trades & Services">
-                    <div class="industry-overlay">
-                        <i class="fa-solid fa-helmet-safety"></i>
-                        <h5>Trades & Services</h5>
-                        <p style="font-size: 0.8rem; color: rgba(255,255,255,0.8); margin-top: 5px;">Plumbing, electrical, refrigeration & local contractors.</p>
-                    </div>
-                </div>
-
-                <!-- 2. Healthcare -->
-                <div class="industry-card" onclick="window.location.href='contact.php'">
-                    <img src="https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=600&q=80" alt="Healthcare">
-                    <div class="industry-overlay">
-                        <i class="fa-solid fa-user-doctor"></i>
-                        <h5>Healthcare</h5>
-                        <p style="font-size: 0.8rem; color: rgba(255,255,255,0.8); margin-top: 5px;">Clinics, medical practices, and health specialists.</p>
-                    </div>
-                </div>
-
-                <!-- 3. Professional Services -->
-                <div class="industry-card" onclick="window.location.href='contact.php'">
-                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=80" alt="Professional Services">
-                    <div class="industry-overlay">
-                        <i class="fa-solid fa-user-tie"></i>
-                        <h5>Professional</h5>
-                        <p style="font-size: 0.8rem; color: rgba(255,255,255,0.8); margin-top: 5px;">Legal, financial, consulting & corporate services.</p>
-                    </div>
-                </div>
-
-                <!-- 4. eCommerce -->
-                <div class="industry-card" onclick="window.location.href='contact.php'">
-                    <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=600&q=80" alt="eCommerce">
-                    <div class="industry-overlay">
-                        <i class="fa-solid fa-cart-shopping"></i>
-                        <h5>eCommerce</h5>
-                        <p style="font-size: 0.8rem; color: rgba(255,255,255,0.8); margin-top: 5px;">Shopify stores, retail brands & digital products.</p>
-                    </div>
-                </div>
-
-                <!-- 5. Hospitality -->
-                <div class="industry-card" onclick="window.location.href='contact.php'">
-                    <img src="https://images.unsplash.com/photo-1551882547-ff40c0d5bf8f?auto=format&fit=crop&w=600&q=80" alt="Hospitality">
-                    <div class="industry-overlay">
-                        <i class="fa-solid fa-utensils"></i>
-                        <h5>Hospitality</h5>
-                        <p style="font-size: 0.8rem; color: rgba(255,255,255,0.8); margin-top: 5px;">Restaurants, cafes, venues & booking services.</p>
-                    </div>
-                </div>
-
-                <!-- 6. Automotive -->
-                <div class="industry-card" onclick="window.location.href='contact.php'">
-                    <img src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?auto=format&fit=crop&w=600&q=80" alt="Automotive">
-                    <div class="industry-overlay">
-                        <i class="fa-solid fa-car"></i>
-                        <h5>Automotive</h5>
-                        <p style="font-size: 0.8rem; color: rgba(255,255,255,0.8); margin-top: 5px;">Repair shops, dealerships & auto detailing services.</p>
-                    </div>
-                </div>
+            <div class="industry-tile-grid">
+                <a href="contact.php" class="industry-tile">
+                    <div class="industry-tile-icon"><i class="fa-solid fa-helmet-safety"></i></div>
+                    <h5>Trades & Services</h5>
+                    <p>Plumbing, electrical, refrigeration & local contractors — high-intent local leads that convert.</p>
+                </a>
+                <a href="contact.php" class="industry-tile">
+                    <div class="industry-tile-icon"><i class="fa-solid fa-user-doctor"></i></div>
+                    <h5>Healthcare</h5>
+                    <p>Clinics, medical practices, and health specialists building trusted, compliant patient pipelines.</p>
+                </a>
+                <a href="contact.php" class="industry-tile">
+                    <div class="industry-tile-icon"><i class="fa-solid fa-user-tie"></i></div>
+                    <h5>Professional Services</h5>
+                    <p>Legal, financial, consulting & corporate services that need consistent, qualified inquiries.</p>
+                </a>
+                <a href="contact.php" class="industry-tile">
+                    <div class="industry-tile-icon"><i class="fa-solid fa-cart-shopping"></i></div>
+                    <h5>eCommerce</h5>
+                    <p>Shopify stores, retail brands & digital products scaled with full-funnel paid and organic growth.</p>
+                </a>
+                <a href="contact.php" class="industry-tile">
+                    <div class="industry-tile-icon"><i class="fa-solid fa-utensils"></i></div>
+                    <h5>Hospitality</h5>
+                    <p>Restaurants, cafes, venues & booking services turning local searches into full tables.</p>
+                </a>
+                <a href="contact.php" class="industry-tile">
+                    <div class="industry-tile-icon"><i class="fa-solid fa-car"></i></div>
+                    <h5>Automotive</h5>
+                    <p>Repair shops, dealerships & auto detailing services winning more service bookings.</p>
+                </a>
             </div>
         </div>
     </section>

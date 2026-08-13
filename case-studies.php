@@ -14,7 +14,7 @@ include 'header.php';
     </section>
 
     <!-- CASE STUDIES FILTER & GRID SECTION -->
-    <section class="case-studies-section fade-up" style="background: #ffffff; padding-top: 20px; padding-bottom: 100px;">
+    <section class="case-studies-section fade-up" style="padding-top: 20px; padding-bottom: 100px;">
         <div class="container">
             <div class="section-header">
                 <span class="eyebrow">OUR PORTFOLIO</span>

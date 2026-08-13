@@ -14,7 +14,7 @@ include 'header.php';
     </section>
 
     <!-- BLOG GRID SECTION -->
-    <section class="case-studies-section fade-up" style="background: #fff;">
+    <section class="case-studies-section fade-up">
         <div class="container">
             <div class="case-grid">
 

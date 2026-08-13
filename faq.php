@@ -14,7 +14,7 @@ include 'header.php';
     </section>
 
     <!-- FAQ ACCORDION SECTION -->
-    <section class="services-section fade-up" style="background: #fff;">
+    <section class="services-section fade-up">
         <div class="container" style="max-width: 900px;">
             <div class="faq-list">
 
@@ -45,7 +45,7 @@ include 'header.php';
 
                 <details class="faq-item">
                     <summary>Can you build me a new website?</summary>
-                    <p>Yes. Our web design &amp; CRO service builds fast, mobile-responsive websites engineered to convert, whether that's a brochure site or a full ecommerce store. See our <a href="services.php#web">Website Development</a> service for details.</p>
+                    <p>Yes. Our web design &amp; CRO service builds fast, mobile-responsive websites engineered to convert, whether that's a brochure site or a full ecommerce store. See our <a href="website-development.php">Website Development</a> service for details.</p>
                 </details>
 
                 <details class="faq-item">

@@ -30,7 +30,7 @@ include 'header.php';
                     <div class="service-content">
                         <h3>Search Engine Optimization</h3>
                         <p>Dominate local search and Google Maps with technical SEO, content, and link-building strategies that attract high-intent organic traffic.</p>
-                        <a href="contact.php" class="service-link">Get Started <i class="fa-solid fa-arrow-right"></i></a>
+                        <a href="seo.php" class="service-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
                     </div>
                 </div>
 
@@ -42,7 +42,7 @@ include 'header.php';
                     <div class="service-content">
                         <h3>E-commerce</h3>
                         <p>Shopify and WooCommerce builds, catalog strategy, and conversion-focused checkout flows that turn browsers into repeat customers.</p>
-                        <a href="contact.php" class="service-link">Get Started <i class="fa-solid fa-arrow-right"></i></a>
+                        <a href="ecommerce.php" class="service-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
                     </div>
                 </div>
 
@@ -54,7 +54,7 @@ include 'header.php';
                     <div class="service-content">
                         <h3>Website Development &amp; Design</h3>
                         <p>Fast, mobile-responsive websites engineered specifically for conversion rate optimization, not just aesthetics.</p>
-                        <a href="contact.php" class="service-link">Get Started <i class="fa-solid fa-arrow-right"></i></a>
+                        <a href="website-development.php" class="service-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
                     </div>
                 </div>
 
@@ -66,7 +66,7 @@ include 'header.php';
                     <div class="service-content">
                         <h3>Social Media</h3>
                         <p>Strategic content and community management across Meta and TikTok to build brand presence and engage your target audience.</p>
-                        <a href="contact.php" class="service-link">Get Started <i class="fa-solid fa-arrow-right"></i></a>
+                        <a href="social-media.php" class="service-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
                     </div>
                 </div>
 
@@ -78,7 +78,7 @@ include 'header.php';
                     <div class="service-content">
                         <h3>PPC Advertising</h3>
                         <p>Google Ads and paid social campaigns built for instant, high-converting traffic, more phone calls, and maximum ROAS.</p>
-                        <a href="contact.php" class="service-link">Get Started <i class="fa-solid fa-arrow-right"></i></a>
+                        <a href="ppc-advertising.php" class="service-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
                     </div>
                 </div>
 
@@ -90,7 +90,7 @@ include 'header.php';
                     <div class="service-content">
                         <h3>Graphic Design</h3>
                         <p>Brand identity, ad creative, and marketing collateral designed to stand out and stay consistent across every channel.</p>
-                        <a href="contact.php" class="service-link">Get Started <i class="fa-solid fa-arrow-right"></i></a>
+                        <a href="graphic-design.php" class="service-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
                     </div>
                 </div>
 
@@ -102,7 +102,7 @@ include 'header.php';
                     <div class="service-content">
                         <h3>Content Writing</h3>
                         <p>SEO-optimized copy, blog content, and website content that ranks, builds authority, and speaks directly to your customers.</p>
-                        <a href="contact.php" class="service-link">Get Started <i class="fa-solid fa-arrow-right"></i></a>
+                        <a href="content-writing.php" class="service-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
                     </div>
                 </div>
 

@@ -36,7 +36,7 @@ include 'header.php';
     </section>
 
     <!-- CORE VALUES SECTION (Reusing Services Grid for a clean look) -->
-    <section class="services-section fade-up" style="background: #ffffff;">
+    <section class="services-section fade-up">
         <div class="container">
             <div class="section-header">
                 <span class="eyebrow">CORE VALUES</span>
@@ -94,6 +94,75 @@ include 'header.php';
                     <h3>98%</h3>
                     <p>Client Retention</p>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MEET THE TEAM (teaser — full roster lives on our-team.php) -->
+    <section id="team" class="services-section fade-up">
+        <div class="container">
+            <div class="section-header">
+                <span class="eyebrow">MEET THE TEAM</span>
+                <h2 style="font-size: clamp(1.8rem, 4vw, 2.8rem); margin-top: 10px;">The People Behind Your Growth</h2>
+            </div>
+
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="team-photo">
+                        <!-- Replace with: <img src="images/team/james-mitchell.jpg" alt="James Mitchell"> -->
+                        <div class="team-photo-placeholder"><i class="fa-solid fa-user"></i></div>
+                    </div>
+                    <div class="team-info">
+                        <h5>James Mitchell</h5>
+                        <span class="team-role">Founder &amp; CEO</span>
+                        <div class="team-socials">
+                            <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <div class="team-photo">
+                        <!-- Replace with: <img src="images/team/sarah-chen.jpg" alt="Sarah Chen"> -->
+                        <div class="team-photo-placeholder"><i class="fa-solid fa-user"></i></div>
+                    </div>
+                    <div class="team-info">
+                        <h5>Sarah Chen</h5>
+                        <span class="team-role">Head Of Strategy</span>
+                        <div class="team-socials">
+                            <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <div class="team-photo">
+                        <!-- Replace with: <img src="images/team/marcus-webb.jpg" alt="Marcus Webb"> -->
+                        <div class="team-photo-placeholder"><i class="fa-solid fa-user"></i></div>
+                    </div>
+                    <div class="team-info">
+                        <h5>Marcus Webb</h5>
+                        <span class="team-role">Lead Web Developer</span>
+                        <div class="team-socials">
+                            <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <div class="team-photo">
+                        <!-- Replace with: <img src="images/team/priya-sharma.jpg" alt="Priya Sharma"> -->
+                        <div class="team-photo-placeholder"><i class="fa-solid fa-user"></i></div>
+                    </div>
+                    <div class="team-info">
+                        <h5>Priya Sharma</h5>
+                        <span class="team-role">Creative Director</span>
+                        <div class="team-socials">
+                            <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: clamp(30px, 4vw, 40px);">
+                <a href="our-team.php" class="btn-secondary">MEET THE FULL TEAM <i class="fa-solid fa-arrow-right" style="margin-left: 6px;"></i></a>
             </div>
         </div>
     </section>
