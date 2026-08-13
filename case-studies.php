@@ -1,4 +1,8 @@
-<?php include 'header.php'; ?>
+<?php
+$page_title = 'Case Studies';
+$page_description = 'Explore real client success stories and results from W&S Digital Marketing across SEO, PPC, eCommerce and web design campaigns.';
+include 'header.php';
+?>
 
     <!-- CASE STUDIES HERO SECTION -->
     <section class="hero" style="padding-bottom: clamp(40px, 8vw, 80px);">

@@ -1,4 +1,8 @@
-<?php include 'header.php'; ?>
+<?php
+$page_title = 'About Us';
+$page_description = 'Meet W&S Digital Marketing, an Australian growth agency delivering transparent, data-driven digital strategies with a relentless focus on real ROI.';
+include 'header.php';
+?>
 
     <!-- ABOUT HERO SECTION -->
     <section class="hero" style="padding-bottom: clamp(40px, 8vw, 80px);">
