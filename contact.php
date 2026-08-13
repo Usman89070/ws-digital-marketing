@@ -1,4 +1,9 @@
 <?php
+// Pricing page CTAs link here as contact.php?plan=Growth so the enquiry
+// carries which plan the visitor is interested in. Whitelisted against
+// known plan names since it's reflected back into the page.
+$valid_plans = ['Starter', 'Growth', 'Scale'];
+
 // Form Submission Logic
 $email_sent = false;
 $form_error = '';
@@ -22,11 +27,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $to = "info@wsdigital.com.au";
         $subject = "New Growth Plan Request from " . $name;
 
+        $plan = in_array($_POST['plan'] ?? '', $valid_plans, true) ? $_POST['plan'] : '';
+
         $email_content = "Name: $name\n";
         $email_content .= "Email: $email\n";
         $email_content .= "Phone: $phone\n";
-        $email_content .= "Service: $service\n\n";
-        $email_content .= "Message:\n$message\n";
+        $email_content .= "Service: $service\n";
+        if ($plan !== '') {
+            $email_content .= "Plan Enquired About: $plan\n";
+        }
+        $email_content .= "\nMessage:\n$message\n";
 
         // Reply-To carries the visitor's address; From stays a domain address
         // the sending server is authorized for, avoiding SPF/DMARC failures.
@@ -41,6 +51,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
 }
+$selected_plan = $_POST['plan'] ?? $_GET['plan'] ?? '';
+$selected_plan = in_array($selected_plan, $valid_plans, true) ? $selected_plan : '';
+
 $page_title = 'Contact Us';
 $page_description = 'Get in touch with W&S Digital Marketing for a zero-obligation growth audit. Call, email, or request your free custom growth plan today.';
 include 'header.php';
@@ -126,8 +139,17 @@ include 'header.php';
                 <div style="background: #ffffff; padding: clamp(30px, 5vw, 45px); border-radius: 20px; border: 1px solid var(--border-light); box-shadow: var(--shadow-md);">
                     <span class="eyebrow">SEND US A MESSAGE</span>
                     <h2 style="font-size: clamp(1.8rem, 3vw, 2.4rem); color: var(--navy); font-weight: 800; margin-bottom: 25px;">Request Your Free Growth Plan</h2>
-                    
+
+                    <?php if ($selected_plan !== ''): ?>
+                        <div style="display: inline-flex; align-items: center; gap: 8px; background: rgba(0, 242, 254, 0.1); color: var(--navy); border: 1px solid rgba(0, 242, 254, 0.3); padding: 8px 16px; border-radius: 30px; font-size: 0.85rem; font-weight: 700; margin-bottom: 20px;">
+                            <i class="fa-solid fa-circle-check" style="color: var(--cyan-neon);"></i> Enquiring about the <?php echo htmlspecialchars($selected_plan, ENT_QUOTES, 'UTF-8'); ?> Plan
+                        </div>
+                    <?php endif; ?>
+
                     <form action="contact.php" method="POST" style="display: flex; flex-direction: column; gap: 18px;">
+                        <?php if ($selected_plan !== ''): ?>
+                            <input type="hidden" name="plan" value="<?php echo htmlspecialchars($selected_plan, ENT_QUOTES, 'UTF-8'); ?>">
+                        <?php endif; ?>
                         <div class="form-row" style="display: grid; grid-template-columns: 1fr 1fr; gap: 18px;">
                             <div style="display: flex; flex-direction: column; gap: 6px;">
                                 <label style="font-size: 0.8rem; font-weight: 700; color: var(--navy); text-transform: uppercase;">Your Name *</label>
@@ -158,7 +180,7 @@ include 'header.php';
 
                         <div style="display: flex; flex-direction: column; gap: 6px;">
                             <label style="font-size: 0.8rem; font-weight: 700; color: var(--navy); text-transform: uppercase;">Tell Us About Your Project *</label>
-                            <textarea name="message" rows="4" placeholder="Share your goals, current challenges, or what you'd like to achieve..." required style="padding: 14px; border-radius: 8px; border: 1px solid var(--border-light); font-size: 0.95rem; outline: none; background: var(--bg-secondary); resize: vertical; width: 100%;"></textarea>
+                            <textarea name="message" rows="4" placeholder="Share your goals, current challenges, or what you'd like to achieve..." required style="padding: 14px; border-radius: 8px; border: 1px solid var(--border-light); font-size: 0.95rem; outline: none; background: var(--bg-secondary); resize: vertical; width: 100%;"><?php if ($selected_plan !== '' && $_SERVER['REQUEST_METHOD'] !== 'POST') { echo htmlspecialchars("I'm interested in the {$selected_plan} plan and would like to learn more.", ENT_QUOTES, 'UTF-8'); } ?></textarea>
                         </div>
 
                         <button type="submit" class="btn-primary" style="width: 100%; padding: 16px; font-size: 1rem; margin-top: 5px; cursor: pointer;">SUBMIT GROWTH REQUEST <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></button>
