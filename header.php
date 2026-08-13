@@ -133,6 +133,15 @@ $page_description = $page_description ?? 'Data-driven Google Ads, Meta Ads, SEO 
         }
         .dropdown-menu li a::after { display: none !important; }
         .dropdown-menu li a:hover { background: rgba(0, 242, 254, 0.1); color: var(--cyan-neon); transform: translateX(4px); }
+
+        /* Two-column variant for longer dropdowns (e.g. Industries) so the panel stays wide, not tall.
+           Anchored to the right edge (not left) since this item sits late in the nav row --
+           growing left keeps it inside the container instead of overflowing the viewport. */
+        .dropdown-menu.dropdown-menu-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 0 4px;
+            min-width: 460px; padding: 10px; left: auto; right: 0;
+        }
+        .dropdown-menu.dropdown-menu-grid li a { border-radius: 8px; white-space: nowrap; }
         
         .header-cta {
             background: transparent; border: 2px solid var(--cyan-neon); color: var(--cyan-neon);
@@ -636,8 +645,9 @@ $page_description = $page_description ?? 'Data-driven Google Ads, Meta Ads, SEO 
                 border: none; box-shadow: none; opacity: 1; visibility: visible; transform: none;
                 max-height: 0; overflow: hidden; transition: max-height 0.3s ease; padding: 0;
             }
-            .dropdown.active .dropdown-menu { max-height: 400px; padding: 5px 0; }
+            .dropdown.active .dropdown-menu { max-height: 60vh; overflow-y: auto; padding: 5px 0; }
             .dropdown-menu li a { padding: 12px 20px; text-align: center; }
+            .dropdown-menu.dropdown-menu-grid { display: block; min-width: 0; right: auto; padding: 0; }
             .nav-cta { display: none; }
         }
 
@@ -754,7 +764,26 @@ $page_description = $page_description ?? 'Data-driven Google Ads, Meta Ads, SEO 
                         </ul>
                     </li>
 
-                    <li><a href="industries.php" onclick="toggleMenu()">Industries</a></li>
+                    <!-- INDUSTRIES DROPDOWN -->
+                    <li class="dropdown" onclick="toggleDropdown(event)">
+                        <a href="industries.php">Industries <i class="fa-solid fa-chevron-down" style="font-size: 0.75rem; margin-left: 4px;"></i></a>
+                        <ul class="dropdown-menu dropdown-menu-grid">
+                            <li><a href="accounting-finance.php">Accounting & Finance</a></li>
+                            <li><a href="automotive.php">Automotive</a></li>
+                            <li><a href="construction-building.php">Construction & Building</a></li>
+                            <li><a href="dental.php">Dental</a></li>
+                            <li><a href="ecommerce-industry.php">eCommerce</a></li>
+                            <li><a href="franchise.php">Franchise</a></li>
+                            <li><a href="healthcare-medical.php">Healthcare & Medical</a></li>
+                            <li><a href="hospitality-tourism.php">Hospitality & Tourism</a></li>
+                            <li><a href="hotel-motel.php">Hotel & Motel</a></li>
+                            <li><a href="legal-law.php">Legal / Law</a></li>
+                            <li><a href="real-estate.php">Real Estate</a></li>
+                            <li><a href="small-business-digital-marketing.php">Small Business Digital Marketing</a></li>
+                            <li><a href="ndis.php">NDIS</a></li>
+                            <li><a href="trades.php">Trades</a></li>
+                        </ul>
+                    </li>
                     <li><a href="contact.php" onclick="toggleMenu()">Contact Us</a></li>
                 </ul>
                 <div class="nav-roll-edge" id="navRollEdge" aria-hidden="true"></div>
