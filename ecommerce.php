@@ -22,7 +22,7 @@ include 'header.php';
         <div class="container">
             <div class="agency-grid">
                 <div class="agency-image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80" alt="E-commerce Store Strategy">
+                    <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80" alt="E-commerce Store Strategy">
                 </div>
                 <div class="agency-text">
                     <span class="eyebrow">WHY IT MATTERS</span>
@@ -80,7 +80,7 @@ include 'header.php';
             </div>
             <div class="methodology-grid">
                 <div class="methodology-image">
-                    <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=80" alt="Ecommerce Growth Process">
+                    <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=80" alt="Ecommerce Growth Process">
                 </div>
                 <div class="methodology-steps">
                     <div class="m-step">

@@ -21,7 +21,7 @@ include 'header.php';
                 <article class="case-card">
                     <div class="case-image">
                         <span class="case-tag">SEO</span>
-                        <img src="https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?auto=format&fit=crop&w=800&q=80" alt="Local SEO strategy for Australian small businesses">
+                        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?auto=format&fit=crop&w=800&q=80" alt="Local SEO strategy for Australian small businesses">
                         <h3>5 Local SEO Wins Every Small Business Should Make</h3>
                     </div>
                     <div class="case-content">
@@ -37,7 +37,7 @@ include 'header.php';
                 <article class="case-card">
                     <div class="case-image">
                         <span class="case-tag">PPC</span>
-                        <img src="https://images.unsplash.com/photo-1533750349088-cd871a92f312?auto=format&fit=crop&w=800&q=80" alt="Google Ads budget optimization">
+                        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1533750349088-cd871a92f312?auto=format&fit=crop&w=800&q=80" alt="Google Ads budget optimization">
                         <h3>How To Stop Wasting Ad Spend On Google Ads</h3>
                     </div>
                     <div class="case-content">
@@ -53,7 +53,7 @@ include 'header.php';
                 <article class="case-card">
                     <div class="case-image">
                         <span class="case-tag">CRO</span>
-                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" alt="Website conversion rate optimization">
+                        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" alt="Website conversion rate optimization">
                         <h3>Why Your Website Isn't Converting Traffic Into Leads</h3>
                     </div>
                     <div class="case-content">

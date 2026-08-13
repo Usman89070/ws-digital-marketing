@@ -22,7 +22,7 @@ include 'header.php';
         <div class="container">
             <div class="agency-grid">
                 <div class="agency-image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=800&q=80" alt="Franchise Digital Marketing">
+                    <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=800&q=80" alt="Franchise Digital Marketing">
                 </div>
                 <div class="agency-text">
                     <span class="eyebrow">WHY IT MATTERS</span>

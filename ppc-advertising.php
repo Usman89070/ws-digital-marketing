@@ -22,7 +22,7 @@ include 'header.php';
         <div class="container">
             <div class="agency-grid">
                 <div class="agency-image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" alt="PPC Advertising Strategy">
+                    <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" alt="PPC Advertising Strategy">
                 </div>
                 <div class="agency-text">
                     <span class="eyebrow">WHY IT MATTERS</span>
@@ -80,7 +80,7 @@ include 'header.php';
             </div>
             <div class="methodology-grid">
                 <div class="methodology-image">
-                    <img src="https://images.unsplash.com/photo-1533750349088-cd871a92f312?auto=format&fit=crop&w=800&q=80" alt="PPC Campaign Process">
+                    <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1533750349088-cd871a92f312?auto=format&fit=crop&w=800&q=80" alt="PPC Campaign Process">
                 </div>
                 <div class="methodology-steps">
                     <div class="m-step">

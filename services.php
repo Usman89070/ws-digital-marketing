@@ -24,7 +24,7 @@ include 'header.php';
 
                 <div class="service-card" id="seo" style="scroll-margin-top: 110px;">
                     <div class="service-image">
-                        <img src="https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?auto=format&fit=crop&w=800&q=80" alt="Search Engine Optimization">
+                        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?auto=format&fit=crop&w=800&q=80" alt="Search Engine Optimization">
                         <div class="service-icon-badge"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
                     </div>
                     <div class="service-content">
@@ -36,7 +36,7 @@ include 'header.php';
 
                 <div class="service-card" id="ecom" style="scroll-margin-top: 110px;">
                     <div class="service-image">
-                        <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=80" alt="E-commerce Solutions">
+                        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=80" alt="E-commerce Solutions">
                         <div class="service-icon-badge"><i class="fa-solid fa-cart-shopping"></i></div>
                     </div>
                     <div class="service-content">
@@ -48,7 +48,7 @@ include 'header.php';
 
                 <div class="service-card" id="web" style="scroll-margin-top: 110px;">
                     <div class="service-image">
-                        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80" alt="Website Development & Design">
+                        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80" alt="Website Development & Design">
                         <div class="service-icon-badge"><i class="fa-solid fa-laptop-code"></i></div>
                     </div>
                     <div class="service-content">
@@ -60,7 +60,7 @@ include 'header.php';
 
                 <div class="service-card" id="social" style="scroll-margin-top: 110px;">
                     <div class="service-image">
-                        <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=800&q=80" alt="Social Media Marketing">
+                        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=800&q=80" alt="Social Media Marketing">
                         <div class="service-icon-badge"><i class="fa-solid fa-share-nodes"></i></div>
                     </div>
                     <div class="service-content">
@@ -72,7 +72,7 @@ include 'header.php';
 
                 <div class="service-card" id="ppc" style="scroll-margin-top: 110px;">
                     <div class="service-image">
-                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" alt="PPC Advertising">
+                        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" alt="PPC Advertising">
                         <div class="service-icon-badge"><i class="fa-solid fa-hand-pointer"></i></div>
                     </div>
                     <div class="service-content">
@@ -84,7 +84,7 @@ include 'header.php';
 
                 <div class="service-card" id="graphic" style="scroll-margin-top: 110px;">
                     <div class="service-image">
-                        <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=800&q=80" alt="Graphic Design">
+                        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=800&q=80" alt="Graphic Design">
                         <div class="service-icon-badge"><i class="fa-solid fa-palette"></i></div>
                     </div>
                     <div class="service-content">
@@ -96,7 +96,7 @@ include 'header.php';
 
                 <div class="service-card" id="content" style="scroll-margin-top: 110px;">
                     <div class="service-image">
-                        <img src="https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=800&q=80" alt="Content Writing">
+                        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=800&q=80" alt="Content Writing">
                         <div class="service-icon-badge"><i class="fa-solid fa-pen-nib"></i></div>
                     </div>
                     <div class="service-content">

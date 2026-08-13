@@ -22,7 +22,7 @@ include 'header.php';
         <div class="container">
             <div class="agency-grid">
                 <div class="agency-image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=800&q=80" alt="Content Writing Strategy">
+                    <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=800&q=80" alt="Content Writing Strategy">
                 </div>
                 <div class="agency-text">
                     <span class="eyebrow">WHY IT MATTERS</span>
@@ -80,7 +80,7 @@ include 'header.php';
             </div>
             <div class="methodology-grid">
                 <div class="methodology-image">
-                    <img src="https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?auto=format&fit=crop&w=800&q=80" alt="Content Writing Process">
+                    <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?auto=format&fit=crop&w=800&q=80" alt="Content Writing Process">
                 </div>
                 <div class="methodology-steps">
                     <div class="m-step">
