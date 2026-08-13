@@ -215,13 +215,13 @@ $page_description = $page_description ?? 'Data-driven Google Ads, Meta Ads, SEO 
         .btn-secondary:hover { border-color: var(--navy); background: var(--navy); color: #fff; transform: translateY(-3px); }
 
         /* === SECTION 1: HERO === */
-        .hero { background: rgba(255, 255, 255, 0.93); color: var(--navy); position: relative; z-index: 10; margin-top: 85px; padding: clamp(60px, 12vw, 120px) 0 clamp(40px, 8vw, 80px); overflow: hidden; }
+        .hero { background: rgba(255, 255, 255, 0.8); color: var(--navy); position: relative; z-index: 10; margin-top: 85px; padding: clamp(60px, 12vw, 120px) 0 clamp(40px, 8vw, 80px); overflow: hidden; }
         .hero-content { position: relative; z-index: 2; max-width: 950px; margin: 0 auto; text-align: center; }
 
         /* === 3D ANIMATED BACKGROUND (Three.js), FIXED BEHIND THE WHOLE PAGE === */
         #page-bg-canvas { position: fixed; inset: 0; width: 100vw; height: 100vh; z-index: -1; pointer-events: none; opacity: 0; transition: opacity 1.2s ease; }
         #page-bg-canvas.is-ready { opacity: 1; }
-        @media(max-width: 768px) { #page-bg-canvas { opacity: 0.5; } #page-bg-canvas.is-ready { opacity: 0.5; } }
+        @media(max-width: 768px) { #page-bg-canvas { opacity: 0.85; } #page-bg-canvas.is-ready { opacity: 0.85; } }
         .hero-content h1 { font-size: clamp(2rem, 5.5vw, 4.5rem); line-height: 1.1; margin: 15px 0 25px; color: var(--navy); font-weight: 800; letter-spacing: -1px; }
         .hero-subtitle { font-size: clamp(1rem, 2vw, 1.25rem); color: var(--text-muted); max-width: 700px; margin: 0 auto; line-height: 1.6; }
         .text-gradient { background: linear-gradient(135deg, var(--navy) 20%, var(--magenta-neon) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
@@ -296,7 +296,7 @@ $page_description = $page_description ?? 'Data-driven Google Ads, Meta Ads, SEO 
             background:
                 radial-gradient(650px circle at 8% 15%, rgba(0, 242, 254, 0.055), transparent 60%),
                 radial-gradient(550px circle at 95% 85%, rgba(255, 0, 127, 0.045), transparent 60%),
-                rgba(255, 255, 255, 0.93);
+                rgba(255, 255, 255, 0.8);
         }
         .agency-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(30px, 5vw, 60px); align-items: center; }
         .agency-text h2 { font-size: clamp(1.8rem, 4vw, 2.8rem); color: var(--navy); font-weight: 800; margin-bottom: 20px; line-height: 1.1; }
@@ -309,7 +309,7 @@ $page_description = $page_description ?? 'Data-driven Google Ads, Meta Ads, SEO 
         .agency-image-wrapper:hover img { transform: scale(1.03); }
 
         /* === TRUSTED STRIP === */
-        .trusted-strip-wrapper { background: rgba(248, 250, 252, 0.93); padding: 40px 0; border-top: 1px solid var(--border-light); border-bottom: 1px solid var(--border-light); }
+        .trusted-strip-wrapper { background: rgba(248, 250, 252, 0.8); padding: 40px 0; border-top: 1px solid var(--border-light); border-bottom: 1px solid var(--border-light); }
         .partner-strip { display: flex; justify-content: center; align-items: center; gap: clamp(25px, 5vw, 80px); flex-wrap: wrap; }
         .partner-strip div { font-size: clamp(1.1rem, 2.5vw, 1.5rem); font-weight: 800; color: #94A3B8; transition: var(--transition-smooth); cursor: default; display: flex; align-items: center; gap: 8px;}
         .partner-strip div i { font-size: 1.2em; }
@@ -350,7 +350,7 @@ $page_description = $page_description ?? 'Data-driven Google Ads, Meta Ads, SEO 
             background:
                 radial-gradient(600px circle at 92% 10%, rgba(0, 242, 254, 0.06), transparent 55%),
                 radial-gradient(600px circle at 5% 90%, rgba(255, 0, 127, 0.05), transparent 55%),
-                rgba(248, 250, 252, 0.93);
+                rgba(248, 250, 252, 0.8);
         }
         .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 35px; margin-top: clamp(30px, 5vw, 50px);}
         .service-card { background: #fff; border: 1px solid var(--border-light); border-radius: 20px; transition: var(--transition-smooth); box-shadow: var(--shadow-sm); overflow: hidden; display: flex; flex-direction: column; }
@@ -374,7 +374,7 @@ $page_description = $page_description ?? 'Data-driven Google Ads, Meta Ads, SEO 
             background:
                 radial-gradient(600px circle at 10% 10%, rgba(255, 0, 127, 0.05), transparent 55%),
                 radial-gradient(600px circle at 90% 90%, rgba(0, 242, 254, 0.06), transparent 55%),
-                rgba(255, 255, 255, 0.93);
+                rgba(255, 255, 255, 0.8);
         }
         .methodology-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(30px, 5vw, 60px); align-items: center; margin-top: clamp(30px, 5vw, 50px); }
         .methodology-image { border-radius: 20px; overflow: hidden; height: 100%; min-height: 400px; position: relative; box-shadow: var(--shadow-md); }
@@ -419,7 +419,7 @@ $page_description = $page_description ?? 'Data-driven Google Ads, Meta Ads, SEO 
             background:
                 radial-gradient(600px circle at 95% 5%, rgba(255, 0, 127, 0.05), transparent 55%),
                 radial-gradient(600px circle at 0% 95%, rgba(0, 242, 254, 0.06), transparent 55%),
-                rgba(248, 250, 252, 0.93);
+                rgba(248, 250, 252, 0.8);
         }
         .case-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 30px; margin-top: clamp(30px, 5vw, 50px); }
         .case-card { background: #fff; border-radius: 20px; overflow: hidden; box-shadow: var(--shadow-md); transition: var(--transition-smooth); border: 1px solid var(--border-light); display: flex; flex-direction: column; }
@@ -443,7 +443,7 @@ $page_description = $page_description ?? 'Data-driven Google Ads, Meta Ads, SEO 
             background:
                 radial-gradient(600px circle at 8% 8%, rgba(0, 242, 254, 0.05), transparent 55%),
                 radial-gradient(600px circle at 92% 92%, rgba(255, 0, 127, 0.05), transparent 55%),
-                rgba(255, 255, 255, 0.93);
+                rgba(255, 255, 255, 0.8);
         }
         .testi-layout { display: grid; grid-template-columns: minmax(260px, 320px) 1fr; gap: clamp(24px, 4vw, 40px); align-items: stretch; margin-top: clamp(30px, 5vw, 50px); }
         .testi-layout .testimonials-grid { grid-template-columns: repeat(2, 1fr); margin-top: 0; }
@@ -543,7 +543,7 @@ $page_description = $page_description ?? 'Data-driven Google Ads, Meta Ads, SEO 
             background:
                 radial-gradient(600px circle at 90% 8%, rgba(0, 242, 254, 0.06), transparent 55%),
                 radial-gradient(600px circle at 8% 92%, rgba(255, 0, 127, 0.05), transparent 55%),
-                rgba(248, 250, 252, 0.93);
+                rgba(248, 250, 252, 0.8);
         }
         .industry-tile-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(20px, 3vw, 30px); margin-top: clamp(30px, 5vw, 50px); }
         .industry-tile {
@@ -579,7 +579,7 @@ $page_description = $page_description ?? 'Data-driven Google Ads, Meta Ads, SEO 
         @media(max-width: 560px) { .industry-tile-grid { grid-template-columns: 1fr; } }
 
         /* === CTA SECTION === */
-        .cta-section { padding: clamp(60px, 8vw, 120px) 0; background: rgba(255, 255, 255, 0.93); }
+        .cta-section { padding: clamp(60px, 8vw, 120px) 0; background: rgba(255, 255, 255, 0.8); }
         .cta-box {
             background: var(--navy); border-radius: 30px; max-width: 1000px; width: 100%; margin: 0 auto;
             padding: clamp(40px, 6vw, 80px) clamp(20px, 5vw, 50px); text-align: center; color: #fff;

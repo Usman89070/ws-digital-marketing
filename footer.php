@@ -476,10 +476,10 @@
             particleGeometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
 
             const particleMaterial = new THREE.PointsMaterial({
-                size: isMobile ? 1.1 : 1.4,
+                size: isMobile ? 1.4 : 1.8,
                 vertexColors: true,
                 transparent: true,
-                opacity: 0.85,
+                opacity: 0.95,
                 sizeAttenuation: true
             });
             group.add(new THREE.Points(particleGeometry, particleMaterial));
@@ -504,13 +504,19 @@
             const lineGeometry = new THREE.BufferGeometry();
             lineGeometry.setAttribute('position', new THREE.Float32BufferAttribute(linePositions, 3));
             lineGeometry.setAttribute('color', new THREE.Float32BufferAttribute(lineColors, 3));
-            const lineMaterial = new THREE.LineBasicMaterial({ vertexColors: true, transparent: true, opacity: 0.18 });
+            const lineMaterial = new THREE.LineBasicMaterial({ vertexColors: true, transparent: true, opacity: 0.32 });
             group.add(new THREE.LineSegments(lineGeometry, lineMaterial));
 
-            let targetRotX = 0, targetRotY = 0;
+            // Pointer reactivity: cursor position drives both a tilt (rotation) and a
+            // slight camera-relative drift (position), so the network visibly leans
+            // toward and reacts to wherever the pointer is.
+            let targetRotX = 0, targetRotY = 0, targetPosX = 0;
             window.addEventListener('mousemove', (e) => {
-                targetRotY = ((e.clientX / window.innerWidth) - 0.5) * 0.5;
-                targetRotX = ((e.clientY / window.innerHeight) - 0.5) * 0.3;
+                const nx = (e.clientX / window.innerWidth) - 0.5;
+                const ny = (e.clientY / window.innerHeight) - 0.5;
+                targetRotY = nx * 0.6;
+                targetRotX = ny * 0.35;
+                targetPosX = nx * -8;
             }, { passive: true });
 
             function resize() {
@@ -530,9 +536,23 @@
                 rafId = requestAnimationFrame(animate);
                 if (document.hidden) return;
 
+                // Scroll reactivity: read scroll progress fresh every frame (instead of a
+                // separate scroll listener) so it can never drift out of sync with the
+                // page's real position, including during pinned ScrollTrigger sections.
+                const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+                const scrollProgress = scrollable > 0 ? Math.min(Math.max(window.scrollY / scrollable, 0), 1) : 0;
+
                 group.rotation.y += 0.0012;
                 group.rotation.x += (targetRotX - group.rotation.x) * 0.03;
                 group.rotation.y += (targetRotY - group.rotation.y) * 0.02;
+                group.position.x += (targetPosX - group.position.x) * 0.04;
+
+                // Scroll parallax: a slow twist plus vertical drift tied to how far down
+                // the page the user has scrolled, layered on top of the pointer tilt above.
+                const scrollTargetZ = (scrollProgress - 0.5) * 0.7;
+                const scrollTargetY = -scrollProgress * 18;
+                group.rotation.z += (scrollTargetZ - group.rotation.z) * 0.04;
+                group.position.y += (scrollTargetY - group.position.y) * 0.04;
 
                 renderer.render(scene, camera);
 
