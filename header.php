@@ -144,9 +144,10 @@ $page_description = $page_description ?? 'Data-driven Google Ads, Meta Ads, SEO 
             background: var(--cyan-neon); color: var(--navy); box-shadow: 0 0 20px rgba(0, 242, 254, 0.4); transform: translateY(-2px);
         }
 
-        .mobile-btn { 
-            display: none; font-size: 2rem; background: none; border: none; 
-            cursor: pointer; color: #fff; z-index: 1001; transition: transform 0.3s ease; 
+        .mobile-btn {
+            display: none; align-items: center; justify-content: center;
+            width: 44px; height: 44px; font-size: 2rem; background: none; border: none;
+            cursor: pointer; color: #fff; z-index: 1001; transition: transform 0.3s ease;
             margin-left: auto;
         }
         .mobile-btn:hover { color: var(--cyan-neon); transform: scale(1.1); }
@@ -154,6 +155,20 @@ $page_description = $page_description ?? 'Data-driven Google Ads, Meta Ads, SEO 
         /* === SCROLL-COLLAPSE HEADER: LOGO CENTERS, NAV HIDES BEHIND TOGGLE === */
         header nav { transition: opacity 0.3s ease; }
         .nav-cta { transition: opacity 0.3s ease; }
+
+        /* === CARPET-ROLL NAV REVEAL: leading edge that "unrolls" the menu open === */
+        .nav-roll-edge {
+            position: absolute; top: 0; left: 0; width: 16px; height: 100%;
+            background: linear-gradient(90deg,
+                rgba(5, 8, 20, 0.9) 0%,
+                rgba(0, 242, 254, 0.9) 30%,
+                rgba(255, 255, 255, 0.6) 50%,
+                rgba(255, 0, 127, 0.9) 70%,
+                rgba(5, 8, 20, 0.9) 100%);
+            border-radius: 999px;
+            box-shadow: 0 0 18px rgba(0, 242, 254, 0.55), 0 0 30px rgba(255, 0, 127, 0.3), 6px 0 20px rgba(0, 0, 0, 0.45);
+            opacity: 0; visibility: hidden; pointer-events: none; z-index: 25;
+        }
 
         header.scrolled:not(.nav-open) .nav-wrapper { justify-content: center; }
         header.scrolled:not(.nav-open) .logo-img { height: clamp(34px, 4.5vw, 46px); }
@@ -590,14 +605,14 @@ $page_description = $page_description ?? 'Data-driven Google Ads, Meta Ads, SEO 
         /* === TABLET & MOBILE OVERRIDES === */
         @media(max-width: 1200px) {
             .mobile-btn { display: block; }
-            .nav-menu { 
-                position: absolute; top: 100%; left: 0; width: 100%; 
-                background: #0B0F25; flex-direction: column; gap: 0; 
-                border-bottom: 1px solid rgba(0, 242, 254, 0.2); 
-                max-height: 0; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.5); 
-                transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1); 
+            .nav-menu {
+                position: absolute; top: 100%; left: 0; width: 100%;
+                background: #0B0F25; flex-direction: column; gap: 0;
+                border-bottom: 1px solid rgba(0, 242, 254, 0.2);
+                box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+                clip-path: inset(0 100% 0 0); pointer-events: none;
             }
-            .nav-menu.active { max-height: 600px; padding: 10px 0; overflow-y: auto; }
+            .nav-menu.active { padding: 10px 0; max-height: 80vh; overflow-y: auto; clip-path: inset(0 0% 0 0); pointer-events: auto; }
             .nav-menu li {
                 width: 100%; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.05);
                 opacity: 0; transform: translateX(-12px); transition: opacity 0.35s ease, transform 0.35s ease;
@@ -742,6 +757,7 @@ $page_description = $page_description ?? 'Data-driven Google Ads, Meta Ads, SEO 
                     <li><a href="industries.php" onclick="toggleMenu()">Industries</a></li>
                     <li><a href="contact.php" onclick="toggleMenu()">Contact Us</a></li>
                 </ul>
+                <div class="nav-roll-edge" id="navRollEdge" aria-hidden="true"></div>
             </nav>
             <div class="nav-cta">
                 <a href="contact.php" class="header-cta">GET FREE PLAN</a>

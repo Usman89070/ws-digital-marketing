@@ -143,14 +143,66 @@
             });
         }
 
+        let navRollTween = null;
         function toggleMenu() {
             const menu = document.getElementById('navMenu');
+            const wrapEl = document.querySelector('.nav-wrapper');
+            const rollEdge = document.getElementById('navRollEdge');
             const header = document.querySelector('header');
             const toggleIcon = document.querySelector('.mobile-btn i');
             const isOpening = !menu.classList.contains('active');
-            menu.classList.toggle('active', isOpening);
-            if (header) header.classList.toggle('nav-open', isOpening);
+            const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            const isToggleControlled = window.innerWidth <= 1200 || header.classList.contains('scrolled') || header.classList.contains('nav-open');
+
             if (toggleIcon) toggleIcon.className = isOpening ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
+            if (navRollTween) navRollTween.kill();
+
+            const finishClose = () => {
+                menu.classList.remove('active');
+                header.classList.remove('nav-open');
+            };
+
+            if (isOpening) {
+                menu.classList.add('active');
+                header.classList.add('nav-open');
+            }
+
+            if (!isToggleControlled || typeof gsap === 'undefined' || !wrapEl || !rollEdge) {
+                if (!isOpening) finishClose();
+                return;
+            }
+
+            if (prefersReducedMotion) {
+                gsap.set(rollEdge, { autoAlpha: 0 });
+                if (!isOpening) finishClose();
+                return;
+            }
+
+            // Measure the dropdown panel relative to .nav-wrapper (the roll-edge's actual
+            // positioning context, same as .nav-menu) so the "carpet" cylinder tracks its
+            // real width/height at any breakpoint.
+            const wrapRect = wrapEl.getBoundingClientRect();
+            const menuRect = menu.getBoundingClientRect();
+            const w = Math.max(menuRect.width, 10);
+            const h = Math.max(menuRect.height, 10);
+            gsap.set(rollEdge, { top: menuRect.top - wrapRect.top, left: menuRect.left - wrapRect.left, height: h, width: 16 });
+
+            if (isOpening) {
+                // Carpet starts rolled up flat against the left edge, then unrolls to the right.
+                gsap.set(menu, { clipPath: 'inset(0 100% 0 0)' });
+                gsap.set(rollEdge, { x: 0, autoAlpha: 1 });
+                navRollTween = gsap.timeline()
+                    .to(menu, { clipPath: 'inset(0 0% 0 0)', duration: 0.75, ease: 'power3.out' }, 0)
+                    .to(rollEdge, { x: w - 16, duration: 0.75, ease: 'power3.out' }, 0)
+                    .to(rollEdge, { autoAlpha: 0, duration: 0.2 }, 0.55);
+            } else {
+                // Reverse: the carpet re-rolls from the right edge back up to the left.
+                gsap.set(rollEdge, { x: w - 16, autoAlpha: 1 });
+                navRollTween = gsap.timeline({ onComplete: finishClose })
+                    .to(menu, { clipPath: 'inset(0 100% 0 0)', duration: 0.55, ease: 'power2.inOut' }, 0)
+                    .to(rollEdge, { x: 0, duration: 0.55, ease: 'power2.inOut' }, 0)
+                    .to(rollEdge, { autoAlpha: 0, duration: 0.15 }, 0.4);
+            }
         }
 
         document.addEventListener("DOMContentLoaded", () => {
