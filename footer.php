@@ -221,9 +221,9 @@
             // reveal (rather than one trigger for the whole grid) so long grids
             // like the case studies page still animate correctly row by row.
             const gridSelectors = [
-                '.services-grid', '.case-grid', '.testimonials-grid', '.industries-grid',
-                '.industry-tile-grid', '.stats-4-grid', '.pricing-grid', '.methodology-steps',
-                '.agency-list', '.cta-features', '.faq-list', '.mobile-dash-cards', '.partner-strip'
+                '.services-grid', '.case-grid', '.testimonials-grid', '.industry-tile-grid',
+                '.stats-4-grid', '.pricing-grid', '.methodology-steps', '.agency-list',
+                '.cta-features', '.faq-list', '.mobile-dash-cards', '.partner-strip'
             ];
             gridSelectors.forEach(selector => {
                 gsap.utils.toArray(selector).forEach(grid => {

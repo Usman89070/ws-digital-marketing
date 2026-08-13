@@ -314,45 +314,36 @@ $page_description = $page_description ?? 'Data-driven Google Ads, Meta Ads, SEO 
         .testi-author-info h5 { font-size: 1.05rem; color: var(--navy); font-weight: 700; margin-bottom: 3px; }
         .testi-author-info span { font-size: 0.85rem; color: var(--text-muted); font-weight: 500; }
 
-        /* === UPGRADED REALISTIC IMAGE INDUSTRIES === */
+        /* === INDUSTRIES: icon tiles, no photos, fixed 3-up grid (used on the
+           homepage teaser and the dedicated Industries page) === */
         .industries-section { padding: clamp(60px, 8vw, 100px) 0; background: var(--bg-secondary); }
-        .industries-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr)); gap: 25px; margin-top: clamp(30px, 5vw, 50px); }
-        .industry-card { position: relative; height: 240px; border-radius: 20px; overflow: hidden; box-shadow: var(--shadow-sm); transition: var(--transition-smooth); cursor: pointer; }
-        .industry-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
-        
-        .industry-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(11,15,37,0.9) 0%, rgba(11,15,37,0.2) 100%); display: flex; flex-direction: column; justify-content: flex-end; padding: 25px 20px; transition: var(--transition-smooth); }
-        .industry-card:hover img { transform: scale(1.08); }
-        .industry-card:hover .industry-overlay { background: linear-gradient(to top, rgba(0, 242, 254, 0.85) 0%, rgba(11,15,37,0.3) 100%); }
-        
-        .industry-overlay i { color: var(--cyan-neon); font-size: 2rem; margin-bottom: 12px; transition: var(--transition-smooth); }
-        .industry-card:hover .industry-overlay i { color: var(--navy); transform: translateY(-5px); }
-        .industry-overlay h5 { color: #fff; font-size: 1.15rem; font-weight: 700; margin: 0; transition: var(--transition-smooth); }
-        .industry-card:hover .industry-overlay h5 { color: var(--navy); }
-
-        /* === HOMEPAGE INDUSTRIES TEASER: icon tiles, no photos, fixed 3-up grid === */
         .industry-tile-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(20px, 3vw, 30px); margin-top: clamp(30px, 5vw, 50px); }
         .industry-tile {
             position: relative; background: #fff; border: 1px solid var(--border-light); border-radius: 20px;
             padding: clamp(32px, 4vw, 42px) clamp(22px, 3vw, 32px); text-align: center; overflow: hidden;
             box-shadow: var(--shadow-sm); transition: var(--transition-smooth);
+            display: block; text-decoration: none; color: inherit; cursor: pointer;
         }
         .industry-tile::before {
             content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 3px;
             background: linear-gradient(90deg, var(--cyan-neon), var(--magenta-neon));
             transform: scaleX(0); transform-origin: left; transition: transform 0.4s ease;
         }
-        .industry-tile:hover { transform: translateY(-10px); box-shadow: var(--shadow-hover); border-color: var(--cyan-neon); }
+        .industry-tile:hover {
+            transform: translateY(-10px); box-shadow: var(--shadow-hover); border-color: var(--cyan-neon);
+            background: linear-gradient(160deg, rgba(0, 242, 254, 0.07), rgba(255, 0, 127, 0.06) 70%);
+        }
         .industry-tile:hover::before { transform: scaleX(1); }
         .industry-tile-icon {
             width: 72px; height: 72px; margin: 0 auto 22px; border-radius: 50%;
             background: linear-gradient(135deg, rgba(0, 242, 254, 0.12), rgba(255, 0, 127, 0.12));
             display: flex; align-items: center; justify-content: center; transition: var(--transition-smooth);
         }
+        .industry-tile:hover .industry-tile-icon { transform: scale(1.1) rotate(-6deg); background: linear-gradient(135deg, rgba(0, 242, 254, 0.22), rgba(255, 0, 127, 0.22)); }
         .industry-tile-icon i {
             font-size: 1.7rem; background: linear-gradient(135deg, var(--cyan-neon), var(--magenta-neon));
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
         }
-        .industry-tile:hover .industry-tile-icon { transform: scale(1.1) rotate(-6deg); }
         .industry-tile h5 { font-size: 1.15rem; font-weight: 800; color: var(--navy); margin-bottom: 10px; }
         .industry-tile p { color: var(--text-muted); font-size: 0.92rem; line-height: 1.6; margin: 0; }
 
