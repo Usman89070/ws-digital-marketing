@@ -462,36 +462,39 @@ include 'header.php';
                 <h2 style="font-size: clamp(1.8rem, 4vw, 2.8rem); margin-top: 10px;">Tailored Campaigns That Drive Results</h2>
             </div>
             <div class="industry-tile-grid">
-                <div class="industry-tile">
+                <a href="trades.php" class="industry-tile">
                     <div class="industry-tile-icon"><i class="fa-solid fa-helmet-safety"></i></div>
                     <h5>Trades & Services</h5>
                     <p>Plumbing, electrical, refrigeration & local contractors — high-intent local leads that convert.</p>
-                </div>
-                <div class="industry-tile">
+                </a>
+                <a href="healthcare-medical.php" class="industry-tile">
                     <div class="industry-tile-icon"><i class="fa-solid fa-user-doctor"></i></div>
-                    <h5>Healthcare</h5>
+                    <h5>Healthcare & Medical</h5>
                     <p>Clinics, medical practices, and health specialists building trusted, compliant patient pipelines.</p>
-                </div>
-                <div class="industry-tile">
-                    <div class="industry-tile-icon"><i class="fa-solid fa-user-tie"></i></div>
-                    <h5>Professional Services</h5>
+                </a>
+                <a href="legal-law.php" class="industry-tile">
+                    <div class="industry-tile-icon"><i class="fa-solid fa-scale-balanced"></i></div>
+                    <h5>Legal & Professional Services</h5>
                     <p>Legal, financial, consulting & corporate services that need consistent, qualified inquiries.</p>
-                </div>
-                <div class="industry-tile">
+                </a>
+                <a href="ecommerce-industry.php" class="industry-tile">
                     <div class="industry-tile-icon"><i class="fa-solid fa-cart-shopping"></i></div>
                     <h5>eCommerce</h5>
                     <p>Shopify stores, retail brands & digital products scaled with full-funnel paid and organic growth.</p>
-                </div>
-                <div class="industry-tile">
+                </a>
+                <a href="hospitality-tourism.php" class="industry-tile">
                     <div class="industry-tile-icon"><i class="fa-solid fa-utensils"></i></div>
-                    <h5>Hospitality</h5>
+                    <h5>Hospitality & Tourism</h5>
                     <p>Restaurants, cafes, venues & booking services turning local searches into full tables.</p>
-                </div>
-                <div class="industry-tile">
+                </a>
+                <a href="automotive.php" class="industry-tile">
                     <div class="industry-tile-icon"><i class="fa-solid fa-car"></i></div>
                     <h5>Automotive</h5>
                     <p>Repair shops, dealerships & auto detailing services winning more service bookings.</p>
-                </div>
+                </a>
+            </div>
+            <div style="text-align: center; margin-top: clamp(30px, 4vw, 40px);">
+                <a href="industries.php" class="btn-secondary">VIEW ALL INDUSTRIES <i class="fa-solid fa-arrow-right" style="margin-left: 6px;"></i></a>
             </div>
         </div>
     </section>

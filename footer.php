@@ -123,13 +123,6 @@
         const backToTopBtn = document.getElementById('back-to-top');
 
         window.addEventListener('scroll', () => {
-            const header = document.querySelector('header');
-            if (window.scrollY > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-
             const scrollable = document.documentElement.scrollHeight - window.innerHeight;
             const progress = scrollable > 0 ? (window.scrollY / scrollable) * 100 : 0;
             if (progressBar) progressBar.style.width = progress + '%';
@@ -143,18 +136,86 @@
             });
         }
 
+        let navRollTween = null;
         function toggleMenu() {
             const menu = document.getElementById('navMenu');
+            const wrapEl = document.querySelector('.nav-wrapper');
+            const rollEdge = document.getElementById('navRollEdge');
             const header = document.querySelector('header');
             const toggleIcon = document.querySelector('.mobile-btn i');
             const isOpening = !menu.classList.contains('active');
-            menu.classList.toggle('active', isOpening);
-            if (header) header.classList.toggle('nav-open', isOpening);
+            const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            const isToggleControlled = window.innerWidth <= 1200 || header.classList.contains('scrolled') || header.classList.contains('nav-open');
+
             if (toggleIcon) toggleIcon.className = isOpening ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
+            if (navRollTween) navRollTween.kill();
+
+            const finishClose = () => {
+                menu.classList.remove('active');
+                header.classList.remove('nav-open');
+            };
+
+            if (isOpening) {
+                menu.classList.add('active');
+                header.classList.add('nav-open');
+            }
+
+            if (!isToggleControlled || typeof gsap === 'undefined' || !wrapEl || !rollEdge) {
+                if (!isOpening) finishClose();
+                return;
+            }
+
+            if (prefersReducedMotion) {
+                gsap.set(rollEdge, { autoAlpha: 0 });
+                if (!isOpening) finishClose();
+                return;
+            }
+
+            // Measure the dropdown panel relative to .nav-wrapper (the roll-edge's actual
+            // positioning context, same as .nav-menu) so the "carpet" cylinder tracks its
+            // real width/height at any breakpoint.
+            const wrapRect = wrapEl.getBoundingClientRect();
+            const menuRect = menu.getBoundingClientRect();
+            const w = Math.max(menuRect.width, 10);
+            const h = Math.max(menuRect.height, 10);
+            gsap.set(rollEdge, { top: menuRect.top - wrapRect.top, left: menuRect.left - wrapRect.left, height: h, width: 16 });
+
+            if (isOpening) {
+                // Carpet starts rolled up flat against the left edge, then unrolls to the right.
+                gsap.set(menu, { clipPath: 'inset(0 100% 0 0)' });
+                gsap.set(rollEdge, { x: 0, autoAlpha: 1 });
+                navRollTween = gsap.timeline()
+                    .to(menu, { clipPath: 'inset(0 0% 0 0)', duration: 0.75, ease: 'power3.out' }, 0)
+                    .to(rollEdge, { x: w - 16, duration: 0.75, ease: 'power3.out' }, 0)
+                    .to(rollEdge, { autoAlpha: 0, duration: 0.2 }, 0.55);
+            } else {
+                // Reverse: the carpet re-rolls from the right edge back up to the left.
+                gsap.set(rollEdge, { x: w - 16, autoAlpha: 1 });
+                navRollTween = gsap.timeline({ onComplete: finishClose })
+                    .to(menu, { clipPath: 'inset(0 100% 0 0)', duration: 0.55, ease: 'power2.inOut' }, 0)
+                    .to(rollEdge, { x: 0, duration: 0.55, ease: 'power2.inOut' }, 0)
+                    .to(rollEdge, { autoAlpha: 0, duration: 0.15 }, 0.4);
+            }
         }
 
         document.addEventListener("DOMContentLoaded", () => {
             gsap.registerPlugin(ScrollTrigger);
+
+            // Drive the header's "scrolled" state off ScrollTrigger rather than a raw
+            // window scroll listener. A plain `window.scrollY` check can desync from the
+            // page's real scroll state while the homepage's pinned cinematic section is
+            // active, which previously left the header stuck in its collapsed (nav-hidden)
+            // look after scrolling back to the top. ScrollTrigger shares the same scroll
+            // accounting as that pinned section, so it can't drift out of sync with it.
+            const headerEl = document.querySelector('header');
+            if (headerEl) {
+                ScrollTrigger.create({
+                    start: 50,
+                    onEnter: () => headerEl.classList.add('scrolled'),
+                    onLeaveBack: () => headerEl.classList.remove('scrolled'),
+                    onRefresh: (self) => headerEl.classList.toggle('scrolled', self.scroll() > 50),
+                });
+            }
 
             const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -362,17 +423,16 @@
         });
     </script>
 
-    <!-- 3D ANIMATED HERO BACKGROUND (Three.js) -->
+    <!-- 3D ANIMATED BACKGROUND (Three.js), fixed behind the whole page -->
     <script>
         (function () {
-            const hero = document.querySelector('.hero');
             const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-            if (!hero || typeof THREE === 'undefined' || prefersReducedMotion) return;
+            if (typeof THREE === 'undefined' || prefersReducedMotion) return;
 
             const canvas = document.createElement('canvas');
-            canvas.id = 'hero-3d-canvas';
-            hero.insertBefore(canvas, hero.firstChild);
+            canvas.id = 'page-bg-canvas';
+            document.body.insertBefore(canvas, document.body.firstChild);
 
             const isMobile = window.innerWidth <= 768;
             const particleCount = isMobile ? 45 : 110;
@@ -454,8 +514,8 @@
             }, { passive: true });
 
             function resize() {
-                const w = hero.clientWidth;
-                const h = hero.clientHeight;
+                const w = window.innerWidth;
+                const h = window.innerHeight;
                 if (!w || !h) return;
                 renderer.setSize(w, h, false);
                 camera.aspect = w / h;
@@ -464,18 +524,11 @@
             resize();
             window.addEventListener('resize', resize);
 
-            let isVisible = true;
-            if ('IntersectionObserver' in window) {
-                new IntersectionObserver((entries) => {
-                    isVisible = entries[0].isIntersecting;
-                }, { threshold: 0.05 }).observe(hero);
-            }
-
             let rafId = null;
             let readyFlagged = false;
             function animate() {
                 rafId = requestAnimationFrame(animate);
-                if (document.hidden || !isVisible) return;
+                if (document.hidden) return;
 
                 group.rotation.y += 0.0012;
                 group.rotation.x += (targetRotX - group.rotation.x) * 0.03;

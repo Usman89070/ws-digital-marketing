@@ -133,6 +133,15 @@ $page_description = $page_description ?? 'Data-driven Google Ads, Meta Ads, SEO 
         }
         .dropdown-menu li a::after { display: none !important; }
         .dropdown-menu li a:hover { background: rgba(0, 242, 254, 0.1); color: var(--cyan-neon); transform: translateX(4px); }
+
+        /* Two-column variant for longer dropdowns (e.g. Industries) so the panel stays wide, not tall.
+           Anchored to the right edge (not left) since this item sits late in the nav row --
+           growing left keeps it inside the container instead of overflowing the viewport. */
+        .dropdown-menu.dropdown-menu-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 0 4px;
+            min-width: 460px; padding: 10px; left: auto; right: 0;
+        }
+        .dropdown-menu.dropdown-menu-grid li a { border-radius: 8px; white-space: nowrap; }
         
         .header-cta {
             background: transparent; border: 2px solid var(--cyan-neon); color: var(--cyan-neon);
@@ -144,9 +153,10 @@ $page_description = $page_description ?? 'Data-driven Google Ads, Meta Ads, SEO 
             background: var(--cyan-neon); color: var(--navy); box-shadow: 0 0 20px rgba(0, 242, 254, 0.4); transform: translateY(-2px);
         }
 
-        .mobile-btn { 
-            display: none; font-size: 2rem; background: none; border: none; 
-            cursor: pointer; color: #fff; z-index: 1001; transition: transform 0.3s ease; 
+        .mobile-btn {
+            display: none; align-items: center; justify-content: center;
+            width: 44px; height: 44px; font-size: 2rem; background: none; border: none;
+            cursor: pointer; color: #fff; z-index: 1001; transition: transform 0.3s ease;
             margin-left: auto;
         }
         .mobile-btn:hover { color: var(--cyan-neon); transform: scale(1.1); }
@@ -154,6 +164,20 @@ $page_description = $page_description ?? 'Data-driven Google Ads, Meta Ads, SEO 
         /* === SCROLL-COLLAPSE HEADER: LOGO CENTERS, NAV HIDES BEHIND TOGGLE === */
         header nav { transition: opacity 0.3s ease; }
         .nav-cta { transition: opacity 0.3s ease; }
+
+        /* === CARPET-ROLL NAV REVEAL: leading edge that "unrolls" the menu open === */
+        .nav-roll-edge {
+            position: absolute; top: 0; left: 0; width: 16px; height: 100%;
+            background: linear-gradient(90deg,
+                rgba(5, 8, 20, 0.9) 0%,
+                rgba(0, 242, 254, 0.9) 30%,
+                rgba(255, 255, 255, 0.6) 50%,
+                rgba(255, 0, 127, 0.9) 70%,
+                rgba(5, 8, 20, 0.9) 100%);
+            border-radius: 999px;
+            box-shadow: 0 0 18px rgba(0, 242, 254, 0.55), 0 0 30px rgba(255, 0, 127, 0.3), 6px 0 20px rgba(0, 0, 0, 0.45);
+            opacity: 0; visibility: hidden; pointer-events: none; z-index: 25;
+        }
 
         header.scrolled:not(.nav-open) .nav-wrapper { justify-content: center; }
         header.scrolled:not(.nav-open) .logo-img { height: clamp(34px, 4.5vw, 46px); }
@@ -191,13 +215,13 @@ $page_description = $page_description ?? 'Data-driven Google Ads, Meta Ads, SEO 
         .btn-secondary:hover { border-color: var(--navy); background: var(--navy); color: #fff; transform: translateY(-3px); }
 
         /* === SECTION 1: HERO === */
-        .hero { background: #ffffff; color: var(--navy); position: relative; z-index: 10; margin-top: 85px; padding: clamp(60px, 12vw, 120px) 0 clamp(40px, 8vw, 80px); overflow: hidden; }
+        .hero { background: rgba(255, 255, 255, 0.93); color: var(--navy); position: relative; z-index: 10; margin-top: 85px; padding: clamp(60px, 12vw, 120px) 0 clamp(40px, 8vw, 80px); overflow: hidden; }
         .hero-content { position: relative; z-index: 2; max-width: 950px; margin: 0 auto; text-align: center; }
 
-        /* === 3D HERO BACKGROUND (Three.js) === */
-        #hero-3d-canvas { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none; opacity: 0; transition: opacity 1.2s ease; }
-        #hero-3d-canvas.is-ready { opacity: 1; }
-        @media(max-width: 768px) { #hero-3d-canvas { opacity: 0.6; } #hero-3d-canvas.is-ready { opacity: 0.6; } }
+        /* === 3D ANIMATED BACKGROUND (Three.js), FIXED BEHIND THE WHOLE PAGE === */
+        #page-bg-canvas { position: fixed; inset: 0; width: 100vw; height: 100vh; z-index: -1; pointer-events: none; opacity: 0; transition: opacity 1.2s ease; }
+        #page-bg-canvas.is-ready { opacity: 1; }
+        @media(max-width: 768px) { #page-bg-canvas { opacity: 0.5; } #page-bg-canvas.is-ready { opacity: 0.5; } }
         .hero-content h1 { font-size: clamp(2rem, 5.5vw, 4.5rem); line-height: 1.1; margin: 15px 0 25px; color: var(--navy); font-weight: 800; letter-spacing: -1px; }
         .hero-subtitle { font-size: clamp(1rem, 2vw, 1.25rem); color: var(--text-muted); max-width: 700px; margin: 0 auto; line-height: 1.6; }
         .text-gradient { background: linear-gradient(135deg, var(--navy) 20%, var(--magenta-neon) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
@@ -272,7 +296,7 @@ $page_description = $page_description ?? 'Data-driven Google Ads, Meta Ads, SEO 
             background:
                 radial-gradient(650px circle at 8% 15%, rgba(0, 242, 254, 0.055), transparent 60%),
                 radial-gradient(550px circle at 95% 85%, rgba(255, 0, 127, 0.045), transparent 60%),
-                #ffffff;
+                rgba(255, 255, 255, 0.93);
         }
         .agency-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(30px, 5vw, 60px); align-items: center; }
         .agency-text h2 { font-size: clamp(1.8rem, 4vw, 2.8rem); color: var(--navy); font-weight: 800; margin-bottom: 20px; line-height: 1.1; }
@@ -285,7 +309,7 @@ $page_description = $page_description ?? 'Data-driven Google Ads, Meta Ads, SEO 
         .agency-image-wrapper:hover img { transform: scale(1.03); }
 
         /* === TRUSTED STRIP === */
-        .trusted-strip-wrapper { background: var(--bg-secondary); padding: 40px 0; border-top: 1px solid var(--border-light); border-bottom: 1px solid var(--border-light); }
+        .trusted-strip-wrapper { background: rgba(248, 250, 252, 0.93); padding: 40px 0; border-top: 1px solid var(--border-light); border-bottom: 1px solid var(--border-light); }
         .partner-strip { display: flex; justify-content: center; align-items: center; gap: clamp(25px, 5vw, 80px); flex-wrap: wrap; }
         .partner-strip div { font-size: clamp(1.1rem, 2.5vw, 1.5rem); font-weight: 800; color: #94A3B8; transition: var(--transition-smooth); cursor: default; display: flex; align-items: center; gap: 8px;}
         .partner-strip div i { font-size: 1.2em; }
@@ -326,7 +350,7 @@ $page_description = $page_description ?? 'Data-driven Google Ads, Meta Ads, SEO 
             background:
                 radial-gradient(600px circle at 92% 10%, rgba(0, 242, 254, 0.06), transparent 55%),
                 radial-gradient(600px circle at 5% 90%, rgba(255, 0, 127, 0.05), transparent 55%),
-                var(--bg-secondary);
+                rgba(248, 250, 252, 0.93);
         }
         .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 35px; margin-top: clamp(30px, 5vw, 50px);}
         .service-card { background: #fff; border: 1px solid var(--border-light); border-radius: 20px; transition: var(--transition-smooth); box-shadow: var(--shadow-sm); overflow: hidden; display: flex; flex-direction: column; }
@@ -350,7 +374,7 @@ $page_description = $page_description ?? 'Data-driven Google Ads, Meta Ads, SEO 
             background:
                 radial-gradient(600px circle at 10% 10%, rgba(255, 0, 127, 0.05), transparent 55%),
                 radial-gradient(600px circle at 90% 90%, rgba(0, 242, 254, 0.06), transparent 55%),
-                #fff;
+                rgba(255, 255, 255, 0.93);
         }
         .methodology-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(30px, 5vw, 60px); align-items: center; margin-top: clamp(30px, 5vw, 50px); }
         .methodology-image { border-radius: 20px; overflow: hidden; height: 100%; min-height: 400px; position: relative; box-shadow: var(--shadow-md); }
@@ -395,7 +419,7 @@ $page_description = $page_description ?? 'Data-driven Google Ads, Meta Ads, SEO 
             background:
                 radial-gradient(600px circle at 95% 5%, rgba(255, 0, 127, 0.05), transparent 55%),
                 radial-gradient(600px circle at 0% 95%, rgba(0, 242, 254, 0.06), transparent 55%),
-                var(--bg-secondary);
+                rgba(248, 250, 252, 0.93);
         }
         .case-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 30px; margin-top: clamp(30px, 5vw, 50px); }
         .case-card { background: #fff; border-radius: 20px; overflow: hidden; box-shadow: var(--shadow-md); transition: var(--transition-smooth); border: 1px solid var(--border-light); display: flex; flex-direction: column; }
@@ -419,7 +443,7 @@ $page_description = $page_description ?? 'Data-driven Google Ads, Meta Ads, SEO 
             background:
                 radial-gradient(600px circle at 8% 8%, rgba(0, 242, 254, 0.05), transparent 55%),
                 radial-gradient(600px circle at 92% 92%, rgba(255, 0, 127, 0.05), transparent 55%),
-                #fff;
+                rgba(255, 255, 255, 0.93);
         }
         .testi-layout { display: grid; grid-template-columns: minmax(260px, 320px) 1fr; gap: clamp(24px, 4vw, 40px); align-items: stretch; margin-top: clamp(30px, 5vw, 50px); }
         .testi-layout .testimonials-grid { grid-template-columns: repeat(2, 1fr); margin-top: 0; }
@@ -519,7 +543,7 @@ $page_description = $page_description ?? 'Data-driven Google Ads, Meta Ads, SEO 
             background:
                 radial-gradient(600px circle at 90% 8%, rgba(0, 242, 254, 0.06), transparent 55%),
                 radial-gradient(600px circle at 8% 92%, rgba(255, 0, 127, 0.05), transparent 55%),
-                var(--bg-secondary);
+                rgba(248, 250, 252, 0.93);
         }
         .industry-tile-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(20px, 3vw, 30px); margin-top: clamp(30px, 5vw, 50px); }
         .industry-tile {
@@ -555,7 +579,7 @@ $page_description = $page_description ?? 'Data-driven Google Ads, Meta Ads, SEO 
         @media(max-width: 560px) { .industry-tile-grid { grid-template-columns: 1fr; } }
 
         /* === CTA SECTION === */
-        .cta-section { padding: clamp(60px, 8vw, 120px) 0; background: #ffffff; }
+        .cta-section { padding: clamp(60px, 8vw, 120px) 0; background: rgba(255, 255, 255, 0.93); }
         .cta-box {
             background: var(--navy); border-radius: 30px; max-width: 1000px; width: 100%; margin: 0 auto;
             padding: clamp(40px, 6vw, 80px) clamp(20px, 5vw, 50px); text-align: center; color: #fff;
@@ -590,14 +614,14 @@ $page_description = $page_description ?? 'Data-driven Google Ads, Meta Ads, SEO 
         /* === TABLET & MOBILE OVERRIDES === */
         @media(max-width: 1200px) {
             .mobile-btn { display: block; }
-            .nav-menu { 
-                position: absolute; top: 100%; left: 0; width: 100%; 
-                background: #0B0F25; flex-direction: column; gap: 0; 
-                border-bottom: 1px solid rgba(0, 242, 254, 0.2); 
-                max-height: 0; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.5); 
-                transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1); 
+            .nav-menu {
+                position: absolute; top: 100%; left: 0; width: 100%;
+                background: #0B0F25; flex-direction: column; gap: 0;
+                border-bottom: 1px solid rgba(0, 242, 254, 0.2);
+                box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+                clip-path: inset(0 100% 0 0); pointer-events: none;
             }
-            .nav-menu.active { max-height: 600px; padding: 10px 0; overflow-y: auto; }
+            .nav-menu.active { padding: 10px 0; max-height: 80vh; overflow-y: auto; clip-path: inset(0 0% 0 0); pointer-events: auto; }
             .nav-menu li {
                 width: 100%; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.05);
                 opacity: 0; transform: translateX(-12px); transition: opacity 0.35s ease, transform 0.35s ease;
@@ -621,8 +645,9 @@ $page_description = $page_description ?? 'Data-driven Google Ads, Meta Ads, SEO 
                 border: none; box-shadow: none; opacity: 1; visibility: visible; transform: none;
                 max-height: 0; overflow: hidden; transition: max-height 0.3s ease; padding: 0;
             }
-            .dropdown.active .dropdown-menu { max-height: 400px; padding: 5px 0; }
+            .dropdown.active .dropdown-menu { max-height: 60vh; overflow-y: auto; padding: 5px 0; }
             .dropdown-menu li a { padding: 12px 20px; text-align: center; }
+            .dropdown-menu.dropdown-menu-grid { display: block; min-width: 0; right: auto; padding: 0; }
             .nav-cta { display: none; }
         }
 
@@ -739,9 +764,29 @@ $page_description = $page_description ?? 'Data-driven Google Ads, Meta Ads, SEO 
                         </ul>
                     </li>
 
-                    <li><a href="industries.php" onclick="toggleMenu()">Industries</a></li>
+                    <!-- INDUSTRIES DROPDOWN -->
+                    <li class="dropdown" onclick="toggleDropdown(event)">
+                        <a href="industries.php">Industries <i class="fa-solid fa-chevron-down" style="font-size: 0.75rem; margin-left: 4px;"></i></a>
+                        <ul class="dropdown-menu dropdown-menu-grid">
+                            <li><a href="accounting-finance.php">Accounting & Finance</a></li>
+                            <li><a href="automotive.php">Automotive</a></li>
+                            <li><a href="construction-building.php">Construction & Building</a></li>
+                            <li><a href="dental.php">Dental</a></li>
+                            <li><a href="ecommerce-industry.php">eCommerce</a></li>
+                            <li><a href="franchise.php">Franchise</a></li>
+                            <li><a href="healthcare-medical.php">Healthcare & Medical</a></li>
+                            <li><a href="hospitality-tourism.php">Hospitality & Tourism</a></li>
+                            <li><a href="hotel-motel.php">Hotel & Motel</a></li>
+                            <li><a href="legal-law.php">Legal / Law</a></li>
+                            <li><a href="real-estate.php">Real Estate</a></li>
+                            <li><a href="small-business-digital-marketing.php">Small Business Digital Marketing</a></li>
+                            <li><a href="ndis.php">NDIS</a></li>
+                            <li><a href="trades.php">Trades</a></li>
+                        </ul>
+                    </li>
                     <li><a href="contact.php" onclick="toggleMenu()">Contact Us</a></li>
                 </ul>
+                <div class="nav-roll-edge" id="navRollEdge" aria-hidden="true"></div>
             </nav>
             <div class="nav-cta">
                 <a href="contact.php" class="header-cta">GET FREE PLAN</a>
