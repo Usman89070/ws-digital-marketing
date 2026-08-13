@@ -49,7 +49,7 @@
                 <!-- Brand Col -->
                 <div class="footer-brand">
                     <a href="index.php" class="logo footer-logo">
-                        <img src="images/logo-ws.webp" alt="W&S Digital Marketing Logo" class="logo-img" style="filter: brightness(0) invert(1);">
+                        <img src="images/logo-ws.webp" alt="W&S Digital Marketing Logo" class="logo-img">
                     </a>
                     <p>
                         Helping ambitious Australian businesses confidently grow online with data-driven strategies that consistently deliver real results.
