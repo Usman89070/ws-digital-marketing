@@ -170,24 +170,28 @@ include 'header.php';
         <div class="container">
             <div class="section-header">
                 <span class="eyebrow" style="color: var(--cyan-neon);">PROVEN METRICS</span>
-                <h2 style="color: #fff; font-size: clamp(1.8rem, 4vw, 2.8rem);">Marketing That Moves The Numbers</h2>
+                <h2 style="color: #fff; font-size: clamp(1.8rem, 4vw, 2.8rem);">Backed By Real SEO Ranking Results</h2>
             </div>
             <div class="stats-4-grid">
                 <div class="stat-box">
-                    <h3>+193</h3>
-                    <p>Leads Generated</p>
+                    <div class="stat-icon"><i class="fa-solid fa-ranking-star"></i></div>
+                    <h3>+89</h3>
+                    <p>Keywords Ranked Page 1</p>
                 </div>
                 <div class="stat-box">
+                    <div class="stat-icon"><i class="fa-solid fa-arrow-trend-up"></i></div>
+                    <h3>+142%</h3>
+                    <p>Organic Traffic Growth</p>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-icon"><i class="fa-solid fa-chart-line"></i></div>
                     <h3>8.4x</h3>
-                    <p>ROAS Achieved</p>
+                    <p>Avg. ROAS Achieved</p>
                 </div>
                 <div class="stat-box">
-                    <h3>-31%</h3>
-                    <p>Cost Per Lead</p>
-                </div>
-                <div class="stat-box">
-                    <h3>+68%</h3>
-                    <p>Revenue Growth</p>
+                    <div class="stat-icon"><i class="fa-solid fa-handshake"></i></div>
+                    <h3>98%</h3>
+                    <p>Client Retention Rate</p>
                 </div>
             </div>
         </div>

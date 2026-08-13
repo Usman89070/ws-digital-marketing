@@ -124,10 +124,10 @@ include 'header.php';
                 <h2 style="color: #fff; font-size: clamp(1.8rem, 4vw, 2.8rem);">Content That Ranks And Converts</h2>
             </div>
             <div class="stats-4-grid">
-                <div class="stat-box"><h3>+142%</h3><p>Avg. Organic Traffic Growth</p></div>
-                <div class="stat-box"><h3>250+</h3><p>Pages &amp; Articles Written</p></div>
-                <div class="stat-box"><h3>+29%</h3><p>Avg. Time On Page Lift</p></div>
-                <div class="stat-box"><h3>98%</h3><p>Client Satisfaction</p></div>
+                <div class="stat-box"><div class="stat-icon"><i class="fa-solid fa-arrow-trend-up"></i></div><h3>+142%</h3><p>Avg. Organic Traffic Growth</p></div>
+                <div class="stat-box"><div class="stat-icon"><i class="fa-solid fa-file-lines"></i></div><h3>250+</h3><p>Pages &amp; Articles Written</p></div>
+                <div class="stat-box"><div class="stat-icon"><i class="fa-solid fa-clock"></i></div><h3>+29%</h3><p>Avg. Time On Page Lift</p></div>
+                <div class="stat-box"><div class="stat-icon"><i class="fa-solid fa-face-smile"></i></div><h3>98%</h3><p>Client Satisfaction</p></div>
             </div>
         </div>
     </section>

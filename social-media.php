@@ -124,10 +124,10 @@ include 'header.php';
                 <h2 style="color: #fff; font-size: clamp(1.8rem, 4vw, 2.8rem);">Social Growth That Compounds</h2>
             </div>
             <div class="stats-4-grid">
-                <div class="stat-box"><h3>+87%</h3><p>Avg. Engagement Growth</p></div>
-                <div class="stat-box"><h3>5.6x</h3><p>Avg. ROAS On Paid Social</p></div>
-                <div class="stat-box"><h3>+120%</h3><p>Follower Growth (6mo)</p></div>
-                <div class="stat-box"><h3>3x</h3><p>Weekly Posting Cadence</p></div>
+                <div class="stat-box"><div class="stat-icon"><i class="fa-solid fa-heart"></i></div><h3>+87%</h3><p>Avg. Engagement Growth</p></div>
+                <div class="stat-box"><div class="stat-icon"><i class="fa-solid fa-chart-line"></i></div><h3>5.6x</h3><p>Avg. ROAS On Paid Social</p></div>
+                <div class="stat-box"><div class="stat-icon"><i class="fa-solid fa-users"></i></div><h3>+120%</h3><p>Follower Growth (6mo)</p></div>
+                <div class="stat-box"><div class="stat-icon"><i class="fa-solid fa-calendar-days"></i></div><h3>3x</h3><p>Weekly Posting Cadence</p></div>
             </div>
         </div>
     </section>

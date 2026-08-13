@@ -124,10 +124,10 @@ include 'header.php';
                 <h2 style="color: #fff; font-size: clamp(1.8rem, 4vw, 2.8rem);">Websites That Perform, Not Just Impress</h2>
             </div>
             <div class="stats-4-grid">
-                <div class="stat-box"><h3>&lt;2s</h3><p>Avg. Page Load Time</p></div>
-                <div class="stat-box"><h3>+63%</h3><p>Avg. Conversion Rate Lift</p></div>
-                <div class="stat-box"><h3>100%</h3><p>Mobile-Responsive Builds</p></div>
-                <div class="stat-box"><h3>98%</h3><p>Client Satisfaction</p></div>
+                <div class="stat-box"><div class="stat-icon"><i class="fa-solid fa-bolt"></i></div><h3>&lt;2s</h3><p>Avg. Page Load Time</p></div>
+                <div class="stat-box"><div class="stat-icon"><i class="fa-solid fa-gauge-high"></i></div><h3>+63%</h3><p>Avg. Conversion Rate Lift</p></div>
+                <div class="stat-box"><div class="stat-icon"><i class="fa-solid fa-mobile-screen"></i></div><h3>100%</h3><p>Mobile-Responsive Builds</p></div>
+                <div class="stat-box"><div class="stat-icon"><i class="fa-solid fa-face-smile"></i></div><h3>98%</h3><p>Client Satisfaction</p></div>
             </div>
         </div>
     </section>

@@ -278,8 +278,28 @@ $page_description = $page_description ?? 'Data-driven Google Ads, Meta Ads, SEO 
         /* === PREMIUM DARK STATS SECTION WITH REAL IMAGE BACKGROUND === */
         .stats-section { background: linear-gradient(rgba(11, 15, 37, 0.9), rgba(11, 15, 37, 0.95)), url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1920&q=80') center/cover fixed; padding: clamp(60px, 8vw, 120px) 0; position: relative; color: #fff; }
         .stats-4-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); gap: 30px; position: relative; z-index: 2;}
-        .stat-box { background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); padding: clamp(25px, 4vw, 40px) 20px; border-radius: 20px; text-align: center; backdrop-filter: blur(15px); transition: var(--transition-smooth); }
+        .stat-box {
+            background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: clamp(28px, 4vw, 40px) 20px; border-radius: 20px; text-align: center;
+            backdrop-filter: blur(15px); transition: var(--transition-smooth); position: relative; overflow: hidden;
+        }
+        .stat-box::before {
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 3px;
+            background: linear-gradient(90deg, var(--cyan-neon), var(--magenta-neon));
+            transform: scaleX(0); transform-origin: left; transition: transform 0.4s ease;
+        }
+        .stat-box:hover::before { transform: scaleX(1); }
         .stat-box:hover { transform: translateY(-10px); background: rgba(255, 255, 255, 0.1); border-color: rgba(0, 242, 254, 0.4); box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3); }
+        .stat-icon {
+            width: 52px; height: 52px; margin: 0 auto 16px; border-radius: 14px;
+            background: linear-gradient(135deg, rgba(0, 242, 254, 0.15), rgba(255, 0, 127, 0.15));
+            border: 1px solid rgba(0, 242, 254, 0.25); display: flex; align-items: center; justify-content: center;
+            font-size: 1.3rem; color: var(--cyan-neon); transition: var(--transition-smooth);
+        }
+        .stat-box:hover .stat-icon {
+            transform: scale(1.1) rotate(-6deg);
+            background: linear-gradient(135deg, rgba(0, 242, 254, 0.28), rgba(255, 0, 127, 0.28));
+        }
         .stat-box h3 { font-size: clamp(2.2rem, 4vw, 3.2rem); font-weight: 800; margin-bottom: 10px; background: linear-gradient(135deg, var(--cyan-neon), var(--magenta-neon)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .stat-box p { font-size: clamp(0.85rem, 1.5vw, 1rem); color: rgba(255,255,255,0.8); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
 

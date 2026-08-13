@@ -124,10 +124,10 @@ include 'header.php';
                 <h2 style="color: #fff; font-size: clamp(1.8rem, 4vw, 2.8rem);">SEO That Shows Up In The Numbers</h2>
             </div>
             <div class="stats-4-grid">
-                <div class="stat-box"><h3>+142%</h3><p>Organic Traffic Growth</p></div>
-                <div class="stat-box"><h3>Top 3</h3><p>Avg. Local Map Ranking</p></div>
-                <div class="stat-box"><h3>+89</h3><p>Keywords Ranked Page 1</p></div>
-                <div class="stat-box"><h3>6-Mo</h3><p>Avg. Time To Results</p></div>
+                <div class="stat-box"><div class="stat-icon"><i class="fa-solid fa-arrow-trend-up"></i></div><h3>+142%</h3><p>Organic Traffic Growth</p></div>
+                <div class="stat-box"><div class="stat-icon"><i class="fa-solid fa-location-dot"></i></div><h3>Top 3</h3><p>Avg. Local Map Ranking</p></div>
+                <div class="stat-box"><div class="stat-icon"><i class="fa-solid fa-ranking-star"></i></div><h3>+89</h3><p>Keywords Ranked Page 1</p></div>
+                <div class="stat-box"><div class="stat-icon"><i class="fa-solid fa-hourglass-half"></i></div><h3>6-Mo</h3><p>Avg. Time To Results</p></div>
             </div>
         </div>
     </section>

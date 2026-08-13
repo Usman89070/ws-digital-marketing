@@ -79,18 +79,22 @@ include 'header.php';
         <div class="container">
             <div class="stats-4-grid">
                 <div class="stat-box">
+                    <div class="stat-icon"><i class="fa-solid fa-calendar-check"></i></div>
                     <h3>10+</h3>
                     <p>Years Experience</p>
                 </div>
                 <div class="stat-box">
+                    <div class="stat-icon"><i class="fa-solid fa-sack-dollar"></i></div>
                     <h3>$5M+</h3>
                     <p>Client Revenue Generated</p>
                 </div>
                 <div class="stat-box">
+                    <div class="stat-icon"><i class="fa-solid fa-bullseye"></i></div>
                     <h3>50+</h3>
                     <p>Active Campaigns</p>
                 </div>
                 <div class="stat-box">
+                    <div class="stat-icon"><i class="fa-solid fa-handshake"></i></div>
                     <h3>98%</h3>
                     <p>Client Retention</p>
                 </div>

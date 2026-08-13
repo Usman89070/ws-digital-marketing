@@ -124,10 +124,10 @@ include 'header.php';
                 <h2 style="color: #fff; font-size: clamp(1.8rem, 4vw, 2.8rem);">Ecommerce Growth That Compounds</h2>
             </div>
             <div class="stats-4-grid">
-                <div class="stat-box"><h3>+58%</h3><p>Avg. Conversion Rate Lift</p></div>
-                <div class="stat-box"><h3>7.2x</h3><p>Avg. ROAS On Shopping Ads</p></div>
-                <div class="stat-box"><h3>-24%</h3><p>Cart Abandonment</p></div>
-                <div class="stat-box"><h3>+41%</h3><p>Repeat Purchase Rate</p></div>
+                <div class="stat-box"><div class="stat-icon"><i class="fa-solid fa-gauge-high"></i></div><h3>+58%</h3><p>Avg. Conversion Rate Lift</p></div>
+                <div class="stat-box"><div class="stat-icon"><i class="fa-solid fa-chart-line"></i></div><h3>7.2x</h3><p>Avg. ROAS On Shopping Ads</p></div>
+                <div class="stat-box"><div class="stat-icon"><i class="fa-solid fa-cart-shopping"></i></div><h3>-24%</h3><p>Cart Abandonment</p></div>
+                <div class="stat-box"><div class="stat-icon"><i class="fa-solid fa-rotate"></i></div><h3>+41%</h3><p>Repeat Purchase Rate</p></div>
             </div>
         </div>
     </section>
