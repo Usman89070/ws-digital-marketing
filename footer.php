@@ -145,7 +145,7 @@
             const toggleIcon = document.querySelector('.mobile-btn i');
             const isOpening = !menu.classList.contains('active');
             const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-            const isToggleControlled = window.innerWidth <= 1200 || header.classList.contains('nav-open');
+            const isToggleControlled = window.innerWidth <= 1200 || header.classList.contains('scrolled') || header.classList.contains('nav-open');
 
             if (toggleIcon) toggleIcon.className = isOpening ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
             if (navRollTween) navRollTween.kill();
@@ -200,6 +200,22 @@
 
         document.addEventListener("DOMContentLoaded", () => {
             gsap.registerPlugin(ScrollTrigger);
+
+            // Drive the header's "scrolled" state off ScrollTrigger rather than a raw
+            // window scroll listener. A plain `window.scrollY` check can desync from the
+            // page's real scroll state while the homepage's pinned cinematic section is
+            // active, which previously left the header stuck in its collapsed (nav-hidden)
+            // look after scrolling back to the top. ScrollTrigger shares the same scroll
+            // accounting as that pinned section, so it can't drift out of sync with it.
+            const headerEl = document.querySelector('header');
+            if (headerEl) {
+                ScrollTrigger.create({
+                    start: 50,
+                    onEnter: () => headerEl.classList.add('scrolled'),
+                    onLeaveBack: () => headerEl.classList.remove('scrolled'),
+                    onRefresh: (self) => headerEl.classList.toggle('scrolled', self.scroll() > 50),
+                });
+            }
 
             const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
