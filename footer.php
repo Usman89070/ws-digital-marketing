@@ -145,7 +145,12 @@
 
         function toggleMenu() {
             const menu = document.getElementById('navMenu');
-            menu.classList.toggle('active');
+            const header = document.querySelector('header');
+            const toggleIcon = document.querySelector('.mobile-btn i');
+            const isOpening = !menu.classList.contains('active');
+            menu.classList.toggle('active', isOpening);
+            if (header) header.classList.toggle('nav-open', isOpening);
+            if (toggleIcon) toggleIcon.className = isOpening ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
         }
 
         document.addEventListener("DOMContentLoaded", () => {
@@ -324,10 +329,10 @@
                 });
             });
 
-            // Two-column image/text sections slide in from opposite sides.
-            gsap.utils.toArray('.agency-grid, .methodology-grid').forEach(grid => {
-                const media = grid.querySelector('.agency-image-wrapper, .methodology-image');
-                const copy = grid.querySelector('.agency-text, .methodology-steps');
+            // Two-column image/text (or info/form) sections slide in from opposite sides.
+            gsap.utils.toArray('.agency-grid, .methodology-grid, .contact-grid').forEach(grid => {
+                const media = grid.querySelector('.agency-image-wrapper, .methodology-image, .contact-info-card');
+                const copy = grid.querySelector('.agency-text, .methodology-steps, .contact-form-card');
                 const trigger = { trigger: grid, start: 'top 82%', toggleActions: 'play none none none' };
                 if (media) gsap.fromTo(media, { opacity: 0, x: -50 }, { opacity: 1, x: 0, duration: 0.8, ease: 'power2.out', scrollTrigger: trigger });
                 if (copy) gsap.fromTo(copy, { opacity: 0, x: 50 }, { opacity: 1, x: 0, duration: 0.8, ease: 'power2.out', scrollTrigger: trigger });

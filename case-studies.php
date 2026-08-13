@@ -290,20 +290,24 @@ include 'header.php';
             </div>
             <div class="stats-4-grid">
                 <div class="stat-box">
-                    <h3>+193</h3>
-                    <p>Leads Generated</p>
+                    <div class="stat-icon"><i class="fa-solid fa-arrow-trend-up"></i></div>
+                    <h3>+142%</h3>
+                    <p>Organic Traffic Growth</p>
                 </div>
                 <div class="stat-box">
+                    <div class="stat-icon"><i class="fa-solid fa-chart-line"></i></div>
                     <h3>8.4x</h3>
                     <p>ROAS Achieved</p>
                 </div>
                 <div class="stat-box">
-                    <h3>-31%</h3>
-                    <p>Cost Per Lead</p>
+                    <div class="stat-icon"><i class="fa-solid fa-trophy"></i></div>
+                    <h3>15+</h3>
+                    <p>Case Studies Delivered</p>
                 </div>
                 <div class="stat-box">
-                    <h3>+68%</h3>
-                    <p>Revenue Growth</p>
+                    <div class="stat-icon"><i class="fa-solid fa-handshake"></i></div>
+                    <h3>98%</h3>
+                    <p>Client Retention</p>
                 </div>
             </div>
         </div>

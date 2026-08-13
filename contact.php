@@ -83,14 +83,18 @@ include 'header.php';
             <?php endif; ?>
 
             <div class="contact-grid" style="display: grid; grid-template-columns: 1fr 1.2fr; gap: clamp(30px, 5vw, 60px); align-items: start;">
-                
+
                 <!-- Left Column: Contact Details & Info -->
-                <div style="background: var(--bg-secondary); padding: clamp(30px, 5vw, 45px); border-radius: 20px; border: 1px solid var(--border-light); height: 100%; display: flex; flex-direction: column; justify-content: space-between; box-shadow: var(--shadow-sm);">
+                <div class="contact-info-card" style="background: var(--bg-secondary); padding: clamp(30px, 5vw, 45px); border-radius: 20px; border: 1px solid var(--border-light); height: 100%; display: flex; flex-direction: column; justify-content: space-between; box-shadow: var(--shadow-sm);">
                     <div>
                         <span class="eyebrow">CONTACT INFORMATION</span>
                         <h2 style="font-size: clamp(1.8rem, 3vw, 2.4rem); color: var(--navy); font-weight: 800; margin-bottom: 15px; line-height: 1.2;">We’re Here To Help You Scale</h2>
-                        <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; margin-bottom: 35px;">Have questions about our SEO, Google Ads, or custom web design services? Drop us a message or give us a call directly.</p>
-                        
+                        <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; margin-bottom: 20px;">Have questions about our SEO, Google Ads, or custom web design services? Drop us a message or give us a call directly.</p>
+
+                        <div style="display: inline-flex; align-items: center; gap: 8px; background: rgba(0, 242, 254, 0.1); color: var(--navy); border: 1px solid rgba(0, 242, 254, 0.25); padding: 8px 16px; border-radius: 30px; font-size: 0.8rem; font-weight: 700; margin-bottom: 30px;">
+                            <i class="fa-solid fa-bolt" style="color: var(--cyan-neon);"></i> We typically respond within 2 business hours
+                        </div>
+
                         <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 22px;">
                             <li style="display: flex; align-items: flex-start; gap: 15px;">
                                 <div style="width: 45px; height: 45px; background: rgba(0, 242, 254, 0.1); border: 1px solid rgba(0, 242, 254, 0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--cyan-neon); font-size: 1.1rem; flex-shrink: 0;">
@@ -136,7 +140,7 @@ include 'header.php';
                 </div>
 
                 <!-- Right Column: Interactive Contact Form -->
-                <div style="background: #ffffff; padding: clamp(30px, 5vw, 45px); border-radius: 20px; border: 1px solid var(--border-light); box-shadow: var(--shadow-md);">
+                <div class="contact-form-card" style="background: #ffffff; padding: clamp(30px, 5vw, 45px); border-radius: 20px; border: 1px solid var(--border-light); box-shadow: var(--shadow-md);">
                     <span class="eyebrow">SEND US A MESSAGE</span>
                     <h2 style="font-size: clamp(1.8rem, 3vw, 2.4rem); color: var(--navy); font-weight: 800; margin-bottom: 25px;">Request Your Free Growth Plan</h2>
 
@@ -153,34 +157,48 @@ include 'header.php';
                         <div class="form-row" style="display: grid; grid-template-columns: 1fr 1fr; gap: 18px;">
                             <div style="display: flex; flex-direction: column; gap: 6px;">
                                 <label style="font-size: 0.8rem; font-weight: 700; color: var(--navy); text-transform: uppercase;">Your Name *</label>
-                                <input type="text" name="name" placeholder="John Smith" required style="padding: 14px; border-radius: 8px; border: 1px solid var(--border-light); font-size: 0.95rem; outline: none; background: var(--bg-secondary); width: 100%;">
+                                <div class="input-wrap">
+                                    <input type="text" name="name" placeholder="John Smith" required>
+                                    <i class="fa-solid fa-user"></i>
+                                </div>
                             </div>
                             <div style="display: flex; flex-direction: column; gap: 6px;">
                                 <label style="font-size: 0.8rem; font-weight: 700; color: var(--navy); text-transform: uppercase;">Email Address *</label>
-                                <input type="email" name="email" placeholder="john@example.com" required style="padding: 14px; border-radius: 8px; border: 1px solid var(--border-light); font-size: 0.95rem; outline: none; background: var(--bg-secondary); width: 100%;">
+                                <div class="input-wrap">
+                                    <input type="email" name="email" placeholder="john@example.com" required>
+                                    <i class="fa-solid fa-envelope"></i>
+                                </div>
                             </div>
                         </div>
 
                         <div class="form-row" style="display: grid; grid-template-columns: 1fr 1fr; gap: 18px;">
                             <div style="display: flex; flex-direction: column; gap: 6px;">
                                 <label style="font-size: 0.8rem; font-weight: 700; color: var(--navy); text-transform: uppercase;">Phone Number</label>
-                                <input type="tel" name="phone" placeholder="0400 000 000" style="padding: 14px; border-radius: 8px; border: 1px solid var(--border-light); font-size: 0.95rem; outline: none; background: var(--bg-secondary); width: 100%;">
+                                <div class="input-wrap">
+                                    <input type="tel" name="phone" placeholder="0400 000 000">
+                                    <i class="fa-solid fa-phone"></i>
+                                </div>
                             </div>
                             <div style="display: flex; flex-direction: column; gap: 6px;">
                                 <label style="font-size: 0.8rem; font-weight: 700; color: var(--navy); text-transform: uppercase;">Service Needed</label>
-                                <select name="service" style="padding: 14px; border-radius: 8px; border: 1px solid var(--border-light); font-size: 0.95rem; outline: none; background: var(--bg-secondary); color: var(--navy); width: 100%;">
-                                    <option value="Search Engine Optimization">Search Engine Optimization</option>
-                                    <option value="E-commerce">E-commerce Solutions</option>
-                                    <option value="Website Development">Website Development & Design</option>
-                                    <option value="Social Media">Social Media Marketing</option>
-                                    <option value="PPC Advertising">PPC & Google Ads</option>
-                                </select>
+                                <div class="input-wrap">
+                                    <select name="service">
+                                        <option value="Search Engine Optimization">Search Engine Optimization</option>
+                                        <option value="E-commerce">E-commerce</option>
+                                        <option value="Website Development">Website Development &amp; Design</option>
+                                        <option value="Social Media">Social Media</option>
+                                        <option value="PPC Advertising">PPC Advertising</option>
+                                        <option value="Graphic Design">Graphic Design</option>
+                                        <option value="Content Writing">Content Writing</option>
+                                    </select>
+                                    <i class="fa-solid fa-layer-group"></i>
+                                </div>
                             </div>
                         </div>
 
                         <div style="display: flex; flex-direction: column; gap: 6px;">
                             <label style="font-size: 0.8rem; font-weight: 700; color: var(--navy); text-transform: uppercase;">Tell Us About Your Project *</label>
-                            <textarea name="message" rows="4" placeholder="Share your goals, current challenges, or what you'd like to achieve..." required style="padding: 14px; border-radius: 8px; border: 1px solid var(--border-light); font-size: 0.95rem; outline: none; background: var(--bg-secondary); resize: vertical; width: 100%;"><?php if ($selected_plan !== '' && $_SERVER['REQUEST_METHOD'] !== 'POST') { echo htmlspecialchars("I'm interested in the {$selected_plan} plan and would like to learn more.", ENT_QUOTES, 'UTF-8'); } ?></textarea>
+                            <textarea name="message" rows="4" placeholder="Share your goals, current challenges, or what you'd like to achieve..." required style="padding: 14px; border-radius: 8px; border: 1px solid var(--border-light); font-size: 0.95rem; outline: none; background: var(--bg-secondary); resize: vertical; width: 100%; transition: var(--transition-smooth);"><?php if ($selected_plan !== '' && $_SERVER['REQUEST_METHOD'] !== 'POST') { echo htmlspecialchars("I'm interested in the {$selected_plan} plan and would like to learn more.", ENT_QUOTES, 'UTF-8'); } ?></textarea>
                         </div>
 
                         <button type="submit" class="btn-primary" style="width: 100%; padding: 16px; font-size: 1rem; margin-top: 5px; cursor: pointer;">SUBMIT GROWTH REQUEST <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></button>
@@ -191,8 +209,33 @@ include 'header.php';
         </div>
     </section>
 
-    <!-- Inline Responsive Styling for Contact Page Grid & Form Rows -->
+    <!-- Contact Form Styling: icon-prefixed inputs + focus states -->
     <style>
+        .input-wrap { position: relative; }
+        .input-wrap input, .input-wrap select {
+            padding: 14px 14px 14px 44px; border-radius: 8px; border: 1px solid var(--border-light);
+            font-size: 0.95rem; outline: none; background: var(--bg-secondary); color: var(--navy);
+            width: 100%; appearance: none; transition: var(--transition-smooth);
+        }
+        .input-wrap select {
+            cursor: pointer; padding-right: 38px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%235A6482' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+            background-repeat: no-repeat; background-position: right 12px center; background-size: 16px;
+        }
+        .input-wrap > i {
+            position: absolute; left: 15px; top: 50%; transform: translateY(-50%);
+            color: var(--text-muted); font-size: 0.9rem; pointer-events: none; transition: color 0.3s ease;
+        }
+        .input-wrap input:focus ~ i, .input-wrap select:focus ~ i { color: var(--cyan-neon); }
+        .contact-form-card input:focus,
+        .contact-form-card select:focus,
+        .contact-form-card textarea:focus {
+            border-color: var(--cyan-neon) !important;
+            box-shadow: 0 0 0 4px rgba(0, 242, 254, 0.12);
+            background: #fff !important;
+        }
+
+        /* Inline Responsive Styling for Contact Page Grid & Form Rows */
         @media(max-width: 1024px) {
             .contact-grid {
                 grid-template-columns: 1fr !important;

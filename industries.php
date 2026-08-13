@@ -65,18 +65,22 @@ include 'header.php';
             </div>
             <div class="stats-4-grid">
                 <div class="stat-box">
+                    <div class="stat-icon"><i class="fa-solid fa-location-dot"></i></div>
+                    <h3>Top 3</h3>
+                    <p>Avg. Local Map Ranking</p>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-icon"><i class="fa-solid fa-user-plus"></i></div>
                     <h3>+193</h3>
                     <p>Leads Generated</p>
                 </div>
                 <div class="stat-box">
-                    <h3>8.4x</h3>
-                    <p>ROAS Achieved</p>
-                </div>
-                <div class="stat-box">
+                    <div class="stat-icon"><i class="fa-solid fa-arrow-trend-down"></i></div>
                     <h3>-31%</h3>
                     <p>Cost Per Lead</p>
                 </div>
                 <div class="stat-box">
+                    <div class="stat-icon"><i class="fa-solid fa-sack-dollar"></i></div>
                     <h3>+68%</h3>
                     <p>Revenue Growth</p>
                 </div>
