@@ -435,21 +435,11 @@ $page_description = $page_description ?? 'Data-driven Google Ads, Meta Ads, SEO 
 </head>
 <body>
 
-    <!-- SPLASH SCREEN: shows once per browser session, not on every internal page navigation -->
+    <!-- SPLASH SCREEN: plays on every page load/navigation and on refresh -->
     <div id="splash-screen" aria-hidden="true">
         <img src="images/logo-ws.webp" alt="" class="splash-logo">
         <div class="splash-bar"></div>
     </div>
-    <script>
-        // Runs synchronously right after the element so there's no flash of it
-        // re-appearing on internal navigation within the same browser session.
-        if (sessionStorage.getItem('wsSplashSeen')) {
-            var splashEl = document.getElementById('splash-screen');
-            if (splashEl) splashEl.style.display = 'none';
-        } else {
-            sessionStorage.setItem('wsSplashSeen', '1');
-        }
-    </script>
 
     <!-- HEADER (Solid Dark Theme, No Blur) -->
     <header>
