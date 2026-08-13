@@ -27,13 +27,15 @@ $page_description = $page_description ?? 'Data-driven Google Ads, Meta Ads, SEO 
          ~20KB inline block repeated on each request -->
     <link rel="stylesheet" href="css/style.css">
 
-    <!-- GSAP / ScrollTrigger / Three.js: deferred so they never block HTML parsing or
-         first paint. Deferred scripts still execute in source order before
-         DOMContentLoaded, so js/main.js (loaded at the end of the page) can safely
-         assume gsap/ScrollTrigger/THREE are ready. -->
+    <!-- GSAP / ScrollTrigger: deferred so they never block HTML parsing or first paint.
+         Deferred scripts execute in strict source order before DOMContentLoaded, so
+         js/main.js (loaded right after these, at the end of the page) can safely
+         assume gsap/ScrollTrigger are ready. Three.js is intentionally NOT loaded here
+         -- see footer.php for why -- it's ~600KB and only needed by the decorative
+         background, so it must not sit in front of main.js in the defer queue or the
+         header/nav toggle would have to wait for it to finish downloading first. -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
 
     <!-- FontAwesome: loaded non-render-blocking (fetched with the preload's priority,
          applied once ready) since icons are decorative and shouldn't hold up first paint -->

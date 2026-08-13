@@ -74,8 +74,14 @@
     <div id="scroll-progress"></div>
     <button id="back-to-top" aria-label="Back to top" title="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
 
-    <!-- Site JS: nav, scroll effects, GSAP animations, and the Three.js background.
-         One external, cached file instead of ~15KB of inline script per page. -->
+    <!-- Site JS: nav, scroll effects, GSAP animations, and stat counters -- loads and
+         runs as soon as gsap/ScrollTrigger are ready, independent of Three.js below. -->
     <script src="js/main.js" defer></script>
+
+    <!-- Three.js + the background wallpaper animation load after main.js in the defer
+         queue on purpose: they're the heaviest, least time-critical piece (~600KB,
+         purely decorative), so they must never be able to delay header/nav interactivity. -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
+    <script src="js/bg-animation.js" defer></script>
 </body>
 </html>
