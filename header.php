@@ -41,7 +41,17 @@ $page_description = $page_description ?? 'Data-driven Google Ads, Meta Ads, SEO 
         
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
         body { overflow-x: hidden; color: var(--navy); background-color: #ffffff; }
-        
+
+        [id] { scroll-margin-top: 110px; }
+
+        a:focus-visible, button:focus-visible, summary:focus-visible {
+            outline: 2px solid var(--cyan-neon); outline-offset: 3px; border-radius: 4px;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * { scroll-behavior: auto !important; animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+        }
+
         .container { max-width: 1300px; margin: 0 auto; padding: 0 5%; width: 100%; }
         
         .eyebrow { color: var(--magenta-neon); font-weight: 700; letter-spacing: 2px; font-size: 0.85rem; text-transform: uppercase; display: inline-block; margin-bottom: 12px; }
@@ -117,12 +127,19 @@ $page_description = $page_description ?? 'Data-driven Google Ads, Meta Ads, SEO 
         .mobile-btn:hover { color: var(--cyan-neon); transform: scale(1.1); }
 
         /* === BUTTONS === */
-        .btn-primary { 
-            background: linear-gradient(135deg, var(--cyan-neon), var(--magenta-neon)); 
-            color: #fff; padding: 15px 32px; border-radius: 8px; text-decoration: none; 
+        .btn-primary {
+            background: linear-gradient(135deg, var(--cyan-neon), var(--magenta-neon));
+            color: #fff; padding: 15px 32px; border-radius: 8px; text-decoration: none;
             font-weight: 600; transition: var(--transition-smooth); border: none; cursor: pointer; display: inline-block;
             box-shadow: 0 4px 15px rgba(0, 242, 254, 0.25); text-align: center; font-size: 1rem;
+            position: relative; overflow: hidden;
         }
+        .btn-primary::after {
+            content: ''; position: absolute; top: 0; left: -75%; width: 50%; height: 100%;
+            background: linear-gradient(120deg, transparent, rgba(255,255,255,0.4), transparent);
+            transform: skewX(-20deg); transition: left 0.6s ease;
+        }
+        .btn-primary:hover::after { left: 130%; }
         .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 10px 25px rgba(255, 0, 127, 0.35); }
         .btn-secondary { 
             border: 2px solid var(--border-light); color: var(--navy); 
@@ -249,7 +266,9 @@ $page_description = $page_description ?? 'Data-driven Google Ads, Meta Ads, SEO 
         .service-content h3 { font-size: 1.3rem; margin-bottom: 12px; color: var(--navy); font-weight: 700; }
         .service-content p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 20px; flex: 1; }
         .service-link { font-weight: 700; color: var(--navy); text-decoration: none; font-size: 0.9rem; display: flex; align-items: center; gap: 5px; transition: var(--transition-smooth); }
-        .service-card:hover .service-link { color: var(--cyan-neon); }
+        .service-link i { transition: transform 0.3s ease; }
+        .service-card:hover .service-link, .case-card:hover .service-link { color: var(--cyan-neon); }
+        .service-card:hover .service-link i, .case-card:hover .service-link i { transform: translateX(4px); }
 
         /* === PREMIUM METHODOLOGY === */
         .methodology-section { padding: clamp(60px, 8vw, 100px) 0; background: #fff; }
@@ -377,16 +396,60 @@ $page_description = $page_description ?? 'Data-driven Google Ads, Meta Ads, SEO 
             .agency-text h2, .section-header h2 { 
                 font-size: 1.8rem !important; 
             }
-            .m-step { 
-                flex-direction: column !important; 
-                gap: 15px !important; 
-                align-items: flex-start !important; 
-                text-align: left !important; 
+            .m-step {
+                flex-direction: column !important;
+                gap: 15px !important;
+                align-items: flex-start !important;
+                text-align: left !important;
             }
+        }
+
+        /* === SPLASH SCREEN === */
+        /* Pure-CSS driven so it always resolves on its own even if the
+           sessionStorage/JS skip logic below never runs. */
+        #splash-screen {
+            position: fixed; inset: 0; z-index: 9999;
+            background: radial-gradient(circle at center, #10142c 0%, #050814 100%);
+            display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 26px;
+            animation: splashOut 0.6s ease 1.3s forwards;
+        }
+        .splash-logo {
+            width: clamp(160px, 26vw, 240px); height: auto;
+            filter: drop-shadow(0 0 30px rgba(0, 242, 254, 0.35));
+            animation: splashLogoIn 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+        }
+        .splash-bar { width: 130px; height: 3px; border-radius: 3px; background: rgba(255,255,255,0.08); overflow: hidden; }
+        .splash-bar::after {
+            content: ''; display: block; width: 100%; height: 100%; transform-origin: left; transform: scaleX(0);
+            background: linear-gradient(90deg, var(--cyan-neon), var(--magenta-neon));
+            animation: splashBar 1s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both;
+        }
+        @keyframes splashLogoIn { from { opacity: 0; transform: scale(0.82); } to { opacity: 1; transform: scale(1); } }
+        @keyframes splashBar { to { transform: scaleX(1); } }
+        @keyframes splashOut { to { opacity: 0; visibility: hidden; pointer-events: none; } }
+        @media (prefers-reduced-motion: reduce) {
+            #splash-screen, .splash-logo, .splash-bar::after { animation: none !important; }
+            #splash-screen { opacity: 0; visibility: hidden; pointer-events: none; }
         }
     </style>
 </head>
 <body>
+
+    <!-- SPLASH SCREEN: shows once per browser session, not on every internal page navigation -->
+    <div id="splash-screen" aria-hidden="true">
+        <img src="images/logo-ws.webp" alt="" class="splash-logo">
+        <div class="splash-bar"></div>
+    </div>
+    <script>
+        // Runs synchronously right after the element so there's no flash of it
+        // re-appearing on internal navigation within the same browser session.
+        if (sessionStorage.getItem('wsSplashSeen')) {
+            var splashEl = document.getElementById('splash-screen');
+            if (splashEl) splashEl.style.display = 'none';
+        } else {
+            sessionStorage.setItem('wsSplashSeen', '1');
+        }
+    </script>
 
     <!-- HEADER (Solid Dark Theme, No Blur) -->
     <header>

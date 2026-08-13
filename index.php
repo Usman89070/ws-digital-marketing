@@ -131,7 +131,7 @@ include 'header.php';
     </div>
 
     <!-- PREMIUM ABOUT / AGENCY SECTION -->
-<!---<section id="about" class="agency-section fade-up">
+    <section id="about" class="agency-section fade-up">
         <div class="container">
             <div class="agency-grid">
                 <div class="agency-text" id="agency">
@@ -150,7 +150,7 @@ include 'header.php';
                 </div>
             </div>
         </div>
-    </section>-->
+    </section>
 
     <!-- TRUSTED STRIP -->
     <div class="trusted-strip-wrapper fade-up">
@@ -166,7 +166,7 @@ include 'header.php';
     </div>
 
     <!-- PREMIUM DARK STATS SECTION WITH REAL IMAGE BACKGROUND -->
-   <!-- <section class="stats-section fade-up">
+    <section class="stats-section fade-up">
         <div class="container">
             <div class="section-header">
                 <span class="eyebrow" style="color: var(--cyan-neon);">PROVEN METRICS</span>
@@ -191,7 +191,7 @@ include 'header.php';
                 </div>
             </div>
         </div>
-    </section>-->
+    </section>
 
     <!-- UPGRADED SERVICES SECTION WITH REAL IMAGES -->
     <section id="services" class="services-section fade-up">
