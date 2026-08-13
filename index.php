@@ -377,48 +377,36 @@ include 'header.php';
                 <span class="eyebrow" style="color: var(--cyan-neon);">INDUSTRY EXPERTISE</span>
                 <h2 style="font-size: clamp(1.8rem, 4vw, 2.8rem); margin-top: 10px;">Tailored Campaigns That Drive Results</h2>
             </div>
-            <div class="industries-grid">
-                <div class="industry-card">
-                    <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=600&q=80" alt="Trades & Services">
-                    <div class="industry-overlay">
-                        <i class="fa-solid fa-helmet-safety"></i>
-                        <h5>Trades & Services</h5>
-                    </div>
+            <div class="industry-tile-grid">
+                <div class="industry-tile">
+                    <div class="industry-tile-icon"><i class="fa-solid fa-helmet-safety"></i></div>
+                    <h5>Trades & Services</h5>
+                    <p>Plumbing, electrical, refrigeration & local contractors — high-intent local leads that convert.</p>
                 </div>
-                <div class="industry-card">
-                    <img src="https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=600&q=80" alt="Healthcare">
-                    <div class="industry-overlay">
-                        <i class="fa-solid fa-user-doctor"></i>
-                        <h5>Healthcare</h5>
-                    </div>
+                <div class="industry-tile">
+                    <div class="industry-tile-icon"><i class="fa-solid fa-user-doctor"></i></div>
+                    <h5>Healthcare</h5>
+                    <p>Clinics, medical practices, and health specialists building trusted, compliant patient pipelines.</p>
                 </div>
-                <div class="industry-card">
-                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=80" alt="Professional Services">
-                    <div class="industry-overlay">
-                        <i class="fa-solid fa-user-tie"></i>
-                        <h5>Professional</h5>
-                    </div>
+                <div class="industry-tile">
+                    <div class="industry-tile-icon"><i class="fa-solid fa-user-tie"></i></div>
+                    <h5>Professional Services</h5>
+                    <p>Legal, financial, consulting & corporate services that need consistent, qualified inquiries.</p>
                 </div>
-                <div class="industry-card">
-                    <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=600&q=80" alt="eCommerce">
-                    <div class="industry-overlay">
-                        <i class="fa-solid fa-cart-shopping"></i>
-                        <h5>eCommerce</h5>
-                    </div>
+                <div class="industry-tile">
+                    <div class="industry-tile-icon"><i class="fa-solid fa-cart-shopping"></i></div>
+                    <h5>eCommerce</h5>
+                    <p>Shopify stores, retail brands & digital products scaled with full-funnel paid and organic growth.</p>
                 </div>
-                <div class="industry-card">
-                    <img src="https://images.unsplash.com/photo-1551882547-ff40c0d5bf8f?auto=format&fit=crop&w=600&q=80" alt="Hospitality">
-                    <div class="industry-overlay">
-                        <i class="fa-solid fa-utensils"></i>
-                        <h5>Hospitality</h5>
-                    </div>
+                <div class="industry-tile">
+                    <div class="industry-tile-icon"><i class="fa-solid fa-utensils"></i></div>
+                    <h5>Hospitality</h5>
+                    <p>Restaurants, cafes, venues & booking services turning local searches into full tables.</p>
                 </div>
-                <div class="industry-card">
-                    <img src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?auto=format&fit=crop&w=600&q=80" alt="Automotive">
-                    <div class="industry-overlay">
-                        <i class="fa-solid fa-car"></i>
-                        <h5>Automotive</h5>
-                    </div>
+                <div class="industry-tile">
+                    <div class="industry-tile-icon"><i class="fa-solid fa-car"></i></div>
+                    <h5>Automotive</h5>
+                    <p>Repair shops, dealerships & auto detailing services winning more service bookings.</p>
                 </div>
             </div>
         </div>
