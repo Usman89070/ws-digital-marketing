@@ -69,8 +69,12 @@
                         <li><a href="index.php">Home</a></li>
                         <li><a href="about.php">About Us</a></li>
                         <li><a href="services.php">Services</a></li>
-                        <li><a href="index.php#case-studies">Case Studies</a></li>
-                        <li><a href="index.php#contact">Contact Us</a></li>
+                        <li><a href="industries.php">Industries</a></li>
+                        <li><a href="case-studies.php">Case Studies</a></li>
+                        <li><a href="pricing.php">Pricing</a></li>
+                        <li><a href="blog.php">Blog</a></li>
+                        <li><a href="faq.php">FAQ</a></li>
+                        <li><a href="contact.php">Contact Us</a></li>
                     </ul>
                 </div>
 
@@ -81,7 +85,10 @@
                         <li><a href="services.php#seo">Search Engine Optimization</a></li>
                         <li><a href="services.php#ecom">E-commerce</a></li>
                         <li><a href="services.php#web">Website Development</a></li>
-                        <li><a href="services.php#social">Social Media & PPC</a></li>
+                        <li><a href="services.php#social">Social Media</a></li>
+                        <li><a href="services.php#ppc">PPC Advertising</a></li>
+                        <li><a href="services.php#graphic">Graphic Design</a></li>
+                        <li><a href="services.php#content">Content Writing</a></li>
                     </ul>
                 </div>
 
@@ -99,8 +106,8 @@
             <div class="footer-bottom">
                 <p>© 2026 W&S Digital Marketing. All Rights Reserved.</p>
                 <div style="display: flex; gap: 20px;">
-                    <a href="#" style="color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.3s;">Privacy Policy</a>
-                    <a href="#" style="color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.3s;">Terms of Service</a>
+                    <a href="privacy-policy.php" style="color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.3s;">Privacy Policy</a>
+                    <a href="terms-of-service.php" style="color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.3s;">Terms of Service</a>
                 </div>
             </div>
         </div>

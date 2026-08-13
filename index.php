@@ -13,7 +13,7 @@ include 'header.php';
             
             <div class="hero-buttons fade-up">
                 <a href="#contact" class="btn-primary">GET MY FREE GROWTH PLAN <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
-                <a href="#case-studies" class="btn-secondary">SEE OUR RESULTS</a>
+                <a href="case-studies.php" class="btn-secondary">SEE OUR RESULTS</a>
             </div>
         </div>
     </section>
@@ -298,10 +298,6 @@ include 'header.php';
         </div>
     </section>
 
-    <!-- REAL IMAGE CASE STUDIES SECTION -->
-
-    
-
     <!-- TESTIMONIALS WITH REAL HEADSHOTS -->
 
     <section class="testimonials-section fade-up">
@@ -425,7 +421,7 @@ include 'header.php';
                     <span><i class="fa-solid fa-check" style="color: var(--cyan-neon);"></i> Proven Australian Results</span>
                 </div>
                 <div class="cta-btn-wrapper">
-                    <a href="#hero" class="btn-primary" style="padding: 18px 45px; font-size: 1.1rem;">GET MY FREE GROWTH PLAN <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
+                    <a href="contact.php" class="btn-primary" style="padding: 18px 45px; font-size: 1.1rem;">GET MY FREE GROWTH PLAN <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
                 </div>
             </div>
         </div>

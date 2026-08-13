@@ -506,7 +506,7 @@ $page_description = $page_description ?? 'Data-driven Google Ads, Meta Ads, SEO 
                 </ul>
             </nav>
             <div class="nav-cta">
-                <a href="index.php#contact" class="header-cta">GET FREE PLAN</a>
+                <a href="contact.php" class="header-cta">GET FREE PLAN</a>
             </div>
             
             <!-- Mobile Menu Button -->
