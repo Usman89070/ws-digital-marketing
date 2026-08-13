@@ -478,13 +478,13 @@ $page_description = $page_description ?? 'Data-driven Google Ads, Meta Ads, SEO 
                     <li class="dropdown" onclick="toggleDropdown(event)">
                         <a href="services.php">Services <i class="fa-solid fa-chevron-down" style="font-size: 0.75rem; margin-left: 4px;"></i></a>
                         <ul class="dropdown-menu">
-                            <li><a href="services.php#seo">Search Engine Optimization</a></li>
-                            <li><a href="services.php#ecom">E-commerce</a></li>
-                            <li><a href="services.php#web">Website Development & Design</a></li>
-                            <li><a href="services.php#social">Social Media</a></li>
-                            <li><a href="services.php#ppc">PPC Advertising</a></li>
-                            <li><a href="services.php#graphic">Graphic Design</a></li>
-                            <li><a href="services.php#content">Content Writing</a></li>
+                            <li><a href="seo.php">Search Engine Optimization</a></li>
+                            <li><a href="ecommerce.php">E-commerce</a></li>
+                            <li><a href="website-development.php">Website Development & Design</a></li>
+                            <li><a href="social-media.php">Social Media</a></li>
+                            <li><a href="ppc-advertising.php">PPC Advertising</a></li>
+                            <li><a href="graphic-design.php">Graphic Design</a></li>
+                            <li><a href="content-writing.php">Content Writing</a></li>
                         </ul>
                     </li>
 

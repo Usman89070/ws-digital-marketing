@@ -82,13 +82,13 @@
                 <div>
                     <h4 class="footer-heading">Services</h4>
                     <ul class="footer-links">
-                        <li><a href="services.php#seo">Search Engine Optimization</a></li>
-                        <li><a href="services.php#ecom">E-commerce</a></li>
-                        <li><a href="services.php#web">Website Development</a></li>
-                        <li><a href="services.php#social">Social Media</a></li>
-                        <li><a href="services.php#ppc">PPC Advertising</a></li>
-                        <li><a href="services.php#graphic">Graphic Design</a></li>
-                        <li><a href="services.php#content">Content Writing</a></li>
+                        <li><a href="seo.php">Search Engine Optimization</a></li>
+                        <li><a href="ecommerce.php">E-commerce</a></li>
+                        <li><a href="website-development.php">Website Development</a></li>
+                        <li><a href="social-media.php">Social Media</a></li>
+                        <li><a href="ppc-advertising.php">PPC Advertising</a></li>
+                        <li><a href="graphic-design.php">Graphic Design</a></li>
+                        <li><a href="content-writing.php">Content Writing</a></li>
                     </ul>
                 </div>
 
