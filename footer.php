@@ -96,7 +96,7 @@
                 </div>
             </div>
             
-            <div class="footer-bottom fade-up">
+            <div class="footer-bottom">
                 <p>© 2026 W&S Digital Marketing. All Rights Reserved.</p>
                 <div style="display: flex; gap: 20px;">
                     <a href="#" style="color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.3s;">Privacy Policy</a>
@@ -124,7 +124,9 @@
 
         document.addEventListener("DOMContentLoaded", () => {
             gsap.registerPlugin(ScrollTrigger);
-            
+
+            const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
             let mm = gsap.matchMedia();
 
             mm.add("(min-width: 769px)", () => {
@@ -184,13 +186,86 @@
                 return () => {}; 
             });
 
+            // === PREMIUM SITE-WIDE ENTRANCE ANIMATIONS ===
+            // Everything below is purely decorative motion, so it's skipped
+            // entirely for users who've asked for reduced motion.
+            if (prefersReducedMotion) {
+                gsap.set('.fade-up, .hero .fade-up', { opacity: 1, y: 0, x: 0 });
+                return;
+            }
+
+            gsap.fromTo('header', { y: -80, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, ease: 'power3.out' });
+
+            // Hero copy plays immediately as a staggered sequence rather than
+            // each line fading in independently at the same instant.
+            const heroEls = gsap.utils.toArray('.hero .fade-up');
+            if (heroEls.length) {
+                gsap.fromTo(heroEls, { opacity: 0, y: 30 }, {
+                    opacity: 1, y: 0, duration: 0.7, stagger: 0.14, ease: 'power2.out', delay: 0.15
+                });
+            }
+
+            // Every other .fade-up (section wrappers, CTA boxes, footer columns)
+            // reveals as the user scrolls to it.
             gsap.utils.toArray('.fade-up').forEach(element => {
+                if (heroEls.includes(element)) return;
                 gsap.fromTo(element,
                     { opacity: 0, y: 40 },
                     { opacity: 1, y: 0, duration: 0.6, ease: "power2.out",
                       scrollTrigger: { trigger: element, start: "top 85%", toggleActions: "play none none none" }
                     }
                 );
+            });
+
+            // Every card/list inside these grids gets its own scroll-triggered
+            // reveal (rather than one trigger for the whole grid) so long grids
+            // like the case studies page still animate correctly row by row.
+            const gridSelectors = [
+                '.services-grid', '.case-grid', '.testimonials-grid', '.industries-grid',
+                '.stats-4-grid', '.pricing-grid', '.methodology-steps', '.agency-list',
+                '.cta-features', '.faq-list', '.mobile-dash-cards', '.partner-strip'
+            ];
+            gridSelectors.forEach(selector => {
+                gsap.utils.toArray(selector).forEach(grid => {
+                    const items = gsap.utils.toArray(grid.children);
+                    items.forEach((item, i) => {
+                        gsap.fromTo(item, { opacity: 0, y: 34 }, {
+                            opacity: 1, y: 0, duration: 0.55, delay: (i % 3) * 0.08, ease: 'power2.out',
+                            scrollTrigger: { trigger: item, start: 'top 90%', toggleActions: 'play none none none' }
+                        });
+                    });
+                });
+            });
+
+            // Two-column image/text sections slide in from opposite sides.
+            gsap.utils.toArray('.agency-grid, .methodology-grid').forEach(grid => {
+                const media = grid.querySelector('.agency-image-wrapper, .methodology-image');
+                const copy = grid.querySelector('.agency-text, .methodology-steps');
+                const trigger = { trigger: grid, start: 'top 82%', toggleActions: 'play none none none' };
+                if (media) gsap.fromTo(media, { opacity: 0, x: -50 }, { opacity: 1, x: 0, duration: 0.8, ease: 'power2.out', scrollTrigger: trigger });
+                if (copy) gsap.fromTo(copy, { opacity: 0, x: 50 }, { opacity: 1, x: 0, duration: 0.8, ease: 'power2.out', scrollTrigger: trigger });
+            });
+
+            // Stat numbers count up from zero once they scroll into view.
+            gsap.utils.toArray('.stat-box h3').forEach(el => {
+                const text = el.textContent.trim();
+                const match = text.match(/^([^0-9\-]*)(-?[0-9.,]+)(.*)$/);
+                if (!match) return;
+                const [, prefix, rawNum, suffix] = match;
+                const cleanNum = rawNum.replace(/,/g, '');
+                const target = parseFloat(cleanNum);
+                if (isNaN(target)) return;
+                const decimals = (cleanNum.split('.')[1] || '').length;
+                const counter = { val: 0 };
+                ScrollTrigger.create({
+                    trigger: el, start: 'top 88%', once: true,
+                    onEnter: () => {
+                        gsap.to(counter, {
+                            val: target, duration: 1.5, ease: 'power2.out',
+                            onUpdate: () => { el.textContent = prefix + counter.val.toFixed(decimals) + suffix; }
+                        });
+                    }
+                });
             });
         });
     </script>

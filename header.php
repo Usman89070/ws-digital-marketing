@@ -41,7 +41,17 @@ $page_description = $page_description ?? 'Data-driven Google Ads, Meta Ads, SEO 
         
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
         body { overflow-x: hidden; color: var(--navy); background-color: #ffffff; }
-        
+
+        [id] { scroll-margin-top: 110px; }
+
+        a:focus-visible, button:focus-visible, summary:focus-visible {
+            outline: 2px solid var(--cyan-neon); outline-offset: 3px; border-radius: 4px;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * { scroll-behavior: auto !important; animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+        }
+
         .container { max-width: 1300px; margin: 0 auto; padding: 0 5%; width: 100%; }
         
         .eyebrow { color: var(--magenta-neon); font-weight: 700; letter-spacing: 2px; font-size: 0.85rem; text-transform: uppercase; display: inline-block; margin-bottom: 12px; }
@@ -117,12 +127,19 @@ $page_description = $page_description ?? 'Data-driven Google Ads, Meta Ads, SEO 
         .mobile-btn:hover { color: var(--cyan-neon); transform: scale(1.1); }
 
         /* === BUTTONS === */
-        .btn-primary { 
-            background: linear-gradient(135deg, var(--cyan-neon), var(--magenta-neon)); 
-            color: #fff; padding: 15px 32px; border-radius: 8px; text-decoration: none; 
+        .btn-primary {
+            background: linear-gradient(135deg, var(--cyan-neon), var(--magenta-neon));
+            color: #fff; padding: 15px 32px; border-radius: 8px; text-decoration: none;
             font-weight: 600; transition: var(--transition-smooth); border: none; cursor: pointer; display: inline-block;
             box-shadow: 0 4px 15px rgba(0, 242, 254, 0.25); text-align: center; font-size: 1rem;
+            position: relative; overflow: hidden;
         }
+        .btn-primary::after {
+            content: ''; position: absolute; top: 0; left: -75%; width: 50%; height: 100%;
+            background: linear-gradient(120deg, transparent, rgba(255,255,255,0.4), transparent);
+            transform: skewX(-20deg); transition: left 0.6s ease;
+        }
+        .btn-primary:hover::after { left: 130%; }
         .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 10px 25px rgba(255, 0, 127, 0.35); }
         .btn-secondary { 
             border: 2px solid var(--border-light); color: var(--navy); 
@@ -249,7 +266,9 @@ $page_description = $page_description ?? 'Data-driven Google Ads, Meta Ads, SEO 
         .service-content h3 { font-size: 1.3rem; margin-bottom: 12px; color: var(--navy); font-weight: 700; }
         .service-content p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 20px; flex: 1; }
         .service-link { font-weight: 700; color: var(--navy); text-decoration: none; font-size: 0.9rem; display: flex; align-items: center; gap: 5px; transition: var(--transition-smooth); }
-        .service-card:hover .service-link { color: var(--cyan-neon); }
+        .service-link i { transition: transform 0.3s ease; }
+        .service-card:hover .service-link, .case-card:hover .service-link { color: var(--cyan-neon); }
+        .service-card:hover .service-link i, .case-card:hover .service-link i { transform: translateX(4px); }
 
         /* === PREMIUM METHODOLOGY === */
         .methodology-section { padding: clamp(60px, 8vw, 100px) 0; background: #fff; }
