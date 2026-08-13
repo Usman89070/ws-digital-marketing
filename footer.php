@@ -145,7 +145,12 @@
 
         function toggleMenu() {
             const menu = document.getElementById('navMenu');
-            menu.classList.toggle('active');
+            const header = document.querySelector('header');
+            const toggleIcon = document.querySelector('.mobile-btn i');
+            const isOpening = !menu.classList.contains('active');
+            menu.classList.toggle('active', isOpening);
+            if (header) header.classList.toggle('nav-open', isOpening);
+            if (toggleIcon) toggleIcon.className = isOpening ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
         }
 
         document.addEventListener("DOMContentLoaded", () => {
