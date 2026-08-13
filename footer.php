@@ -113,8 +113,14 @@
         </div>
     </footer>
 
+    <div id="scroll-progress"></div>
+    <button id="back-to-top" aria-label="Back to top" title="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
+
     <!-- SCRIPTS -->
     <script>
+        const progressBar = document.getElementById('scroll-progress');
+        const backToTopBtn = document.getElementById('back-to-top');
+
         window.addEventListener('scroll', () => {
             const header = document.querySelector('header');
             if (window.scrollY > 50) {
@@ -122,7 +128,19 @@
             } else {
                 header.classList.remove('scrolled');
             }
-        });
+
+            const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+            const progress = scrollable > 0 ? (window.scrollY / scrollable) * 100 : 0;
+            if (progressBar) progressBar.style.width = progress + '%';
+
+            if (backToTopBtn) backToTopBtn.classList.toggle('is-visible', window.scrollY > 600);
+        }, { passive: true });
+
+        if (backToTopBtn) {
+            backToTopBtn.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+            });
+        }
 
         function toggleMenu() {
             const menu = document.getElementById('navMenu');
@@ -203,14 +221,75 @@
 
             gsap.fromTo('header', { y: -80, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, ease: 'power3.out' });
 
+            // Wraps every word inside a heading in its own <span class="split-word">,
+            // walking the DOM so existing markup (line breaks, the gradient <span>)
+            // is preserved rather than clobbered by a naive textContent rebuild.
+            function splitWords(container) {
+                const words = [];
+                function walk(node) {
+                    if (node.nodeType === Node.TEXT_NODE) {
+                        const parts = node.textContent.split(/(\s+)/);
+                        const frag = document.createDocumentFragment();
+                        parts.forEach(part => {
+                            if (part === '') return;
+                            if (/^\s+$/.test(part)) {
+                                frag.appendChild(document.createTextNode(part));
+                            } else {
+                                const span = document.createElement('span');
+                                span.className = 'split-word';
+                                span.textContent = part;
+                                frag.appendChild(span);
+                                words.push(span);
+                            }
+                        });
+                        node.parentNode.replaceChild(frag, node);
+                    } else if (node.nodeType === Node.ELEMENT_NODE) {
+                        // Gradient-clipped text (.text-gradient) paints via its own
+                        // background with background-clip:text, which doesn't
+                        // inherit to children — splitting its words into separate
+                        // spans would strip the gradient off entirely (each child
+                        // has no background of its own to clip). Animate it as one
+                        // atomic unit instead of recursing into its text.
+                        if (node.classList && node.classList.contains('text-gradient')) {
+                            node.classList.add('split-word');
+                            words.push(node);
+                            return;
+                        }
+                        Array.from(node.childNodes).forEach(walk);
+                    }
+                }
+                Array.from(container.childNodes).forEach(walk);
+                return words;
+            }
+
             // Hero copy plays immediately as a staggered sequence rather than
-            // each line fading in independently at the same instant.
-            const heroEls = gsap.utils.toArray('.hero .fade-up');
+            // each line fading in independently at the same instant. The H1
+            // gets a more dramatic word-by-word reveal instead of a flat fade.
+            const heroHeading = document.querySelector('.hero-content h1');
+            const heroHeadingWords = heroHeading ? splitWords(heroHeading) : [];
+            if (heroHeadingWords.length) gsap.set(heroHeadingWords, { opacity: 0, y: 22 });
+
+            const heroEls = gsap.utils.toArray('.hero .fade-up').filter(el => el.tagName !== 'H1');
             if (heroEls.length) {
                 gsap.fromTo(heroEls, { opacity: 0, y: 30 }, {
                     opacity: 1, y: 0, duration: 0.7, stagger: 0.14, ease: 'power2.out', delay: 0.15
                 });
             }
+            if (heroHeadingWords.length) {
+                gsap.to(heroHeadingWords, { opacity: 1, y: 0, duration: 0.6, stagger: 0.028, ease: 'power2.out', delay: 0.15 });
+            }
+
+            // Section headings (the h2 inside every .section-header) get the
+            // same word-by-word treatment as they scroll into view.
+            document.querySelectorAll('.section-header h2').forEach(h2 => {
+                const words = splitWords(h2);
+                if (!words.length) return;
+                gsap.set(words, { opacity: 0, y: 18 });
+                gsap.to(words, {
+                    opacity: 1, y: 0, duration: 0.5, stagger: 0.025, ease: 'power2.out',
+                    scrollTrigger: { trigger: h2, start: 'top 88%', toggleActions: 'play none none none' }
+                });
+            });
 
             // Every other .fade-up (section wrappers, CTA boxes, footer columns)
             // reveals as the user scrolls to it.

@@ -14,7 +14,7 @@ include 'header.php';
     </section>
 
     <!-- TERMS CONTENT -->
-    <section class="services-section fade-up" style="background: #fff;">
+    <section class="services-section fade-up">
         <div class="container legal-content" style="max-width: 850px;">
 
             <p>These Terms of Service ("Terms") govern your use of the W&amp;S Digital Marketing website and the services we provide. By using our website or engaging our services, you agree to these Terms.</p>

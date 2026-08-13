@@ -69,7 +69,7 @@ include 'header.php';
     </section>
 
     <!-- CONTACT SECTION (Form & Info Cards Grid) -->
-    <section class="agency-section fade-up" style="background: #ffffff; padding-top: 10px; padding-bottom: 100px;">
+    <section class="agency-section fade-up" style="padding-top: 10px; padding-bottom: 100px;">
         <div class="container">
             
             <?php if ($email_sent): ?>

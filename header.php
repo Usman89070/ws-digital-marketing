@@ -49,8 +49,33 @@ $page_description = $page_description ?? 'Data-driven Google Ads, Meta Ads, SEO 
         }
 
         @media (prefers-reduced-motion: reduce) {
-            * { scroll-behavior: auto !important; animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+            *, *::before, *::after {
+                scroll-behavior: auto !important; animation-duration: 0.01ms !important; animation-delay: 0s !important;
+                animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; transition-delay: 0s !important;
+            }
         }
+
+        /* === SCROLL PROGRESS BAR === */
+        #scroll-progress {
+            position: fixed; top: 0; left: 0; height: 3px; width: 0%; z-index: 1100;
+            background: linear-gradient(90deg, var(--cyan-neon), var(--magenta-neon));
+            box-shadow: 0 0 10px rgba(0, 242, 254, 0.6); pointer-events: none;
+        }
+
+        /* === BACK TO TOP BUTTON === */
+        #back-to-top {
+            position: fixed; right: clamp(16px, 3vw, 28px); bottom: clamp(16px, 3vw, 28px); z-index: 900;
+            width: 48px; height: 48px; border-radius: 50%; border: 1px solid rgba(0, 242, 254, 0.3);
+            background: var(--navy); color: var(--cyan-neon); font-size: 1.1rem; cursor: pointer;
+            display: flex; align-items: center; justify-content: center; box-shadow: var(--shadow-hover);
+            opacity: 0; visibility: hidden; transform: translateY(12px); transition: var(--transition-smooth);
+        }
+        #back-to-top.is-visible { opacity: 1; visibility: visible; transform: translateY(0); }
+        #back-to-top:hover { background: var(--cyan-neon); color: var(--navy); transform: translateY(-4px); }
+
+        /* === SPLIT-TEXT REVEAL UTILITY (hero h1 / section h2 headings) === */
+        .split-line { overflow: hidden; display: block; }
+        .split-word { display: inline-block; will-change: transform, opacity; }
 
         .container { max-width: 1300px; margin: 0 auto; padding: 0 5%; width: 100%; }
         
@@ -225,7 +250,13 @@ $page_description = $page_description ?? 'Data-driven Google Ads, Meta Ads, SEO 
         .m-dash-card-value { font-size: 1.2rem; font-weight: 800; color: var(--navy); }
 
         /* === PREMIUM ABOUT / AGENCY SECTION === */
-        .agency-section { padding: clamp(60px, 8vw, 100px) 0; background: #ffffff; }
+        .agency-section {
+            padding: clamp(60px, 8vw, 100px) 0;
+            background:
+                radial-gradient(650px circle at 8% 15%, rgba(0, 242, 254, 0.055), transparent 60%),
+                radial-gradient(550px circle at 95% 85%, rgba(255, 0, 127, 0.045), transparent 60%),
+                #ffffff;
+        }
         .agency-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(30px, 5vw, 60px); align-items: center; }
         .agency-text h2 { font-size: clamp(1.8rem, 4vw, 2.8rem); color: var(--navy); font-weight: 800; margin-bottom: 20px; line-height: 1.1; }
         .agency-text p { color: var(--text-muted); font-size: clamp(0.95rem, 1.5vw, 1.05rem); line-height: 1.7; margin-bottom: 25px; }
@@ -253,7 +284,13 @@ $page_description = $page_description ?? 'Data-driven Google Ads, Meta Ads, SEO 
         .stat-box p { font-size: clamp(0.85rem, 1.5vw, 1rem); color: rgba(255,255,255,0.8); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
 
         /* === UPGRADED SERVICES SECTION === */
-        .services-section { padding: clamp(60px, 8vw, 100px) 0; background: var(--bg-secondary); }
+        .services-section {
+            padding: clamp(60px, 8vw, 100px) 0;
+            background:
+                radial-gradient(600px circle at 92% 10%, rgba(0, 242, 254, 0.06), transparent 55%),
+                radial-gradient(600px circle at 5% 90%, rgba(255, 0, 127, 0.05), transparent 55%),
+                var(--bg-secondary);
+        }
         .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 35px; margin-top: clamp(30px, 5vw, 50px);}
         .service-card { background: #fff; border: 1px solid var(--border-light); border-radius: 20px; transition: var(--transition-smooth); box-shadow: var(--shadow-sm); overflow: hidden; display: flex; flex-direction: column; }
         .service-card:hover { transform: translateY(-10px); box-shadow: var(--shadow-hover); border-color: var(--cyan-neon); }
@@ -271,7 +308,13 @@ $page_description = $page_description ?? 'Data-driven Google Ads, Meta Ads, SEO 
         .service-card:hover .service-link i, .case-card:hover .service-link i { transform: translateX(4px); }
 
         /* === PREMIUM METHODOLOGY === */
-        .methodology-section { padding: clamp(60px, 8vw, 100px) 0; background: #fff; }
+        .methodology-section {
+            padding: clamp(60px, 8vw, 100px) 0;
+            background:
+                radial-gradient(600px circle at 10% 10%, rgba(255, 0, 127, 0.05), transparent 55%),
+                radial-gradient(600px circle at 90% 90%, rgba(0, 242, 254, 0.06), transparent 55%),
+                #fff;
+        }
         .methodology-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(30px, 5vw, 60px); align-items: center; margin-top: clamp(30px, 5vw, 50px); }
         .methodology-image { border-radius: 20px; overflow: hidden; height: 100%; min-height: 400px; position: relative; box-shadow: var(--shadow-md); }
         .methodology-image img { width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0; }
@@ -284,7 +327,13 @@ $page_description = $page_description ?? 'Data-driven Google Ads, Meta Ads, SEO 
         .m-step-content p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; }
 
         /* === CASE STUDIES === */
-        .case-studies-section { padding: clamp(60px, 8vw, 100px) 0; background: var(--bg-secondary); }
+        .case-studies-section {
+            padding: clamp(60px, 8vw, 100px) 0;
+            background:
+                radial-gradient(600px circle at 95% 5%, rgba(255, 0, 127, 0.05), transparent 55%),
+                radial-gradient(600px circle at 0% 95%, rgba(0, 242, 254, 0.06), transparent 55%),
+                var(--bg-secondary);
+        }
         .case-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 30px; margin-top: clamp(30px, 5vw, 50px); }
         .case-card { background: #fff; border-radius: 20px; overflow: hidden; box-shadow: var(--shadow-md); transition: var(--transition-smooth); border: 1px solid var(--border-light); display: flex; flex-direction: column; }
         .case-card:hover { transform: translateY(-10px); border-color: var(--cyan-neon); box-shadow: var(--shadow-hover); }
@@ -302,12 +351,23 @@ $page_description = $page_description ?? 'Data-driven Google Ads, Meta Ads, SEO 
         .case-content p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin: 0; }
 
         /* === TESTIMONIALS === */
-        .testimonials-section { padding: clamp(60px, 8vw, 100px) 0; background: #fff; }
+        .testimonials-section {
+            padding: clamp(60px, 8vw, 100px) 0;
+            background:
+                radial-gradient(600px circle at 8% 8%, rgba(0, 242, 254, 0.05), transparent 55%),
+                radial-gradient(600px circle at 92% 92%, rgba(255, 0, 127, 0.05), transparent 55%),
+                #fff;
+        }
         .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 30px; margin-top: clamp(30px, 5vw, 50px); }
-        .testi-card { background: #fff; padding: clamp(25px, 5vw, 40px); border-radius: 20px; border: 1px solid var(--border-light); box-shadow: var(--shadow-sm); display: flex; flex-direction: column; justify-content: space-between; transition: var(--transition-smooth); }
+        .testi-card { background: #fff; padding: clamp(25px, 5vw, 40px); border-radius: 20px; border: 1px solid var(--border-light); box-shadow: var(--shadow-sm); display: flex; flex-direction: column; justify-content: space-between; transition: var(--transition-smooth); position: relative; overflow: hidden; }
+        .testi-card::before {
+            content: '\201C'; position: absolute; top: -10px; right: 20px; font-size: 6rem; font-family: Georgia, serif;
+            color: var(--cyan-neon); opacity: 0.08; line-height: 1; pointer-events: none;
+        }
         .testi-card:hover { transform: translateY(-8px); border-color: var(--cyan-neon); box-shadow: var(--shadow-hover); }
+        .testi-card:hover::before { opacity: 0.14; }
         .testi-stars { color: #F59E0B; font-size: 1.2rem; margin-bottom: 20px; letter-spacing: 2px; }
-        .testi-text { font-size: clamp(0.95rem, 1.5vw, 1.05rem); color: var(--navy); line-height: 1.7; margin-bottom: 30px; font-weight: 400; font-style: italic; }
+        .testi-text { font-size: clamp(0.95rem, 1.5vw, 1.05rem); color: var(--navy); line-height: 1.7; margin-bottom: 30px; font-weight: 400; font-style: italic; position: relative; z-index: 1; }
         .testi-author { display: flex; align-items: center; gap: 15px; border-top: 1px solid var(--border-light); padding-top: 20px; }
         .testi-avatar { width: 50px; height: 50px; border-radius: 50%; overflow: hidden; background: var(--bg-secondary); flex-shrink: 0;}
         .testi-avatar img { width: 100%; height: 100%; object-fit: cover; }
@@ -316,7 +376,13 @@ $page_description = $page_description ?? 'Data-driven Google Ads, Meta Ads, SEO 
 
         /* === INDUSTRIES: icon tiles, no photos, fixed 3-up grid (used on the
            homepage teaser and the dedicated Industries page) === */
-        .industries-section { padding: clamp(60px, 8vw, 100px) 0; background: var(--bg-secondary); }
+        .industries-section {
+            padding: clamp(60px, 8vw, 100px) 0;
+            background:
+                radial-gradient(600px circle at 90% 8%, rgba(0, 242, 254, 0.06), transparent 55%),
+                radial-gradient(600px circle at 8% 92%, rgba(255, 0, 127, 0.05), transparent 55%),
+                var(--bg-secondary);
+        }
         .industry-tile-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(20px, 3vw, 30px); margin-top: clamp(30px, 5vw, 50px); }
         .industry-tile {
             position: relative; background: #fff; border: 1px solid var(--border-light); border-radius: 20px;
@@ -352,9 +418,32 @@ $page_description = $page_description ?? 'Data-driven Google Ads, Meta Ads, SEO 
 
         /* === CTA SECTION === */
         .cta-section { padding: clamp(60px, 8vw, 120px) 0; background: #ffffff; }
-        .cta-box { background: var(--navy); border-radius: 30px; max-width: 1000px; width: 100%; margin: 0 auto; padding: clamp(40px, 6vw, 80px) clamp(20px, 5vw, 50px); text-align: center; color: #fff; box-shadow: var(--shadow-hover); position: relative; overflow: hidden; border: 1px solid rgba(0, 242, 254, 0.2); }
-        .cta-box::before { content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 60%; height: 3px; background: linear-gradient(90deg, transparent, var(--cyan-neon), var(--magenta-neon), transparent); }
-        .cta-badge { display: inline-block; background: rgba(0, 242, 254, 0.1); color: var(--cyan-neon); border: 1px solid rgba(0, 242, 254, 0.2); padding: 8px 18px; border-radius: 20px; font-size: 0.8rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 20px; }
+        .cta-box {
+            background: var(--navy); border-radius: 30px; max-width: 1000px; width: 100%; margin: 0 auto;
+            padding: clamp(40px, 6vw, 80px) clamp(20px, 5vw, 50px); text-align: center; color: #fff;
+            box-shadow: var(--shadow-hover); position: relative; overflow: hidden; border: 1px solid rgba(0, 242, 254, 0.2);
+        }
+        .cta-box::before {
+            content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 60%; height: 3px;
+            background: linear-gradient(90deg, transparent, var(--cyan-neon), var(--magenta-neon), transparent);
+        }
+        .cta-box::after {
+            content: ''; position: absolute; inset: -40%; z-index: 0; pointer-events: none;
+            background: radial-gradient(circle, rgba(0, 242, 254, 0.15), transparent 60%);
+            animation: ctaGlowDrift 10s ease-in-out infinite alternate;
+        }
+        .cta-box > * { position: relative; z-index: 1; }
+        @keyframes ctaGlowDrift {
+            0% { transform: translate(-8%, -6%) scale(1); }
+            100% { transform: translate(8%, 6%) scale(1.15); }
+        }
+        .cta-badge {
+            display: inline-flex; align-items: center; gap: 8px; background: rgba(0, 242, 254, 0.1); color: var(--cyan-neon);
+            border: 1px solid rgba(0, 242, 254, 0.2); padding: 8px 18px; border-radius: 20px; font-size: 0.8rem;
+            font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 20px;
+        }
+        .cta-badge i { animation: badgeBob 2.4s ease-in-out infinite; }
+        @keyframes badgeBob { 0%, 100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-3px) rotate(8deg); } }
         .cta-box h2 { font-size: clamp(1.8rem, 4vw, 3rem); font-weight: 800; letter-spacing: -1px; margin-bottom: 20px; }
         .cta-box p { margin-bottom: 40px; font-size: clamp(0.95rem, 2vw, 1.15rem); color: rgba(255,255,255,0.7); max-width: 600px; margin-left: auto; margin-right: auto; line-height: 1.6; }
         .cta-features { display: flex; justify-content: center; gap: clamp(10px, 2vw, 30px); margin-bottom: 40px; font-weight: 600; font-size: clamp(0.8rem, 1.5vw, 0.95rem); flex-wrap: wrap; }
@@ -371,8 +460,19 @@ $page_description = $page_description ?? 'Data-driven Google Ads, Meta Ads, SEO 
                 transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1); 
             }
             .nav-menu.active { max-height: 600px; padding: 10px 0; overflow-y: auto; }
-            .nav-menu li { width: 100%; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.05); }
+            .nav-menu li {
+                width: 100%; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.05);
+                opacity: 0; transform: translateX(-12px); transition: opacity 0.35s ease, transform 0.35s ease;
+            }
             .nav-menu li:last-child { border-bottom: none; }
+            .nav-menu.active li { opacity: 1; transform: translateX(0); }
+            .nav-menu.active li:nth-child(1) { transition-delay: 0.04s; }
+            .nav-menu.active li:nth-child(2) { transition-delay: 0.08s; }
+            .nav-menu.active li:nth-child(3) { transition-delay: 0.12s; }
+            .nav-menu.active li:nth-child(4) { transition-delay: 0.16s; }
+            .nav-menu.active li:nth-child(5) { transition-delay: 0.2s; }
+            .nav-menu.active li:nth-child(6) { transition-delay: 0.24s; }
+            .nav-menu.active li:nth-child(7) { transition-delay: 0.28s; }
             .nav-menu li a { display: block; padding: 15px; color: #fff; font-size: 1.05rem; }
             .nav-menu li a::after { display: none; } 
             .nav-menu li a:hover { background: rgba(0, 242, 254, 0.08); color: var(--cyan-neon); }

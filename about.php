@@ -36,7 +36,7 @@ include 'header.php';
     </section>
 
     <!-- CORE VALUES SECTION (Reusing Services Grid for a clean look) -->
-    <section class="services-section fade-up" style="background: #ffffff;">
+    <section class="services-section fade-up">
         <div class="container">
             <div class="section-header">
                 <span class="eyebrow">CORE VALUES</span>

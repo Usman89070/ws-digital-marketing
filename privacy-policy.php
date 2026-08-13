@@ -14,7 +14,7 @@ include 'header.php';
     </section>
 
     <!-- POLICY CONTENT -->
-    <section class="services-section fade-up" style="background: #fff;">
+    <section class="services-section fade-up">
         <div class="container legal-content" style="max-width: 850px;">
 
             <p>W&amp;S Digital Marketing ("we", "us", "our") respects your privacy. This policy explains what personal information we collect, how we use it, and the choices you have.</p>

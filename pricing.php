@@ -14,7 +14,7 @@ include 'header.php';
     </section>
 
     <!-- PRICING GRID -->
-    <section class="services-section fade-up" style="background: #fff;">
+    <section class="services-section fade-up">
         <div class="container">
             <div class="pricing-grid">
 
