@@ -90,12 +90,6 @@ $page_description = $page_description ?? 'Data-driven Google Ads, Meta Ads, SEO 
             border-bottom: 1px solid rgba(0, 242, 254, 0.15); 
             transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        header.scrolled {
-            height: 75px;
-            background: #050814;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            border-bottom: 1px solid rgba(0, 242, 254, 0.3);
-        }
         .nav-wrapper { display: flex; justify-content: space-between; align-items: center; width: 100%; height: 100%; position: relative; }
         
         .logo { display: flex; align-items: center; height: 100%; text-decoration: none; position: relative; z-index: 3; }
@@ -161,10 +155,6 @@ $page_description = $page_description ?? 'Data-driven Google Ads, Meta Ads, SEO 
         }
         .mobile-btn:hover { color: var(--cyan-neon); transform: scale(1.1); }
 
-        /* === SCROLL-COLLAPSE HEADER: LOGO CENTERS, NAV HIDES BEHIND TOGGLE === */
-        header nav { transition: opacity 0.3s ease; }
-        .nav-cta { transition: opacity 0.3s ease; }
-
         /* === CARPET-ROLL NAV REVEAL: leading edge that "unrolls" the menu open === */
         .nav-roll-edge {
             position: absolute; top: 0; left: 0; width: 16px; height: 100%;
@@ -178,19 +168,6 @@ $page_description = $page_description ?? 'Data-driven Google Ads, Meta Ads, SEO 
             box-shadow: 0 0 18px rgba(0, 242, 254, 0.55), 0 0 30px rgba(255, 0, 127, 0.3), 6px 0 20px rgba(0, 0, 0, 0.45);
             opacity: 0; visibility: hidden; pointer-events: none; z-index: 25;
         }
-
-        header.scrolled:not(.nav-open) .nav-wrapper { justify-content: center; }
-        header.scrolled:not(.nav-open) .logo-img { height: clamp(34px, 4.5vw, 46px); }
-        header.scrolled:not(.nav-open) nav,
-        header.scrolled:not(.nav-open) .nav-cta {
-            opacity: 0; pointer-events: none; position: absolute; left: -9999px;
-        }
-        header.scrolled .mobile-btn {
-            display: flex; align-items: center; justify-content: center;
-            width: 44px; height: 44px;
-            position: absolute; right: 0; top: 50%; transform: translateY(-50%); margin-left: 0;
-        }
-        header.scrolled.nav-open { height: 100px; background: #0B0F25; box-shadow: none; }
 
         /* === BUTTONS === */
         .btn-primary {

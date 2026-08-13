@@ -123,13 +123,6 @@
         const backToTopBtn = document.getElementById('back-to-top');
 
         window.addEventListener('scroll', () => {
-            const header = document.querySelector('header');
-            if (window.scrollY > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-
             const scrollable = document.documentElement.scrollHeight - window.innerHeight;
             const progress = scrollable > 0 ? (window.scrollY / scrollable) * 100 : 0;
             if (progressBar) progressBar.style.width = progress + '%';
@@ -152,7 +145,7 @@
             const toggleIcon = document.querySelector('.mobile-btn i');
             const isOpening = !menu.classList.contains('active');
             const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-            const isToggleControlled = window.innerWidth <= 1200 || header.classList.contains('scrolled') || header.classList.contains('nav-open');
+            const isToggleControlled = window.innerWidth <= 1200 || header.classList.contains('nav-open');
 
             if (toggleIcon) toggleIcon.className = isOpening ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
             if (navRollTween) navRollTween.kill();
