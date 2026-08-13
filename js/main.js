@@ -6,9 +6,13 @@
 // file needed THREE it would have to wait for the whole 600KB+ library first.
 
 
-function toggleDropdown(e) {
+// Called from the chevron icon only (not the link text), so tapping the label on
+// mobile still navigates normally while tapping the chevron opens the submenu instead.
+function toggleDropdown(e, icon) {
     if (window.innerWidth <= 1200) {
-        e.currentTarget.classList.toggle('active');
+        e.preventDefault();
+        e.stopPropagation();
+        icon.closest('.dropdown').classList.toggle('active');
     }
 }
 
