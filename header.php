@@ -318,10 +318,36 @@ $page_description = $page_description ?? 'Data-driven Google Ads, Meta Ads, SEO 
         .methodology-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(30px, 5vw, 60px); align-items: center; margin-top: clamp(30px, 5vw, 50px); }
         .methodology-image { border-radius: 20px; overflow: hidden; height: 100%; min-height: 400px; position: relative; box-shadow: var(--shadow-md); }
         .methodology-image img { width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0; }
-        .methodology-steps { display: flex; flex-direction: column; gap: 20px; }
-        .m-step { background: #fff; padding: clamp(20px, 3vw, 30px); border-radius: 16px; border: 1px solid var(--border-light); display: flex; gap: 20px; box-shadow: var(--shadow-sm); transition: var(--transition-smooth); }
+
+        /* Floating proof badge over the methodology image */
+        .methodology-badge {
+            position: absolute; bottom: clamp(16px, 3vw, 24px); left: clamp(16px, 3vw, 24px); z-index: 2;
+            background: #fff; border-radius: 16px; padding: 14px 18px; box-shadow: var(--shadow-hover);
+            display: flex; align-items: center; gap: 14px; max-width: calc(100% - 32px);
+        }
+        .methodology-badge-icon {
+            width: 44px; height: 44px; min-width: 44px; border-radius: 12px;
+            background: linear-gradient(135deg, var(--cyan-neon), var(--magenta-neon));
+            display: flex; align-items: center; justify-content: center; color: #fff; font-size: 1.15rem;
+        }
+        .methodology-badge h6 { font-size: 1.15rem; font-weight: 800; color: var(--navy); line-height: 1.1; margin-bottom: 3px; }
+        .methodology-badge span { font-size: 0.72rem; color: var(--text-muted); font-weight: 700; text-transform: uppercase; letter-spacing: 0.4px; }
+
+        .methodology-steps { position: relative; display: flex; flex-direction: column; gap: 20px; }
+        .methodology-steps::before {
+            content: ''; position: absolute; top: 25px; bottom: 25px; left: clamp(43px, 4vw, 48px); width: 2px;
+            background: linear-gradient(to bottom, var(--cyan-neon), var(--magenta-neon)); opacity: 0.25; z-index: 0;
+        }
+        .m-step { background: #fff; padding: clamp(20px, 3vw, 30px); border-radius: 16px; border: 1px solid var(--border-light); display: flex; gap: 20px; box-shadow: var(--shadow-sm); transition: var(--transition-smooth); position: relative; z-index: 1; }
         .m-step:hover { transform: translateX(10px); border-color: var(--cyan-neon); box-shadow: var(--shadow-hover); }
-        .m-step-num { font-size: clamp(1.8rem, 3vw, 2.2rem); font-weight: 800; color: transparent; -webkit-text-stroke: 1.5px var(--cyan-neon); opacity: 0.7; line-height: 1; min-width: 45px; }
+        .m-step-num {
+            width: clamp(44px, 4vw, 50px); height: clamp(44px, 4vw, 50px); min-width: clamp(44px, 4vw, 50px);
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-size: clamp(1.1rem, 2vw, 1.3rem); font-weight: 800; color: #fff; line-height: 1;
+            background: linear-gradient(135deg, var(--cyan-neon), var(--magenta-neon));
+            box-shadow: 0 6px 16px rgba(0, 242, 254, 0.3); transition: var(--transition-smooth);
+        }
+        .m-step:hover .m-step-num { transform: scale(1.08) rotate(-6deg); }
         .m-step-content h4 { font-size: clamp(1.1rem, 2vw, 1.2rem); color: var(--navy); margin-bottom: 8px; font-weight: 700; display: flex; align-items: center; gap: 10px; }
         .m-step-content h4 i { color: var(--cyan-neon); font-size: 1.1rem;}
         .m-step-content p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; }
@@ -367,10 +393,26 @@ $page_description = $page_description ?? 'Data-driven Google Ads, Meta Ads, SEO 
         .testi-card:hover { transform: translateY(-8px); border-color: var(--cyan-neon); box-shadow: var(--shadow-hover); }
         .testi-card:hover::before { opacity: 0.14; }
         .testi-stars { color: #F59E0B; font-size: 1.2rem; margin-bottom: 20px; letter-spacing: 2px; }
+        .testi-stars i { display: inline-block; transition: transform 0.25s ease; }
+        .testi-card:hover .testi-stars i:nth-child(1) { transition-delay: 0s; }
+        .testi-card:hover .testi-stars i:nth-child(2) { transition-delay: 0.05s; }
+        .testi-card:hover .testi-stars i:nth-child(3) { transition-delay: 0.1s; }
+        .testi-card:hover .testi-stars i:nth-child(4) { transition-delay: 0.15s; }
+        .testi-card:hover .testi-stars i:nth-child(5) { transition-delay: 0.2s; }
+        .testi-card:hover .testi-stars i { transform: scale(1.25) rotate(8deg); }
         .testi-text { font-size: clamp(0.95rem, 1.5vw, 1.05rem); color: var(--navy); line-height: 1.7; margin-bottom: 30px; font-weight: 400; font-style: italic; position: relative; z-index: 1; }
         .testi-author { display: flex; align-items: center; gap: 15px; border-top: 1px solid var(--border-light); padding-top: 20px; }
-        .testi-avatar { width: 50px; height: 50px; border-radius: 50%; overflow: hidden; background: var(--bg-secondary); flex-shrink: 0;}
-        .testi-avatar img { width: 100%; height: 100%; object-fit: cover; }
+        .testi-avatar-wrap { position: relative; flex-shrink: 0; }
+        .testi-avatar {
+            width: 52px; height: 52px; border-radius: 50%; flex-shrink: 0; padding: 2.5px;
+            background: linear-gradient(135deg, var(--cyan-neon), var(--magenta-neon));
+        }
+        .testi-avatar img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; display: block; border: 2px solid #fff; }
+        .testi-verified {
+            position: absolute; bottom: -2px; right: -2px; width: 18px; height: 18px; border-radius: 50%;
+            background: var(--cyan-neon); border: 2px solid #fff; display: flex; align-items: center; justify-content: center;
+            font-size: 0.55rem; color: var(--navy);
+        }
         .testi-author-info h5 { font-size: 1.05rem; color: var(--navy); font-weight: 700; margin-bottom: 3px; }
         .testi-author-info span { font-size: 0.85rem; color: var(--text-muted); font-weight: 500; }
 

@@ -324,10 +324,10 @@
                 });
             });
 
-            // Two-column image/text sections slide in from opposite sides.
-            gsap.utils.toArray('.agency-grid, .methodology-grid').forEach(grid => {
-                const media = grid.querySelector('.agency-image-wrapper, .methodology-image');
-                const copy = grid.querySelector('.agency-text, .methodology-steps');
+            // Two-column image/text (or info/form) sections slide in from opposite sides.
+            gsap.utils.toArray('.agency-grid, .methodology-grid, .contact-grid').forEach(grid => {
+                const media = grid.querySelector('.agency-image-wrapper, .methodology-image, .contact-info-card');
+                const copy = grid.querySelector('.agency-text, .methodology-steps, .contact-form-card');
                 const trigger = { trigger: grid, start: 'top 82%', toggleActions: 'play none none none' };
                 if (media) gsap.fromTo(media, { opacity: 0, x: -50 }, { opacity: 1, x: 0, duration: 0.8, ease: 'power2.out', scrollTrigger: trigger });
                 if (copy) gsap.fromTo(copy, { opacity: 0, x: 50 }, { opacity: 1, x: 0, duration: 0.8, ease: 'power2.out', scrollTrigger: trigger });
