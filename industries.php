@@ -1,4 +1,8 @@
-<?php include 'header.php'; ?>
+<?php
+$page_title = 'Industries We Serve';
+$page_description = 'Tailored digital marketing strategies for trades, healthcare, professional services, eCommerce, hospitality and automotive businesses across Australia.';
+include 'header.php';
+?>
 
     <!-- INDUSTRIES HERO SECTION -->
     <section class="hero" style="padding-bottom: clamp(40px, 8vw, 80px);">

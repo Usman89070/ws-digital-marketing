@@ -1,4 +1,8 @@
-<?php include 'header.php'; ?>
+<?php
+$page_title = 'Digital Marketing Agency Australia';
+$page_description = 'W&S Digital Marketing turns digital marketing into measurable growth with data-driven Google Ads, Meta Ads, SEO and web design for ambitious Australian businesses.';
+include 'header.php';
+?>
 
     <!-- SECTION 1: HERO -->
     <section id="hero" class="hero">

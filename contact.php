@@ -1,29 +1,49 @@
-<?php 
+<?php
 // Form Submission Logic
 $email_sent = false;
+$form_error = '';
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $name = strip_tags(trim($_POST["name"]));
-    $email = filter_var(trim($_POST["email"]), FILTER_SANITIZE_EMAIL);
-    $phone = strip_tags(trim($_POST["phone"]));
-    $service = strip_tags(trim($_POST["service"]));
-    $message = trim($_POST["message"]);
+    // Strip control characters (incl. CR/LF) to prevent email header injection,
+    // then strip tags and trim on top of that.
+    $clean = function ($value) {
+        $value = preg_replace('/[\r\n\x00-\x1F\x7F]/', '', (string) $value);
+        return trim(strip_tags($value));
+    };
 
-    $to = "info@wsdigital.com.au";
-    $subject = "New Growth Plan Request from " . $name;
-    
-    $email_content = "Name: $name\n";
-    $email_content .= "Email: $email\n";
-    $email_content .= "Phone: $phone\n";
-    $email_content .= "Service: $service\n\n";
-    $email_content .= "Message:\n$message\n";
+    $name    = $clean($_POST["name"] ?? '');
+    $email   = filter_var($clean($_POST["email"] ?? ''), FILTER_SANITIZE_EMAIL);
+    $phone   = $clean($_POST["phone"] ?? '');
+    $service = $clean($_POST["service"] ?? '');
+    $message = $clean($_POST["message"] ?? '');
 
-    $headers = "From: $name <$email>";
+    if ($name === '' || $message === '' || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $form_error = 'Please fill in your name, a valid email address, and your message.';
+    } else {
+        $to = "info@wsdigital.com.au";
+        $subject = "New Growth Plan Request from " . $name;
 
-    if (mail($to, $subject, $email_content, $headers)) {
-        $email_sent = true;
+        $email_content = "Name: $name\n";
+        $email_content .= "Email: $email\n";
+        $email_content .= "Phone: $phone\n";
+        $email_content .= "Service: $service\n\n";
+        $email_content .= "Message:\n$message\n";
+
+        // Reply-To carries the visitor's address; From stays a domain address
+        // the sending server is authorized for, avoiding SPF/DMARC failures.
+        $headers = "From: W&S Digital Marketing <info@wsdigital.com.au>\r\n";
+        $headers .= "Reply-To: $name <$email>\r\n";
+        $headers .= "X-Mailer: PHP/" . phpversion();
+
+        if (mail($to, $subject, $email_content, $headers)) {
+            $email_sent = true;
+        } else {
+            $form_error = 'Something went wrong sending your message. Please try again or call us directly.';
+        }
     }
 }
-include 'header.php'; 
+$page_title = 'Contact Us';
+$page_description = 'Get in touch with W&S Digital Marketing for a zero-obligation growth audit. Call, email, or request your free custom growth plan today.';
+include 'header.php';
 ?>
 
     <!-- CONTACT HERO SECTION -->
@@ -42,6 +62,10 @@ include 'header.php';
             <?php if ($email_sent): ?>
                 <div style="background: #D1E7DD; color: #0F5132; padding: 20px; border-radius: 12px; margin-bottom: 40px; text-align: center; font-weight: 600; border: 1px solid #badbcc;">
                     <i class="fa-solid fa-circle-check" style="margin-right: 8px;"></i> Thank you! Your message has been successfully sent. We will get back to you shortly.
+                </div>
+            <?php elseif ($form_error): ?>
+                <div style="background: #F8D7DA; color: #842029; padding: 20px; border-radius: 12px; margin-bottom: 40px; text-align: center; font-weight: 600; border: 1px solid #f5c2c7;">
+                    <i class="fa-solid fa-triangle-exclamation" style="margin-right: 8px;"></i> <?php echo htmlspecialchars($form_error, ENT_QUOTES, 'UTF-8'); ?>
                 </div>
             <?php endif; ?>
 

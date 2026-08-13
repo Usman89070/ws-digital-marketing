@@ -1,13 +1,22 @@
+<?php
+// Pages can set these before including this file; sensible defaults otherwise.
+$page_title = $page_title ?? 'Premium Agency';
+$page_description = $page_description ?? 'Data-driven Google Ads, Meta Ads, SEO and web design strategies that generate high-intent leads, sales, and revenue for ambitious Australian businesses.';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>W&S Digital Marketing | Premium Agency</title>
-    
+    <title><?php echo htmlspecialchars($page_title, ENT_QUOTES, 'UTF-8'); ?> | W&amp;S Digital Marketing</title>
+    <meta name="description" content="<?php echo htmlspecialchars($page_description, ENT_QUOTES, 'UTF-8'); ?>">
+
     <!-- Include GSAP -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <!-- Three.js for the 3D animated hero background -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 
     <!-- FontAwesome for Professional Realistic Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -123,8 +132,13 @@
         .btn-secondary:hover { border-color: var(--navy); background: var(--navy); color: #fff; transform: translateY(-3px); }
 
         /* === SECTION 1: HERO === */
-        .hero { background: #ffffff; color: var(--navy); position: relative; z-index: 10; margin-top: 85px; padding: clamp(60px, 12vw, 120px) 0 clamp(40px, 8vw, 80px); }
-        .hero-content { max-width: 950px; margin: 0 auto; text-align: center; }
+        .hero { background: #ffffff; color: var(--navy); position: relative; z-index: 10; margin-top: 85px; padding: clamp(60px, 12vw, 120px) 0 clamp(40px, 8vw, 80px); overflow: hidden; }
+        .hero-content { position: relative; z-index: 2; max-width: 950px; margin: 0 auto; text-align: center; }
+
+        /* === 3D HERO BACKGROUND (Three.js) === */
+        #hero-3d-canvas { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none; opacity: 0; transition: opacity 1.2s ease; }
+        #hero-3d-canvas.is-ready { opacity: 1; }
+        @media(max-width: 768px) { #hero-3d-canvas { opacity: 0.6; } #hero-3d-canvas.is-ready { opacity: 0.6; } }
         .hero-content h1 { font-size: clamp(2rem, 5.5vw, 4.5rem); line-height: 1.1; margin: 15px 0 25px; color: var(--navy); font-weight: 800; letter-spacing: -1px; }
         .hero-subtitle { font-size: clamp(1rem, 2vw, 1.25rem); color: var(--text-muted); max-width: 700px; margin: 0 auto; line-height: 1.6; }
         .text-gradient { background: linear-gradient(135deg, var(--navy) 20%, var(--magenta-neon) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
@@ -404,9 +418,9 @@
                     
                     <!-- AGENCY DROPDOWN -->
                     <li class="dropdown" onclick="toggleDropdown(event)">
-                        <a href="#agency">Agency <i class="fa-solid fa-chevron-down" style="font-size: 0.75rem; margin-left: 4px;"></i></a>
+                        <a href="about.php">Agency <i class="fa-solid fa-chevron-down" style="font-size: 0.75rem; margin-left: 4px;"></i></a>
                         <ul class="dropdown-menu">
-                            <li><a href="about.php#team">Our Team</a></li>
+                            <li><a href="about.php">Our Team</a></li>
                             <li><a href="blog.php">Blog</a></li>
                             <li><a href="pricing.php">Pricing Plans</a></li>
                             <li><a href="faq.php">FAQ</a></li>
