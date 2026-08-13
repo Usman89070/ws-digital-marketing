@@ -362,17 +362,16 @@
         });
     </script>
 
-    <!-- 3D ANIMATED HERO BACKGROUND (Three.js) -->
+    <!-- 3D ANIMATED BACKGROUND (Three.js), fixed behind the whole page -->
     <script>
         (function () {
-            const hero = document.querySelector('.hero');
             const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-            if (!hero || typeof THREE === 'undefined' || prefersReducedMotion) return;
+            if (typeof THREE === 'undefined' || prefersReducedMotion) return;
 
             const canvas = document.createElement('canvas');
-            canvas.id = 'hero-3d-canvas';
-            hero.insertBefore(canvas, hero.firstChild);
+            canvas.id = 'page-bg-canvas';
+            document.body.insertBefore(canvas, document.body.firstChild);
 
             const isMobile = window.innerWidth <= 768;
             const particleCount = isMobile ? 45 : 110;
@@ -454,8 +453,8 @@
             }, { passive: true });
 
             function resize() {
-                const w = hero.clientWidth;
-                const h = hero.clientHeight;
+                const w = window.innerWidth;
+                const h = window.innerHeight;
                 if (!w || !h) return;
                 renderer.setSize(w, h, false);
                 camera.aspect = w / h;
@@ -464,18 +463,11 @@
             resize();
             window.addEventListener('resize', resize);
 
-            let isVisible = true;
-            if ('IntersectionObserver' in window) {
-                new IntersectionObserver((entries) => {
-                    isVisible = entries[0].isIntersecting;
-                }, { threshold: 0.05 }).observe(hero);
-            }
-
             let rafId = null;
             let readyFlagged = false;
             function animate() {
                 rafId = requestAnimationFrame(animate);
-                if (document.hidden || !isVisible) return;
+                if (document.hidden) return;
 
                 group.rotation.y += 0.0012;
                 group.rotation.x += (targetRotX - group.rotation.x) * 0.03;
