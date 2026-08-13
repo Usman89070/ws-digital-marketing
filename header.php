@@ -374,6 +374,25 @@ $page_description = $page_description ?? 'Data-driven Google Ads, Meta Ads, SEO 
         .testi-author-info h5 { font-size: 1.05rem; color: var(--navy); font-weight: 700; margin-bottom: 3px; }
         .testi-author-info span { font-size: 0.85rem; color: var(--text-muted); font-weight: 500; }
 
+        /* === TEAM GRID (about.php teaser + the dedicated our-team.php page) === */
+        .team-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(20px, 3vw, 28px); margin-top: clamp(30px, 5vw, 50px); }
+        .team-card { background: #fff; border: 1px solid var(--border-light); border-radius: 20px; overflow: hidden; box-shadow: var(--shadow-sm); transition: var(--transition-smooth); }
+        .team-card:hover { transform: translateY(-10px); box-shadow: var(--shadow-hover); border-color: var(--cyan-neon); }
+        .team-photo { width: 100%; aspect-ratio: 4 / 5; position: relative; overflow: hidden; background: linear-gradient(160deg, rgba(0, 242, 254, 0.1), rgba(255, 0, 127, 0.08)); }
+        .team-photo img { width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0; transition: transform 0.6s ease; }
+        .team-card:hover .team-photo img { transform: scale(1.06); }
+        .team-photo-placeholder { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; }
+        .team-photo-placeholder i { font-size: 2.8rem; color: rgba(11, 15, 37, 0.15); }
+        .team-info { padding: clamp(18px, 2.5vw, 22px); text-align: center; }
+        .team-info h5 { font-size: 1.05rem; font-weight: 800; color: var(--navy); margin-bottom: 4px; }
+        .team-role { display: block; font-size: 0.8rem; color: var(--magenta-neon); font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 14px; }
+        .team-socials { display: flex; justify-content: center; gap: 8px; }
+        .team-socials a { width: 32px; height: 32px; border-radius: 50%; background: var(--bg-secondary); display: flex; align-items: center; justify-content: center; color: var(--navy); font-size: 0.8rem; transition: var(--transition-smooth); text-decoration: none; }
+        .team-socials a:hover { background: var(--cyan-neon); color: var(--navy); transform: translateY(-2px); }
+
+        @media(max-width: 900px) { .team-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media(max-width: 480px) { .team-grid { grid-template-columns: 1fr; max-width: 320px; margin-left: auto; margin-right: auto; } }
+
         /* === INDUSTRIES: icon tiles, no photos, fixed 3-up grid (used on the
            homepage teaser and the dedicated Industries page) === */
         .industries-section {
@@ -594,7 +613,7 @@ $page_description = $page_description ?? 'Data-driven Google Ads, Meta Ads, SEO 
                     <li class="dropdown" onclick="toggleDropdown(event)">
                         <a href="about.php">Agency <i class="fa-solid fa-chevron-down" style="font-size: 0.75rem; margin-left: 4px;"></i></a>
                         <ul class="dropdown-menu">
-                            <li><a href="about.php">Our Team</a></li>
+                            <li><a href="our-team.php">Our Team</a></li>
                             <li><a href="blog.php">Blog</a></li>
                             <li><a href="pricing.php">Pricing Plans</a></li>
                             <li><a href="faq.php">FAQ</a></li>
