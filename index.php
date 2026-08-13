@@ -447,6 +447,70 @@ include 'header.php';
         </div>
     </section>
 
+    <!-- LATEST FROM THE BLOG -->
+    <section class="case-studies-section fade-up" style="background: #fff;">
+        <div class="container">
+            <div class="section-header">
+                <span class="eyebrow">INSIGHTS</span>
+                <h2 style="font-size: clamp(1.8rem, 4vw, 2.8rem); margin-top: 10px;">Latest From The Blog</h2>
+            </div>
+            <div class="case-grid">
+
+                <article class="case-card">
+                    <div class="case-image">
+                        <span class="case-tag">SEO</span>
+                        <img src="https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?auto=format&fit=crop&w=800&q=80" alt="Local SEO strategy for Australian small businesses">
+                        <h3>5 Local SEO Wins Every Small Business Should Make</h3>
+                    </div>
+                    <div class="case-content">
+                        <div>
+                            <p>From Google Business Profile optimization to local link building, here are the highest-leverage local SEO moves for Australian businesses.</p>
+                        </div>
+                        <div>
+                            <a href="contact.php" class="service-link">Talk To Our Team <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="case-card">
+                    <div class="case-image">
+                        <span class="case-tag">PPC</span>
+                        <img src="https://images.unsplash.com/photo-1533750349088-cd871a92f312?auto=format&fit=crop&w=800&q=80" alt="Google Ads budget optimization">
+                        <h3>How To Stop Wasting Ad Spend On Google Ads</h3>
+                    </div>
+                    <div class="case-content">
+                        <div>
+                            <p>Negative keywords, dayparting, and audience layering — the tactics we use to cut cost-per-lead without sacrificing volume.</p>
+                        </div>
+                        <div>
+                            <a href="contact.php" class="service-link">Talk To Our Team <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="case-card">
+                    <div class="case-image">
+                        <span class="case-tag">CRO</span>
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" alt="Website conversion rate optimization">
+                        <h3>Why Your Website Isn't Converting Traffic Into Leads</h3>
+                    </div>
+                    <div class="case-content">
+                        <div>
+                            <p>Traffic isn't the problem for most businesses — conversion is. Here's how we audit and fix leaky landing pages.</p>
+                        </div>
+                        <div>
+                            <a href="contact.php" class="service-link">Talk To Our Team <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+            <div style="text-align: center; margin-top: clamp(30px, 4vw, 40px);">
+                <a href="blog.php" class="btn-secondary">VIEW ALL ARTICLES <i class="fa-solid fa-arrow-right" style="margin-left: 6px;"></i></a>
+            </div>
+        </div>
+    </section>
+
     <!-- PREMIUM FINAL CTA SECTION -->
     <section class="cta-section" id="contact">
         <div class="container">
