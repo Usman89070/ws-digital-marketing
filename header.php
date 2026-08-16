@@ -24,8 +24,12 @@ $page_description = $page_description ?? 'Data-driven Google Ads, Meta Ads, SEO 
     <link rel="preload" as="image" href="images/logo-ws.webp" fetchpriority="high">
 
     <!-- Site CSS: one external, browser-cached file shared by every page instead of a
-         ~20KB inline block repeated on each request -->
-    <link rel="stylesheet" href="css/style.css">
+         ~20KB inline block repeated on each request. .htaccess caches this file for a
+         year as "immutable", so the ?v= query string (the file's own last-modified
+         time) is what actually busts that cache on every real edit -- without it,
+         visitors who already loaded the site once would keep serving the old CSS for
+         a full year no matter how many fixes get shipped. -->
+    <link rel="stylesheet" href="css/style.css?v=<?php echo @filemtime(__DIR__ . '/css/style.css') ?: time(); ?>">
 
     <!-- GSAP / ScrollTrigger: deferred so they never block HTML parsing or first paint.
          Deferred scripts execute in strict source order before DOMContentLoaded, so
