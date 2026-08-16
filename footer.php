@@ -75,13 +75,17 @@
     <button id="back-to-top" aria-label="Back to top" title="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
 
     <!-- Site JS: nav, scroll effects, GSAP animations, and stat counters -- loads and
-         runs as soon as gsap/ScrollTrigger are ready, independent of Three.js below. -->
-    <script src="js/main.js" defer></script>
+         runs as soon as gsap/ScrollTrigger are ready, independent of Three.js below.
+         .htaccess caches this file for a year as "immutable", so the ?v= query string
+         (the file's own last-modified time) is what actually busts that cache on every
+         real edit -- without it, visitors who already loaded the site once would keep
+         running the old JS for a full year no matter how many fixes get shipped. -->
+    <script src="js/main.js?v=<?php echo @filemtime(__DIR__ . '/js/main.js') ?: time(); ?>" defer></script>
 
     <!-- Three.js + the background wallpaper animation load after main.js in the defer
          queue on purpose: they're the heaviest, least time-critical piece (~600KB,
          purely decorative), so they must never be able to delay header/nav interactivity. -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
-    <script src="js/bg-animation.js" defer></script>
+    <script src="js/bg-animation.js?v=<?php echo @filemtime(__DIR__ . '/js/bg-animation.js') ?: time(); ?>" defer></script>
 </body>
 </html>
