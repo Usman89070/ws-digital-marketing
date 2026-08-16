@@ -120,6 +120,24 @@ function toggleDropdown(e) {
                 });
             }
 
+            // Every ScrollTrigger's start/end is calculated in absolute page pixels the
+            // moment it's created. Offscreen <img loading="lazy"> elements don't download
+            // until they near the viewport, so any that load AFTER that initial calc (and
+            // aren't held to a fixed-size container) shift the document's real height --
+            // permanently desyncing every trigger positioned below them until something
+            // forces a recalculation. That's what made sections further down the page
+            // (methodology, testimonials, etc.) look wrong until the user actually
+            // scrolled near them. Refresh once, debounced, whenever a lazy image settles.
+            let lazyImgRefreshTimer = null;
+            const scheduleLazyImgRefresh = () => {
+                clearTimeout(lazyImgRefreshTimer);
+                lazyImgRefreshTimer = setTimeout(() => ScrollTrigger.refresh(), 120);
+            };
+            document.querySelectorAll('img[loading="lazy"]').forEach(img => {
+                if (img.complete) return;
+                img.addEventListener('load', scheduleLazyImgRefresh, { once: true });
+            });
+
             const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
             let mm = gsap.matchMedia();
