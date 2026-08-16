@@ -98,7 +98,12 @@
             transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
             z-index: 1002;
         }
-        .dropdown:hover .dropdown-menu { opacity: 1; visibility: visible; transform: translateY(0); }
+        /* :hover previews the submenu on pointer devices; .active is the click-driven
+           trigger toggled by toggleDropdown() in js/main.js -- needed so a click (or a
+           touch-enabled laptop where :hover may not fire before a tap) reliably opens
+           the panel too, not just mouse hover. */
+        .dropdown:hover .dropdown-menu,
+        .dropdown.active .dropdown-menu { opacity: 1; visibility: visible; transform: translateY(0); }
         .dropdown-menu li { width: 100%; text-align: left; }
         .dropdown-menu li a {
             display: block; padding: 10px 20px; font-size: 0.9rem; color: rgba(255,255,255,0.8);

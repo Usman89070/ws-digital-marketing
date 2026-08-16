@@ -6,31 +6,31 @@
 // file needed THREE it would have to wait for the whole 600KB+ library first.
 
 
-// On mobile/tablet, tapping anywhere on a dropdown parent (Services/Agency/
-// Industries) opens its submenu instead of following the link -- the standard,
-// discoverable pattern for nav items with children. The parent page itself stays
-// reachable via an explicit "All Services"/"All Industries" link placed first
-// inside the submenu (Agency skips this since "About Us" already covers it).
+// Clicking anywhere on a dropdown parent (Services/Agency/Industries) opens its
+// submenu instead of following the link -- at every width, not just mobile. On
+// desktop the submenu was already previewed on hover, so a click landed at the
+// same moment hover had it open, making it look (and behave) like the click
+// itself navigated away instantly with no chance to actually use the dropdown.
+// The parent page itself stays reachable via an explicit "All Services"/
+// "All Industries" link placed first inside the submenu (Agency skips this
+// since "About Us" already covers it).
 // The onclick lives on the <li>, so this also fires for clicks that bubble up
 // from the submenu's own links -- those must be left alone to navigate normally,
 // only a click on the parent label/chevron itself should toggle+prevent.
-//
-// The same accordion behavior is also needed at full desktop widths once the
-// header has scrolled into its collapsed, hamburger-driven state (see
-// isToggleControlled in toggleMenu() below and the matching CSS in
-// header.scrolled.nav-open .dropdown-menu) -- otherwise a click here would fall
-// through to the desktop hover-flyout dropdown, which doesn't make sense layered
-// over the now-vertical, full-width nav panel.
 function toggleDropdown(e) {
-    const header = document.querySelector('header');
-    const toggleControlled = window.innerWidth <= 1200 ||
-        (header && header.classList.contains('scrolled') && header.classList.contains('nav-open'));
-    if (toggleControlled) {
-        if (e.target.closest('.dropdown-menu')) return;
-        e.preventDefault();
-        e.currentTarget.classList.toggle('active');
-    }
+    if (e.target.closest('.dropdown-menu')) return;
+    e.preventDefault();
+    e.currentTarget.classList.toggle('active');
 }
+
+// .active now keeps a dropdown's submenu visible independent of :hover (see the
+// matching CSS rule), so on desktop a click-opened dropdown no longer auto-closes
+// just because the pointer moves away. Close it explicitly on any click outside
+// the dropdown itself, the standard "click outside to dismiss" pattern.
+document.addEventListener('click', (e) => {
+    if (e.target.closest('.dropdown')) return;
+    document.querySelectorAll('.dropdown.active').forEach(d => d.classList.remove('active'));
+});
 
         const progressBar = document.getElementById('scroll-progress');
         const backToTopBtn = document.getElementById('back-to-top');
