@@ -108,7 +108,16 @@ document.addEventListener('click', (e) => {
                 // Carpet starts rolled up flat against the left edge, then unrolls to the right.
                 gsap.set(menu, { clipPath: 'inset(0 100% 0 0)' });
                 gsap.set(rollEdge, { x: 0, autoAlpha: 1 });
-                navRollTween = gsap.timeline()
+                navRollTween = gsap.timeline({
+                    // clip-path: inset(0 0% 0 0) reads as "no clipping", but it's still an
+                    // active clip region sized to the menu's OWN (small) box -- harmless for
+                    // the mobile/tablet accordion, whose dropdowns sit in normal flow inside
+                    // that same box, but it silently clips away anything that deliberately
+                    // overflows beyond it, like the absolutely-positioned desktop flyout
+                    // dropdown reopened after scrolling. Clear it once fully open so the menu
+                    // is governed purely by the class state again, same as finishClose() does.
+                    onComplete: () => gsap.set(menu, { clearProps: 'clipPath' }),
+                })
                     .to(menu, { clipPath: 'inset(0 0% 0 0)', duration: 0.75, ease: 'power3.out' }, 0)
                     .to(rollEdge, { x: w - 16, duration: 0.75, ease: 'power3.out' }, 0)
                     .to(rollEdge, { autoAlpha: 0, duration: 0.2 }, 0.55);
@@ -243,7 +252,13 @@ document.addEventListener('click', (e) => {
                 return;
             }
 
-            gsap.fromTo('header', { y: -80, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, ease: 'power3.out' });
+            // clearProps removes the inline transform once the tween finishes instead of
+            // leaving it resting at translate(0px, 0px) (still a non-"none" transform
+            // value) forever after. That stray transform makes the fixed header create a
+            // permanent compositing layer, which mis-paints/hides descendants that extend
+            // far beyond the header's own ~100px height -- like the Industries dropdown
+            // flyout reopened after scrolling, which is over 300px tall.
+            gsap.fromTo('header', { y: -80, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, ease: 'power3.out', clearProps: 'transform' });
 
             // Wraps every word inside a heading in its own <span class="split-word">,
             // walking the DOM so existing markup (line breaks, the gradient <span>)
