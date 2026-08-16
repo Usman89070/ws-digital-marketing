@@ -171,6 +171,37 @@
         }
         header.scrolled.nav-open { height: 100px; background: #0B0F25; box-shadow: none; }
 
+        /* Once the header has scrolled into its collapsed state, nav is ALWAYS driven
+           through the hamburger toggle (see isToggleControlled in js/main.js) -- even
+           at full desktop widths, well above the <=1200px breakpoint the media query
+           below is scoped to. Without this, opening the menu after scrolling on a wide
+           screen fell back to the plain inline horizontal nav-menu, which doesn't fit
+           the shrunk 100px header and overlapped the page underneath it. Mirrors the
+           mobile dropdown panel treatment from the @media(max-width:1200px) block so
+           the opened menu looks and behaves the same regardless of viewport width. */
+        header.scrolled.nav-open .nav-menu {
+            position: absolute; top: 100%; left: 0; width: 100%;
+            background: #0B0F25; flex-direction: column; gap: 0;
+            border-bottom: 1px solid rgba(0, 242, 254, 0.2);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+            padding: 10px 0; max-height: 80vh; overflow-y: auto;
+        }
+        header.scrolled.nav-open .nav-menu li {
+            width: 100%; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        header.scrolled.nav-open .nav-menu li:last-child { border-bottom: none; }
+        header.scrolled.nav-open .nav-menu li a { display: block; padding: 15px; color: #fff; font-size: 1.05rem; }
+        header.scrolled.nav-open .nav-menu li a::after { display: none; }
+        header.scrolled.nav-open .dropdown-menu {
+            position: relative; top: auto; left: auto; background: rgba(0,0,0,0.3);
+            border: none; box-shadow: none; opacity: 1; visibility: visible; transform: none;
+            max-height: 0; overflow: hidden; transition: max-height 0.3s ease; padding: 0;
+        }
+        header.scrolled.nav-open .dropdown.active .dropdown-menu { max-height: 60vh; overflow-y: auto; padding: 5px 0; }
+        header.scrolled.nav-open .dropdown-menu li a { padding: 12px 20px; text-align: center; }
+        header.scrolled.nav-open .dropdown-menu.dropdown-menu-grid { display: block; min-width: 0; right: auto; padding: 0; }
+        header.scrolled.nav-open .nav-cta { display: none; }
+
         /* === BUTTONS === */
         .btn-primary {
             background: linear-gradient(135deg, var(--cyan-neon), var(--magenta-neon));

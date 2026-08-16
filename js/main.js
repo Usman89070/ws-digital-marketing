@@ -14,8 +14,18 @@
 // The onclick lives on the <li>, so this also fires for clicks that bubble up
 // from the submenu's own links -- those must be left alone to navigate normally,
 // only a click on the parent label/chevron itself should toggle+prevent.
+//
+// The same accordion behavior is also needed at full desktop widths once the
+// header has scrolled into its collapsed, hamburger-driven state (see
+// isToggleControlled in toggleMenu() below and the matching CSS in
+// header.scrolled.nav-open .dropdown-menu) -- otherwise a click here would fall
+// through to the desktop hover-flyout dropdown, which doesn't make sense layered
+// over the now-vertical, full-width nav panel.
 function toggleDropdown(e) {
-    if (window.innerWidth <= 1200) {
+    const header = document.querySelector('header');
+    const toggleControlled = window.innerWidth <= 1200 ||
+        (header && header.classList.contains('scrolled') && header.classList.contains('nav-open'));
+    if (toggleControlled) {
         if (e.target.closest('.dropdown-menu')) return;
         e.preventDefault();
         e.currentTarget.classList.toggle('active');
