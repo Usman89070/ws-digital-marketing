@@ -6,13 +6,19 @@
 // file needed THREE it would have to wait for the whole 600KB+ library first.
 
 
-// Called from the chevron icon only (not the link text), so tapping the label on
-// mobile still navigates normally while tapping the chevron opens the submenu instead.
-function toggleDropdown(e, icon) {
+// On mobile/tablet, tapping anywhere on a dropdown parent (Services/Agency/
+// Industries) opens its submenu instead of following the link -- the standard,
+// discoverable pattern for nav items with children. The parent page itself stays
+// reachable via an explicit "All Services"/"All Industries" link placed first
+// inside the submenu (Agency skips this since "About Us" already covers it).
+// The onclick lives on the <li>, so this also fires for clicks that bubble up
+// from the submenu's own links -- those must be left alone to navigate normally,
+// only a click on the parent label/chevron itself should toggle+prevent.
+function toggleDropdown(e) {
     if (window.innerWidth <= 1200) {
+        if (e.target.closest('.dropdown-menu')) return;
         e.preventDefault();
-        e.stopPropagation();
-        icon.closest('.dropdown').classList.toggle('active');
+        e.currentTarget.classList.toggle('active');
     }
 }
 

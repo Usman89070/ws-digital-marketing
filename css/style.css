@@ -107,6 +107,12 @@
         .dropdown-menu li a::after { display: none !important; }
         .dropdown-menu li a:hover { background: rgba(0, 242, 254, 0.1); color: var(--cyan-neon); transform: translateX(4px); }
 
+        /* The explicit "All Services"/"All Industries" link at the top of a submenu --
+           keeps the parent hub page reachable now that tapping the parent item itself
+           opens the submenu (on mobile) rather than navigating there directly. */
+        .dropdown-hub-link { color: var(--cyan-neon) !important; font-weight: 700 !important; border-bottom: 1px solid rgba(0, 242, 254, 0.15) !important; }
+        .dropdown-menu-grid .dropdown-hub-link { grid-column: 1 / -1; }
+
         /* Two-column variant for longer dropdowns (e.g. Industries) so the panel stays wide, not tall.
            Anchored to the right edge (not left) since this item sits late in the nav row --
            growing left keeps it inside the container instead of overflowing the viewport. */
@@ -613,10 +619,6 @@
             .nav-menu li a:hover { background: rgba(0, 242, 254, 0.08); color: var(--cyan-neon); }
             
             /* Mobile Dropdown Fix */
-            .dropdown-toggle-icon {
-                padding: 14px !important; margin: -14px -14px -14px 4px !important;
-                display: inline-flex !important; align-items: center; justify-content: center;
-            }
             .dropdown-menu {
                 position: relative; top: auto; left: auto; background: rgba(0,0,0,0.3);
                 border: none; box-shadow: none; opacity: 1; visibility: visible; transform: none;

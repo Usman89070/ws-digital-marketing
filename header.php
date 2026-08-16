@@ -68,9 +68,10 @@ $page_description = $page_description ?? 'Data-driven Google Ads, Meta Ads, SEO 
                     <li><a href="about.php" onclick="toggleMenu()">About Us</a></li>
                     
                     <!-- SERVICES DROPDOWN -->
-                    <li class="dropdown">
-                        <a href="services.php">Services <i class="fa-solid fa-chevron-down dropdown-toggle-icon" onclick="toggleDropdown(event, this)" style="font-size: 0.75rem; margin-left: 4px;"></i></a>
+                    <li class="dropdown" onclick="toggleDropdown(event)">
+                        <a href="services.php">Services <i class="fa-solid fa-chevron-down" style="font-size: 0.75rem; margin-left: 4px;"></i></a>
                         <ul class="dropdown-menu">
+                            <li><a href="services.php" class="dropdown-hub-link">All Services</a></li>
                             <li><a href="seo.php">Search Engine Optimization</a></li>
                             <li><a href="ecommerce.php">E-commerce</a></li>
                             <li><a href="website-development.php">Website Development & Design</a></li>
@@ -84,8 +85,8 @@ $page_description = $page_description ?? 'Data-driven Google Ads, Meta Ads, SEO 
                     <li><a href="case-studies.php" onclick="toggleMenu()">Case Studies</a></li>
                     
                     <!-- AGENCY DROPDOWN -->
-                    <li class="dropdown">
-                        <a href="about.php">Agency <i class="fa-solid fa-chevron-down dropdown-toggle-icon" onclick="toggleDropdown(event, this)" style="font-size: 0.75rem; margin-left: 4px;"></i></a>
+                    <li class="dropdown" onclick="toggleDropdown(event)">
+                        <a href="about.php">Agency <i class="fa-solid fa-chevron-down" style="font-size: 0.75rem; margin-left: 4px;"></i></a>
                         <ul class="dropdown-menu">
                             <li><a href="our-team.php">Our Team</a></li>
                             <li><a href="blog.php">Blog</a></li>
@@ -95,9 +96,10 @@ $page_description = $page_description ?? 'Data-driven Google Ads, Meta Ads, SEO 
                     </li>
 
                     <!-- INDUSTRIES DROPDOWN -->
-                    <li class="dropdown">
-                        <a href="industries.php">Industries <i class="fa-solid fa-chevron-down dropdown-toggle-icon" onclick="toggleDropdown(event, this)" style="font-size: 0.75rem; margin-left: 4px;"></i></a>
+                    <li class="dropdown" onclick="toggleDropdown(event)">
+                        <a href="industries.php">Industries <i class="fa-solid fa-chevron-down" style="font-size: 0.75rem; margin-left: 4px;"></i></a>
                         <ul class="dropdown-menu dropdown-menu-grid">
+                            <li><a href="industries.php" class="dropdown-hub-link">All Industries</a></li>
                             <li><a href="accounting-finance.php">Accounting & Finance</a></li>
                             <li><a href="automotive.php">Automotive</a></li>
                             <li><a href="construction-building.php">Construction & Building</a></li>
