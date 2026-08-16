@@ -26,7 +26,7 @@ include 'header.php';
                 <div class="case-card">
                     <div class="case-image">
                         <span class="case-tag">Full Suite</span>
-                        <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=800&q=80" alt="Clever Beavers Workbooks and Branding">
+                        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=800&q=80" alt="Clever Beavers Workbooks and Branding">
                         <h3>CLEVER BEAVERS</h3>
                     </div>
                     <div class="case-content">
@@ -43,7 +43,7 @@ include 'header.php';
                 <div class="case-card">
                     <div class="case-image">
                         <span class="case-tag">Hospitality</span>
-                        <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=800&q=80" alt="Cafe Calibre Dining and Dome Reservations">
+                        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=800&q=80" alt="Cafe Calibre Dining and Dome Reservations">
                         <h3>CAFE CALIBRE</h3>
                     </div>
                     <div class="case-content">
@@ -60,7 +60,7 @@ include 'header.php';
                 <div class="case-card">
                     <div class="case-image">
                         <span class="case-tag">Commercial</span>
-                        <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=800&q=80" alt="On Crew Professional Team">
+                        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=800&q=80" alt="On Crew Professional Team">
                         <h3>ON CREW</h3>
                     </div>
                     <div class="case-content">
@@ -77,7 +77,7 @@ include 'header.php';
                 <div class="case-card">
                     <div class="case-image">
                         <span class="case-tag">Refrigeration</span>
-                        <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=800&q=80" alt="Master Fridge Repairs Service">
+                        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=800&q=80" alt="Master Fridge Repairs Service">
                         <h3>MASTER FRIDGE REPAIRS</h3>
                     </div>
                     <div class="case-content">
@@ -94,7 +94,7 @@ include 'header.php';
                 <div class="case-card">
                     <div class="case-image">
                         <span class="case-tag">Sydney Repairs</span>
-                        <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80" alt="Commercial Fridge Repairs Sydney">
+                        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80" alt="Commercial Fridge Repairs Sydney">
                         <h3>COMMERCIAL FRIDGE REPAIRS SYDNEY</h3>
                     </div>
                     <div class="case-content">
@@ -111,7 +111,7 @@ include 'header.php';
                 <div class="case-card">
                     <div class="case-image">
                         <span class="case-tag">Experts</span>
-                        <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=800&q=80" alt="Fridge Experts Technical Work">
+                        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=800&q=80" alt="Fridge Experts Technical Work">
                         <h3>FRIDGE EXPERTS</h3>
                     </div>
                     <div class="case-content">
@@ -128,7 +128,7 @@ include 'header.php';
                 <div class="case-card">
                     <div class="case-image">
                         <span class="case-tag">Local SEO</span>
-                        <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=800&q=80" alt="Ace Fridge Repairs Sydney">
+                        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=800&q=80" alt="Ace Fridge Repairs Sydney">
                         <h3>ACE FRIDGE REPAIRS SYDNEY</h3>
                     </div>
                     <div class="case-content">
@@ -145,7 +145,7 @@ include 'header.php';
                 <div class="case-card">
                     <div class="case-image">
                         <span class="case-tag">Flooring</span>
-                        <img src="https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?auto=format&fit=crop&w=800&q=80" alt="Sydney Art Flooring Interior">
+                        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?auto=format&fit=crop&w=800&q=80" alt="Sydney Art Flooring Interior">
                         <h3>SYDNEY ART FLOORING</h3>
                     </div>
                     <div class="case-content">
@@ -162,7 +162,7 @@ include 'header.php';
                 <div class="case-card">
                     <div class="case-image">
                         <span class="case-tag">Repairs</span>
-                        <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=800&q=80" alt="Fast Fridge Repairs">
+                        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=800&q=80" alt="Fast Fridge Repairs">
                         <h3>FAST FRIDGE REPAIRS</h3>
                     </div>
                     <div class="case-content">
@@ -179,7 +179,7 @@ include 'header.php';
                 <div class="case-card">
                     <div class="case-image">
                         <span class="case-tag">Cleaning</span>
-                        <img src="https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=800&q=80" alt="Magnet Cleaning Australia">
+                        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=800&q=80" alt="Magnet Cleaning Australia">
                         <h3>MAGNET CLEANING AUSTRALIA</h3>
                     </div>
                     <div class="case-content">
@@ -196,7 +196,7 @@ include 'header.php';
                 <div class="case-card">
                     <div class="case-image">
                         <span class="case-tag">Appliances</span>
-                        <img src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=800&q=80" alt="Fast Appliance Repairs Kitchen">
+                        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=800&q=80" alt="Fast Appliance Repairs Kitchen">
                         <h3>FAST APPLIANCE REPAIRS</h3>
                     </div>
                     <div class="case-content">
@@ -213,7 +213,7 @@ include 'header.php';
                 <div class="case-card">
                     <div class="case-image">
                         <span class="case-tag">Ecommerce</span>
-                        <img src="https://images.unsplash.com/photo-1615397349754-cfa2066a298e?auto=format&fit=crop&w=800&q=80" alt="Royal Fragrances Perfume Bottle">
+                        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1615397349754-cfa2066a298e?auto=format&fit=crop&w=800&q=80" alt="Royal Fragrances Perfume Bottle">
                         <h3>ROYAL FRAGRANCES</h3>
                     </div>
                     <div class="case-content">
@@ -230,7 +230,7 @@ include 'header.php';
                 <div class="case-card">
                     <div class="case-image">
                         <span class="case-tag">Lifestyle</span>
-                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80" alt="Becoming Her With Salma Lifestyle">
+                        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80" alt="Becoming Her With Salma Lifestyle">
                         <h3>BECOMING HER WITH SALMA</h3>
                     </div>
                     <div class="case-content">
@@ -247,7 +247,7 @@ include 'header.php';
                 <div class="case-card">
                     <div class="case-image">
                         <span class="case-tag">Coffee</span>
-                        <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=800&q=80" alt="Northside Coffee Shop">
+                        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=800&q=80" alt="Northside Coffee Shop">
                         <h3>NORTHSIDE COFFEE</h3>
                     </div>
                     <div class="case-content">
@@ -264,7 +264,7 @@ include 'header.php';
                 <div class="case-card">
                     <div class="case-image">
                         <span class="case-tag">Food & Eats</span>
-                        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=800&q=80" alt="Freak Eats Fast Food">
+                        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=800&q=80" alt="Freak Eats Fast Food">
                         <h3>FREAK EATS</h3>
                     </div>
                     <div class="case-content">

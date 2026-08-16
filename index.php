@@ -68,35 +68,35 @@ include 'header.php';
                         <div class="serp-screen">
                             <div class="serp-item">
                                 <a href="https://wsdigitalmarketing.com.au" target="_blank" rel="noopener noreferrer" class="serp-link">
-                                    <div class="serp-url"><img src="https://wsdigitalmarketing.com.au/favicon.ico" onerror="this.style.display='none'"> wsdigitalmarketing.com.au</div>
+                                    <div class="serp-url"><img loading="lazy" decoding="async" src="https://wsdigitalmarketing.com.au/favicon.ico" onerror="this.style.display='none'"> wsdigitalmarketing.com.au</div>
                                     <div class="serp-title">W&S Digital Marketing | #1 Agency in Australia</div>
                                     <div class="serp-desc">Drive high-intent traffic, build custom sites, and scale revenue.</div>
                                 </a>
                             </div>
                             <div class="serp-item">
                                 <a href="https://wsdigitalmarketing.com.au/seo" target="_blank" rel="noopener noreferrer" class="serp-link">
-                                    <div class="serp-url"><img src="https://wsdigitalmarketing.com.au/favicon.ico" onerror="this.style.display='none'"> wsdigitalmarketing.com.au › seo</div>
+                                    <div class="serp-url"><img loading="lazy" decoding="async" src="https://wsdigitalmarketing.com.au/favicon.ico" onerror="this.style.display='none'"> wsdigitalmarketing.com.au › seo</div>
                                     <div class="serp-title">Search Engine Optimisation Services</div>
                                     <div class="serp-desc">Dominate local search results and Google Maps effortlessly.</div>
                                 </a>
                             </div>
                             <div class="serp-item">
                                 <a href="https://wsdigitalmarketing.com.au/ppc" target="_blank" rel="noopener noreferrer" class="serp-link">
-                                    <div class="serp-url"><img src="https://wsdigitalmarketing.com.au/favicon.ico" onerror="this.style.display='none'"> wsdigitalmarketing.com.au › ppc</div>
+                                    <div class="serp-url"><img loading="lazy" decoding="async" src="https://wsdigitalmarketing.com.au/favicon.ico" onerror="this.style.display='none'"> wsdigitalmarketing.com.au › ppc</div>
                                     <div class="serp-title">Google Ads & PPC Management</div>
                                     <div class="serp-desc">Maximize your ROAS and get instant high-converting calls.</div>
                                 </a>
                             </div>
                             <div class="serp-item">
                                 <a href="https://wsdigitalmarketing.com.au/web-design" target="_blank" rel="noopener noreferrer" class="serp-link">
-                                    <div class="serp-url"><img src="https://wsdigitalmarketing.com.au/favicon.ico" onerror="this.style.display='none'"> wsdigitalmarketing.com.au › web-design</div>
+                                    <div class="serp-url"><img loading="lazy" decoding="async" src="https://wsdigitalmarketing.com.au/favicon.ico" onerror="this.style.display='none'"> wsdigitalmarketing.com.au › web-design</div>
                                     <div class="serp-title">Web Design & CRO Solutions</div>
                                     <div class="serp-desc">Fast, responsive websites engineered specifically to convert.</div>
                                 </a>
                             </div>
                             <div class="serp-item">
                                 <a href="https://wsdigitalmarketing.com.au/contact" target="_blank" rel="noopener noreferrer" class="serp-link">
-                                    <div class="serp-url"><img src="https://wsdigitalmarketing.com.au/favicon.ico" onerror="this.style.display='none'"> wsdigitalmarketing.com.au › contact</div>
+                                    <div class="serp-url"><img loading="lazy" decoding="async" src="https://wsdigitalmarketing.com.au/favicon.ico" onerror="this.style.display='none'"> wsdigitalmarketing.com.au › contact</div>
                                     <div class="serp-title">Contact W&S Digital - Get a Free Plan</div>
                                     <div class="serp-desc">Ready to scale your business revenue? Get in touch today.</div>
                                 </a>
@@ -104,7 +104,7 @@ include 'header.php';
                         </div>
                     </div>
                     <div class="logo-screen">
-                        <img src="images/logo-ws.webp" alt="W&S Animated Logo">
+                        <img loading="lazy" decoding="async" src="images/logo-ws.webp" alt="W&S Animated Logo">
                         <div class="logo-screen-sub">Measurable Growth</div>
                     </div>
                 </div>
@@ -146,7 +146,7 @@ include 'header.php';
                     <a href="#contact" class="btn-primary" style="margin-top: 10px;">Speak With An Expert</a>
                 </div>
                 <div class="agency-image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=800&q=80" alt="Professional Digital Marketing Agency Team">
+                    <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=800&q=80" alt="Professional Digital Marketing Agency Team">
                 </div>
             </div>
         </div>
@@ -208,7 +208,7 @@ include 'header.php';
                 <!-- Service 1: SEO -->
                 <div class="service-card">
                     <div class="service-image">
-                        <img src="https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?auto=format&fit=crop&w=800&q=80" alt="Search Engine Optimisation">
+                        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?auto=format&fit=crop&w=800&q=80" alt="Search Engine Optimisation">
                         <div class="service-icon-badge"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
                     </div>
                     <div class="service-content">
@@ -220,7 +220,7 @@ include 'header.php';
                 <!-- Service 2: E-commerce -->
                 <div class="service-card">
                     <div class="service-image">
-                        <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=80" alt="E-commerce">
+                        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=80" alt="E-commerce">
                         <div class="service-icon-badge"><i class="fa-solid fa-cart-shopping"></i></div>
                     </div>
                     <div class="service-content">
@@ -232,7 +232,7 @@ include 'header.php';
                 <!-- Service 3: Website Design & CRO -->
                 <div class="service-card">
                     <div class="service-image">
-                        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80" alt="Website Design & CRO">
+                        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80" alt="Website Design & CRO">
                         <div class="service-icon-badge"><i class="fa-solid fa-laptop-code"></i></div>
                     </div>
                     <div class="service-content">
@@ -244,7 +244,7 @@ include 'header.php';
                 <!-- Service 4: Social Media -->
                 <div class="service-card">
                     <div class="service-image">
-                        <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=800&q=80" alt="Social Media Marketing">
+                        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=800&q=80" alt="Social Media Marketing">
                         <div class="service-icon-badge"><i class="fa-solid fa-share-nodes"></i></div>
                     </div>
                     <div class="service-content">
@@ -256,7 +256,7 @@ include 'header.php';
                 <!-- Service 5: Google Ads & PPC -->
                 <div class="service-card">
                     <div class="service-image">
-                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" alt="Google Ads & PPC">
+                        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" alt="Google Ads & PPC">
                         <div class="service-icon-badge"><i class="fa-solid fa-hand-pointer"></i></div>
                     </div>
                     <div class="service-content">
@@ -268,7 +268,7 @@ include 'header.php';
                 <!-- Service 6: Graphic Design -->
                 <div class="service-card">
                     <div class="service-image">
-                        <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=800&q=80" alt="Graphic Design">
+                        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=800&q=80" alt="Graphic Design">
                         <div class="service-icon-badge"><i class="fa-solid fa-palette"></i></div>
                     </div>
                     <div class="service-content">
@@ -280,7 +280,7 @@ include 'header.php';
                 <!-- Service 7: Content Writing -->
                 <div class="service-card">
                     <div class="service-image">
-                        <img src="https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=800&q=80" alt="Content Writing">
+                        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=800&q=80" alt="Content Writing">
                         <div class="service-icon-badge"><i class="fa-solid fa-pen-nib"></i></div>
                     </div>
                     <div class="service-content">
@@ -335,7 +335,7 @@ include 'header.php';
                     </div>
                 </div>
                 <div class="methodology-image">
-                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=80" alt="Team Analyzing Data">
+                    <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=80" alt="Team Analyzing Data">
                     <div class="methodology-badge">
                         <div class="methodology-badge-icon"><i class="fa-solid fa-award"></i></div>
                         <div>
@@ -365,10 +365,10 @@ include 'header.php';
                     <p>Based on 150+ verified Google Reviews from Australian businesses just like yours.</p>
 
                     <div class="testi-avatar-stack">
-                        <div class="stack-avatar"><img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=100&q=80" alt=""></div>
-                        <div class="stack-avatar"><img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=100&q=80" alt=""></div>
-                        <div class="stack-avatar"><img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=100&q=80" alt=""></div>
-                        <div class="stack-avatar"><img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=100&q=80" alt=""></div>
+                        <div class="stack-avatar"><img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=100&q=80" alt=""></div>
+                        <div class="stack-avatar"><img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=100&q=80" alt=""></div>
+                        <div class="stack-avatar"><img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=100&q=80" alt=""></div>
+                        <div class="stack-avatar"><img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=100&q=80" alt=""></div>
                         <div class="stack-count">+196</div>
                     </div>
 
@@ -384,7 +384,7 @@ include 'header.php';
                         <div class="testi-author">
                             <div class="testi-avatar-wrap">
                                 <div class="testi-avatar">
-                                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=150&q=80" alt="John Smith">
+                                    <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=150&q=80" alt="John Smith">
                                 </div>
                                 <span class="testi-verified"><i class="fa-solid fa-check"></i></span>
                             </div>
@@ -402,7 +402,7 @@ include 'header.php';
                         <div class="testi-author">
                             <div class="testi-avatar-wrap">
                                 <div class="testi-avatar">
-                                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=150&q=80" alt="Sarah Collins">
+                                    <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=150&q=80" alt="Sarah Collins">
                                 </div>
                                 <span class="testi-verified"><i class="fa-solid fa-check"></i></span>
                             </div>
@@ -420,7 +420,7 @@ include 'header.php';
                         <div class="testi-author">
                             <div class="testi-avatar-wrap">
                                 <div class="testi-avatar">
-                                    <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=150&q=80" alt="Michael Brown">
+                                    <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=150&q=80" alt="Michael Brown">
                                 </div>
                                 <span class="testi-verified"><i class="fa-solid fa-check"></i></span>
                             </div>
@@ -438,7 +438,7 @@ include 'header.php';
                         <div class="testi-author">
                             <div class="testi-avatar-wrap">
                                 <div class="testi-avatar">
-                                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&q=80" alt="Emma Rodriguez">
+                                    <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&q=80" alt="Emma Rodriguez">
                                 </div>
                                 <span class="testi-verified"><i class="fa-solid fa-check"></i></span>
                             </div>
@@ -511,7 +511,7 @@ include 'header.php';
                 <article class="case-card">
                     <div class="case-image">
                         <span class="case-tag">SEO</span>
-                        <img src="https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?auto=format&fit=crop&w=800&q=80" alt="Local SEO strategy for Australian small businesses">
+                        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?auto=format&fit=crop&w=800&q=80" alt="Local SEO strategy for Australian small businesses">
                         <h3>5 Local SEO Wins Every Small Business Should Make</h3>
                     </div>
                     <div class="case-content">
@@ -527,7 +527,7 @@ include 'header.php';
                 <article class="case-card">
                     <div class="case-image">
                         <span class="case-tag">PPC</span>
-                        <img src="https://images.unsplash.com/photo-1533750349088-cd871a92f312?auto=format&fit=crop&w=800&q=80" alt="Google Ads budget optimization">
+                        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1533750349088-cd871a92f312?auto=format&fit=crop&w=800&q=80" alt="Google Ads budget optimization">
                         <h3>How To Stop Wasting Ad Spend On Google Ads</h3>
                     </div>
                     <div class="case-content">
@@ -543,7 +543,7 @@ include 'header.php';
                 <article class="case-card">
                     <div class="case-image">
                         <span class="case-tag">CRO</span>
-                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" alt="Website conversion rate optimization">
+                        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" alt="Website conversion rate optimization">
                         <h3>Why Your Website Isn't Converting Traffic Into Leads</h3>
                     </div>
                     <div class="case-content">
