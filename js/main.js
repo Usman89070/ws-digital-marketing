@@ -66,6 +66,17 @@ function toggleDropdown(e) {
             const finishClose = () => {
                 menu.classList.remove('active');
                 header.classList.remove('nav-open');
+                // The carpet-roll animation above sets clip-path directly as an inline
+                // style. At mobile/tablet widths the closed-state stylesheet rule
+                // (@media max-width:1200px) sets the same value, so it's harmless -- but
+                // at full desktop width nothing in the stylesheet governs clip-path at
+                // all, since it's only ever meant to apply while the header is in its
+                // scrolled/hamburger-driven state. Left in place, that stray inline value
+                // (fully clipped) would keep clipping the nav-menu to invisible even after
+                // scrolling back past the point where .scrolled is removed, permanently
+                // hiding the whole desktop nav. Clearing it lets the current class/media
+                // state (or lack of one) take back over cleanly.
+                gsap.set(menu, { clearProps: 'clipPath' });
             };
 
             if (isOpening) {
@@ -122,11 +133,26 @@ function toggleDropdown(e) {
             // accounting as that pinned section, so it can't drift out of sync with it.
             const headerEl = document.querySelector('header');
             if (headerEl) {
+                // If the hamburger-driven nav is left open while the header expands back
+                // out of its scrolled/collapsed state (user scrolls to top without closing
+                // it first), close it rather than leaving it open across that transition --
+                // the open-panel layout is only meant to exist alongside the collapsed
+                // header, and leaving it stranded is what let the two states drift apart.
+                const closeNavIfOpen = () => {
+                    const navMenu = document.getElementById('navMenu');
+                    if (navMenu && navMenu.classList.contains('active') && typeof toggleMenu === 'function') {
+                        toggleMenu();
+                    }
+                };
                 ScrollTrigger.create({
                     start: 50,
                     onEnter: () => headerEl.classList.add('scrolled'),
-                    onLeaveBack: () => headerEl.classList.remove('scrolled'),
-                    onRefresh: (self) => headerEl.classList.toggle('scrolled', self.scroll() > 50),
+                    onLeaveBack: () => { headerEl.classList.remove('scrolled'); closeNavIfOpen(); },
+                    onRefresh: (self) => {
+                        const stillScrolled = self.scroll() > 50;
+                        headerEl.classList.toggle('scrolled', stillScrolled);
+                        if (!stillScrolled) closeNavIfOpen();
+                    },
                 });
             }
 
