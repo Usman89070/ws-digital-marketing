@@ -13,141 +13,107 @@ include 'header.php';
         </div>
     </section>
 
-    <!-- SERVICES OVERVIEW GRID -->
-    <section class="services-section fade-up">
+    <!-- OUR EXPERTISE: scroll-driven pinned storytelling section -->
+    <section class="services-section fade-up expertise-scroll-section">
         <div class="container">
             <div class="section-header">
                 <span class="eyebrow">WHAT WE DO</span>
                 <h2 style="font-size: clamp(1.8rem, 4vw, 2.8rem); margin-top: 10px;">Seven Disciplines. One Growth Engine.</h2>
             </div>
-            <div class="services-grid">
+        </div>
 
-                <div class="service-card service-card-flip" id="seo" style="scroll-margin-top: 110px;">
-                    <div class="service-card-inner">
-                        <div class="service-card-front">
-                            <div class="service-icon-badge"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
+        <div class="expertise-scroll-wrap">
+            <div class="expertise-pin">
+                <div class="expertise-rows">
+                    <div class="expertise-row" data-item="0"><div class="expertise-row-inner"><span class="expertise-row-num">01</span><span class="expertise-row-title">Search Engine Optimization</span></div></div>
+                    <div class="expertise-row" data-item="1"><div class="expertise-row-inner"><span class="expertise-row-num">02</span><span class="expertise-row-title">E-commerce</span></div></div>
+                    <div class="expertise-row" data-item="2"><div class="expertise-row-inner"><span class="expertise-row-num">03</span><span class="expertise-row-title">Website Development &amp; Design</span></div></div>
+                    <div class="expertise-row" data-item="3"><div class="expertise-row-inner"><span class="expertise-row-num">04</span><span class="expertise-row-title">Social Media</span></div></div>
+                    <div class="expertise-row" data-item="4"><div class="expertise-row-inner"><span class="expertise-row-num">05</span><span class="expertise-row-title">PPC Advertising</span></div></div>
+                    <div class="expertise-row" data-item="5"><div class="expertise-row-inner"><span class="expertise-row-num">06</span><span class="expertise-row-title">Graphic Design</span></div></div>
+                    <div class="expertise-row" data-item="6"><div class="expertise-row-inner"><span class="expertise-row-num">07</span><span class="expertise-row-title">Content Writing</span></div></div>
+                </div>
+
+                <div class="expertise-stage">
+                    <div class="expertise-hero" data-item="0"><h3>Search Engine Optimization</h3></div>
+                    <div class="expertise-hero" data-item="1"><h3>E-commerce</h3></div>
+                    <div class="expertise-hero" data-item="2"><h3>Website Development &amp; Design</h3></div>
+                    <div class="expertise-hero" data-item="3"><h3>Social Media</h3></div>
+                    <div class="expertise-hero" data-item="4"><h3>PPC Advertising</h3></div>
+                    <div class="expertise-hero" data-item="5"><h3>Graphic Design</h3></div>
+                    <div class="expertise-hero" data-item="6"><h3>Content Writing</h3></div>
+
+                    <div class="expertise-panel" data-item="0" id="seo" style="scroll-margin-top: 110px;">
+                        <img loading="lazy" decoding="async" class="expertise-panel-img" src="https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?auto=format&fit=crop&w=1000&q=80" alt="">
+                        <div class="expertise-panel-overlay"></div>
+                        <div class="expertise-panel-content">
+                            <span class="expertise-panel-num">01</span>
                             <h3>Search Engine Optimization</h3>
-                        </div>
-                        <div class="service-card-back">
-                            <img loading="lazy" decoding="async" class="service-card-back-img" src="https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?auto=format&fit=crop&w=800&q=80" alt="">
-                            <div class="service-card-back-overlay"></div>
-                            <div class="service-card-back-content">
-                                <h3>Search Engine Optimization</h3>
-                                <p>Dominate local search and Google Maps with technical SEO, content, and link-building strategies that attract high-intent organic traffic.</p>
-                                <a href="seo.php" class="service-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
-                            </div>
+                            <p>Dominate local search and Google Maps with technical SEO, content, and link-building strategies that attract high-intent organic traffic.</p>
+                            <a href="seo.php" class="expertise-panel-btn">Learn More <i class="fa-solid fa-arrow-right"></i></a>
                         </div>
                     </div>
-                </div>
-
-                <div class="service-card service-card-flip" id="ecom" style="scroll-margin-top: 110px;">
-                    <div class="service-card-inner">
-                        <div class="service-card-front">
-                            <div class="service-icon-badge"><i class="fa-solid fa-cart-shopping"></i></div>
+                    <div class="expertise-panel" data-item="1" id="ecom" style="scroll-margin-top: 110px;">
+                        <img loading="lazy" decoding="async" class="expertise-panel-img" src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1000&q=80" alt="">
+                        <div class="expertise-panel-overlay"></div>
+                        <div class="expertise-panel-content">
+                            <span class="expertise-panel-num">02</span>
                             <h3>E-commerce</h3>
-                        </div>
-                        <div class="service-card-back">
-                            <img loading="lazy" decoding="async" class="service-card-back-img" src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=80" alt="">
-                            <div class="service-card-back-overlay"></div>
-                            <div class="service-card-back-content">
-                                <h3>E-commerce</h3>
-                                <p>Shopify and WooCommerce builds, catalog strategy, and conversion-focused checkout flows that turn browsers into repeat customers.</p>
-                                <a href="ecommerce.php" class="service-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
-                            </div>
+                            <p>Shopify and WooCommerce builds, catalog strategy, and conversion-focused checkout flows that turn browsers into repeat customers.</p>
+                            <a href="ecommerce.php" class="expertise-panel-btn">Learn More <i class="fa-solid fa-arrow-right"></i></a>
                         </div>
                     </div>
-                </div>
-
-                <div class="service-card service-card-flip" id="web" style="scroll-margin-top: 110px;">
-                    <div class="service-card-inner">
-                        <div class="service-card-front">
-                            <div class="service-icon-badge"><i class="fa-solid fa-laptop-code"></i></div>
+                    <div class="expertise-panel" data-item="2" id="web" style="scroll-margin-top: 110px;">
+                        <img loading="lazy" decoding="async" class="expertise-panel-img" src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1000&q=80" alt="">
+                        <div class="expertise-panel-overlay"></div>
+                        <div class="expertise-panel-content">
+                            <span class="expertise-panel-num">03</span>
                             <h3>Website Development &amp; Design</h3>
-                        </div>
-                        <div class="service-card-back">
-                            <img loading="lazy" decoding="async" class="service-card-back-img" src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80" alt="">
-                            <div class="service-card-back-overlay"></div>
-                            <div class="service-card-back-content">
-                                <h3>Website Development &amp; Design</h3>
-                                <p>Fast, mobile-responsive websites engineered specifically for conversion rate optimization, not just aesthetics.</p>
-                                <a href="website-development.php" class="service-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
-                            </div>
+                            <p>Fast, mobile-responsive websites engineered specifically for conversion rate optimization, not just aesthetics.</p>
+                            <a href="website-development.php" class="expertise-panel-btn">Learn More <i class="fa-solid fa-arrow-right"></i></a>
                         </div>
                     </div>
-                </div>
-
-                <div class="service-card service-card-flip" id="social" style="scroll-margin-top: 110px;">
-                    <div class="service-card-inner">
-                        <div class="service-card-front">
-                            <div class="service-icon-badge"><i class="fa-solid fa-share-nodes"></i></div>
+                    <div class="expertise-panel" data-item="3" id="social" style="scroll-margin-top: 110px;">
+                        <img loading="lazy" decoding="async" class="expertise-panel-img" src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=1000&q=80" alt="">
+                        <div class="expertise-panel-overlay"></div>
+                        <div class="expertise-panel-content">
+                            <span class="expertise-panel-num">04</span>
                             <h3>Social Media</h3>
-                        </div>
-                        <div class="service-card-back">
-                            <img loading="lazy" decoding="async" class="service-card-back-img" src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=800&q=80" alt="">
-                            <div class="service-card-back-overlay"></div>
-                            <div class="service-card-back-content">
-                                <h3>Social Media</h3>
-                                <p>Strategic content and community management across Meta and TikTok to build brand presence and engage your target audience.</p>
-                                <a href="social-media.php" class="service-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
-                            </div>
+                            <p>Strategic content and community management across Meta and TikTok to build brand presence and engage your target audience.</p>
+                            <a href="social-media.php" class="expertise-panel-btn">Learn More <i class="fa-solid fa-arrow-right"></i></a>
                         </div>
                     </div>
-                </div>
-
-                <div class="service-card service-card-flip" id="ppc" style="scroll-margin-top: 110px;">
-                    <div class="service-card-inner">
-                        <div class="service-card-front">
-                            <div class="service-icon-badge"><i class="fa-solid fa-hand-pointer"></i></div>
+                    <div class="expertise-panel" data-item="4" id="ppc" style="scroll-margin-top: 110px;">
+                        <img loading="lazy" decoding="async" class="expertise-panel-img" src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1000&q=80" alt="">
+                        <div class="expertise-panel-overlay"></div>
+                        <div class="expertise-panel-content">
+                            <span class="expertise-panel-num">05</span>
                             <h3>PPC Advertising</h3>
-                        </div>
-                        <div class="service-card-back">
-                            <img loading="lazy" decoding="async" class="service-card-back-img" src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" alt="">
-                            <div class="service-card-back-overlay"></div>
-                            <div class="service-card-back-content">
-                                <h3>PPC Advertising</h3>
-                                <p>Google Ads and paid social campaigns built for instant, high-converting traffic, more phone calls, and maximum ROAS.</p>
-                                <a href="ppc-advertising.php" class="service-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
-                            </div>
+                            <p>Google Ads and paid social campaigns built for instant, high-converting traffic, more phone calls, and maximum ROAS.</p>
+                            <a href="ppc-advertising.php" class="expertise-panel-btn">Learn More <i class="fa-solid fa-arrow-right"></i></a>
                         </div>
                     </div>
-                </div>
-
-                <div class="service-card service-card-flip" id="graphic" style="scroll-margin-top: 110px;">
-                    <div class="service-card-inner">
-                        <div class="service-card-front">
-                            <div class="service-icon-badge"><i class="fa-solid fa-palette"></i></div>
+                    <div class="expertise-panel" data-item="5" id="graphic" style="scroll-margin-top: 110px;">
+                        <img loading="lazy" decoding="async" class="expertise-panel-img" src="https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=1000&q=80" alt="">
+                        <div class="expertise-panel-overlay"></div>
+                        <div class="expertise-panel-content">
+                            <span class="expertise-panel-num">06</span>
                             <h3>Graphic Design</h3>
-                        </div>
-                        <div class="service-card-back">
-                            <img loading="lazy" decoding="async" class="service-card-back-img" src="https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=800&q=80" alt="">
-                            <div class="service-card-back-overlay"></div>
-                            <div class="service-card-back-content">
-                                <h3>Graphic Design</h3>
-                                <p>Brand identity, ad creative, and marketing collateral designed to stand out and stay consistent across every channel.</p>
-                                <a href="graphic-design.php" class="service-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
-                            </div>
+                            <p>Brand identity, ad creative, and marketing collateral designed to stand out and stay consistent across every channel.</p>
+                            <a href="graphic-design.php" class="expertise-panel-btn">Learn More <i class="fa-solid fa-arrow-right"></i></a>
                         </div>
                     </div>
-                </div>
-
-                <div class="service-card service-card-flip" id="content" style="scroll-margin-top: 110px;">
-                    <div class="service-card-inner">
-                        <div class="service-card-front">
-                            <div class="service-icon-badge"><i class="fa-solid fa-pen-nib"></i></div>
+                    <div class="expertise-panel" data-item="6" id="content" style="scroll-margin-top: 110px;">
+                        <img loading="lazy" decoding="async" class="expertise-panel-img" src="https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=1000&q=80" alt="">
+                        <div class="expertise-panel-overlay"></div>
+                        <div class="expertise-panel-content">
+                            <span class="expertise-panel-num">07</span>
                             <h3>Content Writing</h3>
-                        </div>
-                        <div class="service-card-back">
-                            <img loading="lazy" decoding="async" class="service-card-back-img" src="https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=800&q=80" alt="">
-                            <div class="service-card-back-overlay"></div>
-                            <div class="service-card-back-content">
-                                <h3>Content Writing</h3>
-                                <p>SEO-optimized copy, blog content, and website content that ranks, builds authority, and speaks directly to your customers.</p>
-                                <a href="content-writing.php" class="service-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
-                            </div>
+                            <p>SEO-optimized copy, blog content, and website content that ranks, builds authority, and speaks directly to your customers.</p>
+                            <a href="content-writing.php" class="expertise-panel-btn">Learn More <i class="fa-solid fa-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>

@@ -402,77 +402,86 @@
         }
         .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 35px; margin-top: clamp(30px, 5vw, 50px);}
 
-        /* Plain flat card -- still used as-is by About's "Core Values" grid, which
-           reuses .service-card for a simpler, non-flip layout (see the inline
-           style="display:block" override there). Scoped narrowly so it never conflicts
-           with .service-card-flip below, which is a DIFFERENT, additional class only
-           the "Our Expertise" cards carry. */
+        /* Plain flat card -- used by About's "Core Values" grid (see the inline
+           style="display:block" override there). */
         .service-card { background: #fff; border: 1px solid var(--border-light); border-radius: 20px; transition: var(--transition-smooth); box-shadow: var(--shadow-sm); overflow: hidden; display: flex; flex-direction: column; }
-        .service-card:not(.service-card-flip):hover { transform: translateY(-10px); box-shadow: var(--shadow-hover); border-color: var(--cyan-neon); }
-
-        /* === "OUR EXPERTISE" 3D FLIP CARDS ===
-           Front: icon + title only. Hovering (or, on touch devices where :hover can't
-           really be "moved off" of, tapping -- see the .flipped class toggled by
-           js/main.js) rotates the card 180° to reveal the back: a background photo with
-           a dark overlay for text contrast, the full description, and the Learn More
-           link. Both faces are absolutely positioned and stacked via a fixed card
-           height, since a 3D flip needs both sides occupying the exact same box. */
-        .service-card-flip { background: transparent; border: none; box-shadow: none; overflow: visible; perspective: 1800px; height: 400px; }
-        .service-card-inner {
-            position: relative; width: 100%; height: 100%;
-            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-            transform-style: preserve-3d;
-        }
-        .service-card-flip:hover .service-card-inner,
-        .service-card-flip.flipped .service-card-inner { transform: rotateY(180deg); }
-        @media (prefers-reduced-motion: reduce) {
-            .service-card-inner { transition: none; }
-        }
-
-        .service-card-front, .service-card-back {
-            position: absolute; inset: 0; backface-visibility: hidden; -webkit-backface-visibility: hidden;
-            border-radius: 20px; overflow: hidden;
-        }
-        .service-card-front {
-            background: #fff; border: 1px solid var(--border-light); box-shadow: var(--shadow-sm);
-            display: flex; flex-direction: column; align-items: center; justify-content: center;
-            text-align: center; gap: 20px; padding: 30px; transition: var(--transition-smooth);
-        }
-        .service-card-flip:hover .service-card-front,
-        .service-card-flip.flipped .service-card-front { box-shadow: var(--shadow-hover); border-color: var(--cyan-neon); }
-        .service-card-front .service-icon-badge {
-            position: static; width: 64px; height: 64px; background: var(--cyan-neon); color: var(--navy);
-            border-radius: 16px; display: flex; align-items: center; justify-content: center;
-            font-size: 1.5rem; box-shadow: 0 4px 15px rgba(0, 242, 254, 0.3);
-        }
-        .service-card-front h3 { font-size: 1.25rem; color: var(--navy); font-weight: 700; }
-
-        .service-card-back { transform: rotateY(180deg); display: flex; align-items: flex-end; box-shadow: var(--shadow-hover); }
-        .service-card-back-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
-        .service-card-back-overlay {
-            position: absolute; inset: 0; z-index: 1;
-            background: linear-gradient(180deg, rgba(11,15,37,0.35) 0%, rgba(11,15,37,0.85) 60%, rgba(11,15,37,0.95) 100%);
-        }
-        .service-card-back-content { position: relative; z-index: 2; width: 100%; padding: 28px 25px; }
-        .service-card-back-content h3 { font-size: 1.15rem; color: #fff; font-weight: 700; margin-bottom: 10px; }
-        .service-card-back-content p { color: rgba(255,255,255,0.85); font-size: 0.9rem; line-height: 1.6; margin-bottom: 18px; }
-        .service-card-back-content .service-link {
-            display: inline-flex; align-items: center; gap: 7px; margin-top: 2px;
-            padding: 10px 22px; border-radius: 50px; font-size: 0.85rem; font-weight: 700;
-            background: linear-gradient(135deg, var(--cyan-neon), var(--magenta-neon));
-            color: #fff; box-shadow: 0 4px 15px rgba(0, 242, 254, 0.25);
-        }
-        .service-card-back-content .service-link:hover,
-        .service-card-back-content .service-link:focus-visible {
-            color: #fff; transform: translateY(-2px); box-shadow: 0 8px 20px rgba(255, 0, 127, 0.35);
-        }
-        .service-card-back-content .service-link:hover i,
-        .service-card-back-content .service-link:focus-visible i { transform: translateX(3px); }
+        .service-card:hover { transform: translateY(-10px); box-shadow: var(--shadow-hover); border-color: var(--cyan-neon); }
 
         .service-link { font-weight: 700; color: var(--navy); text-decoration: none; font-size: 0.9rem; display: flex; align-items: center; gap: 5px; transition: var(--transition-smooth); }
         .service-link i { transition: transform 0.3s ease; }
         .case-card:hover .service-link { color: var(--cyan-neon); }
         .case-card:hover .service-link i { transform: translateX(4px); }
+
+        /* === "OUR EXPERTISE": scroll-driven pinned storytelling ===
+           Base state (below, unscoped) is a plain stacked list: every panel is
+           always fully "expanded" -- image, overlay, number, title, description,
+           Learn More button -- one after another in normal document flow, each
+           revealed by the same per-item fade-up used by every other grid on the
+           site (see gridSelectors in js/main.js). This is deliberately what
+           mobile *and* a no-JS/reduced-motion visitor get: always fully
+           readable, no pin, no jacked scroll.
+
+           js/main.js only escalates to the interactive version -- one item's
+           giant centered title (.expertise-hero) holding, then fading/sliding
+           out as its row (.expertise-row) grows into an accumulating numbered
+           list and its image panel (.expertise-panel) expands to fill the
+           stage, then collapsing (row stays) as the next item's hero fades in
+           -- once it has confirmed GSAP/ScrollTrigger are available, the
+           viewport is >=900px, and the user hasn't asked for reduced motion.
+           Only then does it add .expertise-js-ready, which is what actually
+           swaps in the pinned/absolute layout below. */
+        .expertise-scroll-wrap { position: relative; }
+        .expertise-rows, .expertise-hero { display: none; }
+        .expertise-pin { height: auto; }
+        .expertise-rows { max-width: 1100px; margin: 0 auto clamp(10px, 2.5vh, 26px); width: 100%; padding: 0 5%; }
+        .expertise-row { height: 0; opacity: 0; overflow: hidden; }
+        .expertise-row-inner { display: flex; align-items: baseline; gap: 18px; padding: 13px 4px; border-bottom: 1px solid var(--border-light); }
+        .expertise-row-num { font-size: 0.85rem; font-weight: 800; color: var(--cyan-neon); letter-spacing: 1px; flex-shrink: 0; }
+        .expertise-row-title { font-size: 1rem; font-weight: 700; color: var(--navy); }
+
+        .expertise-stage { position: static; max-width: 1100px; margin: 0 auto; width: 100%; padding: 0 5%; }
+        .expertise-hero h3 { font-size: clamp(2rem, 5.5vw, 4.2rem); font-weight: 800; color: var(--navy); line-height: 1.05; letter-spacing: -0.02em; }
+
+        .expertise-panel {
+            position: static; opacity: 1; visibility: visible; margin-bottom: 22px;
+            min-height: 460px; display: flex;
+            border-radius: 24px; overflow: hidden; box-shadow: var(--shadow-hover);
+        }
+        .expertise-panel:last-child { margin-bottom: 0; }
+        .expertise-panel-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+        .expertise-panel-overlay {
+            position: absolute; inset: 0;
+            background: linear-gradient(100deg, rgba(11,15,37,0.94) 0%, rgba(11,15,37,0.8) 42%, rgba(11,15,37,0.3) 100%);
+        }
+        .expertise-panel-content { position: relative; z-index: 2; max-width: 540px; padding: clamp(28px, 5vw, 56px); align-self: center; }
+        .expertise-panel-num { font-size: 0.95rem; font-weight: 800; color: var(--cyan-neon); letter-spacing: 2px; margin-bottom: 12px; }
+        .expertise-panel-content h3 { font-size: clamp(1.4rem, 2.8vw, 2.1rem); color: #fff; font-weight: 800; margin-bottom: 14px; }
+        .expertise-panel-content p { color: rgba(255,255,255,0.85); font-size: 1rem; line-height: 1.7; margin-bottom: 26px; }
+        .expertise-panel-btn {
+            display: inline-flex; align-items: center; gap: 8px; align-self: flex-start;
+            padding: 13px 28px; border-radius: 50px; font-weight: 700; font-size: 0.95rem;
+            background: linear-gradient(135deg, var(--cyan-neon), var(--magenta-neon)); color: #fff;
+            text-decoration: none; box-shadow: 0 4px 15px rgba(0, 242, 254, 0.25); transition: var(--transition-smooth);
+        }
+        .expertise-panel-btn:hover, .expertise-panel-btn:focus-visible { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(255, 0, 127, 0.35); color: #fff; }
+        .expertise-panel-btn i { transition: transform 0.3s ease; }
+        .expertise-panel-btn:hover i, .expertise-panel-btn:focus-visible i { transform: translateX(3px); }
+
+        /* Interactive pinned mode -- only engaged by JS, only >=900px. */
+        .expertise-js-ready .expertise-rows,
+        .expertise-js-ready .expertise-hero { display: block; }
+        .expertise-js-ready .expertise-pin {
+            position: relative; height: 100vh; max-height: 820px; min-height: 600px;
+            display: flex; flex-direction: column; justify-content: center; overflow: hidden;
+        }
+        .expertise-js-ready .expertise-rows { flex-shrink: 0; }
+        .expertise-js-ready .expertise-stage { position: relative; flex: 1; min-height: 0; }
+        .expertise-js-ready .expertise-hero {
+            position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+            text-align: center; opacity: 0; visibility: hidden; padding: 0 5%;
+        }
+        .expertise-js-ready .expertise-panel { position: absolute; inset: 0; opacity: 0; visibility: hidden; margin-bottom: 0; }
+        .expertise-js-ready .expertise-panel-content { align-self: auto; height: 100%; display: flex; flex-direction: column; justify-content: center; }
 
         /* === PREMIUM METHODOLOGY === */
         .methodology-section {

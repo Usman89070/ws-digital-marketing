@@ -32,31 +32,6 @@ document.addEventListener('click', (e) => {
     document.querySelectorAll('.dropdown.active').forEach(d => d.classList.remove('active'));
 });
 
-// "Our Expertise" flip cards (.service-card) rely on :hover to flip on desktop, which
-// works fine with a real pointer but is unreliable on touch -- there's no hover state
-// to "move off of" to flip back, and a tap can't preview the back before deciding
-// whether to follow the Learn More link. On devices with no real hover, use tap
-// instead: the first tap on a not-yet-flipped card flips it (and un-flips any other
-// open card) without following its link; once flipped, taps behave normally so the
-// Learn More link and back-face content are fully reachable.
-if (window.matchMedia('(hover: none)').matches) {
-    document.querySelectorAll('.service-card').forEach(card => {
-        card.addEventListener('click', (e) => {
-            if (!card.classList.contains('flipped')) {
-                e.preventDefault();
-                document.querySelectorAll('.service-card.flipped').forEach(c => {
-                    if (c !== card) c.classList.remove('flipped');
-                });
-                card.classList.add('flipped');
-            }
-        });
-    });
-    document.addEventListener('click', (e) => {
-        if (e.target.closest('.service-card')) return;
-        document.querySelectorAll('.service-card.flipped').forEach(c => c.classList.remove('flipped'));
-    });
-}
-
         const progressBar = document.getElementById('scroll-progress');
         const backToTopBtn = document.getElementById('back-to-top');
 
@@ -361,7 +336,7 @@ if (window.matchMedia('(hover: none)').matches) {
                 if (heroEls.includes(element)) return;
                 gsap.fromTo(element,
                     { opacity: 0, y: 40 },
-                    { opacity: 1, y: 0, duration: 0.6, ease: "power2.out",
+                    { opacity: 1, y: 0, duration: 0.6, ease: "power2.out", clearProps: 'transform',
                       scrollTrigger: { trigger: element, start: "top 85%", toggleActions: "play none none none" }
                     }
                 );
@@ -384,6 +359,96 @@ if (window.matchMedia('(hover: none)').matches) {
                             scrollTrigger: { trigger: item, start: 'top 90%', toggleActions: 'play none none none' }
                         });
                     });
+                });
+            });
+
+            // === "OUR EXPERTISE": scroll-driven pinned storytelling (index.php +
+            // services.php) === See the big comment above .expertise-scroll-wrap in
+            // css/style.css for the full design. The CSS default is a plain,
+            // always-expanded stacked list of panels -- that's what mobile, reduced
+            // motion, and (if this never runs) no-JS visitors get. Only on wide
+            // screens with motion allowed do we escalate to the interactive version:
+            // one item's giant centered title holds, fades/slides out while its row
+            // grows into an accumulating numbered list and its image panel expands,
+            // then the panel collapses (row stays) as the next item's title fades in.
+            document.querySelectorAll('.expertise-scroll-wrap').forEach(wrap => {
+                const rows = gsap.utils.toArray(wrap.querySelectorAll('.expertise-row'));
+                const heroes = gsap.utils.toArray(wrap.querySelectorAll('.expertise-hero'));
+                const panels = gsap.utils.toArray(wrap.querySelectorAll('.expertise-panel'));
+                const n = rows.length;
+                if (!n) return;
+
+                mm.add('(min-width: 900px)', () => {
+                    const section = wrap.closest('.expertise-scroll-section');
+                    section.classList.add('expertise-js-ready');
+                    const pinEl = wrap.querySelector('.expertise-pin');
+
+                    // A row's height:auto isn't tweenable, so measure its inner
+                    // content's natural pixel height up front -- the row itself is
+                    // already visually collapsed to 0 by CSS regardless, this just
+                    // records what "open" should animate to.
+                    rows.forEach(row => {
+                        row._openHeight = row.querySelector('.expertise-row-inner').offsetHeight;
+                    });
+
+                    gsap.set(heroes, { autoAlpha: 0 });
+                    gsap.set(heroes[0], { autoAlpha: 1 });
+                    gsap.set(panels, { autoAlpha: 0, scale: 0.97 });
+                    gsap.set(rows, { height: 0, opacity: 0 });
+
+                    // "top 75px" (not "top top") so the pinned stage settles just below
+                    // the fixed header's scrolled height instead of directly underneath
+                    // it -- by the time a visitor has scrolled this far the header is
+                    // already in its .scrolled (75px) state for effectively the entire
+                    // pinned duration.
+                    const tl = gsap.timeline({
+                        scrollTrigger: {
+                            trigger: wrap,
+                            start: 'top 75px',
+                            end: () => '+=' + Math.round(n * window.innerHeight * 0.85),
+                            scrub: 0.6,
+                            pin: pinEl,
+                            anticipatePin: 1,
+                            invalidateOnRefresh: true,
+                        }
+                    });
+
+                    rows.forEach((row, i) => {
+                        if (i === 0) {
+                            tl.to({}, { duration: 0.4 }); // reading pause on the first hero, already visible at rest
+                        } else {
+                            tl.to(heroes[i], { autoAlpha: 1, duration: 0.35 });
+                            tl.to({}, { duration: 0.25 });
+                        }
+                        // Hero fades/slides toward the list while its row grows open --
+                        // two separate elements, timed to overlap, rather than a literal
+                        // shared-element morph (far more fragile to keep smooth/bug-free
+                        // across every viewport), but reads as one continuous movement.
+                        tl.to(heroes[i], { autoAlpha: 0, x: -50, scale: 0.4, duration: 0.35, ease: 'power2.in' });
+                        tl.to(row, { height: row._openHeight, opacity: 1, duration: 0.35, ease: 'power2.out' }, '<');
+                        tl.to(panels[i], { autoAlpha: 1, scale: 1, duration: 0.4, ease: 'power2.out' }, '<0.1');
+                        tl.to({}, { duration: 0.6 }); // reading pause on the expanded panel
+                        // The last item's panel stays expanded at rest instead of
+                        // collapsing away to an empty stage right as the pin releases.
+                        if (i < n - 1) {
+                            tl.to(panels[i], { autoAlpha: 0, scale: 0.97, duration: 0.3, ease: 'power2.in' });
+                        }
+                    });
+
+                    return () => section.classList.remove('expertise-js-ready');
+                });
+
+                // Below 900px the pin never engages (see the CSS) -- panels are
+                // always statically expanded, just fading up into view individually
+                // as the user reaches them, same as every other grid on the site.
+                mm.add('(max-width: 899px)', () => {
+                    panels.forEach(panel => {
+                        gsap.fromTo(panel, { opacity: 0, y: 34 }, {
+                            opacity: 1, y: 0, duration: 0.55, ease: 'power2.out', clearProps: 'transform',
+                            scrollTrigger: { trigger: panel, start: 'top 90%', toggleActions: 'play none none none' }
+                        });
+                    });
+                    return () => {};
                 });
             });
 
