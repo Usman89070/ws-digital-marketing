@@ -206,87 +206,129 @@ include 'header.php';
             </div>
             <div class="services-grid">
                 <!-- Service 1: SEO -->
-                <div class="service-card">
-                    <div class="service-image">
-                        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?auto=format&fit=crop&w=800&q=80" alt="Search Engine Optimisation">
-                        <div class="service-icon-badge"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
-                    </div>
-                    <div class="service-content">
-                        <h3>Search Engine Optimisation</h3>
-                        <p>Dominate local search and Google Maps to attract high-intent traffic directly to your website organically.</p>
-                        <a href="seo.php" class="service-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+                <div class="service-card service-card-flip">
+                    <div class="service-card-inner">
+                        <div class="service-card-front">
+                            <div class="service-icon-badge"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
+                            <h3>Search Engine Optimisation</h3>
+                        </div>
+                        <div class="service-card-back">
+                            <img loading="lazy" decoding="async" class="service-card-back-img" src="https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?auto=format&fit=crop&w=800&q=80" alt="">
+                            <div class="service-card-back-overlay"></div>
+                            <div class="service-card-back-content">
+                                <h3>Search Engine Optimisation</h3>
+                                <p>Dominate local search and Google Maps to attract high-intent traffic directly to your website organically.</p>
+                                <a href="seo.php" class="service-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <!-- Service 2: E-commerce -->
-                <div class="service-card">
-                    <div class="service-image">
-                        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=80" alt="E-commerce">
-                        <div class="service-icon-badge"><i class="fa-solid fa-cart-shopping"></i></div>
-                    </div>
-                    <div class="service-content">
-                        <h3>E-commerce</h3>
-                        <p>Shopify and WooCommerce builds, catalog strategy, and conversion-focused checkout flows that turn browsers into repeat customers.</p>
-                        <a href="ecommerce.php" class="service-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+                <div class="service-card service-card-flip">
+                    <div class="service-card-inner">
+                        <div class="service-card-front">
+                            <div class="service-icon-badge"><i class="fa-solid fa-cart-shopping"></i></div>
+                            <h3>E-commerce</h3>
+                        </div>
+                        <div class="service-card-back">
+                            <img loading="lazy" decoding="async" class="service-card-back-img" src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=80" alt="">
+                            <div class="service-card-back-overlay"></div>
+                            <div class="service-card-back-content">
+                                <h3>E-commerce</h3>
+                                <p>Shopify and WooCommerce builds, catalog strategy, and conversion-focused checkout flows that turn browsers into repeat customers.</p>
+                                <a href="ecommerce.php" class="service-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <!-- Service 3: Website Design & CRO -->
-                <div class="service-card">
-                    <div class="service-image">
-                        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80" alt="Website Design & CRO">
-                        <div class="service-icon-badge"><i class="fa-solid fa-laptop-code"></i></div>
-                    </div>
-                    <div class="service-content">
-                        <h3>Website Design & CRO</h3>
-                        <p>Beautiful, fast-loading, and mobile-responsive websites engineered specifically to convert visitors into clients.</p>
-                        <a href="website-development.php" class="service-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+                <div class="service-card service-card-flip">
+                    <div class="service-card-inner">
+                        <div class="service-card-front">
+                            <div class="service-icon-badge"><i class="fa-solid fa-laptop-code"></i></div>
+                            <h3>Website Design & CRO</h3>
+                        </div>
+                        <div class="service-card-back">
+                            <img loading="lazy" decoding="async" class="service-card-back-img" src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80" alt="">
+                            <div class="service-card-back-overlay"></div>
+                            <div class="service-card-back-content">
+                                <h3>Website Design & CRO</h3>
+                                <p>Beautiful, fast-loading, and mobile-responsive websites engineered specifically to convert visitors into clients.</p>
+                                <a href="website-development.php" class="service-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <!-- Service 4: Social Media -->
-                <div class="service-card">
-                    <div class="service-image">
-                        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=800&q=80" alt="Social Media Marketing">
-                        <div class="service-icon-badge"><i class="fa-solid fa-share-nodes"></i></div>
-                    </div>
-                    <div class="service-content">
-                        <h3>Social Media Marketing</h3>
-                        <p>Build a strong brand presence and engage your target audience strategically on Meta and TikTok platforms.</p>
-                        <a href="social-media.php" class="service-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+                <div class="service-card service-card-flip">
+                    <div class="service-card-inner">
+                        <div class="service-card-front">
+                            <div class="service-icon-badge"><i class="fa-solid fa-share-nodes"></i></div>
+                            <h3>Social Media Marketing</h3>
+                        </div>
+                        <div class="service-card-back">
+                            <img loading="lazy" decoding="async" class="service-card-back-img" src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=800&q=80" alt="">
+                            <div class="service-card-back-overlay"></div>
+                            <div class="service-card-back-content">
+                                <h3>Social Media Marketing</h3>
+                                <p>Build a strong brand presence and engage your target audience strategically on Meta and TikTok platforms.</p>
+                                <a href="social-media.php" class="service-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <!-- Service 5: Google Ads & PPC -->
-                <div class="service-card">
-                    <div class="service-image">
-                        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" alt="Google Ads & PPC">
-                        <div class="service-icon-badge"><i class="fa-solid fa-hand-pointer"></i></div>
-                    </div>
-                    <div class="service-content">
-                        <h3>Google Ads & PPC</h3>
-                        <p>Drive instant, high-converting traffic and get more phone calls, quality leads, and immediate sales.</p>
-                        <a href="ppc-advertising.php" class="service-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+                <div class="service-card service-card-flip">
+                    <div class="service-card-inner">
+                        <div class="service-card-front">
+                            <div class="service-icon-badge"><i class="fa-solid fa-hand-pointer"></i></div>
+                            <h3>Google Ads & PPC</h3>
+                        </div>
+                        <div class="service-card-back">
+                            <img loading="lazy" decoding="async" class="service-card-back-img" src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" alt="">
+                            <div class="service-card-back-overlay"></div>
+                            <div class="service-card-back-content">
+                                <h3>Google Ads & PPC</h3>
+                                <p>Drive instant, high-converting traffic and get more phone calls, quality leads, and immediate sales.</p>
+                                <a href="ppc-advertising.php" class="service-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <!-- Service 6: Graphic Design -->
-                <div class="service-card">
-                    <div class="service-image">
-                        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=800&q=80" alt="Graphic Design">
-                        <div class="service-icon-badge"><i class="fa-solid fa-palette"></i></div>
-                    </div>
-                    <div class="service-content">
-                        <h3>Graphic Design</h3>
-                        <p>Brand identity, ad creative, and marketing collateral designed to stand out and stay consistent across every channel.</p>
-                        <a href="graphic-design.php" class="service-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+                <div class="service-card service-card-flip">
+                    <div class="service-card-inner">
+                        <div class="service-card-front">
+                            <div class="service-icon-badge"><i class="fa-solid fa-palette"></i></div>
+                            <h3>Graphic Design</h3>
+                        </div>
+                        <div class="service-card-back">
+                            <img loading="lazy" decoding="async" class="service-card-back-img" src="https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=800&q=80" alt="">
+                            <div class="service-card-back-overlay"></div>
+                            <div class="service-card-back-content">
+                                <h3>Graphic Design</h3>
+                                <p>Brand identity, ad creative, and marketing collateral designed to stand out and stay consistent across every channel.</p>
+                                <a href="graphic-design.php" class="service-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <!-- Service 7: Content Writing -->
-                <div class="service-card">
-                    <div class="service-image">
-                        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=800&q=80" alt="Content Writing">
-                        <div class="service-icon-badge"><i class="fa-solid fa-pen-nib"></i></div>
-                    </div>
-                    <div class="service-content">
-                        <h3>Content Writing</h3>
-                        <p>SEO-optimized copy, blog content, and website content that ranks, builds authority, and speaks directly to your customers.</p>
-                        <a href="content-writing.php" class="service-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+                <div class="service-card service-card-flip">
+                    <div class="service-card-inner">
+                        <div class="service-card-front">
+                            <div class="service-icon-badge"><i class="fa-solid fa-pen-nib"></i></div>
+                            <h3>Content Writing</h3>
+                        </div>
+                        <div class="service-card-back">
+                            <img loading="lazy" decoding="async" class="service-card-back-img" src="https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=800&q=80" alt="">
+                            <div class="service-card-back-overlay"></div>
+                            <div class="service-card-back-content">
+                                <h3>Content Writing</h3>
+                                <p>SEO-optimized copy, blog content, and website content that ranks, builds authority, and speaks directly to your customers.</p>
+                                <a href="content-writing.php" class="service-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -462,36 +504,42 @@ include 'header.php';
                 <h2 style="font-size: clamp(1.8rem, 4vw, 2.8rem); margin-top: 10px;">Tailored Campaigns That Drive Results</h2>
             </div>
             <div class="industry-tile-grid">
-                <a href="trades.php" class="industry-tile">
+                <div class="industry-tile">
                     <div class="industry-tile-icon"><i class="fa-solid fa-helmet-safety"></i></div>
                     <h5>Trades & Services</h5>
                     <p>Plumbing, electrical, refrigeration & local contractors — high-intent local leads that convert.</p>
-                </a>
-                <a href="healthcare-medical.php" class="industry-tile">
+                    <a href="trades.php" class="industry-tile-btn">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+                <div class="industry-tile">
                     <div class="industry-tile-icon"><i class="fa-solid fa-user-doctor"></i></div>
                     <h5>Healthcare & Medical</h5>
                     <p>Clinics, medical practices, and health specialists building trusted, compliant patient pipelines.</p>
-                </a>
-                <a href="legal-law.php" class="industry-tile">
+                    <a href="healthcare-medical.php" class="industry-tile-btn">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+                <div class="industry-tile">
                     <div class="industry-tile-icon"><i class="fa-solid fa-scale-balanced"></i></div>
                     <h5>Legal & Professional Services</h5>
                     <p>Legal, financial, consulting & corporate services that need consistent, qualified inquiries.</p>
-                </a>
-                <a href="ecommerce-industry.php" class="industry-tile">
+                    <a href="legal-law.php" class="industry-tile-btn">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+                <div class="industry-tile">
                     <div class="industry-tile-icon"><i class="fa-solid fa-cart-shopping"></i></div>
                     <h5>eCommerce</h5>
                     <p>Shopify stores, retail brands & digital products scaled with full-funnel paid and organic growth.</p>
-                </a>
-                <a href="hospitality-tourism.php" class="industry-tile">
+                    <a href="ecommerce-industry.php" class="industry-tile-btn">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+                <div class="industry-tile">
                     <div class="industry-tile-icon"><i class="fa-solid fa-utensils"></i></div>
                     <h5>Hospitality & Tourism</h5>
                     <p>Restaurants, cafes, venues & booking services turning local searches into full tables.</p>
-                </a>
-                <a href="automotive.php" class="industry-tile">
+                    <a href="hospitality-tourism.php" class="industry-tile-btn">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+                <div class="industry-tile">
                     <div class="industry-tile-icon"><i class="fa-solid fa-car"></i></div>
                     <h5>Automotive</h5>
                     <p>Repair shops, dealerships & auto detailing services winning more service bookings.</p>
-                </a>
+                    <a href="automotive.php" class="industry-tile-btn">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
             </div>
             <div style="text-align: center; margin-top: clamp(30px, 4vw, 40px);">
                 <a href="industries.php" class="btn-secondary">VIEW ALL INDUSTRIES <i class="fa-solid fa-arrow-right" style="margin-left: 6px;"></i></a>

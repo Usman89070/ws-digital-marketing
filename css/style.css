@@ -46,6 +46,19 @@
         #back-to-top.is-visible { opacity: 1; visibility: visible; transform: translateY(0); }
         #back-to-top:hover { background: var(--cyan-neon); color: var(--navy); transform: translateY(-4px); }
 
+        /* === WHATSAPP CHAT BUTTON ===
+           Stacked directly above #back-to-top in the same corner, sharing its right
+           offset for alignment. Unlike back-to-top, always visible (not scroll-gated) --
+           a chat CTA should be reachable the moment someone lands on the page. */
+        #whatsapp-chat {
+            position: fixed; right: clamp(16px, 3vw, 28px); bottom: calc(clamp(16px, 3vw, 28px) + 62px); z-index: 900;
+            width: 48px; height: 48px; border-radius: 50%; border: 1px solid rgba(37, 211, 102, 0.4);
+            background: #25D366; color: #fff; font-size: 1.4rem; cursor: pointer;
+            display: flex; align-items: center; justify-content: center; box-shadow: var(--shadow-hover);
+            text-decoration: none; transition: var(--transition-smooth);
+        }
+        #whatsapp-chat:hover { background: #1EBE5A; color: #fff; transform: translateY(-4px); }
+
         /* === SPLIT-TEXT REVEAL UTILITY (hero h1 / section h2 headings) === */
         .split-line { overflow: hidden; display: block; }
         .split-word { display: inline-block; will-change: transform, opacity; }
@@ -384,20 +397,69 @@
                 rgba(248, 250, 252, 0.8);
         }
         .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 35px; margin-top: clamp(30px, 5vw, 50px);}
+
+        /* Plain flat card -- still used as-is by About's "Core Values" grid, which
+           reuses .service-card for a simpler, non-flip layout (see the inline
+           style="display:block" override there). Scoped narrowly so it never conflicts
+           with .service-card-flip below, which is a DIFFERENT, additional class only
+           the "Our Expertise" cards carry. */
         .service-card { background: #fff; border: 1px solid var(--border-light); border-radius: 20px; transition: var(--transition-smooth); box-shadow: var(--shadow-sm); overflow: hidden; display: flex; flex-direction: column; }
-        .service-card:hover { transform: translateY(-10px); box-shadow: var(--shadow-hover); border-color: var(--cyan-neon); }
-        .service-image { width: 100%; height: 200px; position: relative; overflow: hidden; }
-        .service-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
-        .service-card:hover .service-image img { transform: scale(1.05); }
-        .service-image::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(11, 15, 37, 0.4) 0%, transparent 100%); pointer-events: none; }
-        .service-icon-badge { position: absolute; bottom: 15px; left: 25px; width: 45px; height: 45px; background: var(--cyan-neon); color: var(--navy); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; box-shadow: 0 4px 15px rgba(0, 242, 254, 0.3); z-index: 2; }
-        .service-content { padding: 30px 25px; flex: 1; display: flex; flex-direction: column; }
-        .service-content h3 { font-size: 1.3rem; margin-bottom: 12px; color: var(--navy); font-weight: 700; }
-        .service-content p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 20px; flex: 1; }
+        .service-card:not(.service-card-flip):hover { transform: translateY(-10px); box-shadow: var(--shadow-hover); border-color: var(--cyan-neon); }
+
+        /* === "OUR EXPERTISE" 3D FLIP CARDS ===
+           Front: icon + title only. Hovering (or, on touch devices where :hover can't
+           really be "moved off" of, tapping -- see the .flipped class toggled by
+           js/main.js) rotates the card 180° to reveal the back: a background photo with
+           a dark overlay for text contrast, the full description, and the Learn More
+           link. Both faces are absolutely positioned and stacked via a fixed card
+           height, since a 3D flip needs both sides occupying the exact same box. */
+        .service-card-flip { background: transparent; border: none; box-shadow: none; overflow: visible; perspective: 1800px; height: 400px; }
+        .service-card-inner {
+            position: relative; width: 100%; height: 100%;
+            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            transform-style: preserve-3d;
+        }
+        .service-card-flip:hover .service-card-inner,
+        .service-card-flip.flipped .service-card-inner { transform: rotateY(180deg); }
+        @media (prefers-reduced-motion: reduce) {
+            .service-card-inner { transition: none; }
+        }
+
+        .service-card-front, .service-card-back {
+            position: absolute; inset: 0; backface-visibility: hidden; -webkit-backface-visibility: hidden;
+            border-radius: 20px; overflow: hidden;
+        }
+        .service-card-front {
+            background: #fff; border: 1px solid var(--border-light); box-shadow: var(--shadow-sm);
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            text-align: center; gap: 20px; padding: 30px; transition: var(--transition-smooth);
+        }
+        .service-card-flip:hover .service-card-front,
+        .service-card-flip.flipped .service-card-front { box-shadow: var(--shadow-hover); border-color: var(--cyan-neon); }
+        .service-card-front .service-icon-badge {
+            position: static; width: 64px; height: 64px; background: var(--cyan-neon); color: var(--navy);
+            border-radius: 16px; display: flex; align-items: center; justify-content: center;
+            font-size: 1.5rem; box-shadow: 0 4px 15px rgba(0, 242, 254, 0.3);
+        }
+        .service-card-front h3 { font-size: 1.25rem; color: var(--navy); font-weight: 700; }
+
+        .service-card-back { transform: rotateY(180deg); display: flex; align-items: flex-end; box-shadow: var(--shadow-hover); }
+        .service-card-back-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
+        .service-card-back-overlay {
+            position: absolute; inset: 0; z-index: 1;
+            background: linear-gradient(180deg, rgba(11,15,37,0.35) 0%, rgba(11,15,37,0.85) 60%, rgba(11,15,37,0.95) 100%);
+        }
+        .service-card-back-content { position: relative; z-index: 2; width: 100%; padding: 28px 25px; }
+        .service-card-back-content h3 { font-size: 1.15rem; color: #fff; font-weight: 700; margin-bottom: 10px; }
+        .service-card-back-content p { color: rgba(255,255,255,0.85); font-size: 0.9rem; line-height: 1.6; margin-bottom: 18px; }
+        .service-card-back-content .service-link { color: var(--cyan-neon); }
+        .service-card-back-content .service-link:hover,
+        .service-card-back-content .service-link:focus-visible { color: #fff; }
+
         .service-link { font-weight: 700; color: var(--navy); text-decoration: none; font-size: 0.9rem; display: flex; align-items: center; gap: 5px; transition: var(--transition-smooth); }
         .service-link i { transition: transform 0.3s ease; }
-        .service-card:hover .service-link, .case-card:hover .service-link { color: var(--cyan-neon); }
-        .service-card:hover .service-link i, .case-card:hover .service-link i { transform: translateX(4px); }
+        .case-card:hover .service-link { color: var(--cyan-neon); }
+        .case-card:hover .service-link i { transform: translateX(4px); }
 
         /* === PREMIUM METHODOLOGY === */
         .methodology-section {
@@ -581,7 +643,7 @@
             position: relative; background: #fff; border: 1px solid var(--border-light); border-radius: 20px;
             padding: clamp(32px, 4vw, 42px) clamp(22px, 3vw, 32px); text-align: center; overflow: hidden;
             box-shadow: var(--shadow-sm); transition: var(--transition-smooth);
-            display: block; text-decoration: none; color: inherit; cursor: pointer;
+            display: flex; flex-direction: column; align-items: center;
         }
         .industry-tile::before {
             content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 3px;
@@ -605,6 +667,19 @@
         }
         .industry-tile h5 { font-size: 1.15rem; font-weight: 800; color: var(--navy); margin-bottom: 10px; }
         .industry-tile p { color: var(--text-muted); font-size: 0.92rem; line-height: 1.6; margin: 0; }
+        .industry-tile-btn {
+            display: inline-flex; align-items: center; gap: 7px; margin-top: 20px;
+            padding: 9px 22px; border-radius: 50px; font-size: 0.85rem; font-weight: 700;
+            color: var(--navy); background: transparent; border: 1.5px solid var(--border-light);
+            text-decoration: none; transition: var(--transition-smooth);
+        }
+        .industry-tile-btn i { font-size: 0.75rem; transition: transform 0.3s ease; }
+        .industry-tile-btn:hover,
+        .industry-tile-btn:focus-visible {
+            background: linear-gradient(135deg, var(--cyan-neon), var(--magenta-neon));
+            border-color: transparent; color: #fff;
+        }
+        .industry-tile-btn:hover i { transform: translateX(3px); }
 
         @media(max-width: 900px) { .industry-tile-grid { grid-template-columns: repeat(2, 1fr); } }
         @media(max-width: 560px) { .industry-tile-grid { grid-template-columns: 1fr; } }

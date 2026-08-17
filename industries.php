@@ -22,76 +22,90 @@ include 'header.php';
             </div>
             
             <div class="industry-tile-grid">
-                <a href="accounting-finance.php" class="industry-tile">
+                <div class="industry-tile">
                     <div class="industry-tile-icon"><i class="fa-solid fa-calculator"></i></div>
                     <h5>Accounting & Finance</h5>
                     <p>Authority-building SEO and content that earns trust before the first call.</p>
-                </a>
-                <a href="automotive.php" class="industry-tile">
+                    <a href="accounting-finance.php" class="industry-tile-btn">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+                <div class="industry-tile">
                     <div class="industry-tile-icon"><i class="fa-solid fa-car"></i></div>
                     <h5>Automotive</h5>
                     <p>Repair shops, dealerships & auto detailing services winning more service bookings.</p>
-                </a>
-                <a href="construction-building.php" class="industry-tile">
+                    <a href="automotive.php" class="industry-tile-btn">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+                <div class="industry-tile">
                     <div class="industry-tile-icon"><i class="fa-solid fa-helmet-safety"></i></div>
                     <h5>Construction & Building</h5>
                     <p>Portfolio-driven websites and lead generation that win bigger contracts.</p>
-                </a>
-                <a href="dental.php" class="industry-tile">
+                    <a href="construction-building.php" class="industry-tile-btn">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+                <div class="industry-tile">
                     <div class="industry-tile-icon"><i class="fa-solid fa-tooth"></i></div>
                     <h5>Dental</h5>
                     <p>Local SEO and booking-optimised websites that keep every chair full.</p>
-                </a>
-                <a href="ecommerce-industry.php" class="industry-tile">
+                    <a href="dental.php" class="industry-tile-btn">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+                <div class="industry-tile">
                     <div class="industry-tile-icon"><i class="fa-solid fa-cart-shopping"></i></div>
                     <h5>eCommerce</h5>
                     <p>Shopify stores, retail brands & digital products scaled with full-funnel paid and organic growth.</p>
-                </a>
-                <a href="franchise.php" class="industry-tile">
+                    <a href="ecommerce-industry.php" class="industry-tile-btn">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+                <div class="industry-tile">
                     <div class="industry-tile-icon"><i class="fa-solid fa-store"></i></div>
                     <h5>Franchise</h5>
                     <p>Multi-location SEO and local campaigns that grow every site, not just a few.</p>
-                </a>
-                <a href="healthcare-medical.php" class="industry-tile">
+                    <a href="franchise.php" class="industry-tile-btn">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+                <div class="industry-tile">
                     <div class="industry-tile-icon"><i class="fa-solid fa-user-doctor"></i></div>
                     <h5>Healthcare & Medical</h5>
                     <p>Clinics, medical practices, and health specialists building trusted, compliant patient pipelines.</p>
-                </a>
-                <a href="hospitality-tourism.php" class="industry-tile">
+                    <a href="healthcare-medical.php" class="industry-tile-btn">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+                <div class="industry-tile">
                     <div class="industry-tile-icon"><i class="fa-solid fa-utensils"></i></div>
                     <h5>Hospitality & Tourism</h5>
                     <p>Restaurants, cafes, venues & booking services turning local searches into full tables.</p>
-                </a>
-                <a href="hotel-motel.php" class="industry-tile">
+                    <a href="hospitality-tourism.php" class="industry-tile-btn">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+                <div class="industry-tile">
                     <div class="industry-tile-icon"><i class="fa-solid fa-bed"></i></div>
                     <h5>Hotel & Motel</h5>
                     <p>Direct-booking campaigns that win guests straight from search, not the OTAs.</p>
-                </a>
-                <a href="legal-law.php" class="industry-tile">
+                    <a href="hotel-motel.php" class="industry-tile-btn">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+                <div class="industry-tile">
                     <div class="industry-tile-icon"><i class="fa-solid fa-scale-balanced"></i></div>
                     <h5>Legal / Law</h5>
                     <p>Practice-area SEO and authority content that attract higher-value cases.</p>
-                </a>
-                <a href="real-estate.php" class="industry-tile">
+                    <a href="legal-law.php" class="industry-tile-btn">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+                <div class="industry-tile">
                     <div class="industry-tile-icon"><i class="fa-solid fa-house"></i></div>
                     <h5>Real Estate</h5>
                     <p>Suburb-level SEO and personal branding that win more listings and deals.</p>
-                </a>
-                <a href="small-business-digital-marketing.php" class="industry-tile">
+                    <a href="real-estate.php" class="industry-tile-btn">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+                <div class="industry-tile">
                     <div class="industry-tile-icon"><i class="fa-solid fa-shop"></i></div>
                     <h5>Small Business Digital Marketing</h5>
                     <p>Budget-smart SEO, ads & websites built to compete with bigger competitors.</p>
-                </a>
-                <a href="ndis.php" class="industry-tile">
+                    <a href="small-business-digital-marketing.php" class="industry-tile-btn">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+                <div class="industry-tile">
                     <div class="industry-tile-icon"><i class="fa-solid fa-hand-holding-heart"></i></div>
                     <h5>NDIS</h5>
                     <p>Trust-first websites and referral campaigns that grow participant enquiries.</p>
-                </a>
-                <a href="trades.php" class="industry-tile">
+                    <a href="ndis.php" class="industry-tile-btn">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+                <div class="industry-tile">
                     <div class="industry-tile-icon"><i class="fa-solid fa-truck-fast"></i></div>
                     <h5>Trades</h5>
                     <p>Plumbing, electrical, refrigeration & local contractors — high-intent local leads that convert.</p>
-                </a>
+                    <a href="trades.php" class="industry-tile-btn">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
             </div>
         </div>
     </section>

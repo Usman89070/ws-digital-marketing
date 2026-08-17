@@ -72,6 +72,7 @@
     </footer>
 
     <div id="scroll-progress"></div>
+    <a href="https://wa.me/61403889630" target="_blank" rel="noopener noreferrer" id="whatsapp-chat" aria-label="Chat with us on WhatsApp" title="Chat with us on WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
     <button id="back-to-top" aria-label="Back to top" title="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
 
     <!-- Site JS: nav, scroll effects, GSAP animations, and stat counters -- loads and
