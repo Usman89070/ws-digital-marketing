@@ -380,7 +380,7 @@ if (window.matchMedia('(hover: none)').matches) {
                     const items = gsap.utils.toArray(grid.children);
                     items.forEach((item, i) => {
                         gsap.fromTo(item, { opacity: 0, y: 34 }, {
-                            opacity: 1, y: 0, duration: 0.55, delay: (i % 3) * 0.08, ease: 'power2.out',
+                            opacity: 1, y: 0, duration: 0.55, delay: (i % 3) * 0.08, ease: 'power2.out', clearProps: 'transform',
                             scrollTrigger: { trigger: item, start: 'top 90%', toggleActions: 'play none none none' }
                         });
                     });

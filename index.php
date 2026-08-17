@@ -338,6 +338,75 @@ include 'header.php';
         </div>
     </section>
 
+    <!-- MEET THE TEAM (homepage teaser — full roster lives on our-team.php) -->
+    <section id="team" class="services-section fade-up">
+        <div class="container">
+            <div class="section-header">
+                <span class="eyebrow">OUR TEAM</span>
+                <h2 style="font-size: clamp(1.8rem, 4vw, 2.8rem); margin-top: 10px;">Meet The People Driving Your Results</h2>
+            </div>
+
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="team-photo">
+                        <div class="team-photo-placeholder"><i class="fa-solid fa-user"></i></div>
+                        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=400&q=80" alt="James Mitchell, Founder & CEO" onerror="this.remove()">
+                    </div>
+                    <div class="team-info">
+                        <h5>James Mitchell</h5>
+                        <span class="team-role">Founder &amp; CEO</span>
+                        <div class="team-socials">
+                            <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <div class="team-photo">
+                        <div class="team-photo-placeholder"><i class="fa-solid fa-user"></i></div>
+                        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80" alt="Sarah Chen, Head of Strategy" onerror="this.remove()">
+                    </div>
+                    <div class="team-info">
+                        <h5>Sarah Chen</h5>
+                        <span class="team-role">Head of Strategy</span>
+                        <div class="team-socials">
+                            <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <div class="team-photo">
+                        <div class="team-photo-placeholder"><i class="fa-solid fa-user"></i></div>
+                        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=400&q=80" alt="Marcus Webb, Lead Web Developer" onerror="this.remove()">
+                    </div>
+                    <div class="team-info">
+                        <h5>Marcus Webb</h5>
+                        <span class="team-role">Lead Web Developer</span>
+                        <div class="team-socials">
+                            <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <div class="team-photo">
+                        <div class="team-photo-placeholder"><i class="fa-solid fa-user"></i></div>
+                        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&q=80" alt="Priya Sharma, Creative Director" onerror="this.remove()">
+                    </div>
+                    <div class="team-info">
+                        <h5>Priya Sharma</h5>
+                        <span class="team-role">Creative Director</span>
+                        <div class="team-socials">
+                            <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: clamp(30px, 4vw, 40px);">
+                <a href="our-team.php" class="btn-secondary">MEET THE FULL TEAM <i class="fa-solid fa-arrow-right" style="margin-left: 6px;"></i></a>
+            </div>
+        </div>
+    </section>
+
     <!-- TESTIMONIALS WITH REAL HEADSHOTS -->
 
     <section class="testimonials-section fade-up">
