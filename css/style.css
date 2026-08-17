@@ -244,12 +244,16 @@
         }
         .btn-primary:hover::after { left: 130%; }
         .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 10px 25px rgba(255, 0, 127, 0.35); }
-        .btn-secondary { 
-            border: 2px solid var(--border-light); color: var(--navy); 
-            padding: 15px 32px; border-radius: 8px; text-decoration: none; 
+        .btn-secondary {
+            border: 2px solid var(--cyan-neon); color: var(--navy);
+            padding: 15px 32px; border-radius: 50px; text-decoration: none;
             font-weight: 600; transition: var(--transition-smooth); display: inline-block; background: transparent; text-align: center; font-size: 1rem;
         }
-        .btn-secondary:hover { border-color: var(--navy); background: var(--navy); color: #fff; transform: translateY(-3px); }
+        .btn-secondary:hover {
+            border-color: transparent; color: #fff; transform: translateY(-3px);
+            background: linear-gradient(135deg, var(--cyan-neon), var(--magenta-neon));
+            box-shadow: 0 10px 25px rgba(0, 242, 254, 0.3);
+        }
 
         /* === SECTION 1: HERO === */
         .hero { background: rgba(255, 255, 255, 0.8); color: var(--navy); position: relative; z-index: 10; margin-top: 85px; padding: clamp(60px, 12vw, 120px) 0 clamp(40px, 8vw, 80px); overflow: hidden; }
@@ -452,9 +456,18 @@
         .service-card-back-content { position: relative; z-index: 2; width: 100%; padding: 28px 25px; }
         .service-card-back-content h3 { font-size: 1.15rem; color: #fff; font-weight: 700; margin-bottom: 10px; }
         .service-card-back-content p { color: rgba(255,255,255,0.85); font-size: 0.9rem; line-height: 1.6; margin-bottom: 18px; }
-        .service-card-back-content .service-link { color: var(--cyan-neon); }
+        .service-card-back-content .service-link {
+            display: inline-flex; align-items: center; gap: 7px; margin-top: 2px;
+            padding: 10px 22px; border-radius: 50px; font-size: 0.85rem; font-weight: 700;
+            background: linear-gradient(135deg, var(--cyan-neon), var(--magenta-neon));
+            color: #fff; box-shadow: 0 4px 15px rgba(0, 242, 254, 0.25);
+        }
         .service-card-back-content .service-link:hover,
-        .service-card-back-content .service-link:focus-visible { color: #fff; }
+        .service-card-back-content .service-link:focus-visible {
+            color: #fff; transform: translateY(-2px); box-shadow: 0 8px 20px rgba(255, 0, 127, 0.35);
+        }
+        .service-card-back-content .service-link:hover i,
+        .service-card-back-content .service-link:focus-visible i { transform: translateX(3px); }
 
         .service-link { font-weight: 700; color: var(--navy); text-decoration: none; font-size: 0.9rem; display: flex; align-items: center; gap: 5px; transition: var(--transition-smooth); }
         .service-link i { transition: transform 0.3s ease; }
