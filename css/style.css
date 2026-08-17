@@ -151,10 +151,24 @@
         }
 
         .mobile-btn {
-            display: none; align-items: center; justify-content: center;
+            display: flex; align-items: center; justify-content: center;
             width: 44px; height: 44px; font-size: 2rem; background: none; border: none;
             cursor: pointer; color: #fff; z-index: 1001; transition: transform 0.3s ease;
-            margin-left: auto;
+            margin-left: 14px; flex-shrink: 0;
+        }
+
+        /* Now that .mobile-btn is always visible (not just once .scrolled), the
+           inline nav + CTA + toggle need to coexist at widths just above the
+           1200px point where .nav-menu switches to the dropdown/hamburger-only
+           layout. Trim gap/font-size a little in that band only -- deliberately
+           NOT touching the 1200px breakpoint itself, since js/main.js's
+           isToggleControlled check and the carpet-roll open animation are tied
+           to that exact value and shifting it risks reintroducing the
+           clip-path desync bug documented further down this file. */
+        @media(max-width: 1320px) {
+            .nav-menu { gap: 16px; }
+            .nav-menu li a { font-size: 0.88rem; }
+            .header-cta { padding: 10px 16px; font-size: 0.78rem; }
         }
         .mobile-btn:hover { color: var(--cyan-neon); transform: scale(1.1); }
 
@@ -846,7 +860,6 @@
 
         /* === TABLET & MOBILE OVERRIDES === */
         @media(max-width: 1200px) {
-            .mobile-btn { display: block; }
             .nav-menu {
                 position: absolute; top: 100%; left: 0; width: 100%;
                 background: #0B0F25; flex-direction: column; gap: 0;
