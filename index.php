@@ -338,54 +338,71 @@ include 'header.php';
         </div>
     </section>
 
-    <!-- PREMIUM SPLIT METHODOLOGY -->
-    <section class="methodology-section fade-up">
+    <!-- MEET THE TEAM (homepage teaser — full roster lives on our-team.php) -->
+    <section id="team" class="services-section fade-up">
         <div class="container">
-            <div class="section-header left">
-                <span class="eyebrow">OUR METHODOLOGY</span>
-                <h2 style="font-size: clamp(1.8rem, 4vw, 2.8rem); margin-top: 10px;">No Guesswork. Just A Proven Growth System.</h2>
+            <div class="section-header">
+                <span class="eyebrow">OUR TEAM</span>
+                <h2 style="font-size: clamp(1.8rem, 4vw, 2.8rem); margin-top: 10px;">Meet The People Driving Your Results</h2>
             </div>
-            <div class="methodology-grid">
-                <div class="methodology-steps">
-                    <div class="m-step">
-                        <div class="m-step-num">01</div>
-                        <div class="m-step-content">
-                            <h4><i class="fa-solid fa-magnifying-glass"></i> Discover & Audit</h4>
-                            <p>We deeply analyze your business, market trends, and specific goals to find hidden revenue opportunities.</p>
-                        </div>
+
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="team-photo">
+                        <div class="team-photo-placeholder"><i class="fa-solid fa-user"></i></div>
+                        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=400&q=80" alt="James Mitchell, Founder & CEO" onerror="this.remove()">
                     </div>
-                    <div class="m-step">
-                        <div class="m-step-num">02</div>
-                        <div class="m-step-content">
-                            <h4><i class="fa-solid fa-chess-knight"></i> Custom Strategy</h4>
-                            <p>We build a transparent, data-backed strategy focused entirely on high-impact areas that drive sales.</p>
-                        </div>
-                    </div>
-                    <div class="m-step">
-                        <div class="m-step-num">03</div>
-                        <div class="m-step-content">
-                            <h4><i class="fa-solid fa-rocket"></i> Launch & Optimise</h4>
-                            <p>We deploy targeted campaigns with precise tracking, testing and refining daily for maximum conversions.</p>
-                        </div>
-                    </div>
-                    <div class="m-step">
-                        <div class="m-step-num">04</div>
-                        <div class="m-step-content">
-                            <h4><i class="fa-solid fa-chart-line"></i> Scale Safely</h4>
-                            <p>Once we identify winning channels, we rapidly inject budget to safely maximize your revenue growth.</p>
+                    <div class="team-info">
+                        <h5>James Mitchell</h5>
+                        <span class="team-role">Founder &amp; CEO</span>
+                        <div class="team-socials">
+                            <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
                         </div>
                     </div>
                 </div>
-                <div class="methodology-image">
-                    <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=80" alt="Team Analyzing Data">
-                    <div class="methodology-badge">
-                        <div class="methodology-badge-icon"><i class="fa-solid fa-award"></i></div>
-                        <div>
-                            <h6>10+ Years</h6>
-                            <span>Refining This System</span>
+                <div class="team-card">
+                    <div class="team-photo">
+                        <div class="team-photo-placeholder"><i class="fa-solid fa-user"></i></div>
+                        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80" alt="Sarah Chen, Head of Strategy" onerror="this.remove()">
+                    </div>
+                    <div class="team-info">
+                        <h5>Sarah Chen</h5>
+                        <span class="team-role">Head of Strategy</span>
+                        <div class="team-socials">
+                            <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
                         </div>
                     </div>
                 </div>
+                <div class="team-card">
+                    <div class="team-photo">
+                        <div class="team-photo-placeholder"><i class="fa-solid fa-user"></i></div>
+                        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=400&q=80" alt="Marcus Webb, Lead Web Developer" onerror="this.remove()">
+                    </div>
+                    <div class="team-info">
+                        <h5>Marcus Webb</h5>
+                        <span class="team-role">Lead Web Developer</span>
+                        <div class="team-socials">
+                            <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <div class="team-photo">
+                        <div class="team-photo-placeholder"><i class="fa-solid fa-user"></i></div>
+                        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&q=80" alt="Priya Sharma, Creative Director" onerror="this.remove()">
+                    </div>
+                    <div class="team-info">
+                        <h5>Priya Sharma</h5>
+                        <span class="team-role">Creative Director</span>
+                        <div class="team-socials">
+                            <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: clamp(30px, 4vw, 40px);">
+                <a href="our-team.php" class="btn-secondary">MEET THE FULL TEAM <i class="fa-solid fa-arrow-right" style="margin-left: 6px;"></i></a>
             </div>
         </div>
     </section>
@@ -495,57 +512,6 @@ include 'header.php';
         </div>
     </section>
 
-
-    <!-- UPGRADED REALISTIC IMAGE INDUSTRIES -->
-    <section class="industries-section fade-up" id="industries">
-        <div class="container">
-            <div class="section-header">
-                <span class="eyebrow" style="color: var(--cyan-neon);">INDUSTRY EXPERTISE</span>
-                <h2 style="font-size: clamp(1.8rem, 4vw, 2.8rem); margin-top: 10px;">Tailored Campaigns That Drive Results</h2>
-            </div>
-            <div class="industry-tile-grid">
-                <div class="industry-tile">
-                    <div class="industry-tile-icon"><i class="fa-solid fa-helmet-safety"></i></div>
-                    <h5>Trades & Services</h5>
-                    <p>Plumbing, electrical, refrigeration & local contractors — high-intent local leads that convert.</p>
-                    <a href="trades.php" class="industry-tile-btn">Learn More <i class="fa-solid fa-arrow-right"></i></a>
-                </div>
-                <div class="industry-tile">
-                    <div class="industry-tile-icon"><i class="fa-solid fa-user-doctor"></i></div>
-                    <h5>Healthcare & Medical</h5>
-                    <p>Clinics, medical practices, and health specialists building trusted, compliant patient pipelines.</p>
-                    <a href="healthcare-medical.php" class="industry-tile-btn">Learn More <i class="fa-solid fa-arrow-right"></i></a>
-                </div>
-                <div class="industry-tile">
-                    <div class="industry-tile-icon"><i class="fa-solid fa-scale-balanced"></i></div>
-                    <h5>Legal & Professional Services</h5>
-                    <p>Legal, financial, consulting & corporate services that need consistent, qualified inquiries.</p>
-                    <a href="legal-law.php" class="industry-tile-btn">Learn More <i class="fa-solid fa-arrow-right"></i></a>
-                </div>
-                <div class="industry-tile">
-                    <div class="industry-tile-icon"><i class="fa-solid fa-cart-shopping"></i></div>
-                    <h5>eCommerce</h5>
-                    <p>Shopify stores, retail brands & digital products scaled with full-funnel paid and organic growth.</p>
-                    <a href="ecommerce-industry.php" class="industry-tile-btn">Learn More <i class="fa-solid fa-arrow-right"></i></a>
-                </div>
-                <div class="industry-tile">
-                    <div class="industry-tile-icon"><i class="fa-solid fa-utensils"></i></div>
-                    <h5>Hospitality & Tourism</h5>
-                    <p>Restaurants, cafes, venues & booking services turning local searches into full tables.</p>
-                    <a href="hospitality-tourism.php" class="industry-tile-btn">Learn More <i class="fa-solid fa-arrow-right"></i></a>
-                </div>
-                <div class="industry-tile">
-                    <div class="industry-tile-icon"><i class="fa-solid fa-car"></i></div>
-                    <h5>Automotive</h5>
-                    <p>Repair shops, dealerships & auto detailing services winning more service bookings.</p>
-                    <a href="automotive.php" class="industry-tile-btn">Learn More <i class="fa-solid fa-arrow-right"></i></a>
-                </div>
-            </div>
-            <div style="text-align: center; margin-top: clamp(30px, 4vw, 40px);">
-                <a href="industries.php" class="btn-secondary">VIEW ALL INDUSTRIES <i class="fa-solid fa-arrow-right" style="margin-left: 6px;"></i></a>
-            </div>
-        </div>
-    </section>
 
     <!-- LATEST FROM THE BLOG -->
     <section class="case-studies-section fade-up">
