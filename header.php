@@ -93,6 +93,7 @@ $page_description = $page_description ?? 'Data-driven Google Ads, Meta Ads, SEO 
                         <a href="about.php">Agency <i class="fa-solid fa-chevron-down" style="font-size: 0.75rem; margin-left: 4px;"></i></a>
                         <ul class="dropdown-menu">
                             <li><a href="our-team.php">Our Team</a></li>
+                            <li><a href="reviews.php">Reviews</a></li>
                             <li><a href="blog.php">Blog</a></li>
                             <li><a href="pricing.php">Pricing Plans</a></li>
                             <li><a href="faq.php">FAQ</a></li>
