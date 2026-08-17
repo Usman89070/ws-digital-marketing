@@ -848,7 +848,22 @@
         .social-links { display: flex !important; gap: 15px !important; margin-top: 25px !important; }
         .social-links a { width: 40px !important; height: 40px !important; border-radius: 50% !important; background: rgba(255,255,255,0.05) !important; border: 1px solid rgba(255,255,255,0.1) !important; display: flex !important; align-items: center !important; justify-content: center !important; color: #fff !important; transition: var(--transition-smooth) !important; text-decoration: none !important; font-size: 1rem !important; }
         .social-links a:hover { background: var(--cyan-neon) !important; color: var(--navy) !important; transform: translateY(-3px) !important; box-shadow: 0 5px 15px rgba(0, 242, 254, 0.3) !important; }
-        
+
+        /* Contact page's info card sits on a light background, unlike the dark
+           footer .social-links reuses -- needs its own always-visible (navy
+           circle, white icon) styling instead of the footer's near-transparent
+           circle that only reads once hover turns it cyan. */
+        .contact-social-links { display: flex; gap: 10px; }
+        .contact-social-links a {
+            width: 38px; height: 38px; border-radius: 50%; background: var(--navy);
+            display: flex; align-items: center; justify-content: center; color: #fff;
+            text-decoration: none; transition: var(--transition-smooth); font-size: 0.95rem;
+        }
+        .contact-social-links a:hover {
+            background: var(--cyan-neon); color: var(--navy); transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 242, 254, 0.3);
+        }
+
         .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1) !important; margin-top: 80px !important; padding-top: 30px !important; display: flex !important; justify-content: space-between !important; align-items: center !important; color: rgba(255,255,255,0.5) !important; font-size: 0.9rem !important; flex-wrap: wrap !important; gap: 20px !important;}
 
         @media(max-width: 1024px) {

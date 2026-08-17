@@ -130,11 +130,11 @@ include 'header.php';
 
                     <div style="margin-top: 35px; border-top: 1px solid var(--border-light); padding-top: 20px;">
                         <h5 style="font-size: 0.8rem; text-transform: uppercase; color: var(--text-muted); font-weight: 700; margin-bottom: 12px; letter-spacing: 1px;">Follow Our Socials</h5>
-                        <div class="social-links" style="display: flex; gap: 10px;">
-                            <a href="#" style="width: 38px; height: 38px; border-radius: 50%; background: var(--navy); display: flex; align-items: center; justify-content: center; color: #fff; text-decoration: none; transition: var(--transition-smooth);"><i class="fa-brands fa-facebook-f"></i></a>
-                            <a href="#" style="width: 38px; height: 38px; border-radius: 50%; background: var(--navy); display: flex; align-items: center; justify-content: center; color: #fff; text-decoration: none; transition: var(--transition-smooth);"><i class="fa-brands fa-instagram"></i></a>
-                            <a href="#" style="width: 38px; height: 38px; border-radius: 50%; background: var(--navy); display: flex; align-items: center; justify-content: center; color: #fff; text-decoration: none; transition: var(--transition-smooth);"><i class="fa-brands fa-linkedin-in"></i></a>
-                            <a href="#" style="width: 38px; height: 38px; border-radius: 50%; background: var(--navy); display: flex; align-items: center; justify-content: center; color: #fff; text-decoration: none; transition: var(--transition-smooth);"><i class="fa-brands fa-x-twitter"></i></a>
+                        <div class="contact-social-links">
+                            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
                         </div>
                     </div>
                 </div>
