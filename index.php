@@ -351,12 +351,15 @@ include 'header.php';
                     <div class="team-photo">
                         <div class="team-photo-placeholder"><i class="fa-solid fa-user"></i></div>
                         <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=400&q=80" alt="James Mitchell, Founder & CEO" onerror="this.remove()">
-                    </div>
-                    <div class="team-info">
-                        <h5>James Mitchell</h5>
-                        <span class="team-role">Founder &amp; CEO</span>
-                        <div class="team-socials">
-                            <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <span class="team-card-num">01</span>
+                        <div class="team-card-overlay"></div>
+                        <div class="team-card-info">
+                            <h5>James Mitchell</h5>
+                            <span class="team-role">Founder &amp; CEO</span>
+                            <p class="team-card-desc">Leads company strategy and ensures every client gets a growth plan built around real numbers.</p>
+                            <div class="team-socials">
+                                <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -364,12 +367,15 @@ include 'header.php';
                     <div class="team-photo">
                         <div class="team-photo-placeholder"><i class="fa-solid fa-user"></i></div>
                         <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80" alt="Sarah Chen, Head of Strategy" onerror="this.remove()">
-                    </div>
-                    <div class="team-info">
-                        <h5>Sarah Chen</h5>
-                        <span class="team-role">Head of Strategy</span>
-                        <div class="team-socials">
-                            <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <span class="team-card-num">02</span>
+                        <div class="team-card-overlay"></div>
+                        <div class="team-card-info">
+                            <h5>Sarah Chen</h5>
+                            <span class="team-role">Head of Strategy</span>
+                            <p class="team-card-desc">Turns market research and data into the campaign roadmaps our team executes.</p>
+                            <div class="team-socials">
+                                <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -377,12 +383,15 @@ include 'header.php';
                     <div class="team-photo">
                         <div class="team-photo-placeholder"><i class="fa-solid fa-user"></i></div>
                         <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=400&q=80" alt="Marcus Webb, Lead Web Developer" onerror="this.remove()">
-                    </div>
-                    <div class="team-info">
-                        <h5>Marcus Webb</h5>
-                        <span class="team-role">Lead Web Developer</span>
-                        <div class="team-socials">
-                            <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <span class="team-card-num">03</span>
+                        <div class="team-card-overlay"></div>
+                        <div class="team-card-info">
+                            <h5>Marcus Webb</h5>
+                            <span class="team-role">Lead Web Developer</span>
+                            <p class="team-card-desc">Builds fast, conversion-focused websites engineered to turn visitors into customers.</p>
+                            <div class="team-socials">
+                                <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -390,12 +399,15 @@ include 'header.php';
                     <div class="team-photo">
                         <div class="team-photo-placeholder"><i class="fa-solid fa-user"></i></div>
                         <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&q=80" alt="Priya Sharma, Creative Director" onerror="this.remove()">
-                    </div>
-                    <div class="team-info">
-                        <h5>Priya Sharma</h5>
-                        <span class="team-role">Creative Director</span>
-                        <div class="team-socials">
-                            <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <span class="team-card-num">04</span>
+                        <div class="team-card-overlay"></div>
+                        <div class="team-card-info">
+                            <h5>Priya Sharma</h5>
+                            <span class="team-role">Creative Director</span>
+                            <p class="team-card-desc">Shapes the visual identity and creative direction behind every campaign we launch.</p>
+                            <div class="team-socials">
+                                <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                            </div>
                         </div>
                     </div>
                 </div>
