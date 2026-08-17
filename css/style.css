@@ -636,27 +636,60 @@
            our-team.php roster). auto-fit reflows the column count on its own
            at any width, matching the same responsive pattern already used by
            .services-grid, so no manual per-breakpoint column overrides are
-           needed here. */
+           needed here.
+
+           Cards use the same "photo + dark gradient overlay + white text"
+           language already established by the Our Expertise panels: name +
+           role sit permanently on the overlay for legibility at rest; on
+           hover (or .tapped on touch, set by js/main.js) the photo zooms,
+           the overlay deepens, and a one-line description + social links
+           reveal underneath via a max-height transition. */
         .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: clamp(20px, 3vw, 28px); margin-top: clamp(30px, 5vw, 50px); }
-        .team-card { position: relative; background: #fff; border: 1px solid var(--border-light); border-radius: 20px; overflow: hidden; box-shadow: var(--shadow-sm); transition: var(--transition-smooth); }
-        .team-card::before {
-            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 3px; z-index: 2;
-            background: linear-gradient(90deg, var(--cyan-neon), var(--magenta-neon));
-            transform: scaleX(0); transform-origin: left; transition: transform 0.4s ease;
-        }
-        .team-card:hover::before { transform: scaleX(1); }
-        .team-card:hover { transform: translateY(-10px); box-shadow: var(--shadow-hover); border-color: var(--cyan-neon); }
+        .team-card { position: relative; border-radius: 20px; overflow: hidden; box-shadow: var(--shadow-sm); transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.6s cubic-bezier(0.22, 1, 0.36, 1); }
+        .team-card:hover, .team-card.tapped { transform: translateY(-6px) scale(1.03); box-shadow: var(--shadow-hover); }
         .team-photo { width: 100%; aspect-ratio: 4 / 5; position: relative; overflow: hidden; background: linear-gradient(160deg, rgba(0, 242, 254, 0.1), rgba(255, 0, 127, 0.08)); }
-        .team-photo img { width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0; transition: transform 0.6s ease; }
-        .team-card:hover .team-photo img { transform: scale(1.06); }
+        .team-photo img { width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0; transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1); }
+        .team-card:hover .team-photo img, .team-card.tapped .team-photo img { transform: scale(1.08); }
         .team-photo-placeholder { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; }
         .team-photo-placeholder i { font-size: 2.8rem; color: rgba(11, 15, 37, 0.15); }
-        .team-info { padding: clamp(18px, 2.5vw, 22px); text-align: center; }
-        .team-info h5 { font-size: 1.05rem; font-weight: 800; color: var(--navy); margin-bottom: 4px; }
-        .team-role { display: block; font-size: 0.8rem; color: var(--magenta-neon); font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 14px; }
-        .team-socials { display: flex; justify-content: center; gap: 8px; }
-        .team-socials a { width: 32px; height: 32px; border-radius: 50%; background: var(--bg-secondary); display: flex; align-items: center; justify-content: center; color: var(--navy); font-size: 0.8rem; transition: var(--transition-smooth); text-decoration: none; }
-        .team-socials a:hover { background: var(--cyan-neon); color: var(--navy); transform: translateY(-2px); }
+
+        .team-card-num {
+            position: absolute; top: 16px; left: 18px; z-index: 3;
+            font-size: 0.8rem; font-weight: 800; letter-spacing: 1px; color: rgba(255,255,255,0.55);
+            transition: color 0.5s ease, transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .team-card:hover .team-card-num, .team-card.tapped .team-card-num { color: var(--cyan-neon); transform: translateY(-3px); }
+
+        .team-card-overlay {
+            position: absolute; inset: 0; z-index: 1;
+            background: linear-gradient(180deg, rgba(11,15,37,0) 38%, rgba(11,15,37,0.8) 72%, rgba(11,15,37,0.95) 100%);
+            transition: background 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .team-card:hover .team-card-overlay, .team-card.tapped .team-card-overlay {
+            background: linear-gradient(180deg, rgba(11,15,37,0.1) 0%, rgba(11,15,37,0.88) 55%, rgba(11,15,37,0.97) 100%);
+        }
+
+        .team-card-info { position: absolute; left: 0; right: 0; bottom: 0; z-index: 2; padding: 18px 20px; }
+        .team-card-info h5 { font-size: 1.05rem; font-weight: 800; color: #fff; margin-bottom: 3px; }
+        .team-role { display: block; font-size: 0.78rem; color: var(--cyan-neon); font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
+        .team-card-desc {
+            max-height: 0; opacity: 0; overflow: hidden; margin-top: 0;
+            font-size: 0.85rem; line-height: 1.55; color: rgba(255,255,255,0.85);
+            transition: max-height 0.5s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.4s ease, margin-top 0.5s ease;
+        }
+        .team-card:hover .team-card-desc, .team-card.tapped .team-card-desc { max-height: 140px; opacity: 1; margin-top: 10px; }
+        .team-socials {
+            display: flex; gap: 8px; max-height: 0; opacity: 0; overflow: hidden; margin-top: 0;
+            transition: max-height 0.5s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.4s ease, margin-top 0.4s ease;
+        }
+        .team-card:hover .team-socials, .team-card.tapped .team-socials { max-height: 50px; opacity: 1; margin-top: 12px; }
+        .team-socials a { width: 32px; height: 32px; border-radius: 50%; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); display: flex; align-items: center; justify-content: center; color: #fff; font-size: 0.8rem; transition: var(--transition-smooth); text-decoration: none; }
+        .team-socials a:hover { background: var(--cyan-neon); color: var(--navy); border-color: transparent; transform: translateY(-2px); }
+
+        @media (prefers-reduced-motion: reduce) {
+            .team-card, .team-photo img, .team-card-num, .team-card-overlay, .team-card-desc, .team-socials { transition: none; }
+            .team-card-desc, .team-socials { max-height: none; opacity: 1; margin-top: 10px; overflow: visible; }
+        }
 
         /* === INDUSTRIES: icon tiles, no photos, fixed 3-up grid (used on the
            homepage teaser and the dedicated Industries page) === */

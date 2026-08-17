@@ -32,6 +32,28 @@ document.addEventListener('click', (e) => {
     document.querySelectorAll('.dropdown.active').forEach(d => d.classList.remove('active'));
 });
 
+// Team cards reveal their description/socials on :hover, which has no
+// equivalent on touch -- there's no pointer to "move off of" to close it
+// again, and no way to preview the reveal before deciding whether to tap a
+// social link. On devices with no real hover, tap the card to toggle
+// .tapped instead (closing any other open card first), same pattern as the
+// dropdown above. A tap on a link inside the card (e.g. a social icon)
+// still follows that link normally rather than just toggling the reveal.
+if (window.matchMedia('(hover: none)').matches) {
+    document.querySelectorAll('.team-card').forEach(card => {
+        card.addEventListener('click', (e) => {
+            if (e.target.closest('a')) return;
+            const wasOpen = card.classList.contains('tapped');
+            document.querySelectorAll('.team-card.tapped').forEach(c => c.classList.remove('tapped'));
+            if (!wasOpen) card.classList.add('tapped');
+        });
+    });
+    document.addEventListener('click', (e) => {
+        if (e.target.closest('.team-card')) return;
+        document.querySelectorAll('.team-card.tapped').forEach(c => c.classList.remove('tapped'));
+    });
+}
+
         const progressBar = document.getElementById('scroll-progress');
         const backToTopBtn = document.getElementById('back-to-top');
 
