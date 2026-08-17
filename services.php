@@ -22,87 +22,129 @@ include 'header.php';
             </div>
             <div class="services-grid">
 
-                <div class="service-card" id="seo" style="scroll-margin-top: 110px;">
-                    <div class="service-image">
-                        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?auto=format&fit=crop&w=800&q=80" alt="Search Engine Optimization">
-                        <div class="service-icon-badge"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
-                    </div>
-                    <div class="service-content">
-                        <h3>Search Engine Optimization</h3>
-                        <p>Dominate local search and Google Maps with technical SEO, content, and link-building strategies that attract high-intent organic traffic.</p>
-                        <a href="seo.php" class="service-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
-                    </div>
-                </div>
-
-                <div class="service-card" id="ecom" style="scroll-margin-top: 110px;">
-                    <div class="service-image">
-                        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=80" alt="E-commerce Solutions">
-                        <div class="service-icon-badge"><i class="fa-solid fa-cart-shopping"></i></div>
-                    </div>
-                    <div class="service-content">
-                        <h3>E-commerce</h3>
-                        <p>Shopify and WooCommerce builds, catalog strategy, and conversion-focused checkout flows that turn browsers into repeat customers.</p>
-                        <a href="ecommerce.php" class="service-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+                <div class="service-card service-card-flip" id="seo" style="scroll-margin-top: 110px;">
+                    <div class="service-card-inner">
+                        <div class="service-card-front">
+                            <div class="service-icon-badge"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
+                            <h3>Search Engine Optimization</h3>
+                        </div>
+                        <div class="service-card-back">
+                            <img loading="lazy" decoding="async" class="service-card-back-img" src="https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?auto=format&fit=crop&w=800&q=80" alt="">
+                            <div class="service-card-back-overlay"></div>
+                            <div class="service-card-back-content">
+                                <h3>Search Engine Optimization</h3>
+                                <p>Dominate local search and Google Maps with technical SEO, content, and link-building strategies that attract high-intent organic traffic.</p>
+                                <a href="seo.php" class="service-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="service-card" id="web" style="scroll-margin-top: 110px;">
-                    <div class="service-image">
-                        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80" alt="Website Development & Design">
-                        <div class="service-icon-badge"><i class="fa-solid fa-laptop-code"></i></div>
-                    </div>
-                    <div class="service-content">
-                        <h3>Website Development &amp; Design</h3>
-                        <p>Fast, mobile-responsive websites engineered specifically for conversion rate optimization, not just aesthetics.</p>
-                        <a href="website-development.php" class="service-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
-                    </div>
-                </div>
-
-                <div class="service-card" id="social" style="scroll-margin-top: 110px;">
-                    <div class="service-image">
-                        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=800&q=80" alt="Social Media Marketing">
-                        <div class="service-icon-badge"><i class="fa-solid fa-share-nodes"></i></div>
-                    </div>
-                    <div class="service-content">
-                        <h3>Social Media</h3>
-                        <p>Strategic content and community management across Meta and TikTok to build brand presence and engage your target audience.</p>
-                        <a href="social-media.php" class="service-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+                <div class="service-card service-card-flip" id="ecom" style="scroll-margin-top: 110px;">
+                    <div class="service-card-inner">
+                        <div class="service-card-front">
+                            <div class="service-icon-badge"><i class="fa-solid fa-cart-shopping"></i></div>
+                            <h3>E-commerce</h3>
+                        </div>
+                        <div class="service-card-back">
+                            <img loading="lazy" decoding="async" class="service-card-back-img" src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=80" alt="">
+                            <div class="service-card-back-overlay"></div>
+                            <div class="service-card-back-content">
+                                <h3>E-commerce</h3>
+                                <p>Shopify and WooCommerce builds, catalog strategy, and conversion-focused checkout flows that turn browsers into repeat customers.</p>
+                                <a href="ecommerce.php" class="service-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="service-card" id="ppc" style="scroll-margin-top: 110px;">
-                    <div class="service-image">
-                        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" alt="PPC Advertising">
-                        <div class="service-icon-badge"><i class="fa-solid fa-hand-pointer"></i></div>
-                    </div>
-                    <div class="service-content">
-                        <h3>PPC Advertising</h3>
-                        <p>Google Ads and paid social campaigns built for instant, high-converting traffic, more phone calls, and maximum ROAS.</p>
-                        <a href="ppc-advertising.php" class="service-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
-                    </div>
-                </div>
-
-                <div class="service-card" id="graphic" style="scroll-margin-top: 110px;">
-                    <div class="service-image">
-                        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=800&q=80" alt="Graphic Design">
-                        <div class="service-icon-badge"><i class="fa-solid fa-palette"></i></div>
-                    </div>
-                    <div class="service-content">
-                        <h3>Graphic Design</h3>
-                        <p>Brand identity, ad creative, and marketing collateral designed to stand out and stay consistent across every channel.</p>
-                        <a href="graphic-design.php" class="service-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+                <div class="service-card service-card-flip" id="web" style="scroll-margin-top: 110px;">
+                    <div class="service-card-inner">
+                        <div class="service-card-front">
+                            <div class="service-icon-badge"><i class="fa-solid fa-laptop-code"></i></div>
+                            <h3>Website Development &amp; Design</h3>
+                        </div>
+                        <div class="service-card-back">
+                            <img loading="lazy" decoding="async" class="service-card-back-img" src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80" alt="">
+                            <div class="service-card-back-overlay"></div>
+                            <div class="service-card-back-content">
+                                <h3>Website Development &amp; Design</h3>
+                                <p>Fast, mobile-responsive websites engineered specifically for conversion rate optimization, not just aesthetics.</p>
+                                <a href="website-development.php" class="service-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="service-card" id="content" style="scroll-margin-top: 110px;">
-                    <div class="service-image">
-                        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=800&q=80" alt="Content Writing">
-                        <div class="service-icon-badge"><i class="fa-solid fa-pen-nib"></i></div>
+                <div class="service-card service-card-flip" id="social" style="scroll-margin-top: 110px;">
+                    <div class="service-card-inner">
+                        <div class="service-card-front">
+                            <div class="service-icon-badge"><i class="fa-solid fa-share-nodes"></i></div>
+                            <h3>Social Media</h3>
+                        </div>
+                        <div class="service-card-back">
+                            <img loading="lazy" decoding="async" class="service-card-back-img" src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=800&q=80" alt="">
+                            <div class="service-card-back-overlay"></div>
+                            <div class="service-card-back-content">
+                                <h3>Social Media</h3>
+                                <p>Strategic content and community management across Meta and TikTok to build brand presence and engage your target audience.</p>
+                                <a href="social-media.php" class="service-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+                            </div>
+                        </div>
                     </div>
-                    <div class="service-content">
-                        <h3>Content Writing</h3>
-                        <p>SEO-optimized copy, blog content, and website content that ranks, builds authority, and speaks directly to your customers.</p>
-                        <a href="content-writing.php" class="service-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+
+                <div class="service-card service-card-flip" id="ppc" style="scroll-margin-top: 110px;">
+                    <div class="service-card-inner">
+                        <div class="service-card-front">
+                            <div class="service-icon-badge"><i class="fa-solid fa-hand-pointer"></i></div>
+                            <h3>PPC Advertising</h3>
+                        </div>
+                        <div class="service-card-back">
+                            <img loading="lazy" decoding="async" class="service-card-back-img" src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" alt="">
+                            <div class="service-card-back-overlay"></div>
+                            <div class="service-card-back-content">
+                                <h3>PPC Advertising</h3>
+                                <p>Google Ads and paid social campaigns built for instant, high-converting traffic, more phone calls, and maximum ROAS.</p>
+                                <a href="ppc-advertising.php" class="service-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-card service-card-flip" id="graphic" style="scroll-margin-top: 110px;">
+                    <div class="service-card-inner">
+                        <div class="service-card-front">
+                            <div class="service-icon-badge"><i class="fa-solid fa-palette"></i></div>
+                            <h3>Graphic Design</h3>
+                        </div>
+                        <div class="service-card-back">
+                            <img loading="lazy" decoding="async" class="service-card-back-img" src="https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=800&q=80" alt="">
+                            <div class="service-card-back-overlay"></div>
+                            <div class="service-card-back-content">
+                                <h3>Graphic Design</h3>
+                                <p>Brand identity, ad creative, and marketing collateral designed to stand out and stay consistent across every channel.</p>
+                                <a href="graphic-design.php" class="service-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-card service-card-flip" id="content" style="scroll-margin-top: 110px;">
+                    <div class="service-card-inner">
+                        <div class="service-card-front">
+                            <div class="service-icon-badge"><i class="fa-solid fa-pen-nib"></i></div>
+                            <h3>Content Writing</h3>
+                        </div>
+                        <div class="service-card-back">
+                            <img loading="lazy" decoding="async" class="service-card-back-img" src="https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=800&q=80" alt="">
+                            <div class="service-card-back-overlay"></div>
+                            <div class="service-card-back-content">
+                                <h3>Content Writing</h3>
+                                <p>SEO-optimized copy, blog content, and website content that ranks, builds authority, and speaks directly to your customers.</p>
+                                <a href="content-writing.php" class="service-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+                            </div>
+                        </div>
                     </div>
                 </div>
 

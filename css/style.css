@@ -397,20 +397,69 @@
                 rgba(248, 250, 252, 0.8);
         }
         .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 35px; margin-top: clamp(30px, 5vw, 50px);}
+
+        /* Plain flat card -- still used as-is by About's "Core Values" grid, which
+           reuses .service-card for a simpler, non-flip layout (see the inline
+           style="display:block" override there). Scoped narrowly so it never conflicts
+           with .service-card-flip below, which is a DIFFERENT, additional class only
+           the "Our Expertise" cards carry. */
         .service-card { background: #fff; border: 1px solid var(--border-light); border-radius: 20px; transition: var(--transition-smooth); box-shadow: var(--shadow-sm); overflow: hidden; display: flex; flex-direction: column; }
-        .service-card:hover { transform: translateY(-10px); box-shadow: var(--shadow-hover); border-color: var(--cyan-neon); }
-        .service-image { width: 100%; height: 200px; position: relative; overflow: hidden; }
-        .service-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
-        .service-card:hover .service-image img { transform: scale(1.05); }
-        .service-image::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(11, 15, 37, 0.4) 0%, transparent 100%); pointer-events: none; }
-        .service-icon-badge { position: absolute; bottom: 15px; left: 25px; width: 45px; height: 45px; background: var(--cyan-neon); color: var(--navy); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; box-shadow: 0 4px 15px rgba(0, 242, 254, 0.3); z-index: 2; }
-        .service-content { padding: 30px 25px; flex: 1; display: flex; flex-direction: column; }
-        .service-content h3 { font-size: 1.3rem; margin-bottom: 12px; color: var(--navy); font-weight: 700; }
-        .service-content p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 20px; flex: 1; }
+        .service-card:not(.service-card-flip):hover { transform: translateY(-10px); box-shadow: var(--shadow-hover); border-color: var(--cyan-neon); }
+
+        /* === "OUR EXPERTISE" 3D FLIP CARDS ===
+           Front: icon + title only. Hovering (or, on touch devices where :hover can't
+           really be "moved off" of, tapping -- see the .flipped class toggled by
+           js/main.js) rotates the card 180° to reveal the back: a background photo with
+           a dark overlay for text contrast, the full description, and the Learn More
+           link. Both faces are absolutely positioned and stacked via a fixed card
+           height, since a 3D flip needs both sides occupying the exact same box. */
+        .service-card-flip { background: transparent; border: none; box-shadow: none; overflow: visible; perspective: 1800px; height: 400px; }
+        .service-card-inner {
+            position: relative; width: 100%; height: 100%;
+            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            transform-style: preserve-3d;
+        }
+        .service-card-flip:hover .service-card-inner,
+        .service-card-flip.flipped .service-card-inner { transform: rotateY(180deg); }
+        @media (prefers-reduced-motion: reduce) {
+            .service-card-inner { transition: none; }
+        }
+
+        .service-card-front, .service-card-back {
+            position: absolute; inset: 0; backface-visibility: hidden; -webkit-backface-visibility: hidden;
+            border-radius: 20px; overflow: hidden;
+        }
+        .service-card-front {
+            background: #fff; border: 1px solid var(--border-light); box-shadow: var(--shadow-sm);
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            text-align: center; gap: 20px; padding: 30px; transition: var(--transition-smooth);
+        }
+        .service-card-flip:hover .service-card-front,
+        .service-card-flip.flipped .service-card-front { box-shadow: var(--shadow-hover); border-color: var(--cyan-neon); }
+        .service-card-front .service-icon-badge {
+            position: static; width: 64px; height: 64px; background: var(--cyan-neon); color: var(--navy);
+            border-radius: 16px; display: flex; align-items: center; justify-content: center;
+            font-size: 1.5rem; box-shadow: 0 4px 15px rgba(0, 242, 254, 0.3);
+        }
+        .service-card-front h3 { font-size: 1.25rem; color: var(--navy); font-weight: 700; }
+
+        .service-card-back { transform: rotateY(180deg); display: flex; align-items: flex-end; box-shadow: var(--shadow-hover); }
+        .service-card-back-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
+        .service-card-back-overlay {
+            position: absolute; inset: 0; z-index: 1;
+            background: linear-gradient(180deg, rgba(11,15,37,0.35) 0%, rgba(11,15,37,0.85) 60%, rgba(11,15,37,0.95) 100%);
+        }
+        .service-card-back-content { position: relative; z-index: 2; width: 100%; padding: 28px 25px; }
+        .service-card-back-content h3 { font-size: 1.15rem; color: #fff; font-weight: 700; margin-bottom: 10px; }
+        .service-card-back-content p { color: rgba(255,255,255,0.85); font-size: 0.9rem; line-height: 1.6; margin-bottom: 18px; }
+        .service-card-back-content .service-link { color: var(--cyan-neon); }
+        .service-card-back-content .service-link:hover,
+        .service-card-back-content .service-link:focus-visible { color: #fff; }
+
         .service-link { font-weight: 700; color: var(--navy); text-decoration: none; font-size: 0.9rem; display: flex; align-items: center; gap: 5px; transition: var(--transition-smooth); }
         .service-link i { transition: transform 0.3s ease; }
-        .service-card:hover .service-link, .case-card:hover .service-link { color: var(--cyan-neon); }
-        .service-card:hover .service-link i, .case-card:hover .service-link i { transform: translateX(4px); }
+        .case-card:hover .service-link { color: var(--cyan-neon); }
+        .case-card:hover .service-link i { transform: translateX(4px); }
 
         /* === PREMIUM METHODOLOGY === */
         .methodology-section {
