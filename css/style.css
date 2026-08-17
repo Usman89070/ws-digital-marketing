@@ -161,10 +161,10 @@
            inline nav + CTA + toggle need to coexist at widths just above the
            1200px point where .nav-menu switches to the dropdown/hamburger-only
            layout. Trim gap/font-size a little in that band only -- deliberately
-           NOT touching the 1200px breakpoint itself, since js/main.js's
-           isToggleControlled check and the carpet-roll open animation are tied
-           to that exact value and shifting it risks reintroducing the
-           clip-path desync bug documented further down this file. */
+           NOT touching the 1200px breakpoint itself, since the base
+           @media(max-width:1200px) .nav-menu rule below (clip-path, carpet-roll
+           reveal) is keyed to that exact value and shifting it risks
+           reintroducing the clip-path desync bug documented further down. */
         @media(max-width: 1320px) {
             .nav-menu { gap: 16px; }
             .nav-menu li a { font-size: 0.88rem; }
@@ -190,58 +190,55 @@
             opacity: 0; visibility: hidden; pointer-events: none; z-index: 25;
         }
 
+        /* Idle collapsed look (scrolled, closed): logo centered, nav+CTA hidden,
+           toggle pinned to the right. Unchanged from before. */
         header.scrolled:not(.nav-open) .nav-wrapper { justify-content: center; }
         header.scrolled:not(.nav-open) .logo-img { height: clamp(34px, 4.5vw, 46px); }
         header.scrolled:not(.nav-open) nav,
         header.scrolled:not(.nav-open) .nav-cta {
             opacity: 0; pointer-events: none; position: absolute; left: -9999px;
         }
-        header.scrolled .mobile-btn {
+
+        /* Menu OPEN: logo centered and the toggle-driven vertical dropdown panel
+           shown -- unconditionally on .nav-open, regardless of .scrolled or
+           viewport width, so opening the menu looks and behaves identically at
+           the top of the page, mid-scroll, on desktop, tablet, and mobile. This
+           replaces the old desktop-only "reopens as the horizontal row" fallback:
+           that meant logo-centering and the open menu disagreed with each other
+           on wide screens, and top-of-page had no open state at all. */
+        header.nav-open .nav-wrapper { justify-content: center; }
+        header.nav-open .nav-cta {
+            opacity: 0; pointer-events: none; position: absolute; left: -9999px;
+        }
+        header.scrolled .mobile-btn,
+        header.nav-open .mobile-btn {
             display: flex; align-items: center; justify-content: center;
             width: 44px; height: 44px;
             position: absolute; right: 0; top: 50%; transform: translateY(-50%); margin-left: 0;
         }
-        header.scrolled.nav-open { height: 100px; background: #0B0F25; box-shadow: none; }
+        header.nav-open { height: 100px; background: #0B0F25; box-shadow: none; }
 
-        /* Once the header has scrolled into its collapsed state, nav is ALWAYS driven
-           through the hamburger toggle (see isToggleControlled in js/main.js). Below
-           1200px this reopens as the same full-width vertical dropdown panel the
-           mobile media query already uses -- scoped here to max-width:1200px so it
-           doesn't also apply on desktop, where the menu should reopen as the normal
-           horizontal row instead (see the min-width:1201px block below). */
-        @media(max-width: 1200px) {
-            header.scrolled.nav-open .nav-menu {
-                position: absolute; top: 100%; left: 0; width: 100%;
-                background: #0B0F25; flex-direction: column; gap: 0;
-                border-bottom: 1px solid rgba(0, 242, 254, 0.2);
-                box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-                padding: 10px 0; max-height: 80vh; overflow-y: auto;
-            }
-            header.scrolled.nav-open .nav-menu li {
-                width: 100%; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.05);
-            }
-            header.scrolled.nav-open .nav-menu li:last-child { border-bottom: none; }
-            header.scrolled.nav-open .nav-menu li a { display: block; padding: 15px; color: #fff; font-size: 1.05rem; }
-            header.scrolled.nav-open .nav-menu li a::after { display: none; }
-            header.scrolled.nav-open .dropdown-menu {
-                position: relative; top: auto; left: auto; background: rgba(0,0,0,0.3);
-                border: none; box-shadow: none; opacity: 1; visibility: visible; transform: none;
-                max-height: 0; overflow: hidden; transition: max-height 0.3s ease; padding: 0;
-            }
-            header.scrolled.nav-open .dropdown.active .dropdown-menu { max-height: 60vh; overflow-y: auto; padding: 5px 0; }
-            header.scrolled.nav-open .dropdown-menu li a { padding: 12px 20px; text-align: center; }
-            header.scrolled.nav-open .dropdown-menu.dropdown-menu-grid { display: block; min-width: 0; right: auto; padding: 0; }
-            header.scrolled.nav-open .nav-cta { display: none; }
+        header.nav-open .nav-menu {
+            position: absolute; top: 100%; left: 0; width: 100%;
+            background: #0B0F25; flex-direction: column; gap: 0;
+            border-bottom: 1px solid rgba(0, 242, 254, 0.2);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+            padding: 10px 0; max-height: 80vh; overflow-y: auto;
         }
-
-        /* Desktop (>1200px): nothing above applies here, so the reopened menu simply
-           falls back to .nav-menu's normal horizontal row -- the same style as the
-           top-of-page nav -- inside the existing header.scrolled.nav-open{height:100px}
-           already defined above. Verified this fits without wrapping at every desktop
-           width down to the 1201px breakpoint boundary; see git history for why a more
-           elaborate auto-height/wrap fallback was tried and reverted (it introduced a
-           height:100% circular-dependency bug against header's height, which caused
-           .nav-wrapper's hit-test box to swallow the dropdown flyout underneath it). */
+        header.nav-open .nav-menu li {
+            width: 100%; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        header.nav-open .nav-menu li:last-child { border-bottom: none; }
+        header.nav-open .nav-menu li a { display: block; padding: 15px; color: #fff; font-size: 1.05rem; }
+        header.nav-open .nav-menu li a::after { display: none; }
+        header.nav-open .dropdown-menu {
+            position: relative; top: auto; left: auto; background: rgba(0,0,0,0.3);
+            border: none; box-shadow: none; opacity: 1; visibility: visible; transform: none;
+            max-height: 0; overflow: hidden; transition: max-height 0.3s ease; padding: 0;
+        }
+        header.nav-open .dropdown.active .dropdown-menu { max-height: 60vh; overflow-y: auto; padding: 5px 0; }
+        header.nav-open .dropdown-menu li a { padding: 12px 20px; text-align: center; }
+        header.nav-open .dropdown-menu.dropdown-menu-grid { display: block; min-width: 0; right: auto; padding: 0; }
 
         /* === BUTTONS === */
         .btn-primary {
