@@ -106,7 +106,6 @@ if (window.matchMedia('(hover: none)').matches) {
             const toggleIcon = document.querySelector('.mobile-btn i');
             const isOpening = !menu.classList.contains('active');
             const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-            const isToggleControlled = window.innerWidth <= 1200 || header.classList.contains('scrolled') || header.classList.contains('nav-open');
 
             if (toggleIcon) toggleIcon.className = isOpening ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
             if (navRollTween) navRollTween.kill();
@@ -132,7 +131,11 @@ if (window.matchMedia('(hover: none)').matches) {
                 header.classList.add('nav-open');
             }
 
-            if (!isToggleControlled || typeof gsap === 'undefined' || !wrapEl || !rollEdge) {
+            // The toggle now drives the menu identically at every scroll position
+            // and viewport width (see the header.nav-open rules in css/style.css),
+            // so the carpet-roll reveal below always applies -- this guard is only
+            // for genuinely missing dependencies, not a width/scroll check anymore.
+            if (typeof gsap === 'undefined' || !wrapEl || !rollEdge) {
                 if (!isOpening) finishClose();
                 return;
             }
