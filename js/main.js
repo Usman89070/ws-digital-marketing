@@ -32,6 +32,32 @@ document.addEventListener('click', (e) => {
     document.querySelectorAll('.dropdown.active').forEach(d => d.classList.remove('active'));
 });
 
+// services.php's "WHAT WE DO" flip cards (.service-card-flip) rely on :hover
+// to flip on desktop, which works fine with a real pointer but is unreliable
+// on touch -- there's no hover state to "move off of" to flip back, and a tap
+// can't preview the back before deciding whether to follow the Learn More
+// link. On devices with no real hover, use tap instead: the first tap on a
+// not-yet-flipped card flips it (and un-flips any other open card) without
+// following its link; once flipped, taps behave normally so the Learn More
+// link and back-face content are fully reachable.
+if (window.matchMedia('(hover: none)').matches) {
+    document.querySelectorAll('.service-card').forEach(card => {
+        card.addEventListener('click', (e) => {
+            if (!card.classList.contains('flipped')) {
+                e.preventDefault();
+                document.querySelectorAll('.service-card.flipped').forEach(c => {
+                    if (c !== card) c.classList.remove('flipped');
+                });
+                card.classList.add('flipped');
+            }
+        });
+    });
+    document.addEventListener('click', (e) => {
+        if (e.target.closest('.service-card')) return;
+        document.querySelectorAll('.service-card.flipped').forEach(c => c.classList.remove('flipped'));
+    });
+}
+
 // Team cards reveal their description/socials on :hover, which has no
 // equivalent on touch -- there's no pointer to "move off of" to close it
 // again, and no way to preview the reveal before deciding whether to tap a
