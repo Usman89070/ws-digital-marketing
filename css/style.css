@@ -46,6 +46,19 @@
         #back-to-top.is-visible { opacity: 1; visibility: visible; transform: translateY(0); }
         #back-to-top:hover { background: var(--cyan-neon); color: var(--navy); transform: translateY(-4px); }
 
+        /* === WHATSAPP CHAT BUTTON ===
+           Stacked directly above #back-to-top in the same corner, sharing its right
+           offset for alignment. Unlike back-to-top, always visible (not scroll-gated) --
+           a chat CTA should be reachable the moment someone lands on the page. */
+        #whatsapp-chat {
+            position: fixed; right: clamp(16px, 3vw, 28px); bottom: calc(clamp(16px, 3vw, 28px) + 62px); z-index: 900;
+            width: 48px; height: 48px; border-radius: 50%; border: 1px solid rgba(37, 211, 102, 0.4);
+            background: #25D366; color: #fff; font-size: 1.4rem; cursor: pointer;
+            display: flex; align-items: center; justify-content: center; box-shadow: var(--shadow-hover);
+            text-decoration: none; transition: var(--transition-smooth);
+        }
+        #whatsapp-chat:hover { background: #1EBE5A; color: #fff; transform: translateY(-4px); }
+
         /* === SPLIT-TEXT REVEAL UTILITY (hero h1 / section h2 headings) === */
         .split-line { overflow: hidden; display: block; }
         .split-word { display: inline-block; will-change: transform, opacity; }
