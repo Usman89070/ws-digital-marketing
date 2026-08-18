@@ -462,10 +462,18 @@
         }
         .service-card-flip:hover .service-card-front,
         .service-card-flip.flipped .service-card-front { box-shadow: var(--shadow-hover); border-color: var(--cyan-neon); }
+        /* Same color treatment as .industry-tile-icon: a soft cyan/magenta-tinted
+           circle-ish badge with a gradient-clipped icon glyph, instead of the old
+           flat solid-cyan fill, so the two icon styles match across the site. */
         .service-card-front .service-icon-badge {
-            position: static; width: 64px; height: 64px; background: var(--cyan-neon); color: var(--navy);
+            position: static; width: 64px; height: 64px;
+            background: linear-gradient(135deg, rgba(0, 242, 254, 0.12), rgba(255, 0, 127, 0.12));
             border-radius: 16px; display: flex; align-items: center; justify-content: center;
-            font-size: 1.5rem; box-shadow: 0 4px 15px rgba(0, 242, 254, 0.3);
+            font-size: 1.5rem;
+        }
+        .service-card-front .service-icon-badge i {
+            background: linear-gradient(135deg, var(--cyan-neon), var(--magenta-neon));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
         }
         .service-card-front h3 { font-size: 1.25rem; color: var(--navy); font-weight: 700; }
 

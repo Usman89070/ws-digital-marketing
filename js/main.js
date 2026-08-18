@@ -382,7 +382,7 @@ if (window.matchMedia('(hover: none)').matches) {
             // reveal (rather than one trigger for the whole grid) so long grids
             // like the case studies page still animate correctly row by row.
             const gridSelectors = [
-                '.services-grid', '.case-grid', '.testimonials-grid', '.industry-tile-grid',
+                '.case-grid', '.testimonials-grid', '.industry-tile-grid',
                 '.stats-4-grid', '.pricing-grid', '.methodology-steps', '.agency-list',
                 '.cta-features', '.faq-list', '.mobile-dash-cards', '.partner-strip', '.team-grid'
             ];
@@ -395,6 +395,27 @@ if (window.matchMedia('(hover: none)').matches) {
                             scrollTrigger: { trigger: item, start: 'top 90%', toggleActions: 'play none none none' }
                         });
                     });
+                });
+            });
+
+            // "OUR EXPERTISE" service cards (index.php + services.php) get a bolder
+            // 3D pop-in instead of the plain fade-up every other grid uses -- a
+            // little scale/rotateX plus a "back.out" overshoot ease, so the entrance
+            // itself hints at the flip interaction the cards do on hover. The
+            // rotateX/scale is applied to the OUTER .service-card, not
+            // .service-card-inner (that element is reserved for the hover flip
+            // itself), so the two transforms never fight each other.
+            gsap.utils.toArray('.services-grid').forEach(grid => {
+                const cards = gsap.utils.toArray(grid.children);
+                cards.forEach((card, i) => {
+                    gsap.fromTo(card,
+                        { opacity: 0, y: 55, scale: 0.86, rotateX: -10, transformPerspective: 1200 },
+                        {
+                            opacity: 1, y: 0, scale: 1, rotateX: 0,
+                            duration: 0.75, delay: (i % 3) * 0.1, ease: 'back.out(1.6)', clearProps: 'transform',
+                            scrollTrigger: { trigger: card, start: 'top 90%', toggleActions: 'play none none none' }
+                        }
+                    );
                 });
             });
 
