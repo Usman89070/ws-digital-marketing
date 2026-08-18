@@ -24,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($name === '' || $message === '' || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $form_error = 'Please fill in your name, a valid email address, and your message.';
     } else {
-        $to = "info@wsdigital.com.au";
+        $to = "uk6984479@gmail.com";
         $subject = "New Growth Plan Request from " . $name;
 
         $plan = in_array($_POST['plan'] ?? '', $valid_plans, true) ? $_POST['plan'] : '';
