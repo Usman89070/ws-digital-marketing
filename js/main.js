@@ -185,34 +185,19 @@ if (window.matchMedia('(hover: none)').matches) {
         document.addEventListener("DOMContentLoaded", () => {
             gsap.registerPlugin(ScrollTrigger);
 
-            // Drive the header's "scrolled" state off ScrollTrigger rather than a raw
-            // window scroll listener. A plain `window.scrollY` check can desync from the
-            // page's real scroll state while the homepage's pinned cinematic section is
-            // active, which previously left the header stuck in its collapsed (nav-hidden)
-            // look after scrolling back to the top. ScrollTrigger shares the same scroll
-            // accounting as that pinned section, so it can't drift out of sync with it.
+            // The header looks and behaves identically at the top of the page and
+            // after scrolling (see css/style.css), so .scrolled no longer drives any
+            // layout -- it's tracked purely as a hook for a future cosmetic touch
+            // (e.g. a stronger shadow once scrolled) and, unlike before, scrolling
+            // never force-closes an open nav any more, since there's no longer a
+            // "collapsed-only" open state for it to drift out of sync with.
             const headerEl = document.querySelector('header');
             if (headerEl) {
-                // If the hamburger-driven nav is left open while the header expands back
-                // out of its scrolled/collapsed state (user scrolls to top without closing
-                // it first), close it rather than leaving it open across that transition --
-                // the open-panel layout is only meant to exist alongside the collapsed
-                // header, and leaving it stranded is what let the two states drift apart.
-                const closeNavIfOpen = () => {
-                    const navMenu = document.getElementById('navMenu');
-                    if (navMenu && navMenu.classList.contains('active') && typeof toggleMenu === 'function') {
-                        toggleMenu();
-                    }
-                };
                 ScrollTrigger.create({
                     start: 50,
                     onEnter: () => headerEl.classList.add('scrolled'),
-                    onLeaveBack: () => { headerEl.classList.remove('scrolled'); closeNavIfOpen(); },
-                    onRefresh: (self) => {
-                        const stillScrolled = self.scroll() > 50;
-                        headerEl.classList.toggle('scrolled', stillScrolled);
-                        if (!stillScrolled) closeNavIfOpen();
-                    },
+                    onLeaveBack: () => headerEl.classList.remove('scrolled'),
+                    onRefresh: (self) => headerEl.classList.toggle('scrolled', self.scroll() > 50),
                 });
             }
 
