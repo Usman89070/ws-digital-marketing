@@ -162,6 +162,15 @@
         }
         .mobile-btn:hover { color: var(--cyan-neon); transform: translateY(-50%) scale(1.1); }
 
+        /* right:0 sits flush against the header's own edge -- fine at desktop
+           widths, where the container's max-width leaves a wide outer margin
+           before the actual viewport edge, but on phones/tablets (no such
+           margin) it reads as jammed into the corner. Nudge it in a bit,
+           scaling with viewport width like the rest of the site's spacing. */
+        @media(max-width: 1200px) {
+            .mobile-btn { right: clamp(14px, 4vw, 24px); }
+        }
+
         /* === SCROLL-COLLAPSE HEADER: LOGO CENTERS, NAV HIDES BEHIND TOGGLE === */
         header nav { transition: opacity 0.3s ease; }
         .nav-cta { transition: opacity 0.3s ease; }
