@@ -11,6 +11,16 @@ $page_description = $page_description ?? 'Data-driven Google Ads, Meta Ads, SEO 
     <title><?php echo htmlspecialchars($page_title, ENT_QUOTES, 'UTF-8'); ?> | W&amp;S Digital Marketing</title>
     <meta name="description" content="<?php echo htmlspecialchars($page_description, ENT_QUOTES, 'UTF-8'); ?>">
 
+    <!-- Favicon: the W&S logo, shown in every browser tab/bookmark on every page since
+         this file is included everywhere. favicon.ico covers old browsers and anything
+         that requests /favicon.ico directly regardless of <link> tags; the PNG sizes
+         cover modern browsers, Android home-screen icons, and iOS "Add to Home Screen". -->
+    <link rel="icon" href="favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="images/favicon-192.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+
     <!-- Connect early to third-party origins so the real requests below don't pay the
          DNS+TLS handshake cost later in the load -->
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
