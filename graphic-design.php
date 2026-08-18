@@ -111,22 +111,6 @@ include 'header.php';
         </div>
     </section>
 
-    <!-- STATS -->
-    <section class="stats-section fade-up">
-        <div class="container">
-            <div class="section-header">
-                <span class="eyebrow" style="color: var(--cyan-neon);">PROVEN RESULTS</span>
-                <h2 style="color: #fff; font-size: clamp(1.8rem, 4vw, 2.8rem);">Design That Performs, Not Just Looks Good</h2>
-            </div>
-            <div class="stats-4-grid">
-                <div class="stat-box"><div class="stat-icon"><i class="fa-solid fa-hand-pointer"></i></div><h3>+34%</h3><p>Avg. Ad Click-Through Lift</p></div>
-                <div class="stat-box"><div class="stat-icon"><i class="fa-solid fa-palette"></i></div><h3>100+</h3><p>Brands Designed</p></div>
-                <div class="stat-box"><div class="stat-icon"><i class="fa-solid fa-clock"></i></div><h3>2-Wk</h3><p>Avg. Brand Identity Turnaround</p></div>
-                <div class="stat-box"><div class="stat-icon"><i class="fa-solid fa-face-smile"></i></div><h3>98%</h3><p>Client Satisfaction</p></div>
-            </div>
-        </div>
-    </section>
-
     <!-- FINAL CTA -->
     <section class="cta-section" id="contact">
         <div class="container">

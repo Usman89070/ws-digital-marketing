@@ -152,38 +152,6 @@ include 'header.php';
         </div>
     </section>
 
-    <!-- STATISTICS PROOF STRIP -->
-    <section class="stats-section fade-up">
-        <div class="container">
-            <div class="section-header">
-                <span class="eyebrow" style="color: var(--cyan-neon);">PROVEN RESULTS</span>
-                <h2 style="color: #fff; font-size: clamp(1.8rem, 4vw, 2.8rem);">Services That Move The Numbers</h2>
-            </div>
-            <div class="stats-4-grid">
-                <div class="stat-box">
-                    <div class="stat-icon"><i class="fa-solid fa-ranking-star"></i></div>
-                    <h3>+89</h3>
-                    <p>Keywords Ranked Page 1</p>
-                </div>
-                <div class="stat-box">
-                    <div class="stat-icon"><i class="fa-solid fa-chart-line"></i></div>
-                    <h3>8.4x</h3>
-                    <p>ROAS Achieved</p>
-                </div>
-                <div class="stat-box">
-                    <div class="stat-icon"><i class="fa-solid fa-user-plus"></i></div>
-                    <h3>+193</h3>
-                    <p>Leads Generated</p>
-                </div>
-                <div class="stat-box">
-                    <div class="stat-icon"><i class="fa-solid fa-rocket"></i></div>
-                    <h3>150+</h3>
-                    <p>Campaigns Launched</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- FINAL CTA SECTION -->
     <section class="cta-section" id="contact">
         <div class="container">

@@ -71,22 +71,6 @@ include 'header.php';
         </div>
     </section>
 
-    <!-- STATS -->
-    <section class="stats-section fade-up">
-        <div class="container">
-            <div class="section-header">
-                <span class="eyebrow" style="color: var(--cyan-neon);">PROVEN RESULTS</span>
-                <h2 style="color: #fff; font-size: clamp(1.8rem, 4vw, 2.8rem);">Results Firms Can Take To The Bank</h2>
-            </div>
-            <div class="stats-4-grid">
-                <div class="stat-box"><div class="stat-icon"><i class="fa-solid fa-user-plus"></i></div><h3>+87</h3><p>New Client Inquiries (Avg.)</p></div>
-                <div class="stat-box"><div class="stat-icon"><i class="fa-solid fa-ranking-star"></i></div><h3>+64%</h3><p>More Page 1 Rankings</p></div>
-                <div class="stat-box"><div class="stat-icon"><i class="fa-solid fa-arrow-trend-down"></i></div><h3>-22%</h3><p>Cost Per Lead</p></div>
-                <div class="stat-box"><div class="stat-icon"><i class="fa-solid fa-handshake"></i></div><h3>96%</h3><p>Client Retention</p></div>
-            </div>
-        </div>
-    </section>
-
     <!-- FINAL CTA -->
     <section class="cta-section" id="contact">
         <div class="container">
