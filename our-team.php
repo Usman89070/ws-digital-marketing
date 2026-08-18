@@ -25,13 +25,12 @@ include 'header.php';
                 <div class="team-card">
                     <div class="team-photo">
                         <div class="team-photo-placeholder"><i class="fa-solid fa-user"></i></div>
-                        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=400&q=80" alt="James Mitchell, Founder & CEO" onerror="this.remove()">
                         <span class="team-card-num">01</span>
                         <div class="team-card-overlay"></div>
                         <div class="team-card-info">
-                            <h5>James Mitchell</h5>
-                            <span class="team-role">Founder &amp; CEO</span>
-                            <p class="team-card-desc">Leads company strategy and ensures every client gets a growth plan built around real numbers.</p>
+                            <h5>Sahar Afridi</h5>
+                            <span class="team-role">Managing Director / Social Media Manager</span>
+                            <p class="team-card-desc">Oversees company direction and leads social media strategy across every client account.</p>
                             <div class="team-socials">
                                 <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
                             </div>
@@ -41,13 +40,12 @@ include 'header.php';
                 <div class="team-card">
                     <div class="team-photo">
                         <div class="team-photo-placeholder"><i class="fa-solid fa-user"></i></div>
-                        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80" alt="Sarah Chen, Head of Strategy" onerror="this.remove()">
                         <span class="team-card-num">02</span>
                         <div class="team-card-overlay"></div>
                         <div class="team-card-info">
-                            <h5>Sarah Chen</h5>
-                            <span class="team-role">Head of Strategy</span>
-                            <p class="team-card-desc">Turns market research and data into the campaign roadmaps our team executes.</p>
+                            <h5>Wishal Khan Mohammadi</h5>
+                            <span class="team-role">Chief Executive Officer</span>
+                            <p class="team-card-desc">Sets company vision and ensures every client gets a growth plan built around real numbers.</p>
                             <div class="team-socials">
                                 <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
                             </div>
@@ -57,11 +55,40 @@ include 'header.php';
                 <div class="team-card">
                     <div class="team-photo">
                         <div class="team-photo-placeholder"><i class="fa-solid fa-user"></i></div>
-                        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=400&q=80" alt="Marcus Webb, Lead Web Developer" onerror="this.remove()">
                         <span class="team-card-num">03</span>
                         <div class="team-card-overlay"></div>
                         <div class="team-card-info">
-                            <h5>Marcus Webb</h5>
+                            <h5>Shawal Khan Mohammadi</h5>
+                            <span class="team-role">Chief Executive Officer</span>
+                            <p class="team-card-desc">Drives company strategy and long-term growth across every service we deliver.</p>
+                            <div class="team-socials">
+                                <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <div class="team-photo">
+                        <div class="team-photo-placeholder"><i class="fa-solid fa-user"></i></div>
+                        <span class="team-card-num">04</span>
+                        <div class="team-card-overlay"></div>
+                        <div class="team-card-info">
+                            <h5>Hammad Hassan</h5>
+                            <span class="team-role">Digital Marketing Manager</span>
+                            <p class="team-card-desc">Manages day-to-day marketing execution across SEO, ads, and content.</p>
+                            <div class="team-socials">
+                                <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <div class="team-photo">
+                        <div class="team-photo-placeholder"><i class="fa-solid fa-user"></i></div>
+                        <span class="team-card-num">05</span>
+                        <div class="team-card-overlay"></div>
+                        <div class="team-card-info">
+                            <h5>Usman Zahid</h5>
                             <span class="team-role">Lead Web Developer</span>
                             <p class="team-card-desc">Builds fast, conversion-focused websites engineered to turn visitors into customers.</p>
                             <div class="team-socials">
@@ -73,28 +100,11 @@ include 'header.php';
                 <div class="team-card">
                     <div class="team-photo">
                         <div class="team-photo-placeholder"><i class="fa-solid fa-user"></i></div>
-                        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&q=80" alt="Priya Sharma, Creative Director" onerror="this.remove()">
-                        <span class="team-card-num">04</span>
+                        <span class="team-card-num">06</span>
                         <div class="team-card-overlay"></div>
                         <div class="team-card-info">
-                            <h5>Priya Sharma</h5>
-                            <span class="team-role">Creative Director</span>
-                            <p class="team-card-desc">Shapes the visual identity and creative direction behind every campaign we launch.</p>
-                            <div class="team-socials">
-                                <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="team-card">
-                    <div class="team-photo">
-                        <div class="team-photo-placeholder"><i class="fa-solid fa-user"></i></div>
-                        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&fit=crop&w=400&q=80" alt="Daniel Osei, SEO Lead" onerror="this.remove()">
-                        <span class="team-card-num">05</span>
-                        <div class="team-card-overlay"></div>
-                        <div class="team-card-info">
-                            <h5>Daniel Osei</h5>
-                            <span class="team-role">SEO Lead</span>
+                            <h5>Azhar Rasheed</h5>
+                            <span class="team-role">SEO Expert</span>
                             <p class="team-card-desc">Drives organic growth through technical SEO, content strategy, and local search dominance.</p>
                             <div class="team-socials">
                                 <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
@@ -105,29 +115,12 @@ include 'header.php';
                 <div class="team-card">
                     <div class="team-photo">
                         <div class="team-photo-placeholder"><i class="fa-solid fa-user"></i></div>
-                        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=400&q=80" alt="Olivia Bennett, Paid Media Manager" onerror="this.remove()">
-                        <span class="team-card-num">06</span>
-                        <div class="team-card-overlay"></div>
-                        <div class="team-card-info">
-                            <h5>Olivia Bennett</h5>
-                            <span class="team-role">Paid Media Manager</span>
-                            <p class="team-card-desc">Manages paid campaigns across Google and social to maximise return on ad spend.</p>
-                            <div class="team-socials">
-                                <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="team-card">
-                    <div class="team-photo">
-                        <div class="team-photo-placeholder"><i class="fa-solid fa-user"></i></div>
-                        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=400&q=80" alt="Liam Carter, Client Success Manager" onerror="this.remove()">
                         <span class="team-card-num">07</span>
                         <div class="team-card-overlay"></div>
                         <div class="team-card-info">
-                            <h5>Liam Carter</h5>
-                            <span class="team-role">Client Success Manager</span>
-                            <p class="team-card-desc">Keeps every client account on track with clear reporting and proactive support.</p>
+                            <h5>Tabarak Hussain</h5>
+                            <span class="team-role">Shopify Expert</span>
+                            <p class="team-card-desc">Builds and optimises Shopify stores engineered for conversions and repeat customers.</p>
                             <div class="team-socials">
                                 <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
                             </div>
@@ -137,13 +130,27 @@ include 'header.php';
                 <div class="team-card">
                     <div class="team-photo">
                         <div class="team-photo-placeholder"><i class="fa-solid fa-user"></i></div>
-                        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?auto=format&fit=crop&w=400&q=80" alt="Ava Nguyen, Content Strategist" onerror="this.remove()">
                         <span class="team-card-num">08</span>
                         <div class="team-card-overlay"></div>
                         <div class="team-card-info">
-                            <h5>Ava Nguyen</h5>
-                            <span class="team-role">Content Strategist</span>
-                            <p class="team-card-desc">Creates content that ranks, builds authority, and speaks directly to your audience.</p>
+                            <h5>Tariq Aziz</h5>
+                            <span class="team-role">Social Media Expert</span>
+                            <p class="team-card-desc">Plans and manages social content and campaigns that build real engagement.</p>
+                            <div class="team-socials">
+                                <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <div class="team-photo">
+                        <div class="team-photo-placeholder"><i class="fa-solid fa-user"></i></div>
+                        <span class="team-card-num">09</span>
+                        <div class="team-card-overlay"></div>
+                        <div class="team-card-info">
+                            <h5>Salim Yousaf</h5>
+                            <span class="team-role">SEO Expert</span>
+                            <p class="team-card-desc">Focuses on keyword research and on-page optimisation that lifts search rankings.</p>
                             <div class="team-socials">
                                 <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
                             </div>
