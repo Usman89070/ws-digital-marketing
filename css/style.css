@@ -218,27 +218,49 @@
         }
         header.nav-open { height: 100px; background: #0B0F25; box-shadow: none; }
 
-        header.nav-open .nav-menu {
-            position: absolute; top: 100%; left: 0; width: 100%;
-            background: #0B0F25; flex-direction: column; gap: 0;
-            border-bottom: 1px solid rgba(0, 242, 254, 0.2);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-            padding: 10px 0; max-height: 80vh; overflow-y: auto;
+        /* Panel SHAPE splits by width: tablet/mobile get the stacked vertical list
+           (unchanged from before), desktop keeps the nav's normal horizontal row --
+           just revealed as a dropped-down panel instead of sitting inline next to the
+           now-centered logo. Both share the same absolute-positioned/background/
+           carpet-roll-animated panel below the header; only the internal layout differs. */
+        @media(max-width: 1200px) {
+            header.nav-open .nav-menu {
+                position: absolute; top: 100%; left: 0; width: 100%;
+                background: #0B0F25; flex-direction: column; gap: 0;
+                border-bottom: 1px solid rgba(0, 242, 254, 0.2);
+                box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+                padding: 10px 0; max-height: 80vh; overflow-y: auto;
+            }
+            header.nav-open .nav-menu li {
+                width: 100%; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.05);
+            }
+            header.nav-open .nav-menu li:last-child { border-bottom: none; }
+            header.nav-open .nav-menu li a { display: block; padding: 15px; color: #fff; font-size: 1.05rem; }
+            header.nav-open .nav-menu li a::after { display: none; }
+            header.nav-open .dropdown-menu {
+                position: relative; top: auto; left: auto; background: rgba(0,0,0,0.3);
+                border: none; box-shadow: none; opacity: 1; visibility: visible; transform: none;
+                max-height: 0; overflow: hidden; transition: max-height 0.3s ease; padding: 0;
+            }
+            header.nav-open .dropdown.active .dropdown-menu { max-height: 60vh; overflow-y: auto; padding: 5px 0; }
+            header.nav-open .dropdown-menu li a { padding: 12px 20px; text-align: center; }
+            header.nav-open .dropdown-menu.dropdown-menu-grid { display: block; min-width: 0; right: auto; padding: 0; }
         }
-        header.nav-open .nav-menu li {
-            width: 100%; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.05);
+
+        /* Desktop: horizontal row, same links/underline-hover as the normal inline nav.
+           Deliberately does NOT touch .dropdown-menu here -- Services/Agency/Industries
+           keep falling through to the standard hover/click flyout style above instead of
+           the mobile accordion, so they behave exactly as they do outside the toggle. */
+        @media(min-width: 1201px) {
+            header.nav-open .nav-menu {
+                position: absolute; top: 100%; left: 0; width: 100%;
+                background: #0B0F25; flex-direction: row; flex-wrap: wrap;
+                justify-content: center; align-items: center; gap: 12px 40px;
+                border-bottom: 1px solid rgba(0, 242, 254, 0.2);
+                box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+                padding: 26px 40px;
+            }
         }
-        header.nav-open .nav-menu li:last-child { border-bottom: none; }
-        header.nav-open .nav-menu li a { display: block; padding: 15px; color: #fff; font-size: 1.05rem; }
-        header.nav-open .nav-menu li a::after { display: none; }
-        header.nav-open .dropdown-menu {
-            position: relative; top: auto; left: auto; background: rgba(0,0,0,0.3);
-            border: none; box-shadow: none; opacity: 1; visibility: visible; transform: none;
-            max-height: 0; overflow: hidden; transition: max-height 0.3s ease; padding: 0;
-        }
-        header.nav-open .dropdown.active .dropdown-menu { max-height: 60vh; overflow-y: auto; padding: 5px 0; }
-        header.nav-open .dropdown-menu li a { padding: 12px 20px; text-align: center; }
-        header.nav-open .dropdown-menu.dropdown-menu-grid { display: block; min-width: 0; right: auto; padding: 0; }
 
         /* === BUTTONS === */
         .btn-primary {
