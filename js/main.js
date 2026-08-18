@@ -527,15 +527,19 @@ if (window.matchMedia('(hover: none)').matches) {
 
             // Two-column image/text (or info/form) sections slide in from opposite sides --
             // only at the desktop width where these grids are actually two columns (matches
-            // the CSS breakpoint that collapses .agency-grid/.methodology-grid/.contact-grid
-            // to a single column at 1024px and below). Without this guard, the initial
-            // x:50/x:-50 offset below was being applied at every viewport width, pushing
-            // content 50px past the single-column mobile layout's edge and causing
-            // horizontal page overflow on every page that uses these grids.
+            // the CSS breakpoint that collapses .agency-grid/.contact-grid to a single
+            // column at 1024px and below). Without this guard, the initial x:50/x:-50
+            // offset below was being applied at every viewport width, pushing content 50px
+            // past the single-column mobile layout's edge and causing horizontal page
+            // overflow on every page that uses these grids. (.methodology-grid used to be
+            // a third member of this pattern -- the "Our Process" image+steps sections --
+            // but the image column is gone now, so .methodology-steps is a full-width
+            // section on its own and gets the standard per-card grid stagger instead,
+            // same as .case-grid/.stats-4-grid.)
             mm.add("(min-width: 1025px)", () => {
-                gsap.utils.toArray('.agency-grid, .methodology-grid, .contact-grid').forEach(grid => {
-                    const media = grid.querySelector('.agency-image-wrapper, .methodology-image, .contact-info-card');
-                    const copy = grid.querySelector('.agency-text, .methodology-steps, .contact-form-card');
+                gsap.utils.toArray('.agency-grid, .contact-grid').forEach(grid => {
+                    const media = grid.querySelector('.agency-image-wrapper, .contact-info-card');
+                    const copy = grid.querySelector('.agency-text, .contact-form-card');
                     const trigger = { trigger: grid, start: 'top 82%', toggleActions: 'play none none none' };
                     if (media) gsap.fromTo(media, { opacity: 0, x: -50 }, { opacity: 1, x: 0, duration: 0.8, ease: 'power2.out', scrollTrigger: trigger });
                     if (copy) gsap.fromTo(copy, { opacity: 0, x: 50 }, { opacity: 1, x: 0, duration: 0.8, ease: 'power2.out', scrollTrigger: trigger });

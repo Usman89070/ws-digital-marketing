@@ -78,38 +78,33 @@ include 'header.php';
                 <span class="eyebrow">OUR PROCESS</span>
                 <h2 style="font-size: clamp(1.8rem, 4vw, 2.8rem); margin-top: 10px;">How We Grow Your Social Presence</h2>
             </div>
-            <div class="methodology-grid">
-                <div class="methodology-image">
-                    <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80" alt="Social Media Growth Process">
+            <div class="methodology-steps">
+                <div class="m-step">
+                    <div class="m-step-num">01</div>
+                    <div class="m-step-content">
+                        <h4><i class="fa-solid fa-magnifying-glass"></i> Audit &amp; Strategy</h4>
+                        <p>We review your current channels and build a content strategy around your goals.</p>
+                    </div>
                 </div>
-                <div class="methodology-steps">
-                    <div class="m-step">
-                        <div class="m-step-num">01</div>
-                        <div class="m-step-content">
-                            <h4><i class="fa-solid fa-magnifying-glass"></i> Audit &amp; Strategy</h4>
-                            <p>We review your current channels and build a content strategy around your goals.</p>
-                        </div>
+                <div class="m-step">
+                    <div class="m-step-num">02</div>
+                    <div class="m-step-content">
+                        <h4><i class="fa-solid fa-pen"></i> Content Planning &amp; Creation</h4>
+                        <p>We plan, create, and schedule content built for each platform's audience.</p>
                     </div>
-                    <div class="m-step">
-                        <div class="m-step-num">02</div>
-                        <div class="m-step-content">
-                            <h4><i class="fa-solid fa-pen"></i> Content Planning &amp; Creation</h4>
-                            <p>We plan, create, and schedule content built for each platform's audience.</p>
-                        </div>
+                </div>
+                <div class="m-step">
+                    <div class="m-step-num">03</div>
+                    <div class="m-step-content">
+                        <h4><i class="fa-solid fa-thumbs-up"></i> Publish &amp; Engage</h4>
+                        <p>We post consistently and manage community engagement in your brand voice.</p>
                     </div>
-                    <div class="m-step">
-                        <div class="m-step-num">03</div>
-                        <div class="m-step-content">
-                            <h4><i class="fa-solid fa-thumbs-up"></i> Publish &amp; Engage</h4>
-                            <p>We post consistently and manage community engagement in your brand voice.</p>
-                        </div>
-                    </div>
-                    <div class="m-step">
-                        <div class="m-step-num">04</div>
-                        <div class="m-step-content">
-                            <h4><i class="fa-solid fa-chart-line"></i> Analyze &amp; Scale</h4>
-                            <p>We double down on what's working and cut what isn't, every month.</p>
-                        </div>
+                </div>
+                <div class="m-step">
+                    <div class="m-step-num">04</div>
+                    <div class="m-step-content">
+                        <h4><i class="fa-solid fa-chart-line"></i> Analyze &amp; Scale</h4>
+                        <p>We double down on what's working and cut what isn't, every month.</p>
                     </div>
                 </div>
             </div>

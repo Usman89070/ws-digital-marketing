@@ -78,38 +78,33 @@ include 'header.php';
                 <span class="eyebrow">OUR PROCESS</span>
                 <h2 style="font-size: clamp(1.8rem, 4vw, 2.8rem); margin-top: 10px;">How We Build Your Website</h2>
             </div>
-            <div class="methodology-grid">
-                <div class="methodology-image">
-                    <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80" alt="Website Build Process">
+            <div class="methodology-steps">
+                <div class="m-step">
+                    <div class="m-step-num">01</div>
+                    <div class="m-step-content">
+                        <h4><i class="fa-solid fa-lightbulb"></i> Discovery &amp; Wireframing</h4>
+                        <p>We map out your site structure and user journey before a single pixel is designed.</p>
+                    </div>
                 </div>
-                <div class="methodology-steps">
-                    <div class="m-step">
-                        <div class="m-step-num">01</div>
-                        <div class="m-step-content">
-                            <h4><i class="fa-solid fa-lightbulb"></i> Discovery &amp; Wireframing</h4>
-                            <p>We map out your site structure and user journey before a single pixel is designed.</p>
-                        </div>
+                <div class="m-step">
+                    <div class="m-step-num">02</div>
+                    <div class="m-step-content">
+                        <h4><i class="fa-solid fa-palette"></i> Design</h4>
+                        <p>We design a custom, on-brand look and feel across every key page and device size.</p>
                     </div>
-                    <div class="m-step">
-                        <div class="m-step-num">02</div>
-                        <div class="m-step-content">
-                            <h4><i class="fa-solid fa-palette"></i> Design</h4>
-                            <p>We design a custom, on-brand look and feel across every key page and device size.</p>
-                        </div>
+                </div>
+                <div class="m-step">
+                    <div class="m-step-num">03</div>
+                    <div class="m-step-content">
+                        <h4><i class="fa-solid fa-code"></i> Development &amp; QA</h4>
+                        <p>We build, test, and QA across browsers and devices before anything goes live.</p>
                     </div>
-                    <div class="m-step">
-                        <div class="m-step-num">03</div>
-                        <div class="m-step-content">
-                            <h4><i class="fa-solid fa-code"></i> Development &amp; QA</h4>
-                            <p>We build, test, and QA across browsers and devices before anything goes live.</p>
-                        </div>
-                    </div>
-                    <div class="m-step">
-                        <div class="m-step-num">04</div>
-                        <div class="m-step-content">
-                            <h4><i class="fa-solid fa-rocket"></i> Launch &amp; Optimize</h4>
-                            <p>We launch, monitor performance, and keep refining based on real visitor behavior.</p>
-                        </div>
+                </div>
+                <div class="m-step">
+                    <div class="m-step-num">04</div>
+                    <div class="m-step-content">
+                        <h4><i class="fa-solid fa-rocket"></i> Launch &amp; Optimize</h4>
+                        <p>We launch, monitor performance, and keep refining based on real visitor behavior.</p>
                     </div>
                 </div>
             </div>

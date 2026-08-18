@@ -78,38 +78,33 @@ include 'header.php';
                 <span class="eyebrow">OUR PROCESS</span>
                 <h2 style="font-size: clamp(1.8rem, 4vw, 2.8rem); margin-top: 10px;">How We Build Ecommerce Growth</h2>
             </div>
-            <div class="methodology-grid">
-                <div class="methodology-image">
-                    <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=80" alt="Ecommerce Growth Process">
+            <div class="methodology-steps">
+                <div class="m-step">
+                    <div class="m-step-num">01</div>
+                    <div class="m-step-content">
+                        <h4><i class="fa-solid fa-magnifying-glass"></i> Audit &amp; Strategy</h4>
+                        <p>We review your store's funnel end-to-end and identify where revenue is leaking.</p>
+                    </div>
                 </div>
-                <div class="methodology-steps">
-                    <div class="m-step">
-                        <div class="m-step-num">01</div>
-                        <div class="m-step-content">
-                            <h4><i class="fa-solid fa-magnifying-glass"></i> Audit &amp; Strategy</h4>
-                            <p>We review your store's funnel end-to-end and identify where revenue is leaking.</p>
-                        </div>
+                <div class="m-step">
+                    <div class="m-step-num">02</div>
+                    <div class="m-step-content">
+                        <h4><i class="fa-solid fa-hammer"></i> Build Or Migrate</h4>
+                        <p>We build your store from scratch or migrate it cleanly with zero data loss.</p>
                     </div>
-                    <div class="m-step">
-                        <div class="m-step-num">02</div>
-                        <div class="m-step-content">
-                            <h4><i class="fa-solid fa-hammer"></i> Build Or Migrate</h4>
-                            <p>We build your store from scratch or migrate it cleanly with zero data loss.</p>
-                        </div>
+                </div>
+                <div class="m-step">
+                    <div class="m-step-num">03</div>
+                    <div class="m-step-content">
+                        <h4><i class="fa-solid fa-gauge-high"></i> Optimize Conversion</h4>
+                        <p>We test and refine product pages, checkout, and offers to lift conversion rate.</p>
                     </div>
-                    <div class="m-step">
-                        <div class="m-step-num">03</div>
-                        <div class="m-step-content">
-                            <h4><i class="fa-solid fa-gauge-high"></i> Optimize Conversion</h4>
-                            <p>We test and refine product pages, checkout, and offers to lift conversion rate.</p>
-                        </div>
-                    </div>
-                    <div class="m-step">
-                        <div class="m-step-num">04</div>
-                        <div class="m-step-content">
-                            <h4><i class="fa-solid fa-rocket"></i> Launch &amp; Scale</h4>
-                            <p>We layer in paid and organic traffic strategies to scale revenue predictably.</p>
-                        </div>
+                </div>
+                <div class="m-step">
+                    <div class="m-step-num">04</div>
+                    <div class="m-step-content">
+                        <h4><i class="fa-solid fa-rocket"></i> Launch &amp; Scale</h4>
+                        <p>We layer in paid and organic traffic strategies to scale revenue predictably.</p>
                     </div>
                 </div>
             </div>

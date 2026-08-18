@@ -78,38 +78,33 @@ include 'header.php';
                 <span class="eyebrow">OUR PROCESS</span>
                 <h2 style="font-size: clamp(1.8rem, 4vw, 2.8rem); margin-top: 10px;">How We Approach SEO</h2>
             </div>
-            <div class="methodology-grid">
-                <div class="methodology-image">
-                    <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?auto=format&fit=crop&w=800&q=80" alt="SEO Strategy Process">
+            <div class="methodology-steps">
+                <div class="m-step">
+                    <div class="m-step-num">01</div>
+                    <div class="m-step-content">
+                        <h4><i class="fa-solid fa-magnifying-glass"></i> Discover &amp; Audit</h4>
+                        <p>We audit your current site, rankings, and competitors to find the biggest opportunities.</p>
+                    </div>
                 </div>
-                <div class="methodology-steps">
-                    <div class="m-step">
-                        <div class="m-step-num">01</div>
-                        <div class="m-step-content">
-                            <h4><i class="fa-solid fa-magnifying-glass"></i> Discover &amp; Audit</h4>
-                            <p>We audit your current site, rankings, and competitors to find the biggest opportunities.</p>
-                        </div>
+                <div class="m-step">
+                    <div class="m-step-num">02</div>
+                    <div class="m-step-content">
+                        <h4><i class="fa-solid fa-key"></i> Keyword &amp; Competitor Research</h4>
+                        <p>We map the exact terms your customers search and how you can outrank competitors for them.</p>
                     </div>
-                    <div class="m-step">
-                        <div class="m-step-num">02</div>
-                        <div class="m-step-content">
-                            <h4><i class="fa-solid fa-key"></i> Keyword &amp; Competitor Research</h4>
-                            <p>We map the exact terms your customers search and how you can outrank competitors for them.</p>
-                        </div>
+                </div>
+                <div class="m-step">
+                    <div class="m-step-num">03</div>
+                    <div class="m-step-content">
+                        <h4><i class="fa-solid fa-screwdriver-wrench"></i> On-Page &amp; Technical Fixes</h4>
+                        <p>We implement the structural and content changes needed to lift rankings.</p>
                     </div>
-                    <div class="m-step">
-                        <div class="m-step-num">03</div>
-                        <div class="m-step-content">
-                            <h4><i class="fa-solid fa-screwdriver-wrench"></i> On-Page &amp; Technical Fixes</h4>
-                            <p>We implement the structural and content changes needed to lift rankings.</p>
-                        </div>
-                    </div>
-                    <div class="m-step">
-                        <div class="m-step-num">04</div>
-                        <div class="m-step-content">
-                            <h4><i class="fa-solid fa-chart-line"></i> Content &amp; Authority Building</h4>
-                            <p>We publish and promote content that builds topical authority and earns links over time.</p>
-                        </div>
+                </div>
+                <div class="m-step">
+                    <div class="m-step-num">04</div>
+                    <div class="m-step-content">
+                        <h4><i class="fa-solid fa-chart-line"></i> Content &amp; Authority Building</h4>
+                        <p>We publish and promote content that builds topical authority and earns links over time.</p>
                     </div>
                 </div>
             </div>

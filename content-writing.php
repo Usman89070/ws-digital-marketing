@@ -78,38 +78,33 @@ include 'header.php';
                 <span class="eyebrow">OUR PROCESS</span>
                 <h2 style="font-size: clamp(1.8rem, 4vw, 2.8rem); margin-top: 10px;">How We Write Content That Performs</h2>
             </div>
-            <div class="methodology-grid">
-                <div class="methodology-image">
-                    <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?auto=format&fit=crop&w=800&q=80" alt="Content Writing Process">
+            <div class="methodology-steps">
+                <div class="m-step">
+                    <div class="m-step-num">01</div>
+                    <div class="m-step-content">
+                        <h4><i class="fa-solid fa-magnifying-glass"></i> Research &amp; Strategy</h4>
+                        <p>We research your audience, keywords, and competitors before writing a word.</p>
+                    </div>
                 </div>
-                <div class="methodology-steps">
-                    <div class="m-step">
-                        <div class="m-step-num">01</div>
-                        <div class="m-step-content">
-                            <h4><i class="fa-solid fa-magnifying-glass"></i> Research &amp; Strategy</h4>
-                            <p>We research your audience, keywords, and competitors before writing a word.</p>
-                        </div>
+                <div class="m-step">
+                    <div class="m-step-num">02</div>
+                    <div class="m-step-content">
+                        <h4><i class="fa-solid fa-pen"></i> Draft &amp; Optimize</h4>
+                        <p>We write clear, on-brand copy structured for both readers and search engines.</p>
                     </div>
-                    <div class="m-step">
-                        <div class="m-step-num">02</div>
-                        <div class="m-step-content">
-                            <h4><i class="fa-solid fa-pen"></i> Draft &amp; Optimize</h4>
-                            <p>We write clear, on-brand copy structured for both readers and search engines.</p>
-                        </div>
+                </div>
+                <div class="m-step">
+                    <div class="m-step-num">03</div>
+                    <div class="m-step-content">
+                        <h4><i class="fa-solid fa-magnifying-glass-plus"></i> Review &amp; Refine</h4>
+                        <p>We review for accuracy, tone, and clarity before anything goes live.</p>
                     </div>
-                    <div class="m-step">
-                        <div class="m-step-num">03</div>
-                        <div class="m-step-content">
-                            <h4><i class="fa-solid fa-magnifying-glass-plus"></i> Review &amp; Refine</h4>
-                            <p>We review for accuracy, tone, and clarity before anything goes live.</p>
-                        </div>
-                    </div>
-                    <div class="m-step">
-                        <div class="m-step-num">04</div>
-                        <div class="m-step-content">
-                            <h4><i class="fa-solid fa-chart-line"></i> Publish &amp; Measure</h4>
-                            <p>We track how content performs and refine the strategy based on real results.</p>
-                        </div>
+                </div>
+                <div class="m-step">
+                    <div class="m-step-num">04</div>
+                    <div class="m-step-content">
+                        <h4><i class="fa-solid fa-chart-line"></i> Publish &amp; Measure</h4>
+                        <p>We track how content performs and refine the strategy based on real results.</p>
                     </div>
                 </div>
             </div>

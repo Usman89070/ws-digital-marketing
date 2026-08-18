@@ -78,38 +78,33 @@ include 'header.php';
                 <span class="eyebrow">OUR PROCESS</span>
                 <h2 style="font-size: clamp(1.8rem, 4vw, 2.8rem); margin-top: 10px;">How We Run Profitable Campaigns</h2>
             </div>
-            <div class="methodology-grid">
-                <div class="methodology-image">
-                    <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1533750349088-cd871a92f312?auto=format&fit=crop&w=800&q=80" alt="PPC Campaign Process">
+            <div class="methodology-steps">
+                <div class="m-step">
+                    <div class="m-step-num">01</div>
+                    <div class="m-step-content">
+                        <h4><i class="fa-solid fa-magnifying-glass"></i> Audit &amp; Account Setup</h4>
+                        <p>We audit existing accounts or build clean, properly structured campaigns from scratch.</p>
+                    </div>
                 </div>
-                <div class="methodology-steps">
-                    <div class="m-step">
-                        <div class="m-step-num">01</div>
-                        <div class="m-step-content">
-                            <h4><i class="fa-solid fa-magnifying-glass"></i> Audit &amp; Account Setup</h4>
-                            <p>We audit existing accounts or build clean, properly structured campaigns from scratch.</p>
-                        </div>
+                <div class="m-step">
+                    <div class="m-step-num">02</div>
+                    <div class="m-step-content">
+                        <h4><i class="fa-solid fa-rocket"></i> Campaign Build &amp; Launch</h4>
+                        <p>We build targeting, ad creative, and tracking, then launch with tight budget controls.</p>
                     </div>
-                    <div class="m-step">
-                        <div class="m-step-num">02</div>
-                        <div class="m-step-content">
-                            <h4><i class="fa-solid fa-rocket"></i> Campaign Build &amp; Launch</h4>
-                            <p>We build targeting, ad creative, and tracking, then launch with tight budget controls.</p>
-                        </div>
+                </div>
+                <div class="m-step">
+                    <div class="m-step-num">03</div>
+                    <div class="m-step-content">
+                        <h4><i class="fa-solid fa-flask"></i> Optimize &amp; Test</h4>
+                        <p>We test ad creative, bidding, and audiences weekly to bring cost per lead down.</p>
                     </div>
-                    <div class="m-step">
-                        <div class="m-step-num">03</div>
-                        <div class="m-step-content">
-                            <h4><i class="fa-solid fa-flask"></i> Optimize &amp; Test</h4>
-                            <p>We test ad creative, bidding, and audiences weekly to bring cost per lead down.</p>
-                        </div>
-                    </div>
-                    <div class="m-step">
-                        <div class="m-step-num">04</div>
-                        <div class="m-step-content">
-                            <h4><i class="fa-solid fa-chart-line"></i> Scale What Works</h4>
-                            <p>We reinvest budget into the campaigns and audiences delivering the best return.</p>
-                        </div>
+                </div>
+                <div class="m-step">
+                    <div class="m-step-num">04</div>
+                    <div class="m-step-content">
+                        <h4><i class="fa-solid fa-chart-line"></i> Scale What Works</h4>
+                        <p>We reinvest budget into the campaigns and audiences delivering the best return.</p>
                     </div>
                 </div>
             </div>
