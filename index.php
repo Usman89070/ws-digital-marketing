@@ -130,72 +130,27 @@ include 'header.php';
         </div>
     </div>
 
-    <!-- PREMIUM ABOUT / AGENCY SECTION -->
-    <section id="about" class="agency-section fade-up">
-        <div class="container">
-            <div class="agency-grid">
-                <div class="agency-text" id="agency">
-                    <span class="eyebrow">ABOUT OUR AGENCY</span>
-                    <h2>We Build Marketing Engines That Drive Profit</h2>
-                    <p>W&S Digital Marketing is a premier Australian growth agency focused on delivering transparent, high-converting digital solutions. We eliminate marketing guesswork and focus entirely on strategies that bring a clear, measurable return on investment.</p>
-                    <ul class="agency-list">
-                        <li><i class="fa-solid fa-check"></i> 100% Transparent ROI Reporting</li>
-                        <li><i class="fa-solid fa-check"></i> Exclusively Data-Driven Strategies</li>
-                        <li><i class="fa-solid fa-check"></i> Hyper-Targeted Lead Generation</li>
-                    </ul>
-                    <a href="#contact" class="btn-primary" style="margin-top: 10px;">Speak With An Expert</a>
-                </div>
-                <div class="agency-image-wrapper">
-                    <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=800&q=80" alt="Professional Digital Marketing Agency Team">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- TRUSTED STRIP -->
+    <!-- TRUSTED STRIP (MARQUEE) -->
     <div class="trusted-strip-wrapper fade-up">
-        <div class="container">
-            <div class="partner-strip">
-                <div><i class="fa-brands fa-google" style="color: #4285F4; margin-right: 5px;"></i> Google <span>Partner</span></div>
-                <div><i class="fa-brands fa-meta" style="color: #0668E1; margin-right: 5px;"></i> Meta <span>Business</span></div>
-                <div><i class="fa-solid fa-chart-simple" style="color: #F26722; margin-right: 5px;"></i> SEMRUSH</div>
-                <div><i class="fa-solid fa-brain" style="color: #D97706; margin-right: 5px;"></i> CLAUDE</div>
-                <div><i class="fa-brands fa-shopify" style="color: #96bf48; margin-right: 5px;"></i> shopify</div>
+        <div class="partner-marquee">
+            <div class="partner-marquee-track">
+                <div class="partner-strip">
+                    <div><i class="fa-brands fa-google" style="color: #4285F4; margin-right: 5px;"></i> Google <span>Partner</span></div>
+                    <div><i class="fa-brands fa-meta" style="color: #0668E1; margin-right: 5px;"></i> Meta <span>Business</span></div>
+                    <div><i class="fa-solid fa-chart-simple" style="color: #F26722; margin-right: 5px;"></i> SEMRUSH</div>
+                    <div><i class="fa-solid fa-brain" style="color: #D97706; margin-right: 5px;"></i> CLAUDE</div>
+                    <div><i class="fa-brands fa-shopify" style="color: #96bf48; margin-right: 5px;"></i> shopify</div>
+                </div>
+                <div class="partner-strip" aria-hidden="true">
+                    <div><i class="fa-brands fa-google" style="color: #4285F4; margin-right: 5px;"></i> Google <span>Partner</span></div>
+                    <div><i class="fa-brands fa-meta" style="color: #0668E1; margin-right: 5px;"></i> Meta <span>Business</span></div>
+                    <div><i class="fa-solid fa-chart-simple" style="color: #F26722; margin-right: 5px;"></i> SEMRUSH</div>
+                    <div><i class="fa-solid fa-brain" style="color: #D97706; margin-right: 5px;"></i> CLAUDE</div>
+                    <div><i class="fa-brands fa-shopify" style="color: #96bf48; margin-right: 5px;"></i> shopify</div>
+                </div>
             </div>
         </div>
     </div>
-
-    <!-- PREMIUM DARK STATS SECTION WITH REAL IMAGE BACKGROUND -->
-    <section class="stats-section fade-up">
-        <div class="container">
-            <div class="section-header">
-                <span class="eyebrow" style="color: var(--cyan-neon);">PROVEN METRICS</span>
-                <h2 style="color: #fff; font-size: clamp(1.8rem, 4vw, 2.8rem);">Backed By Real SEO Ranking Results</h2>
-            </div>
-            <div class="stats-4-grid">
-                <div class="stat-box">
-                    <div class="stat-icon"><i class="fa-solid fa-ranking-star"></i></div>
-                    <h3>+89</h3>
-                    <p>Keywords Ranked Page 1</p>
-                </div>
-                <div class="stat-box">
-                    <div class="stat-icon"><i class="fa-solid fa-arrow-trend-up"></i></div>
-                    <h3>+142%</h3>
-                    <p>Organic Traffic Growth</p>
-                </div>
-                <div class="stat-box">
-                    <div class="stat-icon"><i class="fa-solid fa-chart-line"></i></div>
-                    <h3>8.4x</h3>
-                    <p>Avg. ROAS Achieved</p>
-                </div>
-                <div class="stat-box">
-                    <div class="stat-icon"><i class="fa-solid fa-handshake"></i></div>
-                    <h3>98%</h3>
-                    <p>Client Retention Rate</p>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- UPGRADED SERVICES SECTION WITH REAL IMAGES -->
     <section id="services" class="services-section fade-up">
@@ -334,151 +289,6 @@ include 'header.php';
             </div>
             <div style="text-align: center; margin-top: clamp(30px, 4vw, 40px);">
                 <a href="services.php" class="btn-secondary">VIEW ALL SERVICES <i class="fa-solid fa-arrow-right" style="margin-left: 6px;"></i></a>
-            </div>
-        </div>
-    </section>
-
-    <!-- MEET THE TEAM (homepage teaser — full roster lives on our-team.php) -->
-    <section id="team" class="services-section fade-up">
-        <div class="container">
-            <div class="section-header">
-                <span class="eyebrow">OUR TEAM</span>
-                <h2 style="font-size: clamp(1.8rem, 4vw, 2.8rem); margin-top: 10px;">Meet The People Driving Your Results</h2>
-            </div>
-
-            <div class="team-grid">
-                <div class="team-card">
-                    <div class="team-photo">
-                        <div class="team-photo-placeholder"><i class="fa-solid fa-user"></i></div>
-                        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=400&q=80" alt="James Mitchell, Founder & CEO" onerror="this.remove()">
-                        <span class="team-card-num">01</span>
-                        <div class="team-card-overlay"></div>
-                        <div class="team-card-info">
-                            <h5>James Mitchell</h5>
-                            <span class="team-role">Founder &amp; CEO</span>
-                            <p class="team-card-desc">Leads company strategy and ensures every client gets a growth plan built around real numbers.</p>
-                            <div class="team-socials">
-                                <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="team-card">
-                    <div class="team-photo">
-                        <div class="team-photo-placeholder"><i class="fa-solid fa-user"></i></div>
-                        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80" alt="Sarah Chen, Head of Strategy" onerror="this.remove()">
-                        <span class="team-card-num">02</span>
-                        <div class="team-card-overlay"></div>
-                        <div class="team-card-info">
-                            <h5>Sarah Chen</h5>
-                            <span class="team-role">Head of Strategy</span>
-                            <p class="team-card-desc">Turns market research and data into the campaign roadmaps our team executes.</p>
-                            <div class="team-socials">
-                                <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="team-card">
-                    <div class="team-photo">
-                        <div class="team-photo-placeholder"><i class="fa-solid fa-user"></i></div>
-                        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=400&q=80" alt="Marcus Webb, Lead Web Developer" onerror="this.remove()">
-                        <span class="team-card-num">03</span>
-                        <div class="team-card-overlay"></div>
-                        <div class="team-card-info">
-                            <h5>Marcus Webb</h5>
-                            <span class="team-role">Lead Web Developer</span>
-                            <p class="team-card-desc">Builds fast, conversion-focused websites engineered to turn visitors into customers.</p>
-                            <div class="team-socials">
-                                <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="team-card">
-                    <div class="team-photo">
-                        <div class="team-photo-placeholder"><i class="fa-solid fa-user"></i></div>
-                        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&q=80" alt="Priya Sharma, Creative Director" onerror="this.remove()">
-                        <span class="team-card-num">04</span>
-                        <div class="team-card-overlay"></div>
-                        <div class="team-card-info">
-                            <h5>Priya Sharma</h5>
-                            <span class="team-role">Creative Director</span>
-                            <p class="team-card-desc">Shapes the visual identity and creative direction behind every campaign we launch.</p>
-                            <div class="team-socials">
-                                <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div style="text-align: center; margin-top: clamp(30px, 4vw, 40px);">
-                <a href="our-team.php" class="btn-secondary">MEET THE FULL TEAM <i class="fa-solid fa-arrow-right" style="margin-left: 6px;"></i></a>
-            </div>
-        </div>
-    </section>
-
-    <!-- LATEST FROM THE BLOG -->
-    <section class="case-studies-section fade-up">
-        <div class="container">
-            <div class="section-header">
-                <span class="eyebrow">INSIGHTS</span>
-                <h2 style="font-size: clamp(1.8rem, 4vw, 2.8rem); margin-top: 10px;">Latest From The Blog</h2>
-            </div>
-            <div class="case-grid">
-
-                <article class="case-card">
-                    <div class="case-image">
-                        <span class="case-tag">SEO</span>
-                        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?auto=format&fit=crop&w=800&q=80" alt="Local SEO strategy for Australian small businesses">
-                        <h3>5 Local SEO Wins Every Small Business Should Make</h3>
-                    </div>
-                    <div class="case-content">
-                        <div>
-                            <p>From Google Business Profile optimization to local link building, here are the highest-leverage local SEO moves for Australian businesses.</p>
-                        </div>
-                        <div>
-                            <a href="contact.php" class="service-link">Talk To Our Team <i class="fa-solid fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="case-card">
-                    <div class="case-image">
-                        <span class="case-tag">PPC</span>
-                        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1533750349088-cd871a92f312?auto=format&fit=crop&w=800&q=80" alt="Google Ads budget optimization">
-                        <h3>How To Stop Wasting Ad Spend On Google Ads</h3>
-                    </div>
-                    <div class="case-content">
-                        <div>
-                            <p>Negative keywords, dayparting, and audience layering — the tactics we use to cut cost-per-lead without sacrificing volume.</p>
-                        </div>
-                        <div>
-                            <a href="contact.php" class="service-link">Talk To Our Team <i class="fa-solid fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="case-card">
-                    <div class="case-image">
-                        <span class="case-tag">CRO</span>
-                        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" alt="Website conversion rate optimization">
-                        <h3>Why Your Website Isn't Converting Traffic Into Leads</h3>
-                    </div>
-                    <div class="case-content">
-                        <div>
-                            <p>Traffic isn't the problem for most businesses — conversion is. Here's how we audit and fix leaky landing pages.</p>
-                        </div>
-                        <div>
-                            <a href="contact.php" class="service-link">Talk To Our Team <i class="fa-solid fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </article>
-
-            </div>
-            <div style="text-align: center; margin-top: clamp(30px, 4vw, 40px);">
-                <a href="blog.php" class="btn-secondary">VIEW ALL ARTICLES <i class="fa-solid fa-arrow-right" style="margin-left: 6px;"></i></a>
             </div>
         </div>
     </section>

@@ -358,11 +358,30 @@
 
         /* === TRUSTED STRIP === */
         .trusted-strip-wrapper { background: rgba(248, 250, 252, 0.8); padding: 40px 0; border-top: 1px solid var(--border-light); border-bottom: 1px solid var(--border-light); }
-        .partner-strip { display: flex; justify-content: center; align-items: center; gap: clamp(25px, 5vw, 80px); flex-wrap: wrap; }
-        .partner-strip div { font-size: clamp(1.1rem, 2.5vw, 1.5rem); font-weight: 800; color: #94A3B8; transition: var(--transition-smooth); cursor: default; display: flex; align-items: center; gap: 8px;}
+
+        /* Continuous logo marquee -- the track holds two identical copies of
+           .partner-strip back to back and scrolls left by exactly one copy's
+           width (50% of the track), so the loop point is seamless: the moment
+           copy 1 has scrolled fully offscreen, copy 2 is sitting exactly where
+           copy 1 started. Always animating (no hover-pause), per spec. */
+        .partner-marquee {
+            overflow: hidden; width: 100%;
+            -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+            mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+        }
+        .partner-marquee-track { display: flex; width: max-content; animation: partnerMarquee 30s linear infinite; }
+        .partner-strip { display: flex; align-items: center; flex-wrap: nowrap; gap: clamp(40px, 6vw, 90px); padding: 0 clamp(20px, 6vw, 90px); flex-shrink: 0; }
+        .partner-strip div { font-size: clamp(1.1rem, 2.5vw, 1.5rem); font-weight: 800; color: #94A3B8; transition: var(--transition-smooth); cursor: default; display: flex; align-items: center; gap: 8px; white-space: nowrap; }
         .partner-strip div i { font-size: 1.2em; }
         .partner-strip div:hover { color: var(--navy); transform: translateY(-2px); }
         .partner-strip span { font-size: 0.8rem; font-weight: 500; text-transform: uppercase; letter-spacing: 1px; }
+        @keyframes partnerMarquee {
+            from { transform: translateX(0); }
+            to { transform: translateX(-50%); }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .partner-marquee-track { animation: none; }
+        }
 
         /* === PREMIUM DARK STATS SECTION WITH REAL IMAGE BACKGROUND === */
         .stats-section { background: linear-gradient(rgba(11, 15, 37, 0.9), rgba(11, 15, 37, 0.95)), url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1920&q=80') center/cover fixed; padding: clamp(60px, 8vw, 120px) 0; position: relative; color: #fff; }
