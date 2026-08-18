@@ -182,6 +182,22 @@ if (window.matchMedia('(hover: none)').matches) {
             }
         }
 
+        // Pause the trusted-strip marquee on touch. Real mouse/pen hover already
+        // pauses it via the fine-pointer :hover rule in css/style.css -- pure CSS,
+        // no JS needed, and animation-play-state:paused freezes it at its current
+        // frame so nothing here has to track or restore position. Touch devices
+        // have no hover state at all, so touching the marquee toggles this class
+        // instead, pausing on touchstart and resuming the instant the finger lifts
+        // or the touch is cancelled. Doesn't depend on GSAP, so it runs standalone
+        // rather than inside the DOMContentLoaded block below.
+        document.querySelectorAll('.partner-marquee').forEach((marquee) => {
+            const pause = () => marquee.classList.add('is-paused');
+            const resume = () => marquee.classList.remove('is-paused');
+            marquee.addEventListener('touchstart', pause, { passive: true });
+            marquee.addEventListener('touchend', resume);
+            marquee.addEventListener('touchcancel', resume);
+        });
+
         document.addEventListener("DOMContentLoaded", () => {
             gsap.registerPlugin(ScrollTrigger);
 

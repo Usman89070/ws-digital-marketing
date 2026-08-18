@@ -363,13 +363,23 @@
            .partner-strip back to back and scrolls left by exactly one copy's
            width (50% of the track), so the loop point is seamless: the moment
            copy 1 has scrolled fully offscreen, copy 2 is sitting exactly where
-           copy 1 started. Always animating (no hover-pause), per spec. */
+           copy 1 started. Runs continuously until the pointer touches it (see
+           the pause rules below), then picks back up from the exact same spot. */
         .partner-marquee {
             overflow: hidden; width: 100%;
             -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
             mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
         }
         .partner-marquee-track { display: flex; width: max-content; animation: partnerMarquee 30s linear infinite; }
+        /* animation-play-state:paused freezes the track at its current frame rather
+           than resetting it, so resuming continues from exactly where it stopped --
+           no jump, no restart. Real mouse hover is scoped to fine-pointer devices so
+           it can't get stuck "hovering" on touch; touch instead toggles .is-paused
+           via touchstart/touchend in js/main.js, since touch devices have no hover. */
+        @media (hover: hover) and (pointer: fine) {
+            .partner-marquee:hover .partner-marquee-track { animation-play-state: paused; }
+        }
+        .partner-marquee.is-paused .partner-marquee-track { animation-play-state: paused; }
         .partner-strip { display: flex; align-items: center; flex-wrap: nowrap; gap: clamp(40px, 6vw, 90px); padding: 0 clamp(20px, 6vw, 90px); flex-shrink: 0; }
         .partner-strip div { font-size: clamp(1.1rem, 2.5vw, 1.5rem); font-weight: 800; color: #94A3B8; transition: var(--transition-smooth); cursor: default; display: flex; align-items: center; gap: 8px; white-space: nowrap; }
         .partner-strip div i { font-size: 1.2em; }
