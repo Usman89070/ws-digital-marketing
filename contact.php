@@ -40,7 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // Reply-To carries the visitor's address; From stays a domain address
         // the sending server is authorized for, avoiding SPF/DMARC failures.
-        $headers = "From: W&S Digital Marketing <info@wsdigital.com.au>\r\n";
+        $headers = "From: W&S Digital Marketing <info@wsdigitalmarketing.com.au>\r\n";
         $headers .= "Reply-To: $name <$email>\r\n";
         $headers .= "X-Mailer: PHP/" . phpversion();
 
@@ -112,7 +112,7 @@ include 'header.php';
                                 </div>
                                 <div>
                                     <h5 style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); font-weight: 700; margin-bottom: 2px; letter-spacing: 1px;">Email Us</h5>
-                                    <a href="mailto:info@wsdigital.com.au" style="color: var(--navy); font-weight: 700; font-size: 1.05rem; text-decoration: none; transition: color 0.3s; word-break: break-all;">info@wsdigital.com.au</a>
+                                    <a href="mailto:info@wsdigitalmarketing.com.au" style="color: var(--navy); font-weight: 700; font-size: 1.05rem; text-decoration: none; transition: color 0.3s; word-break: break-all;">info@wsdigitalmarketing.com.au</a>
                                 </div>
                             </li>
                             

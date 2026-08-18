@@ -44,7 +44,7 @@ include 'header.php';
             <p>We may update these Terms from time to time. Continued use of our website or services after changes are posted constitutes acceptance of the updated Terms.</p>
 
             <h3>Contact Us</h3>
-            <p>Questions about these Terms can be directed to us via our <a href="contact.php">contact page</a> or by emailing <a href="mailto:info@wsdigital.com.au">info@wsdigital.com.au</a>.</p>
+            <p>Questions about these Terms can be directed to us via our <a href="contact.php">contact page</a> or by emailing <a href="mailto:info@wsdigitalmarketing.com.au">info@wsdigitalmarketing.com.au</a>.</p>
 
         </div>
     </section>

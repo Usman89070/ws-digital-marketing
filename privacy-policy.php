@@ -41,7 +41,7 @@ include 'header.php';
             <p>We may update this policy from time to time. Any changes will be posted on this page with an updated revision date.</p>
 
             <h3>Contact Us</h3>
-            <p>If you have any questions about this Privacy Policy, please <a href="contact.php">get in touch</a> or email us at <a href="mailto:info@wsdigital.com.au">info@wsdigital.com.au</a>.</p>
+            <p>If you have any questions about this Privacy Policy, please <a href="contact.php">get in touch</a> or email us at <a href="mailto:info@wsdigitalmarketing.com.au">info@wsdigitalmarketing.com.au</a>.</p>
 
         </div>
     </section>

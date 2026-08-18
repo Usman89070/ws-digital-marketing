@@ -55,7 +55,7 @@
                     <h4 class="footer-heading">Get In Touch</h4>
                     <ul class="footer-contact">
                         <li><i class="fa-solid fa-phone"></i> <span>1300 123 456</span></li>
-                        <li><i class="fa-solid fa-envelope"></i> <span>info@wsdigital.com.au</span></li>
+                        <li><i class="fa-solid fa-envelope"></i> <span>info@wsdigitalmarketing.com.au</span></li>
                         <li><i class="fa-solid fa-location-dot"></i> <span>Level 32, Sydney, NSW 2000, Australia</span></li>
                     </ul>
                 </div>
