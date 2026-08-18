@@ -689,7 +689,11 @@
         .testi-trust-panel > * { position: relative; z-index: 1; }
         .testi-trust-rating { font-size: clamp(2.6rem, 5vw, 3.6rem); font-weight: 800; line-height: 1; margin-bottom: 10px; }
         .testi-trust-rating span { font-size: 1.3rem; font-weight: 600; color: rgba(255, 255, 255, 0.5); }
-        .testi-trust-stars { color: #F59E0B; font-size: 1.2rem; letter-spacing: 3px; margin-bottom: 16px; }
+        .testi-trust-stars { font-size: 1.2rem; letter-spacing: 3px; margin-bottom: 16px; }
+        .testi-trust-stars i {
+            background: linear-gradient(135deg, var(--cyan-neon), var(--magenta-neon));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
         .testi-trust-panel h5 { font-size: 1.2rem; font-weight: 800; margin-bottom: 8px; }
         .testi-trust-panel p { color: rgba(255, 255, 255, 0.55); font-size: 0.9rem; line-height: 1.6; margin-bottom: 26px; }
         .testi-avatar-stack { display: flex; align-items: center; margin-bottom: 24px; }
@@ -719,8 +723,12 @@
         }
         .testi-card:hover { transform: translateY(-8px); border-color: var(--cyan-neon); box-shadow: var(--shadow-hover); }
         .testi-card:hover::before { opacity: 0.14; }
-        .testi-stars { color: #F59E0B; font-size: 1.2rem; margin-bottom: 20px; letter-spacing: 2px; }
-        .testi-stars i { display: inline-block; transition: transform 0.25s ease; }
+        .testi-stars { font-size: 1.2rem; margin-bottom: 20px; letter-spacing: 2px; }
+        .testi-stars i {
+            display: inline-block; transition: transform 0.25s ease;
+            background: linear-gradient(135deg, var(--cyan-neon), var(--magenta-neon));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
         .testi-card:hover .testi-stars i:nth-child(1) { transition-delay: 0s; }
         .testi-card:hover .testi-stars i:nth-child(2) { transition-delay: 0.05s; }
         .testi-card:hover .testi-stars i:nth-child(3) { transition-delay: 0.1s; }
