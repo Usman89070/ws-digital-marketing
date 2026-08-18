@@ -533,9 +533,9 @@ if (window.matchMedia('(hover: none)').matches) {
             // past the single-column mobile layout's edge and causing horizontal page
             // overflow on every page that uses these grids. (.methodology-grid used to be
             // a third member of this pattern -- the "Our Process" image+steps sections --
-            // but the image column is gone now, so .methodology-steps is a full-width
-            // section on its own and gets the standard per-card grid stagger instead,
-            // same as .case-grid/.stats-4-grid.)
+            // but the image column is gone now, so .methodology-steps is just a full-width
+            // vertical list on its own and gets the standard per-item stagger reveal
+            // instead, same as every other entry in the gridSelectors list above.)
             mm.add("(min-width: 1025px)", () => {
                 gsap.utils.toArray('.agency-grid, .contact-grid').forEach(grid => {
                     const media = grid.querySelector('.agency-image-wrapper, .contact-info-card');
