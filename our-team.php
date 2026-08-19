@@ -25,6 +25,7 @@ include 'header.php';
                 <div class="team-card">
                     <div class="team-photo">
                         <div class="team-photo-placeholder"><i class="fa-solid fa-user"></i></div>
+                        <img loading="lazy" decoding="async" src="images/team/sahar-afridi.jpg" alt="Sahar Afridi, Managing Director / Social Media Manager" onerror="this.remove()">
                         <span class="team-card-num">01</span>
                         <div class="team-card-overlay"></div>
                         <div class="team-card-info">
@@ -40,6 +41,7 @@ include 'header.php';
                 <div class="team-card">
                     <div class="team-photo">
                         <div class="team-photo-placeholder"><i class="fa-solid fa-user"></i></div>
+                        <img loading="lazy" decoding="async" src="images/team/wishal-khan-mohammadi.jpg" alt="Wishal Khan Mohammadi, Chief Executive Officer" onerror="this.remove()">
                         <span class="team-card-num">02</span>
                         <div class="team-card-overlay"></div>
                         <div class="team-card-info">
@@ -55,6 +57,7 @@ include 'header.php';
                 <div class="team-card">
                     <div class="team-photo">
                         <div class="team-photo-placeholder"><i class="fa-solid fa-user"></i></div>
+                        <img loading="lazy" decoding="async" src="images/team/shawal-khan-mohammadi.jpg" alt="Shawal Khan Mohammadi, Chief Executive Officer" onerror="this.remove()">
                         <span class="team-card-num">03</span>
                         <div class="team-card-overlay"></div>
                         <div class="team-card-info">
@@ -70,6 +73,7 @@ include 'header.php';
                 <div class="team-card">
                     <div class="team-photo">
                         <div class="team-photo-placeholder"><i class="fa-solid fa-user"></i></div>
+                        <img loading="lazy" decoding="async" src="images/team/hammad-hassan.jpg" alt="Hammad Hassan, Digital Marketing Manager" onerror="this.remove()">
                         <span class="team-card-num">04</span>
                         <div class="team-card-overlay"></div>
                         <div class="team-card-info">
@@ -85,6 +89,7 @@ include 'header.php';
                 <div class="team-card">
                     <div class="team-photo">
                         <div class="team-photo-placeholder"><i class="fa-solid fa-user"></i></div>
+                        <img loading="lazy" decoding="async" src="images/team/usman-zahid.jpg" alt="Usman Zahid, Lead Web Developer" onerror="this.remove()">
                         <span class="team-card-num">05</span>
                         <div class="team-card-overlay"></div>
                         <div class="team-card-info">
@@ -100,6 +105,7 @@ include 'header.php';
                 <div class="team-card">
                     <div class="team-photo">
                         <div class="team-photo-placeholder"><i class="fa-solid fa-user"></i></div>
+                        <img loading="lazy" decoding="async" src="images/team/azhar-rasheed.jpg" alt="Azhar Rasheed, SEO Expert" onerror="this.remove()">
                         <span class="team-card-num">06</span>
                         <div class="team-card-overlay"></div>
                         <div class="team-card-info">
@@ -115,6 +121,7 @@ include 'header.php';
                 <div class="team-card">
                     <div class="team-photo">
                         <div class="team-photo-placeholder"><i class="fa-solid fa-user"></i></div>
+                        <img loading="lazy" decoding="async" src="images/team/tabarak-hussain.jpg" alt="Tabarak Hussain, Shopify Expert" onerror="this.remove()">
                         <span class="team-card-num">07</span>
                         <div class="team-card-overlay"></div>
                         <div class="team-card-info">
@@ -130,6 +137,7 @@ include 'header.php';
                 <div class="team-card">
                     <div class="team-photo">
                         <div class="team-photo-placeholder"><i class="fa-solid fa-user"></i></div>
+                        <img loading="lazy" decoding="async" src="images/team/tariq-aziz.jpg" alt="Tariq Aziz, Social Media Expert" onerror="this.remove()">
                         <span class="team-card-num">08</span>
                         <div class="team-card-overlay"></div>
                         <div class="team-card-info">
@@ -145,6 +153,7 @@ include 'header.php';
                 <div class="team-card">
                     <div class="team-photo">
                         <div class="team-photo-placeholder"><i class="fa-solid fa-user"></i></div>
+                        <img loading="lazy" decoding="async" src="images/team/salim-yousaf.jpg" alt="Salim Yousaf, SEO Expert" onerror="this.remove()">
                         <span class="team-card-num">09</span>
                         <div class="team-card-overlay"></div>
                         <div class="team-card-info">

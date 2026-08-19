@@ -114,6 +114,7 @@ include 'header.php';
                 <div class="team-card">
                     <div class="team-photo">
                         <div class="team-photo-placeholder"><i class="fa-solid fa-user"></i></div>
+                        <img loading="lazy" decoding="async" src="images/team/sahar-afridi.jpg" alt="Sahar Afridi, Managing Director / Social Media Manager" onerror="this.remove()">
                         <span class="team-card-num">01</span>
                         <div class="team-card-overlay"></div>
                         <div class="team-card-info">
@@ -129,6 +130,7 @@ include 'header.php';
                 <div class="team-card">
                     <div class="team-photo">
                         <div class="team-photo-placeholder"><i class="fa-solid fa-user"></i></div>
+                        <img loading="lazy" decoding="async" src="images/team/wishal-khan-mohammadi.jpg" alt="Wishal Khan Mohammadi, Chief Executive Officer" onerror="this.remove()">
                         <span class="team-card-num">02</span>
                         <div class="team-card-overlay"></div>
                         <div class="team-card-info">
@@ -144,6 +146,7 @@ include 'header.php';
                 <div class="team-card">
                     <div class="team-photo">
                         <div class="team-photo-placeholder"><i class="fa-solid fa-user"></i></div>
+                        <img loading="lazy" decoding="async" src="images/team/shawal-khan-mohammadi.jpg" alt="Shawal Khan Mohammadi, Chief Executive Officer" onerror="this.remove()">
                         <span class="team-card-num">03</span>
                         <div class="team-card-overlay"></div>
                         <div class="team-card-info">
@@ -159,6 +162,7 @@ include 'header.php';
                 <div class="team-card">
                     <div class="team-photo">
                         <div class="team-photo-placeholder"><i class="fa-solid fa-user"></i></div>
+                        <img loading="lazy" decoding="async" src="images/team/hammad-hassan.jpg" alt="Hammad Hassan, Digital Marketing Manager" onerror="this.remove()">
                         <span class="team-card-num">04</span>
                         <div class="team-card-overlay"></div>
                         <div class="team-card-info">
