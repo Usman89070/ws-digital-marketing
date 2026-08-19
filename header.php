@@ -58,7 +58,10 @@ $page_description = $page_description ?? 'Data-driven Google Ads, Meta Ads, SEO 
     <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"></noscript>
 
     <!-- Google Fonts (already using font-display: swap so text never waits on it) -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Only the weights actually used anywhere in css/style.css or inline styles
+         (400/500/600/700/800) -- 300 was requested but never referenced, so
+         dropping it removes one whole font-file fetch for every visitor. -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 </head>
 <body>
