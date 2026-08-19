@@ -17,8 +17,8 @@ include 'header.php';
     <section class="agency-section fade-up">
         <div class="container">
             <div class="agency-grid">
-                <div class="agency-image-wrapper">
-                    <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80" alt="W&S Digital Marketing Team Collaborating">
+                <div class="agency-image-wrapper" style="min-height: 400px; background: linear-gradient(160deg, rgba(0, 242, 254, 0.1), rgba(255, 0, 127, 0.08));">
+                    <img loading="lazy" decoding="async" src="images/about-ws.webp" alt="W&S Digital Marketing" onerror="this.remove()">
                 </div>
                 <div class="agency-text">
                     <span class="eyebrow">OUR STORY</span>
