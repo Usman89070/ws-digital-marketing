@@ -119,10 +119,10 @@ include 'header.php';
                 <h2 style="color: #fff; font-size: clamp(1.8rem, 4vw, 2.8rem);">SEO That Shows Up In The Numbers</h2>
             </div>
             <div class="stats-4-grid">
-                <div class="stat-box"><div class="stat-icon"><i class="fa-solid fa-arrow-trend-up"></i></div><h3>2,449</h3><p>Organic Clicks Delivered</p></div>
-                <div class="stat-box"><div class="stat-icon"><i class="fa-solid fa-eye"></i></div><h3>274K+</h3><p>Search Impressions Earned</p></div>
-                <div class="stat-box"><div class="stat-icon"><i class="fa-solid fa-phone-volume"></i></div><h3>1,597</h3><p>Google Business Profile Actions</p></div>
-                <div class="stat-box"><div class="stat-icon"><i class="fa-solid fa-magnifying-glass-chart"></i></div><h3>5</h3><p>Verified Client Campaigns</p></div>
+                <div class="stat-box"><div class="stat-icon"><i class="fa-solid fa-arrow-trend-up"></i></div><h3>3,090</h3><p>Organic Clicks Delivered</p></div>
+                <div class="stat-box"><div class="stat-icon"><i class="fa-solid fa-eye"></i></div><h3>387K+</h3><p>Search Impressions Earned</p></div>
+                <div class="stat-box"><div class="stat-icon"><i class="fa-solid fa-phone-volume"></i></div><h3>1,952</h3><p>Google Business Profile Actions</p></div>
+                <div class="stat-box"><div class="stat-icon"><i class="fa-solid fa-magnifying-glass-chart"></i></div><h3>7</h3><p>Verified Client Campaigns</p></div>
             </div>
         </div>
     </section>
@@ -195,6 +195,30 @@ include 'header.php';
                         <div><strong>57/58</strong><span>Keywords Page 1</span></div>
                         <div><strong>775</strong><span>Organic Clicks</span></div>
                         <div><strong>333</strong><span>Calls From GBP</span></div>
+                    </div>
+                </div>
+                <div class="seo-proof-card">
+                    <div class="seo-proof-head">
+                        <h4>Ace Fridge Repairs</h4>
+                        <span class="seo-proof-period">1 Jul – 8 Aug 2026</span>
+                    </div>
+                    <p class="seo-proof-desc">Sydney fridge repair specialist. Dominant on brand-name searches (CHiQ, GE, Skipio) with near-universal presence inside Google's AI answers.</p>
+                    <div class="seo-proof-stats">
+                        <div><strong>10/18</strong><span>Keywords at #1</span></div>
+                        <div><strong>39.3K</strong><span>Impressions</span></div>
+                        <div><strong>16/18</strong><span>Visible in AI</span></div>
+                    </div>
+                </div>
+                <div class="seo-proof-card">
+                    <div class="seo-proof-head">
+                        <h4>Fridge Repair Experts</h4>
+                        <span class="seo-proof-period">1 Jun – 18 Aug 2026</span>
+                    </div>
+                    <p class="seo-proof-desc">Sydney fridge repair specialist. Broad page-one coverage across 33 suburb, brand and commercial keywords.</p>
+                    <div class="seo-proof-stats">
+                        <div><strong>421</strong><span>Organic Clicks</span></div>
+                        <div><strong>20/33</strong><span>Keywords Page 1</span></div>
+                        <div><strong>27/33</strong><span>Visible in AI</span></div>
                     </div>
                 </div>
             </div>
