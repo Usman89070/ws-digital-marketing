@@ -862,6 +862,19 @@
         @media(max-width: 900px) { .industry-tile-grid { grid-template-columns: repeat(2, 1fr); } }
         @media(max-width: 560px) { .industry-tile-grid { grid-template-columns: 1fr; } }
 
+        /* === SEO PROOF CARDS (seo.php "Real Client Results") === */
+        .seo-proof-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 24px; margin-top: clamp(30px, 5vw, 50px); }
+        .seo-proof-card { background: #fff; border: 1px solid var(--border-light); border-radius: 18px; padding: 28px; box-shadow: var(--shadow-sm); transition: var(--transition-smooth); }
+        .seo-proof-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-hover); border-color: var(--cyan-neon); }
+        .seo-proof-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; margin-bottom: 12px; }
+        .seo-proof-head h4 { font-size: 1.1rem; font-weight: 800; color: var(--navy); line-height: 1.3; }
+        .seo-proof-period { flex-shrink: 0; font-size: 0.7rem; font-weight: 700; color: var(--text-muted); background: rgba(0, 242, 254, 0.08); border-radius: 30px; padding: 5px 10px; white-space: nowrap; }
+        .seo-proof-desc { color: var(--text-muted); font-size: 0.88rem; line-height: 1.55; margin-bottom: 20px; min-height: 3.4em; }
+        .seo-proof-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; border-top: 1px solid var(--border-light); padding-top: 18px; }
+        .seo-proof-stats div { text-align: center; }
+        .seo-proof-stats strong { display: block; font-size: 1.15rem; font-weight: 800; background: linear-gradient(135deg, var(--cyan-neon), var(--magenta-neon)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .seo-proof-stats span { display: block; font-size: 0.68rem; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; margin-top: 3px; }
+
         /* === CTA SECTION === */
         .cta-section { padding: clamp(60px, 8vw, 120px) 0; background: rgba(255, 255, 255, 0.8); }
         .cta-box {
