@@ -6,8 +6,11 @@
 -- 2. hPanel -> Databases -> phpMyAdmin -> open your database -> "Import" tab.
 -- 3. Choose this file, click "Go". It creates all 3 tables and seeds them with
 --    the site's current blog posts and team members so nothing is lost.
--- 4. Put the DB name/user/password from step 1 into config.php (DB_NAME,
---    DB_USER, DB_PASS) at the site root, then upload config.php to Hostinger.
+-- 4. On the server, copy config.sample.php to config.php (same folder) and put
+--    the DB name/user/password from step 1 into it (DB_NAME, DB_USER, DB_PASS).
+--    config.php is never tracked by git/future updates, so do this directly on
+--    Hostinger and it will not be overwritten the next time you upload new
+--    files -- only ever re-upload config.sample.php, never config.php.
 --
 -- DEFAULT ADMIN LOGIN (created by this file) -- CHANGE THIS PASSWORD THE FIRST
 -- TIME YOU LOG IN (Admin Panel -> Account -> Change Password), it's a shared
