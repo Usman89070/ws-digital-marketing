@@ -248,6 +248,39 @@
         .blog-post-body a { color: var(--cyan-neon); font-weight: 600; }
         .blog-post-body img { max-width: 100%; height: auto; border-radius: 12px; margin: 20px 0; }
 
+        /* === BLOG POST LAYOUT (blog-post.php: article + "More From The Blog" sidebar) === */
+        .blog-post-layout { max-width: 1140px; display: grid; grid-template-columns: 1fr 340px; gap: clamp(30px, 5vw, 60px); align-items: start; }
+        .blog-post-main { min-width: 0; }
+        .blog-post-sidebar { position: sticky; top: 100px; }
+        .blog-sidebar-card {
+            background: #fff; border: 1px solid var(--border-light); border-radius: 20px;
+            padding: clamp(24px, 3vw, 30px); box-shadow: var(--shadow-md);
+        }
+        .blog-sidebar-card h4 {
+            font-size: 1.05rem; font-weight: 800; color: var(--navy); margin-bottom: 20px;
+            padding-bottom: 16px; border-bottom: 1px solid var(--border-light);
+        }
+        .blog-sidebar-list { display: flex; flex-direction: column; gap: 18px; }
+        .blog-sidebar-item { display: flex; gap: 14px; align-items: flex-start; text-decoration: none; }
+        .blog-sidebar-thumb { flex-shrink: 0; width: 68px; height: 68px; border-radius: 12px; overflow: hidden; }
+        .blog-sidebar-thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
+        .blog-sidebar-item:hover .blog-sidebar-thumb img { transform: scale(1.08); }
+        .blog-sidebar-item-text { min-width: 0; }
+        .blog-sidebar-tag { display: block; color: var(--magenta-neon); font-size: 0.68rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; }
+        .blog-sidebar-item-text h5 {
+            font-size: 0.9rem; font-weight: 700; color: var(--navy); line-height: 1.4;
+            transition: color 0.25s ease;
+        }
+        .blog-sidebar-item:hover .blog-sidebar-item-text h5 {
+            background: linear-gradient(135deg, var(--cyan-neon), var(--magenta-neon));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+        .blog-sidebar-btn { display: flex; justify-content: center; margin-top: 24px; width: 100%; text-align: center; }
+        @media(max-width: 900px) {
+            .blog-post-layout { grid-template-columns: 1fr; }
+            .blog-post-sidebar { position: static; }
+        }
+
         /* === BUTTONS === */
         .btn-primary {
             background: linear-gradient(135deg, var(--cyan-neon), var(--magenta-neon));

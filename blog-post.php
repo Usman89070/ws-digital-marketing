@@ -33,6 +33,16 @@ if (!$post) {
 
 $page_title = $post['title'];
 $page_description = $post['excerpt'] ?: $post['title'];
+
+$recentPosts = [];
+try {
+    $stmt = get_db()->prepare('SELECT title, slug, category, image_path FROM blog_posts WHERE is_published = 1 AND id != ? ORDER BY created_at DESC LIMIT 4');
+    $stmt->execute([$post['id']]);
+    $recentPosts = $stmt->fetchAll();
+} catch (PDOException $e) {
+    $recentPosts = [];
+}
+
 include 'header.php';
 ?>
 
@@ -44,20 +54,46 @@ include 'header.php';
         </div>
     </section>
 
-    <!-- BLOG POST CONTENT -->
+    <!-- BLOG POST CONTENT + SIDEBAR -->
     <section class="agency-section fade-up">
-        <div class="container" style="max-width: 820px;">
-            <?php if ($post['image_path']): ?>
-                <div style="border-radius: 20px; overflow: hidden; box-shadow: var(--shadow-hover); margin-bottom: 40px;">
-                    <img loading="lazy" decoding="async" src="<?php echo htmlspecialchars($post['image_path'], ENT_QUOTES, 'UTF-8'); ?>" alt="<?php echo htmlspecialchars($post['title'], ENT_QUOTES, 'UTF-8'); ?>" style="width:100%; height:auto; display:block;">
+        <div class="container blog-post-layout">
+            <div class="blog-post-main">
+                <?php if ($post['image_path']): ?>
+                    <div style="border-radius: 20px; overflow: hidden; box-shadow: var(--shadow-hover); margin-bottom: 40px;">
+                        <img loading="lazy" decoding="async" src="<?php echo htmlspecialchars($post['image_path'], ENT_QUOTES, 'UTF-8'); ?>" alt="<?php echo htmlspecialchars($post['title'], ENT_QUOTES, 'UTF-8'); ?>" style="width:100%; height:auto; display:block;">
+                    </div>
+                <?php endif; ?>
+                <div class="blog-post-body">
+                    <?php echo $post['content']; ?>
                 </div>
+                <div style="margin-top: 40px;">
+                    <a href="blog.php" class="service-link"><i class="fa-solid fa-arrow-left"></i> Back To All Articles</a>
+                </div>
+            </div>
+
+            <?php if ($recentPosts): ?>
+            <aside class="blog-post-sidebar">
+                <div class="blog-sidebar-card">
+                    <h4>More From The Blog</h4>
+                    <div class="blog-sidebar-list">
+                        <?php foreach ($recentPosts as $recent): ?>
+                        <a class="blog-sidebar-item" href="blog-post.php?slug=<?php echo urlencode($recent['slug']); ?>">
+                            <?php if ($recent['image_path']): ?>
+                            <div class="blog-sidebar-thumb">
+                                <img loading="lazy" decoding="async" src="<?php echo htmlspecialchars($recent['image_path'], ENT_QUOTES, 'UTF-8'); ?>" alt="<?php echo htmlspecialchars($recent['title'], ENT_QUOTES, 'UTF-8'); ?>">
+                            </div>
+                            <?php endif; ?>
+                            <div class="blog-sidebar-item-text">
+                                <?php if ($recent['category']): ?><span class="blog-sidebar-tag"><?php echo htmlspecialchars($recent['category'], ENT_QUOTES, 'UTF-8'); ?></span><?php endif; ?>
+                                <h5><?php echo htmlspecialchars($recent['title'], ENT_QUOTES, 'UTF-8'); ?></h5>
+                            </div>
+                        </a>
+                        <?php endforeach; ?>
+                    </div>
+                    <a href="blog.php" class="btn-secondary blog-sidebar-btn">VIEW ALL ARTICLES <i class="fa-solid fa-arrow-right" style="margin-left: 6px;"></i></a>
+                </div>
+            </aside>
             <?php endif; ?>
-            <div class="blog-post-body">
-                <?php echo $post['content']; ?>
-            </div>
-            <div style="margin-top: 40px;">
-                <a href="blog.php" class="service-link"><i class="fa-solid fa-arrow-left"></i> Back To All Articles</a>
-            </div>
         </div>
     </section>
 
