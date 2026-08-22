@@ -78,56 +78,35 @@ include 'header.php';
                 <span class="eyebrow">OUR PROCESS</span>
                 <h2 style="font-size: clamp(1.8rem, 4vw, 2.8rem); margin-top: 10px;">How We Build Your Brand</h2>
             </div>
-            <div class="methodology-grid">
-                <div class="methodology-image">
-                    <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=800&q=80" alt="Brand Design Process">
-                </div>
-                <div class="methodology-steps">
-                    <div class="m-step">
-                        <div class="m-step-num">01</div>
-                        <div class="m-step-content">
-                            <h4><i class="fa-solid fa-lightbulb"></i> Discovery &amp; Moodboarding</h4>
-                            <p>We learn your business, audience, and competitors before any design starts.</p>
-                        </div>
-                    </div>
-                    <div class="m-step">
-                        <div class="m-step-num">02</div>
-                        <div class="m-step-content">
-                            <h4><i class="fa-solid fa-pen-nib"></i> Concept &amp; Design</h4>
-                            <p>We design concepts around a clear creative direction, not random guesses.</p>
-                        </div>
-                    </div>
-                    <div class="m-step">
-                        <div class="m-step-num">03</div>
-                        <div class="m-step-content">
-                            <h4><i class="fa-solid fa-arrows-rotate"></i> Refine &amp; Finalize</h4>
-                            <p>We refine based on your feedback until the brand feels exactly right.</p>
-                        </div>
-                    </div>
-                    <div class="m-step">
-                        <div class="m-step-num">04</div>
-                        <div class="m-step-content">
-                            <h4><i class="fa-solid fa-box-open"></i> Deliver &amp; Brand Guidelines</h4>
-                            <p>You get final files and a guideline doc so your team stays consistent going forward.</p>
-                        </div>
+            <div class="methodology-steps">
+                <div class="m-step">
+                    <div class="m-step-num">01</div>
+                    <div class="m-step-content">
+                        <h4><i class="fa-solid fa-lightbulb"></i> Discovery &amp; Moodboarding</h4>
+                        <p>We learn your business, audience, and competitors before any design starts.</p>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- STATS -->
-    <section class="stats-section fade-up">
-        <div class="container">
-            <div class="section-header">
-                <span class="eyebrow" style="color: var(--cyan-neon);">PROVEN RESULTS</span>
-                <h2 style="color: #fff; font-size: clamp(1.8rem, 4vw, 2.8rem);">Design That Performs, Not Just Looks Good</h2>
-            </div>
-            <div class="stats-4-grid">
-                <div class="stat-box"><div class="stat-icon"><i class="fa-solid fa-hand-pointer"></i></div><h3>+34%</h3><p>Avg. Ad Click-Through Lift</p></div>
-                <div class="stat-box"><div class="stat-icon"><i class="fa-solid fa-palette"></i></div><h3>100+</h3><p>Brands Designed</p></div>
-                <div class="stat-box"><div class="stat-icon"><i class="fa-solid fa-clock"></i></div><h3>2-Wk</h3><p>Avg. Brand Identity Turnaround</p></div>
-                <div class="stat-box"><div class="stat-icon"><i class="fa-solid fa-face-smile"></i></div><h3>98%</h3><p>Client Satisfaction</p></div>
+                <div class="m-step">
+                    <div class="m-step-num">02</div>
+                    <div class="m-step-content">
+                        <h4><i class="fa-solid fa-pen-nib"></i> Concept &amp; Design</h4>
+                        <p>We design concepts around a clear creative direction, not random guesses.</p>
+                    </div>
+                </div>
+                <div class="m-step">
+                    <div class="m-step-num">03</div>
+                    <div class="m-step-content">
+                        <h4><i class="fa-solid fa-arrows-rotate"></i> Refine &amp; Finalize</h4>
+                        <p>We refine based on your feedback until the brand feels exactly right.</p>
+                    </div>
+                </div>
+                <div class="m-step">
+                    <div class="m-step-num">04</div>
+                    <div class="m-step-content">
+                        <h4><i class="fa-solid fa-box-open"></i> Deliver &amp; Brand Guidelines</h4>
+                        <p>You get final files and a guideline doc so your team stays consistent going forward.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>

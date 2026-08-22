@@ -22,7 +22,7 @@ include 'header.php';
         <div class="container">
             <div class="agency-grid">
                 <div class="agency-image-wrapper">
-                    <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=800&q=80" alt="Healthcare & Medical Digital Marketing">
+                    <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80" alt="Healthcare & Medical Digital Marketing">
                 </div>
                 <div class="agency-text">
                     <span class="eyebrow">WHY IT MATTERS</span>
@@ -67,22 +67,6 @@ include 'header.php';
                     <h5>Booking &amp; Referral Campaigns</h5>
                     <p>Campaigns that grow both new patient bookings and referrals.</p>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- STATS -->
-    <section class="stats-section fade-up">
-        <div class="container">
-            <div class="section-header">
-                <span class="eyebrow" style="color: var(--cyan-neon);">PROVEN RESULTS</span>
-                <h2 style="color: #fff; font-size: clamp(1.8rem, 4vw, 2.8rem);">Real Growth, Fully Compliant</h2>
-            </div>
-            <div class="stats-4-grid">
-                <div class="stat-box"><div class="stat-icon"><i class="fa-solid fa-user-plus"></i></div><h3>+104</h3><p>New Patients (Avg.)</p></div>
-                <div class="stat-box"><div class="stat-icon"><i class="fa-solid fa-star"></i></div><h3>4.9/5</h3><p>Avg. Review Rating</p></div>
-                <div class="stat-box"><div class="stat-icon"><i class="fa-solid fa-location-dot"></i></div><h3>Top 3</h3><p>Avg. Map Pack Ranking</p></div>
-                <div class="stat-box"><div class="stat-icon"><i class="fa-solid fa-handshake"></i></div><h3>97%</h3><p>Client Retention</p></div>
             </div>
         </div>
     </section>

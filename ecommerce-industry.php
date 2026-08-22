@@ -71,22 +71,6 @@ include 'header.php';
         </div>
     </section>
 
-    <!-- STATS -->
-    <section class="stats-section fade-up">
-        <div class="container">
-            <div class="section-header">
-                <span class="eyebrow" style="color: var(--cyan-neon);">PROVEN RESULTS</span>
-                <h2 style="color: #fff; font-size: clamp(1.8rem, 4vw, 2.8rem);">Growth That Shows Up In Revenue</h2>
-            </div>
-            <div class="stats-4-grid">
-                <div class="stat-box"><div class="stat-icon"><i class="fa-solid fa-sack-dollar"></i></div><h3>+118%</h3><p>Avg. Revenue Growth</p></div>
-                <div class="stat-box"><div class="stat-icon"><i class="fa-solid fa-chart-line"></i></div><h3>7.6x</h3><p>Avg. ROAS</p></div>
-                <div class="stat-box"><div class="stat-icon"><i class="fa-solid fa-gauge-high"></i></div><h3>+41%</h3><p>Conversion Rate Lift</p></div>
-                <div class="stat-box"><div class="stat-icon"><i class="fa-solid fa-rotate"></i></div><h3>+33%</h3><p>Repeat Purchase Rate</p></div>
-            </div>
-        </div>
-    </section>
-
     <!-- FINAL CTA -->
     <section class="cta-section" id="contact">
         <div class="container">

@@ -11,6 +11,16 @@ $page_description = $page_description ?? 'Data-driven Google Ads, Meta Ads, SEO 
     <title><?php echo htmlspecialchars($page_title, ENT_QUOTES, 'UTF-8'); ?> | W&amp;S Digital Marketing</title>
     <meta name="description" content="<?php echo htmlspecialchars($page_description, ENT_QUOTES, 'UTF-8'); ?>">
 
+    <!-- Favicon: the W&S logo, shown in every browser tab/bookmark on every page since
+         this file is included everywhere. favicon.ico covers old browsers and anything
+         that requests /favicon.ico directly regardless of <link> tags; the PNG sizes
+         cover modern browsers, Android home-screen icons, and iOS "Add to Home Screen". -->
+    <link rel="icon" href="favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="images/favicon-192.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+
     <!-- Connect early to third-party origins so the real requests below don't pay the
          DNS+TLS handshake cost later in the load -->
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
@@ -48,7 +58,10 @@ $page_description = $page_description ?? 'Data-driven Google Ads, Meta Ads, SEO 
     <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"></noscript>
 
     <!-- Google Fonts (already using font-display: swap so text never waits on it) -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Only the weights actually used anywhere in css/style.css or inline styles
+         (400/500/600/700/800) -- 300 was requested but never referenced, so
+         dropping it removes one whole font-file fetch for every visitor. -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 </head>
 <body>

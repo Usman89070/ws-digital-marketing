@@ -55,7 +55,7 @@
                     <h4 class="footer-heading">Get In Touch</h4>
                     <ul class="footer-contact">
                         <li><i class="fa-solid fa-phone"></i> <span>1300 123 456</span></li>
-                        <li><i class="fa-solid fa-envelope"></i> <span>info@wsdigital.com.au</span></li>
+                        <li><i class="fa-solid fa-envelope"></i> <span>info@wsdigitalmarketing.com.au</span></li>
                         <li><i class="fa-solid fa-location-dot"></i> <span>Level 32, Sydney, NSW 2000, Australia</span></li>
                     </ul>
                 </div>
@@ -83,10 +83,34 @@
          running the old JS for a full year no matter how many fixes get shipped. -->
     <script src="js/main.js?v=<?php echo @filemtime(__DIR__ . '/js/main.js') ?: time(); ?>" defer></script>
 
-    <!-- Three.js + the background wallpaper animation load after main.js in the defer
-         queue on purpose: they're the heaviest, least time-critical piece (~600KB,
-         purely decorative), so they must never be able to delay header/nav interactivity. -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
-    <script src="js/bg-animation.js?v=<?php echo @filemtime(__DIR__ . '/js/bg-animation.js') ?: time(); ?>" defer></script>
+    <!-- Three.js + the background wallpaper animation are the heaviest, least
+         time-critical piece of the page (~600KB, purely decorative), so rather than
+         even queuing them as defer scripts -- which still download during initial
+         load and compete for bandwidth with everything that actually matters for
+         paint/interactivity metrics -- their <script> tags aren't injected until
+         AFTER the window "load" event, deferred further still to an idle callback
+         where supported. Nothing about the visible effect changes: the canvas
+         already fades in via its own opacity transition once ready, so starting
+         that fetch a little later is invisible to visitors but keeps this ~600KB
+         library completely off the critical path Lighthouse/Core Web Vitals score. -->
+    <script>
+        window.addEventListener('load', function () {
+            function loadBackground() {
+                var three = document.createElement('script');
+                three.src = 'https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js';
+                three.onload = function () {
+                    var bg = document.createElement('script');
+                    bg.src = 'js/bg-animation.js?v=<?php echo @filemtime(__DIR__ . '/js/bg-animation.js') ?: time(); ?>';
+                    document.body.appendChild(bg);
+                };
+                document.body.appendChild(three);
+            }
+            if ('requestIdleCallback' in window) {
+                requestIdleCallback(loadBackground, { timeout: 2000 });
+            } else {
+                setTimeout(loadBackground, 200);
+            }
+        });
+    </script>
 </body>
 </html>

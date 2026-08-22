@@ -71,22 +71,6 @@ include 'header.php';
         </div>
     </section>
 
-    <!-- STATS -->
-    <section class="stats-section fade-up">
-        <div class="container">
-            <div class="section-header">
-                <span class="eyebrow" style="color: var(--cyan-neon);">PROVEN RESULTS</span>
-                <h2 style="color: #fff; font-size: clamp(1.8rem, 4vw, 2.8rem);">Real Growth For Real Agents</h2>
-            </div>
-            <div class="stats-4-grid">
-                <div class="stat-box"><div class="stat-icon"><i class="fa-solid fa-key"></i></div><h3>+64</h3><p>New Listings (Avg.)</p></div>
-                <div class="stat-box"><div class="stat-icon"><i class="fa-solid fa-user-plus"></i></div><h3>+156</h3><p>Buyer &amp; Seller Leads</p></div>
-                <div class="stat-box"><div class="stat-icon"><i class="fa-solid fa-location-dot"></i></div><h3>Top 3</h3><p>Avg. Local Ranking</p></div>
-                <div class="stat-box"><div class="stat-icon"><i class="fa-solid fa-sack-dollar"></i></div><h3>+47%</h3><p>Avg. Pipeline Value Growth</p></div>
-            </div>
-        </div>
-    </section>
-
     <!-- FINAL CTA -->
     <section class="cta-section" id="contact">
         <div class="container">

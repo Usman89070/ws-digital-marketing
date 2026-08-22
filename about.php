@@ -1,6 +1,14 @@
 <?php
 $page_title = 'About Us';
 $page_description = 'Meet W&S Digital Marketing, an Australian growth agency delivering transparent, data-driven digital strategies with a relentless focus on real ROI.';
+
+require_once __DIR__ . '/config.php';
+try {
+    $teamTeaser = get_db()->query('SELECT * FROM team_members ORDER BY display_order ASC, id ASC LIMIT 4')->fetchAll();
+} catch (PDOException $e) {
+    $teamTeaser = [];
+}
+
 include 'header.php';
 ?>
 
@@ -17,8 +25,8 @@ include 'header.php';
     <section class="agency-section fade-up">
         <div class="container">
             <div class="agency-grid">
-                <div class="agency-image-wrapper">
-                    <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80" alt="W&S Digital Marketing Team Collaborating">
+                <div class="agency-image-wrapper" style="min-height: 400px; background: linear-gradient(160deg, rgba(0, 242, 254, 0.1), rgba(255, 0, 127, 0.08));">
+                    <img loading="lazy" decoding="async" src="images/about-ws.webp" alt="W&S Digital Marketing" onerror="this.remove()">
                 </div>
                 <div class="agency-text">
                     <span class="eyebrow">OUR STORY</span>
@@ -110,72 +118,30 @@ include 'header.php';
                 <h2 style="font-size: clamp(1.8rem, 4vw, 2.8rem); margin-top: 10px;">The People Behind Your Growth</h2>
             </div>
 
+            <?php if ($teamTeaser): ?>
             <div class="team-grid">
+                <?php foreach ($teamTeaser as $i => $member): ?>
                 <div class="team-card">
                     <div class="team-photo">
                         <div class="team-photo-placeholder"><i class="fa-solid fa-user"></i></div>
-                        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=400&q=80" alt="James Mitchell, Founder & CEO" onerror="this.remove()">
-                        <span class="team-card-num">01</span>
+                        <?php if ($member['photo_path']): ?>
+                        <img loading="lazy" decoding="async" src="<?php echo htmlspecialchars($member['photo_path'], ENT_QUOTES, 'UTF-8'); ?>" alt="<?php echo htmlspecialchars($member['name'] . ', ' . $member['role'], ENT_QUOTES, 'UTF-8'); ?>" onerror="this.remove()">
+                        <?php endif; ?>
+                        <span class="team-card-num"><?php echo str_pad((string) ($i + 1), 2, '0', STR_PAD_LEFT); ?></span>
                         <div class="team-card-overlay"></div>
                         <div class="team-card-info">
-                            <h5>James Mitchell</h5>
-                            <span class="team-role">Founder &amp; CEO</span>
-                            <p class="team-card-desc">Leads company strategy and ensures every client gets a growth plan built around real numbers.</p>
+                            <h5><?php echo htmlspecialchars($member['name'], ENT_QUOTES, 'UTF-8'); ?></h5>
+                            <span class="team-role"><?php echo htmlspecialchars($member['role'], ENT_QUOTES, 'UTF-8'); ?></span>
+                            <?php if ($member['description']): ?><p class="team-card-desc"><?php echo htmlspecialchars($member['description'], ENT_QUOTES, 'UTF-8'); ?></p><?php endif; ?>
                             <div class="team-socials">
-                                <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                                <a href="<?php echo htmlspecialchars($member['linkedin_url'], ENT_QUOTES, 'UTF-8'); ?>" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="team-card">
-                    <div class="team-photo">
-                        <div class="team-photo-placeholder"><i class="fa-solid fa-user"></i></div>
-                        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80" alt="Sarah Chen, Head of Strategy" onerror="this.remove()">
-                        <span class="team-card-num">02</span>
-                        <div class="team-card-overlay"></div>
-                        <div class="team-card-info">
-                            <h5>Sarah Chen</h5>
-                            <span class="team-role">Head of Strategy</span>
-                            <p class="team-card-desc">Turns market research and data into the campaign roadmaps our team executes.</p>
-                            <div class="team-socials">
-                                <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="team-card">
-                    <div class="team-photo">
-                        <div class="team-photo-placeholder"><i class="fa-solid fa-user"></i></div>
-                        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=400&q=80" alt="Marcus Webb, Lead Web Developer" onerror="this.remove()">
-                        <span class="team-card-num">03</span>
-                        <div class="team-card-overlay"></div>
-                        <div class="team-card-info">
-                            <h5>Marcus Webb</h5>
-                            <span class="team-role">Lead Web Developer</span>
-                            <p class="team-card-desc">Builds fast, conversion-focused websites engineered to turn visitors into customers.</p>
-                            <div class="team-socials">
-                                <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="team-card">
-                    <div class="team-photo">
-                        <div class="team-photo-placeholder"><i class="fa-solid fa-user"></i></div>
-                        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&q=80" alt="Priya Sharma, Creative Director" onerror="this.remove()">
-                        <span class="team-card-num">04</span>
-                        <div class="team-card-overlay"></div>
-                        <div class="team-card-info">
-                            <h5>Priya Sharma</h5>
-                            <span class="team-role">Creative Director</span>
-                            <p class="team-card-desc">Shapes the visual identity and creative direction behind every campaign we launch.</p>
-                            <div class="team-socials">
-                                <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <?php endforeach; ?>
             </div>
+            <?php endif; ?>
 
             <div style="text-align: center; margin-top: clamp(30px, 4vw, 40px);">
                 <a href="our-team.php" class="btn-secondary">MEET THE FULL TEAM <i class="fa-solid fa-arrow-right" style="margin-left: 6px;"></i></a>

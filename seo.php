@@ -78,38 +78,33 @@ include 'header.php';
                 <span class="eyebrow">OUR PROCESS</span>
                 <h2 style="font-size: clamp(1.8rem, 4vw, 2.8rem); margin-top: 10px;">How We Approach SEO</h2>
             </div>
-            <div class="methodology-grid">
-                <div class="methodology-image">
-                    <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?auto=format&fit=crop&w=800&q=80" alt="SEO Strategy Process">
+            <div class="methodology-steps">
+                <div class="m-step">
+                    <div class="m-step-num">01</div>
+                    <div class="m-step-content">
+                        <h4><i class="fa-solid fa-magnifying-glass"></i> Discover &amp; Audit</h4>
+                        <p>We audit your current site, rankings, and competitors to find the biggest opportunities.</p>
+                    </div>
                 </div>
-                <div class="methodology-steps">
-                    <div class="m-step">
-                        <div class="m-step-num">01</div>
-                        <div class="m-step-content">
-                            <h4><i class="fa-solid fa-magnifying-glass"></i> Discover &amp; Audit</h4>
-                            <p>We audit your current site, rankings, and competitors to find the biggest opportunities.</p>
-                        </div>
+                <div class="m-step">
+                    <div class="m-step-num">02</div>
+                    <div class="m-step-content">
+                        <h4><i class="fa-solid fa-key"></i> Keyword &amp; Competitor Research</h4>
+                        <p>We map the exact terms your customers search and how you can outrank competitors for them.</p>
                     </div>
-                    <div class="m-step">
-                        <div class="m-step-num">02</div>
-                        <div class="m-step-content">
-                            <h4><i class="fa-solid fa-key"></i> Keyword &amp; Competitor Research</h4>
-                            <p>We map the exact terms your customers search and how you can outrank competitors for them.</p>
-                        </div>
+                </div>
+                <div class="m-step">
+                    <div class="m-step-num">03</div>
+                    <div class="m-step-content">
+                        <h4><i class="fa-solid fa-screwdriver-wrench"></i> On-Page &amp; Technical Fixes</h4>
+                        <p>We implement the structural and content changes needed to lift rankings.</p>
                     </div>
-                    <div class="m-step">
-                        <div class="m-step-num">03</div>
-                        <div class="m-step-content">
-                            <h4><i class="fa-solid fa-screwdriver-wrench"></i> On-Page &amp; Technical Fixes</h4>
-                            <p>We implement the structural and content changes needed to lift rankings.</p>
-                        </div>
-                    </div>
-                    <div class="m-step">
-                        <div class="m-step-num">04</div>
-                        <div class="m-step-content">
-                            <h4><i class="fa-solid fa-chart-line"></i> Content &amp; Authority Building</h4>
-                            <p>We publish and promote content that builds topical authority and earns links over time.</p>
-                        </div>
+                </div>
+                <div class="m-step">
+                    <div class="m-step-num">04</div>
+                    <div class="m-step-content">
+                        <h4><i class="fa-solid fa-chart-line"></i> Content &amp; Authority Building</h4>
+                        <p>We publish and promote content that builds topical authority and earns links over time.</p>
                     </div>
                 </div>
             </div>
@@ -124,10 +119,158 @@ include 'header.php';
                 <h2 style="color: #fff; font-size: clamp(1.8rem, 4vw, 2.8rem);">SEO That Shows Up In The Numbers</h2>
             </div>
             <div class="stats-4-grid">
-                <div class="stat-box"><div class="stat-icon"><i class="fa-solid fa-arrow-trend-up"></i></div><h3>+142%</h3><p>Organic Traffic Growth</p></div>
-                <div class="stat-box"><div class="stat-icon"><i class="fa-solid fa-location-dot"></i></div><h3>Top 3</h3><p>Avg. Local Map Ranking</p></div>
-                <div class="stat-box"><div class="stat-icon"><i class="fa-solid fa-ranking-star"></i></div><h3>+89</h3><p>Keywords Ranked Page 1</p></div>
-                <div class="stat-box"><div class="stat-icon"><i class="fa-solid fa-hourglass-half"></i></div><h3>6-Mo</h3><p>Avg. Time To Results</p></div>
+                <div class="stat-box"><div class="stat-icon"><i class="fa-solid fa-arrow-trend-up"></i></div><h3>3,090</h3><p>Organic Clicks Delivered</p></div>
+                <div class="stat-box"><div class="stat-icon"><i class="fa-solid fa-eye"></i></div><h3>387K+</h3><p>Search Impressions Earned</p></div>
+                <div class="stat-box"><div class="stat-icon"><i class="fa-solid fa-phone-volume"></i></div><h3>1,952</h3><p>Google Business Profile Actions</p></div>
+                <div class="stat-box"><div class="stat-icon"><i class="fa-solid fa-magnifying-glass-chart"></i></div><h3>7</h3><p>Verified Client Campaigns</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- REAL CLIENT RESULTS (verified figures pulled from each client's own
+         Google Search Console / Google Business Profile reporting) -->
+    <section class="services-section fade-up">
+        <div class="container">
+            <div class="section-header">
+                <span class="eyebrow">VERIFIED RESULTS</span>
+                <h2 style="font-size: clamp(1.8rem, 4vw, 2.8rem); margin-top: 10px;">Real Campaigns. Real Numbers.</h2>
+                <p style="color: var(--text-muted); max-width: 700px; margin: 15px auto 0; font-size: 1.05rem;">Every figure below comes straight from Google Search Console and Google Business Profile reporting for current clients — not projections. Reporting windows vary by client.</p>
+            </div>
+            <div class="seo-proof-grid">
+                <div class="seo-proof-card">
+                    <div class="seo-proof-head">
+                        <h4>Commercial Fridge Repairs</h4>
+                        <span class="seo-proof-period">20 Jul – 20 Aug 2026</span>
+                    </div>
+                    <p class="seo-proof-desc">Sydney commercial refrigeration. Rebuilt from a near-invisible baseline into measurable organic and local visibility.</p>
+                    <div class="seo-proof-stats">
+                        <div><strong>102</strong><span>Organic Clicks</span></div>
+                        <div><strong>24.1K</strong><span>Impressions</span></div>
+                        <div><strong>+5.3%</strong><span>GBP Growth YoY</span></div>
+                    </div>
+                </div>
+                <div class="seo-proof-card">
+                    <div class="seo-proof-head">
+                        <h4>Fast Fridge Repairs</h4>
+                        <span class="seo-proof-period">20 Jul – 20 Aug 2026</span>
+                    </div>
+                    <p class="seo-proof-desc">Sydney residential fridge repair. Consistent month-on-month click growth across desktop and mobile search.</p>
+                    <div class="seo-proof-stats">
+                        <div><strong>282</strong><span>Organic Clicks</span></div>
+                        <div><strong>34.8K</strong><span>Impressions</span></div>
+                        <div><strong>2.68K</strong><span>AI Overview Impr.</span></div>
+                    </div>
+                </div>
+                <div class="seo-proof-card">
+                    <div class="seo-proof-head">
+                        <h4>Fridge Experts</h4>
+                        <span class="seo-proof-period">1 Jun – 21 Aug 2026</span>
+                    </div>
+                    <p class="seo-proof-desc">Sydney refrigeration sales &amp; service. 33 tracked commercial keywords, dominating the results that generate enquiries.</p>
+                    <div class="seo-proof-stats">
+                        <div><strong>28/33</strong><span>Keywords Page 1</span></div>
+                        <div><strong>5.8</strong><span>Avg. Tracked Position</span></div>
+                        <div><strong>232</strong><span>GBP Interactions</span></div>
+                    </div>
+                </div>
+                <div class="seo-proof-card">
+                    <div class="seo-proof-head">
+                        <h4>Freak Eats Australia</h4>
+                        <span class="seo-proof-period">1 Jun – 21 Aug 2026</span>
+                    </div>
+                    <p class="seo-proof-desc">Western Sydney food truck &amp; event catering. Full site rebuild plus GBP overhaul across 56 tracked keywords.</p>
+                    <div class="seo-proof-stats">
+                        <div><strong>53/56</strong><span>Keywords Page 1</span></div>
+                        <div><strong>36</strong><span>Keywords at #1</span></div>
+                        <div><strong>258</strong><span>GBP Interactions</span></div>
+                    </div>
+                </div>
+                <div class="seo-proof-card">
+                    <div class="seo-proof-head">
+                        <h4>Fast Appliance Repairs</h4>
+                        <span class="seo-proof-period">1 Jun – 21 Aug 2026</span>
+                    </div>
+                    <p class="seo-proof-desc">Sydney appliance repair across 58 tracked keywords spanning brand, location and service terms.</p>
+                    <div class="seo-proof-stats">
+                        <div><strong>57/58</strong><span>Keywords Page 1</span></div>
+                        <div><strong>775</strong><span>Organic Clicks</span></div>
+                        <div><strong>333</strong><span>Calls From GBP</span></div>
+                    </div>
+                </div>
+                <div class="seo-proof-card">
+                    <div class="seo-proof-head">
+                        <h4>Ace Fridge Repairs</h4>
+                        <span class="seo-proof-period">1 Jul – 8 Aug 2026</span>
+                    </div>
+                    <p class="seo-proof-desc">Sydney fridge repair specialist. Dominant on brand-name searches (CHiQ, GE, Skipio) with near-universal presence inside Google's AI answers.</p>
+                    <div class="seo-proof-stats">
+                        <div><strong>10/18</strong><span>Keywords at #1</span></div>
+                        <div><strong>39.3K</strong><span>Impressions</span></div>
+                        <div><strong>16/18</strong><span>Visible in AI</span></div>
+                    </div>
+                </div>
+                <div class="seo-proof-card">
+                    <div class="seo-proof-head">
+                        <h4>Fridge Repair Experts</h4>
+                        <span class="seo-proof-period">1 Jun – 18 Aug 2026</span>
+                    </div>
+                    <p class="seo-proof-desc">Sydney fridge repair specialist. Broad page-one coverage across 33 suburb, brand and commercial keywords.</p>
+                    <div class="seo-proof-stats">
+                        <div><strong>421</strong><span>Organic Clicks</span></div>
+                        <div><strong>20/33</strong><span>Keywords Page 1</span></div>
+                        <div><strong>27/33</strong><span>Visible in AI</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ANIMATED GROWTH CHART -->
+            <div class="seo-chart-card">
+                <div class="seo-chart-head">
+                    <span class="eyebrow">AT A GLANCE</span>
+                    <h3>Organic Clicks By Campaign</h3>
+                    <p>Total Google Search clicks recorded for each client during their most recent reporting period.</p>
+                </div>
+                <div class="seo-chart-rows">
+                    <div class="seo-chart-row">
+                        <span class="seo-chart-label" data-value="776">Freak Eats Australia</span>
+                        <div class="seo-chart-track"><div class="seo-chart-fill" style="--pct: 100%;"></div></div>
+                        <span class="seo-chart-value">776</span>
+                    </div>
+                    <div class="seo-chart-row">
+                        <span class="seo-chart-label" data-value="775">Fast Appliance Repairs</span>
+                        <div class="seo-chart-track"><div class="seo-chart-fill" style="--pct: 99.9%;"></div></div>
+                        <span class="seo-chart-value">775</span>
+                    </div>
+                    <div class="seo-chart-row">
+                        <span class="seo-chart-label" data-value="514">Fridge Experts</span>
+                        <div class="seo-chart-track"><div class="seo-chart-fill" style="--pct: 66.2%;"></div></div>
+                        <span class="seo-chart-value">514</span>
+                    </div>
+                    <div class="seo-chart-row">
+                        <span class="seo-chart-label" data-value="421">Fridge Repair Experts</span>
+                        <div class="seo-chart-track"><div class="seo-chart-fill" style="--pct: 54.3%;"></div></div>
+                        <span class="seo-chart-value">421</span>
+                    </div>
+                    <div class="seo-chart-row">
+                        <span class="seo-chart-label" data-value="282">Fast Fridge Repairs</span>
+                        <div class="seo-chart-track"><div class="seo-chart-fill" style="--pct: 36.3%;"></div></div>
+                        <span class="seo-chart-value">282</span>
+                    </div>
+                    <div class="seo-chart-row">
+                        <span class="seo-chart-label" data-value="220">Ace Fridge Repairs</span>
+                        <div class="seo-chart-track"><div class="seo-chart-fill" style="--pct: 28.4%;"></div></div>
+                        <span class="seo-chart-value">220</span>
+                    </div>
+                    <div class="seo-chart-row">
+                        <span class="seo-chart-label" data-value="102">Commercial Fridge Repairs</span>
+                        <div class="seo-chart-track"><div class="seo-chart-fill" style="--pct: 13.1%;"></div></div>
+                        <span class="seo-chart-value">102</span>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: clamp(30px, 4vw, 40px);">
+                <a href="case-studies.php" class="btn-secondary">VIEW ALL CASE STUDIES <i class="fa-solid fa-arrow-right" style="margin-left: 6px;"></i></a>
             </div>
         </div>
     </section>

@@ -22,7 +22,7 @@ include 'header.php';
         <div class="container">
             <div class="agency-grid">
                 <div class="agency-image-wrapper">
-                    <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=800&q=80" alt="Social Media Strategy">
+                    <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80" alt="Social Media Strategy">
                 </div>
                 <div class="agency-text">
                     <span class="eyebrow">WHY IT MATTERS</span>
@@ -78,56 +78,35 @@ include 'header.php';
                 <span class="eyebrow">OUR PROCESS</span>
                 <h2 style="font-size: clamp(1.8rem, 4vw, 2.8rem); margin-top: 10px;">How We Grow Your Social Presence</h2>
             </div>
-            <div class="methodology-grid">
-                <div class="methodology-image">
-                    <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80" alt="Social Media Growth Process">
-                </div>
-                <div class="methodology-steps">
-                    <div class="m-step">
-                        <div class="m-step-num">01</div>
-                        <div class="m-step-content">
-                            <h4><i class="fa-solid fa-magnifying-glass"></i> Audit &amp; Strategy</h4>
-                            <p>We review your current channels and build a content strategy around your goals.</p>
-                        </div>
-                    </div>
-                    <div class="m-step">
-                        <div class="m-step-num">02</div>
-                        <div class="m-step-content">
-                            <h4><i class="fa-solid fa-pen"></i> Content Planning &amp; Creation</h4>
-                            <p>We plan, create, and schedule content built for each platform's audience.</p>
-                        </div>
-                    </div>
-                    <div class="m-step">
-                        <div class="m-step-num">03</div>
-                        <div class="m-step-content">
-                            <h4><i class="fa-solid fa-thumbs-up"></i> Publish &amp; Engage</h4>
-                            <p>We post consistently and manage community engagement in your brand voice.</p>
-                        </div>
-                    </div>
-                    <div class="m-step">
-                        <div class="m-step-num">04</div>
-                        <div class="m-step-content">
-                            <h4><i class="fa-solid fa-chart-line"></i> Analyze &amp; Scale</h4>
-                            <p>We double down on what's working and cut what isn't, every month.</p>
-                        </div>
+            <div class="methodology-steps">
+                <div class="m-step">
+                    <div class="m-step-num">01</div>
+                    <div class="m-step-content">
+                        <h4><i class="fa-solid fa-magnifying-glass"></i> Audit &amp; Strategy</h4>
+                        <p>We review your current channels and build a content strategy around your goals.</p>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- STATS -->
-    <section class="stats-section fade-up">
-        <div class="container">
-            <div class="section-header">
-                <span class="eyebrow" style="color: var(--cyan-neon);">PROVEN RESULTS</span>
-                <h2 style="color: #fff; font-size: clamp(1.8rem, 4vw, 2.8rem);">Social Growth That Compounds</h2>
-            </div>
-            <div class="stats-4-grid">
-                <div class="stat-box"><div class="stat-icon"><i class="fa-solid fa-heart"></i></div><h3>+87%</h3><p>Avg. Engagement Growth</p></div>
-                <div class="stat-box"><div class="stat-icon"><i class="fa-solid fa-chart-line"></i></div><h3>5.6x</h3><p>Avg. ROAS On Paid Social</p></div>
-                <div class="stat-box"><div class="stat-icon"><i class="fa-solid fa-users"></i></div><h3>+120%</h3><p>Follower Growth (6mo)</p></div>
-                <div class="stat-box"><div class="stat-icon"><i class="fa-solid fa-calendar-days"></i></div><h3>3x</h3><p>Weekly Posting Cadence</p></div>
+                <div class="m-step">
+                    <div class="m-step-num">02</div>
+                    <div class="m-step-content">
+                        <h4><i class="fa-solid fa-pen"></i> Content Planning &amp; Creation</h4>
+                        <p>We plan, create, and schedule content built for each platform's audience.</p>
+                    </div>
+                </div>
+                <div class="m-step">
+                    <div class="m-step-num">03</div>
+                    <div class="m-step-content">
+                        <h4><i class="fa-solid fa-thumbs-up"></i> Publish &amp; Engage</h4>
+                        <p>We post consistently and manage community engagement in your brand voice.</p>
+                    </div>
+                </div>
+                <div class="m-step">
+                    <div class="m-step-num">04</div>
+                    <div class="m-step-content">
+                        <h4><i class="fa-solid fa-chart-line"></i> Analyze &amp; Scale</h4>
+                        <p>We double down on what's working and cut what isn't, every month.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>

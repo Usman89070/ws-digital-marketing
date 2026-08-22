@@ -22,7 +22,7 @@ include 'header.php';
         <div class="container">
             <div class="agency-grid">
                 <div class="agency-image-wrapper">
-                    <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=800&q=80" alt="Automotive Digital Marketing">
+                    <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80" alt="Automotive Digital Marketing">
                 </div>
                 <div class="agency-text">
                     <span class="eyebrow">WHY IT MATTERS</span>
@@ -67,22 +67,6 @@ include 'header.php';
                     <h5>Local Paid Ads</h5>
                     <p>Google and Meta ads targeting drivers actively searching for your services.</p>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- STATS -->
-    <section class="stats-section fade-up">
-        <div class="container">
-            <div class="section-header">
-                <span class="eyebrow" style="color: var(--cyan-neon);">PROVEN RESULTS</span>
-                <h2 style="color: #fff; font-size: clamp(1.8rem, 4vw, 2.8rem);">Real Results For Real Shops</h2>
-            </div>
-            <div class="stats-4-grid">
-                <div class="stat-box"><div class="stat-icon"><i class="fa-solid fa-calendar-check"></i></div><h3>+112</h3><p>Bookings Generated (Avg.)</p></div>
-                <div class="stat-box"><div class="stat-icon"><i class="fa-solid fa-star"></i></div><h3>4.8/5</h3><p>Avg. Review Rating</p></div>
-                <div class="stat-box"><div class="stat-icon"><i class="fa-solid fa-location-dot"></i></div><h3>Top 3</h3><p>Avg. Map Pack Ranking</p></div>
-                <div class="stat-box"><div class="stat-icon"><i class="fa-solid fa-arrow-trend-down"></i></div><h3>-19%</h3><p>Cost Per Booking</p></div>
             </div>
         </div>
     </section>
