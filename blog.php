@@ -1,6 +1,17 @@
 <?php
 $page_title = 'Blog';
 $page_description = 'Digital marketing insights, SEO tips, and growth strategies from the W&S Digital Marketing team to help Australian businesses grow online.';
+
+require_once __DIR__ . '/config.php';
+try {
+    $posts = get_db()->query('SELECT id, title, slug, category, excerpt, image_path FROM blog_posts WHERE is_published = 1 ORDER BY created_at DESC')->fetchAll();
+} catch (PDOException $e) {
+    // Falls back to an empty grid (with the CTA still showing) rather than a
+    // fatal error if config.php hasn't been filled in with real DB credentials
+    // yet, or the database is briefly unreachable.
+    $posts = [];
+}
+
 include 'header.php';
 ?>
 
@@ -16,57 +27,29 @@ include 'header.php';
     <!-- BLOG GRID SECTION -->
     <section class="case-studies-section fade-up">
         <div class="container">
+            <?php if ($posts): ?>
             <div class="case-grid">
-
+                <?php foreach ($posts as $post): ?>
                 <article class="case-card">
                     <div class="case-image">
-                        <span class="case-tag">SEO</span>
-                        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?auto=format&fit=crop&w=800&q=80" alt="Local SEO strategy for Australian small businesses">
-                        <h3>5 Local SEO Wins Every Small Business Should Make</h3>
+                        <?php if ($post['category']): ?><span class="case-tag"><?php echo htmlspecialchars($post['category'], ENT_QUOTES, 'UTF-8'); ?></span><?php endif; ?>
+                        <img loading="lazy" decoding="async" src="<?php echo htmlspecialchars($post['image_path'], ENT_QUOTES, 'UTF-8'); ?>" alt="<?php echo htmlspecialchars($post['title'], ENT_QUOTES, 'UTF-8'); ?>">
+                        <h3><?php echo htmlspecialchars($post['title'], ENT_QUOTES, 'UTF-8'); ?></h3>
                     </div>
                     <div class="case-content">
                         <div>
-                            <p>From Google Business Profile optimization to local link building, here are the highest-leverage local SEO moves for Australian businesses.</p>
+                            <p><?php echo htmlspecialchars($post['excerpt'], ENT_QUOTES, 'UTF-8'); ?></p>
                         </div>
                         <div>
-                            <a href="contact.php" class="service-link">Talk To Our Team <i class="fa-solid fa-arrow-right"></i></a>
+                            <a href="blog-post.php?slug=<?php echo urlencode($post['slug']); ?>" class="service-link">Read More <i class="fa-solid fa-arrow-right"></i></a>
                         </div>
                     </div>
                 </article>
-
-                <article class="case-card">
-                    <div class="case-image">
-                        <span class="case-tag">PPC</span>
-                        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1533750349088-cd871a92f312?auto=format&fit=crop&w=800&q=80" alt="Google Ads budget optimization">
-                        <h3>How To Stop Wasting Ad Spend On Google Ads</h3>
-                    </div>
-                    <div class="case-content">
-                        <div>
-                            <p>Negative keywords, dayparting, and audience layering — the tactics we use to cut cost-per-lead without sacrificing volume.</p>
-                        </div>
-                        <div>
-                            <a href="contact.php" class="service-link">Talk To Our Team <i class="fa-solid fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="case-card">
-                    <div class="case-image">
-                        <span class="case-tag">CRO</span>
-                        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" alt="Website conversion rate optimization">
-                        <h3>Why Your Website Isn't Converting Traffic Into Leads</h3>
-                    </div>
-                    <div class="case-content">
-                        <div>
-                            <p>Traffic isn't the problem for most businesses — conversion is. Here's how we audit and fix leaky landing pages.</p>
-                        </div>
-                        <div>
-                            <a href="contact.php" class="service-link">Talk To Our Team <i class="fa-solid fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </article>
-
+                <?php endforeach; ?>
             </div>
+            <?php else: ?>
+            <p style="text-align:center; color: var(--text-muted);">No posts published yet -- check back soon.</p>
+            <?php endif; ?>
         </div>
     </section>
 

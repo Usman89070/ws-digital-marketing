@@ -1,6 +1,14 @@
 <?php
 $page_title = 'Our Team';
 $page_description = 'Meet the strategists, developers, and creatives behind W&S Digital Marketing — the team driving measurable growth for Australian businesses.';
+
+require_once __DIR__ . '/config.php';
+try {
+    $team = get_db()->query('SELECT * FROM team_members ORDER BY display_order ASC, id ASC')->fetchAll();
+} catch (PDOException $e) {
+    $team = [];
+}
+
 include 'header.php';
 ?>
 
@@ -21,152 +29,32 @@ include 'header.php';
                 <h2 style="font-size: clamp(1.8rem, 4vw, 2.8rem); margin-top: 10px;">A Senior Team, Not A Call Centre</h2>
             </div>
 
+            <?php if ($team): ?>
             <div class="team-grid">
+                <?php foreach ($team as $i => $member): ?>
                 <div class="team-card">
                     <div class="team-photo">
                         <div class="team-photo-placeholder"><i class="fa-solid fa-user"></i></div>
-                        <img loading="lazy" decoding="async" src="images/team/sahar-afridi.jpg" alt="Sahar Afridi, Managing Director / Social Media Manager" onerror="this.remove()">
-                        <span class="team-card-num">01</span>
+                        <?php if ($member['photo_path']): ?>
+                        <img loading="lazy" decoding="async" src="<?php echo htmlspecialchars($member['photo_path'], ENT_QUOTES, 'UTF-8'); ?>" alt="<?php echo htmlspecialchars($member['name'] . ', ' . $member['role'], ENT_QUOTES, 'UTF-8'); ?>" onerror="this.remove()">
+                        <?php endif; ?>
+                        <span class="team-card-num"><?php echo str_pad((string) ($i + 1), 2, '0', STR_PAD_LEFT); ?></span>
                         <div class="team-card-overlay"></div>
                         <div class="team-card-info">
-                            <h5>Sahar Afridi</h5>
-                            <span class="team-role">Managing Director / Social Media Manager</span>
-                            <p class="team-card-desc">Oversees company direction and leads social media strategy across every client account.</p>
+                            <h5><?php echo htmlspecialchars($member['name'], ENT_QUOTES, 'UTF-8'); ?></h5>
+                            <span class="team-role"><?php echo htmlspecialchars($member['role'], ENT_QUOTES, 'UTF-8'); ?></span>
+                            <?php if ($member['description']): ?><p class="team-card-desc"><?php echo htmlspecialchars($member['description'], ENT_QUOTES, 'UTF-8'); ?></p><?php endif; ?>
                             <div class="team-socials">
-                                <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                                <a href="<?php echo htmlspecialchars($member['linkedin_url'], ENT_QUOTES, 'UTF-8'); ?>" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="team-card">
-                    <div class="team-photo">
-                        <div class="team-photo-placeholder"><i class="fa-solid fa-user"></i></div>
-                        <img loading="lazy" decoding="async" src="images/team/wishal-khan-mohammadi.jpg" alt="Wishal Khan Mohammadi, Chief Executive Officer" onerror="this.remove()">
-                        <span class="team-card-num">02</span>
-                        <div class="team-card-overlay"></div>
-                        <div class="team-card-info">
-                            <h5>Wishal Khan Mohammadi</h5>
-                            <span class="team-role">Chief Executive Officer</span>
-                            <p class="team-card-desc">Sets company vision and ensures every client gets a growth plan built around real numbers.</p>
-                            <div class="team-socials">
-                                <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="team-card">
-                    <div class="team-photo">
-                        <div class="team-photo-placeholder"><i class="fa-solid fa-user"></i></div>
-                        <img loading="lazy" decoding="async" src="images/team/shawal-khan-mohammadi.jpg" alt="Shawal Khan Mohammadi, Chief Executive Officer" onerror="this.remove()">
-                        <span class="team-card-num">03</span>
-                        <div class="team-card-overlay"></div>
-                        <div class="team-card-info">
-                            <h5>Shawal Khan Mohammadi</h5>
-                            <span class="team-role">Chief Executive Officer</span>
-                            <p class="team-card-desc">Drives company strategy and long-term growth across every service we deliver.</p>
-                            <div class="team-socials">
-                                <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="team-card">
-                    <div class="team-photo">
-                        <div class="team-photo-placeholder"><i class="fa-solid fa-user"></i></div>
-                        <img loading="lazy" decoding="async" src="images/team/hammad-hassan.jpg" alt="Hammad Hassan, Digital Marketing Manager" onerror="this.remove()">
-                        <span class="team-card-num">04</span>
-                        <div class="team-card-overlay"></div>
-                        <div class="team-card-info">
-                            <h5>Hammad Hassan</h5>
-                            <span class="team-role">Digital Marketing Manager</span>
-                            <p class="team-card-desc">Manages day-to-day marketing execution across SEO, ads, and content.</p>
-                            <div class="team-socials">
-                                <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="team-card">
-                    <div class="team-photo">
-                        <div class="team-photo-placeholder"><i class="fa-solid fa-user"></i></div>
-                        <img loading="lazy" decoding="async" src="images/team/usman-zahid.jpg" alt="Usman Zahid, Lead Web Developer" onerror="this.remove()">
-                        <span class="team-card-num">05</span>
-                        <div class="team-card-overlay"></div>
-                        <div class="team-card-info">
-                            <h5>Usman Zahid</h5>
-                            <span class="team-role">Lead Web Developer</span>
-                            <p class="team-card-desc">Builds fast, conversion-focused websites engineered to turn visitors into customers.</p>
-                            <div class="team-socials">
-                                <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="team-card">
-                    <div class="team-photo">
-                        <div class="team-photo-placeholder"><i class="fa-solid fa-user"></i></div>
-                        <img loading="lazy" decoding="async" src="images/team/azhar-rasheed.jpg" alt="Azhar Rasheed, SEO Expert" onerror="this.remove()">
-                        <span class="team-card-num">06</span>
-                        <div class="team-card-overlay"></div>
-                        <div class="team-card-info">
-                            <h5>Azhar Rasheed</h5>
-                            <span class="team-role">SEO Expert</span>
-                            <p class="team-card-desc">Drives organic growth through technical SEO, content strategy, and local search dominance.</p>
-                            <div class="team-socials">
-                                <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="team-card">
-                    <div class="team-photo">
-                        <div class="team-photo-placeholder"><i class="fa-solid fa-user"></i></div>
-                        <img loading="lazy" decoding="async" src="images/team/tabarak-hussain.jpg" alt="Tabarak Hussain, Shopify Expert" onerror="this.remove()">
-                        <span class="team-card-num">07</span>
-                        <div class="team-card-overlay"></div>
-                        <div class="team-card-info">
-                            <h5>Tabarak Hussain</h5>
-                            <span class="team-role">Shopify Expert</span>
-                            <p class="team-card-desc">Builds and optimises Shopify stores engineered for conversions and repeat customers.</p>
-                            <div class="team-socials">
-                                <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="team-card">
-                    <div class="team-photo">
-                        <div class="team-photo-placeholder"><i class="fa-solid fa-user"></i></div>
-                        <img loading="lazy" decoding="async" src="images/team/tariq-aziz.jpg" alt="Tariq Aziz, Social Media Expert" onerror="this.remove()">
-                        <span class="team-card-num">08</span>
-                        <div class="team-card-overlay"></div>
-                        <div class="team-card-info">
-                            <h5>Tariq Aziz</h5>
-                            <span class="team-role">Social Media Expert</span>
-                            <p class="team-card-desc">Plans and manages social content and campaigns that build real engagement.</p>
-                            <div class="team-socials">
-                                <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="team-card">
-                    <div class="team-photo">
-                        <div class="team-photo-placeholder"><i class="fa-solid fa-user"></i></div>
-                        <img loading="lazy" decoding="async" src="images/team/salim-yousaf.jpg" alt="Salim Yousaf, SEO Expert" onerror="this.remove()">
-                        <span class="team-card-num">09</span>
-                        <div class="team-card-overlay"></div>
-                        <div class="team-card-info">
-                            <h5>Salim Yousaf</h5>
-                            <span class="team-role">SEO Expert</span>
-                            <p class="team-card-desc">Focuses on keyword research and on-page optimisation that lifts search rankings.</p>
-                            <div class="team-socials">
-                                <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <?php endforeach; ?>
             </div>
+            <?php else: ?>
+            <p style="text-align:center; color: var(--text-muted);">Team roster coming soon.</p>
+            <?php endif; ?>
         </div>
     </section>
 

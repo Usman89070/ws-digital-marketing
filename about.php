@@ -1,6 +1,14 @@
 <?php
 $page_title = 'About Us';
 $page_description = 'Meet W&S Digital Marketing, an Australian growth agency delivering transparent, data-driven digital strategies with a relentless focus on real ROI.';
+
+require_once __DIR__ . '/config.php';
+try {
+    $teamTeaser = get_db()->query('SELECT * FROM team_members ORDER BY display_order ASC, id ASC LIMIT 4')->fetchAll();
+} catch (PDOException $e) {
+    $teamTeaser = [];
+}
+
 include 'header.php';
 ?>
 
@@ -110,72 +118,30 @@ include 'header.php';
                 <h2 style="font-size: clamp(1.8rem, 4vw, 2.8rem); margin-top: 10px;">The People Behind Your Growth</h2>
             </div>
 
+            <?php if ($teamTeaser): ?>
             <div class="team-grid">
+                <?php foreach ($teamTeaser as $i => $member): ?>
                 <div class="team-card">
                     <div class="team-photo">
                         <div class="team-photo-placeholder"><i class="fa-solid fa-user"></i></div>
-                        <img loading="lazy" decoding="async" src="images/team/sahar-afridi.jpg" alt="Sahar Afridi, Managing Director / Social Media Manager" onerror="this.remove()">
-                        <span class="team-card-num">01</span>
+                        <?php if ($member['photo_path']): ?>
+                        <img loading="lazy" decoding="async" src="<?php echo htmlspecialchars($member['photo_path'], ENT_QUOTES, 'UTF-8'); ?>" alt="<?php echo htmlspecialchars($member['name'] . ', ' . $member['role'], ENT_QUOTES, 'UTF-8'); ?>" onerror="this.remove()">
+                        <?php endif; ?>
+                        <span class="team-card-num"><?php echo str_pad((string) ($i + 1), 2, '0', STR_PAD_LEFT); ?></span>
                         <div class="team-card-overlay"></div>
                         <div class="team-card-info">
-                            <h5>Sahar Afridi</h5>
-                            <span class="team-role">Managing Director / Social Media Manager</span>
-                            <p class="team-card-desc">Oversees company direction and leads social media strategy across every client account.</p>
+                            <h5><?php echo htmlspecialchars($member['name'], ENT_QUOTES, 'UTF-8'); ?></h5>
+                            <span class="team-role"><?php echo htmlspecialchars($member['role'], ENT_QUOTES, 'UTF-8'); ?></span>
+                            <?php if ($member['description']): ?><p class="team-card-desc"><?php echo htmlspecialchars($member['description'], ENT_QUOTES, 'UTF-8'); ?></p><?php endif; ?>
                             <div class="team-socials">
-                                <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                                <a href="<?php echo htmlspecialchars($member['linkedin_url'], ENT_QUOTES, 'UTF-8'); ?>" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="team-card">
-                    <div class="team-photo">
-                        <div class="team-photo-placeholder"><i class="fa-solid fa-user"></i></div>
-                        <img loading="lazy" decoding="async" src="images/team/wishal-khan-mohammadi.jpg" alt="Wishal Khan Mohammadi, Chief Executive Officer" onerror="this.remove()">
-                        <span class="team-card-num">02</span>
-                        <div class="team-card-overlay"></div>
-                        <div class="team-card-info">
-                            <h5>Wishal Khan Mohammadi</h5>
-                            <span class="team-role">Chief Executive Officer</span>
-                            <p class="team-card-desc">Sets company vision and ensures every client gets a growth plan built around real numbers.</p>
-                            <div class="team-socials">
-                                <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="team-card">
-                    <div class="team-photo">
-                        <div class="team-photo-placeholder"><i class="fa-solid fa-user"></i></div>
-                        <img loading="lazy" decoding="async" src="images/team/shawal-khan-mohammadi.jpg" alt="Shawal Khan Mohammadi, Chief Executive Officer" onerror="this.remove()">
-                        <span class="team-card-num">03</span>
-                        <div class="team-card-overlay"></div>
-                        <div class="team-card-info">
-                            <h5>Shawal Khan Mohammadi</h5>
-                            <span class="team-role">Chief Executive Officer</span>
-                            <p class="team-card-desc">Drives company strategy and long-term growth across every service we deliver.</p>
-                            <div class="team-socials">
-                                <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="team-card">
-                    <div class="team-photo">
-                        <div class="team-photo-placeholder"><i class="fa-solid fa-user"></i></div>
-                        <img loading="lazy" decoding="async" src="images/team/hammad-hassan.jpg" alt="Hammad Hassan, Digital Marketing Manager" onerror="this.remove()">
-                        <span class="team-card-num">04</span>
-                        <div class="team-card-overlay"></div>
-                        <div class="team-card-info">
-                            <h5>Hammad Hassan</h5>
-                            <span class="team-role">Digital Marketing Manager</span>
-                            <p class="team-card-desc">Manages day-to-day marketing execution across SEO, ads, and content.</p>
-                            <div class="team-socials">
-                                <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <?php endforeach; ?>
             </div>
+            <?php endif; ?>
 
             <div style="text-align: center; margin-top: clamp(30px, 4vw, 40px);">
                 <a href="our-team.php" class="btn-secondary">MEET THE FULL TEAM <i class="fa-solid fa-arrow-right" style="margin-left: 6px;"></i></a>

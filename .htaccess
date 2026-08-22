@@ -29,3 +29,11 @@
         Header set Cache-Control "no-cache, must-revalidate"
     </FilesMatch>
 </IfModule>
+
+# === Security: block direct download of the raw SQL import file ===
+# database.sql only needs to exist here long enough to import through
+# phpMyAdmin -- leaving it downloadable would expose the schema and the
+# default admin password hash to anyone who requests the URL directly.
+<FilesMatch "\.sql$">
+    Require all denied
+</FilesMatch>

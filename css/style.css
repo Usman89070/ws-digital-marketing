@@ -238,6 +238,16 @@
             header.nav-open .dropdown-menu.dropdown-menu-grid { display: block; min-width: 0; right: auto; padding: 0; }
         }
 
+        /* === BLOG POST BODY (blog-post.php, admin-authored HTML content) === */
+        .blog-post-body { color: var(--text-muted); font-size: 1.05rem; line-height: 1.8; }
+        .blog-post-body p { margin-bottom: 22px; }
+        .blog-post-body h3 { color: var(--navy); font-size: 1.35rem; font-weight: 800; margin: 34px 0 14px; }
+        .blog-post-body h3:first-child { margin-top: 0; }
+        .blog-post-body ul, .blog-post-body ol { margin: 0 0 22px 22px; }
+        .blog-post-body li { margin-bottom: 8px; }
+        .blog-post-body a { color: var(--cyan-neon); font-weight: 600; }
+        .blog-post-body img { max-width: 100%; height: auto; border-radius: 12px; margin: 20px 0; }
+
         /* === BUTTONS === */
         .btn-primary {
             background: linear-gradient(135deg, var(--cyan-neon), var(--magenta-neon));
