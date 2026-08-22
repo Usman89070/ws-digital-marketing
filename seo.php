@@ -222,6 +222,53 @@ include 'header.php';
                     </div>
                 </div>
             </div>
+
+            <!-- ANIMATED GROWTH CHART -->
+            <div class="seo-chart-card">
+                <div class="seo-chart-head">
+                    <span class="eyebrow">AT A GLANCE</span>
+                    <h3>Organic Clicks By Campaign</h3>
+                    <p>Total Google Search clicks recorded for each client during their most recent reporting period.</p>
+                </div>
+                <div class="seo-chart-rows">
+                    <div class="seo-chart-row">
+                        <span class="seo-chart-label" data-value="776">Freak Eats Australia</span>
+                        <div class="seo-chart-track"><div class="seo-chart-fill" style="--pct: 100%;"></div></div>
+                        <span class="seo-chart-value">776</span>
+                    </div>
+                    <div class="seo-chart-row">
+                        <span class="seo-chart-label" data-value="775">Fast Appliance Repairs</span>
+                        <div class="seo-chart-track"><div class="seo-chart-fill" style="--pct: 99.9%;"></div></div>
+                        <span class="seo-chart-value">775</span>
+                    </div>
+                    <div class="seo-chart-row">
+                        <span class="seo-chart-label" data-value="514">Fridge Experts</span>
+                        <div class="seo-chart-track"><div class="seo-chart-fill" style="--pct: 66.2%;"></div></div>
+                        <span class="seo-chart-value">514</span>
+                    </div>
+                    <div class="seo-chart-row">
+                        <span class="seo-chart-label" data-value="421">Fridge Repair Experts</span>
+                        <div class="seo-chart-track"><div class="seo-chart-fill" style="--pct: 54.3%;"></div></div>
+                        <span class="seo-chart-value">421</span>
+                    </div>
+                    <div class="seo-chart-row">
+                        <span class="seo-chart-label" data-value="282">Fast Fridge Repairs</span>
+                        <div class="seo-chart-track"><div class="seo-chart-fill" style="--pct: 36.3%;"></div></div>
+                        <span class="seo-chart-value">282</span>
+                    </div>
+                    <div class="seo-chart-row">
+                        <span class="seo-chart-label" data-value="220">Ace Fridge Repairs</span>
+                        <div class="seo-chart-track"><div class="seo-chart-fill" style="--pct: 28.4%;"></div></div>
+                        <span class="seo-chart-value">220</span>
+                    </div>
+                    <div class="seo-chart-row">
+                        <span class="seo-chart-label" data-value="102">Commercial Fridge Repairs</span>
+                        <div class="seo-chart-track"><div class="seo-chart-fill" style="--pct: 13.1%;"></div></div>
+                        <span class="seo-chart-value">102</span>
+                    </div>
+                </div>
+            </div>
+
             <div style="text-align: center; margin-top: clamp(30px, 4vw, 40px);">
                 <a href="case-studies.php" class="btn-secondary">VIEW ALL CASE STUDIES <i class="fa-solid fa-arrow-right" style="margin-left: 6px;"></i></a>
             </div>

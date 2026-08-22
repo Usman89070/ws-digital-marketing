@@ -301,6 +301,7 @@ if (window.matchMedia('(hover: none)').matches) {
             // entirely for users who've asked for reduced motion.
             if (prefersReducedMotion) {
                 gsap.set('.fade-up, .hero .fade-up', { opacity: 1, y: 0, x: 0 });
+                gsap.set('.seo-chart-fill', { scaleX: 1 });
                 return;
             }
 
@@ -400,7 +401,8 @@ if (window.matchMedia('(hover: none)').matches) {
             const gridSelectors = [
                 '.case-grid', '.testimonials-grid', '.industry-tile-grid',
                 '.stats-4-grid', '.pricing-grid', '.methodology-steps', '.agency-list',
-                '.cta-features', '.faq-list', '.mobile-dash-cards', '.partner-strip', '.team-grid'
+                '.cta-features', '.faq-list', '.mobile-dash-cards', '.partner-strip', '.team-grid',
+                '.seo-proof-grid'
             ];
             gridSelectors.forEach(selector => {
                 gsap.utils.toArray(selector).forEach(grid => {
@@ -411,6 +413,19 @@ if (window.matchMedia('(hover: none)').matches) {
                             scrollTrigger: { trigger: item, start: 'top 90%', toggleActions: 'play none none none' }
                         });
                     });
+                });
+            });
+
+            // seo.php "Organic Clicks By Campaign" bars grow left-to-right (scaleX
+            // 0 -> 1, transform-origin: left) once the chart scrolls into view --
+            // one ScrollTrigger for the whole card, individual bars staggered so
+            // they read top-to-bottom like a value is being counted up.
+            gsap.utils.toArray('.seo-chart-card').forEach(card => {
+                const bars = gsap.utils.toArray(card.querySelectorAll('.seo-chart-fill'));
+                if (!bars.length) return;
+                gsap.to(bars, {
+                    scaleX: 1, duration: 1.1, stagger: 0.12, ease: 'power3.out',
+                    scrollTrigger: { trigger: card, start: 'top 80%', toggleActions: 'play none none none' }
                 });
             });
 
