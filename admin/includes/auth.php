@@ -58,8 +58,12 @@ function handle_image_upload(string $fieldName, string $destDir, string $slugHin
     $slug = trim($slug, '-') ?: 'image';
     $filename = $slug . '-' . substr(bin2hex(random_bytes(4)), 0, 8) . '.' . $ext;
     $destPath = rtrim($destDir, '/') . '/' . $filename;
+    $destAbsoluteDir = __DIR__ . '/../../' . rtrim($destDir, '/');
+    if (!is_dir($destAbsoluteDir) && !mkdir($destAbsoluteDir, 0755, true) && !is_dir($destAbsoluteDir)) {
+        throw new RuntimeException('Could not create the upload folder (' . $destDir . '). Check folder permissions on the server.');
+    }
     if (!move_uploaded_file($file['tmp_name'], __DIR__ . '/../../' . $destPath)) {
-        throw new RuntimeException('Could not save the uploaded file.');
+        throw new RuntimeException('Could not save the uploaded file. Check that the "' . $destDir . '" folder exists and is writable.');
     }
     return $destPath;
 }
