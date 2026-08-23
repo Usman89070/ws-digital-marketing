@@ -6,6 +6,7 @@ $pdo = get_db();
 $blogCount = (int) $pdo->query('SELECT COUNT(*) FROM blog_posts')->fetchColumn();
 $publishedCount = (int) $pdo->query('SELECT COUNT(*) FROM blog_posts WHERE is_published = 1')->fetchColumn();
 $teamCount = (int) $pdo->query('SELECT COUNT(*) FROM team_members')->fetchColumn();
+$caseCount = (int) $pdo->query('SELECT COUNT(*) FROM case_studies')->fetchColumn();
 
 include __DIR__ . '/includes/layout-header.php';
 ?>
@@ -24,11 +25,16 @@ include __DIR__ . '/includes/layout-header.php';
         <div class="num"><?php echo $teamCount; ?></div>
         <div class="label">Team Members</div>
     </div>
+    <div class="admin-card">
+        <div class="num"><?php echo $caseCount; ?></div>
+        <div class="label">Case Studies</div>
+    </div>
 </div>
 
 <div class="admin-card" style="margin-top: 20px;">
     <p style="margin-top:0;"><a href="blog-form.php" class="btn btn-primary">+ Add Blog Post</a></p>
     <p><a href="team-form.php" class="btn btn-primary">+ Add Team Member</a></p>
+    <p><a href="case-form.php" class="btn btn-primary">+ Add Case Study</a></p>
 </div>
 
 <?php include __DIR__ . '/includes/layout-footer.php'; ?>

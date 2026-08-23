@@ -19,6 +19,7 @@ $current = basename($_SERVER['SCRIPT_NAME']);
         <a href="index.php" class="<?php echo $current === 'index.php' ? 'active' : ''; ?>">Dashboard</a>
         <a href="blog-list.php" class="<?php echo in_array($current, ['blog-list.php', 'blog-form.php'], true) ? 'active' : ''; ?>">Blog Posts</a>
         <a href="team-list.php" class="<?php echo in_array($current, ['team-list.php', 'team-form.php'], true) ? 'active' : ''; ?>">Team Members</a>
+        <a href="case-list.php" class="<?php echo in_array($current, ['case-list.php', 'case-form.php'], true) ? 'active' : ''; ?>">Case Studies</a>
         <a href="account.php" class="<?php echo $current === 'account.php' ? 'active' : ''; ?>">Account</a>
         <a href="../blog.php" target="_blank">View Site &#8594;</a>
         <a href="logout.php" class="admin-nav-logout">Log Out</a>

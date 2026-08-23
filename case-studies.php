@@ -1,4 +1,8 @@
 <?php
+require_once __DIR__ . '/config.php';
+$pdo = get_db();
+$caseStudies = $pdo->query('SELECT slug, name, tag, image_path, image_alt, summary FROM case_studies ORDER BY display_order ASC, name ASC')->fetchAll();
+
 $page_title = 'Case Studies';
 $page_description = 'Explore real client success stories and results from W&S Digital Marketing across SEO, PPC, eCommerce and web design campaigns.';
 include 'header.php';
@@ -22,261 +26,23 @@ include 'header.php';
             </div>
             
             <div class="case-grid">
-                <!-- 1. Clever Beavers -->
+                <?php foreach ($caseStudies as $cs): ?>
                 <div class="case-card">
                     <div class="case-image">
-                        <span class="case-tag">Full Suite</span>
-                        <img loading="lazy" decoding="async" src="https://wsdigitalmarketing.com.au/wp-content/uploads/2026/07/screencapture-cleverbeavers-2026-07-27-10_25_46-scaled-e1785130737259.webp" alt="Clever Beavers Workbooks and Branding">
-                        <h3>CLEVER BEAVERS</h3>
+                        <span class="case-tag"><?php echo htmlspecialchars($cs['tag'], ENT_QUOTES, 'UTF-8'); ?></span>
+                        <img loading="lazy" decoding="async" src="<?php echo htmlspecialchars($cs['image_path'], ENT_QUOTES, 'UTF-8'); ?>" alt="<?php echo htmlspecialchars($cs['image_alt'], ENT_QUOTES, 'UTF-8'); ?>">
+                        <h3><?php echo htmlspecialchars(strtoupper($cs['name']), ENT_QUOTES, 'UTF-8'); ?></h3>
                     </div>
                     <div class="case-content">
                         <div>
-                            <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px;">AI Design, Content Writing, Ecommerce Development, Graphic Design, PPC Advertising, Search Engine Optimization, Social Media Marketing, Website Design.</p>
+                            <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px;"><?php echo htmlspecialchars($cs['summary'], ENT_QUOTES, 'UTF-8'); ?></p>
                         </div>
                         <div>
-                            <a href="/case-studies/clever-beavers" class="service-link">View Details <i class="fa-solid fa-arrow-right"></i></a>
+                            <a href="/case-studies/<?php echo htmlspecialchars($cs['slug'], ENT_QUOTES, 'UTF-8'); ?>" class="service-link">View Details <i class="fa-solid fa-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
-
-                <!-- 2. Cafe Calibre -->
-                <div class="case-card">
-                    <div class="case-image">
-                        <span class="case-tag">Hospitality</span>
-                        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=800&q=80" alt="Cafe Calibre Dining and Dome Reservations">
-                        <h3>CAFE CALIBRE</h3>
-                    </div>
-                    <div class="case-content">
-                        <div>
-                            <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px;">AI Design, Content Writing, Ecommerce Development, Graphic Design, PPC Advertising, Search Engine Optimization, Social Media Marketing, Website Design.</p>
-                        </div>
-                        <div>
-                            <a href="/case-studies/cafe-calibre" class="service-link">View Details <i class="fa-solid fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 3. On Crew -->
-                <div class="case-card">
-                    <div class="case-image">
-                        <span class="case-tag">Commercial</span>
-                        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=800&q=80" alt="On Crew Professional Team">
-                        <h3>ON CREW</h3>
-                    </div>
-                    <div class="case-content">
-                        <div>
-                            <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px;">Content Writing, Ecommerce Development, Graphic Design, PPC Advertising, Search Engine Optimization, Social Media Marketing, Website Design.</p>
-                        </div>
-                        <div>
-                            <a href="/case-studies/on-crew" class="service-link">View Details <i class="fa-solid fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 4. Master Fridge Repairs -->
-                <div class="case-card">
-                    <div class="case-image">
-                        <span class="case-tag">Refrigeration</span>
-                        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=800&q=80" alt="Master Fridge Repairs Service">
-                        <h3>MASTER FRIDGE REPAIRS</h3>
-                    </div>
-                    <div class="case-content">
-                        <div>
-                            <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px;">Content Writing, Ecommerce Development, Graphic Design, PPC Advertising, Search Engine Optimization, Social Media Marketing, Website Design.</p>
-                        </div>
-                        <div>
-                            <a href="/case-studies/master-fridge-repairs" class="service-link">View Details <i class="fa-solid fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 5. Commercial Fridge Repairs Sydney -->
-                <div class="case-card">
-                    <div class="case-image">
-                        <span class="case-tag">Sydney Repairs</span>
-                        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80" alt="Commercial Fridge Repairs Sydney">
-                        <h3>COMMERCIAL FRIDGE REPAIRS SYDNEY</h3>
-                    </div>
-                    <div class="case-content">
-                        <div>
-                            <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px;">Content Writing, Ecommerce Development, Graphic Design, PPC Advertising, Search Engine Optimization, Social Media Marketing, Website Design.</p>
-                        </div>
-                        <div>
-                            <a href="/case-studies/commercial-fridge-repairs-sydney" class="service-link">View Details <i class="fa-solid fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 6. Fridge Experts -->
-                <div class="case-card">
-                    <div class="case-image">
-                        <span class="case-tag">Experts</span>
-                        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=800&q=80" alt="Fridge Experts Technical Work">
-                        <h3>FRIDGE EXPERTS</h3>
-                    </div>
-                    <div class="case-content">
-                        <div>
-                            <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px;">Content Writing, Ecommerce Development, Graphic Design, PPC Advertising, Search Engine Optimization, Social Media Marketing, Website Design.</p>
-                        </div>
-                        <div>
-                            <a href="/case-studies/fridge-experts" class="service-link">View Details <i class="fa-solid fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 7. Ace Fridge Repairs Sydney -->
-                <div class="case-card">
-                    <div class="case-image">
-                        <span class="case-tag">Local SEO</span>
-                        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=800&q=80" alt="Ace Fridge Repairs Sydney">
-                        <h3>ACE FRIDGE REPAIRS SYDNEY</h3>
-                    </div>
-                    <div class="case-content">
-                        <div>
-                            <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px;">Content Writing, Ecommerce Development, Graphic Design, PPC Advertising, Search Engine Optimization, Social Media Marketing, Website Design.</p>
-                        </div>
-                        <div>
-                            <a href="/case-studies/ace-fridge-repairs-sydney" class="service-link">View Details <i class="fa-solid fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 8. Sydney Art Flooring -->
-                <div class="case-card">
-                    <div class="case-image">
-                        <span class="case-tag">Flooring</span>
-                        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?auto=format&fit=crop&w=800&q=80" alt="Sydney Art Flooring Interior">
-                        <h3>SYDNEY ART FLOORING</h3>
-                    </div>
-                    <div class="case-content">
-                        <div>
-                            <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px;">Content Writing, Ecommerce Development, Graphic Design, PPC Advertising, Search Engine Optimization, Social Media Marketing, Website Design.</p>
-                        </div>
-                        <div>
-                            <a href="/case-studies/sydney-art-flooring" class="service-link">View Details <i class="fa-solid fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 9. Fast Fridge Repairs -->
-                <div class="case-card">
-                    <div class="case-image">
-                        <span class="case-tag">Repairs</span>
-                        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=800&q=80" alt="Fast Fridge Repairs">
-                        <h3>FAST FRIDGE REPAIRS</h3>
-                    </div>
-                    <div class="case-content">
-                        <div>
-                            <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px;">Content Writing, Ecommerce Development, Graphic Design, PPC Advertising, Search Engine Optimization, Social Media Marketing, Website Design.</p>
-                        </div>
-                        <div>
-                            <a href="/case-studies/fast-fridge-repairs" class="service-link">View Details <i class="fa-solid fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 10. Magnet Cleaning Australia -->
-                <div class="case-card">
-                    <div class="case-image">
-                        <span class="case-tag">Cleaning</span>
-                        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=800&q=80" alt="Magnet Cleaning Australia">
-                        <h3>MAGNET CLEANING AUSTRALIA</h3>
-                    </div>
-                    <div class="case-content">
-                        <div>
-                            <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px;">Content Writing, Ecommerce Development, Graphic Design, PPC Advertising, Search Engine Optimization, Social Media Marketing, Website Design.</p>
-                        </div>
-                        <div>
-                            <a href="/case-studies/magnet-cleaning-australia" class="service-link">View Details <i class="fa-solid fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 11. Fast Appliance Repairs -->
-                <div class="case-card">
-                    <div class="case-image">
-                        <span class="case-tag">Appliances</span>
-                        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=800&q=80" alt="Fast Appliance Repairs Kitchen">
-                        <h3>FAST APPLIANCE REPAIRS</h3>
-                    </div>
-                    <div class="case-content">
-                        <div>
-                            <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px;">Content Writing, Ecommerce Development, Graphic Design, PPC Advertising, Search Engine Optimization, Social Media Marketing, Website Design.</p>
-                        </div>
-                        <div>
-                            <a href="/case-studies/fast-appliance-repairs" class="service-link">View Details <i class="fa-solid fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 12. Royal Fragrances -->
-                <div class="case-card">
-                    <div class="case-image">
-                        <span class="case-tag">Ecommerce</span>
-                        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1615397349754-cfa2066a298e?auto=format&fit=crop&w=800&q=80" alt="Royal Fragrances Perfume Bottle">
-                        <h3>ROYAL FRAGRANCES</h3>
-                    </div>
-                    <div class="case-content">
-                        <div>
-                            <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px;">Content Writing, Ecommerce Development, Graphic Design, PPC Advertising, Search Engine Optimization, Social Media Marketing, Website Design.</p>
-                        </div>
-                        <div>
-                            <a href="/case-studies/royal-fragrances" class="service-link">View Details <i class="fa-solid fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 13. Becoming Her With Salma -->
-                <div class="case-card">
-                    <div class="case-image">
-                        <span class="case-tag">Lifestyle</span>
-                        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80" alt="Becoming Her With Salma Lifestyle">
-                        <h3>BECOMING HER WITH SALMA</h3>
-                    </div>
-                    <div class="case-content">
-                        <div>
-                            <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px;">Content Writing, Ecommerce Development, Graphic Design, PPC Advertising, Search Engine Optimization, Social Media Marketing, Website Design.</p>
-                        </div>
-                        <div>
-                            <a href="/case-studies/becoming-her-with-salma" class="service-link">View Details <i class="fa-solid fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 14. Northside Coffee -->
-                <div class="case-card">
-                    <div class="case-image">
-                        <span class="case-tag">Coffee</span>
-                        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=800&q=80" alt="Northside Coffee Shop">
-                        <h3>NORTHSIDE COFFEE</h3>
-                    </div>
-                    <div class="case-content">
-                        <div>
-                            <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px;">Content Writing, Ecommerce Development, Graphic Design, PPC Advertising, Search Engine Optimization, Social Media Marketing, Website Design.</p>
-                        </div>
-                        <div>
-                            <a href="/case-studies/northside-coffee" class="service-link">View Details <i class="fa-solid fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 15. Freak Eats -->
-                <div class="case-card">
-                    <div class="case-image">
-                        <span class="case-tag">Food & Eats</span>
-                        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=800&q=80" alt="Freak Eats Fast Food">
-                        <h3>FREAK EATS</h3>
-                    </div>
-                    <div class="case-content">
-                        <div>
-                            <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px;">Content Writing, Ecommerce Development, Graphic Design, PPC Advertising, Search Engine Optimization, Social Media Marketing, Website Design.</p>
-                        </div>
-                        <div>
-                            <a href="/case-studies/freak-eats" class="service-link">View Details <i class="fa-solid fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-
+                <?php endforeach; ?>
             </div>
         </div>
     </section>
