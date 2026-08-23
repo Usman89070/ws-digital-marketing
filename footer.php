@@ -100,7 +100,7 @@
                 three.src = 'https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js';
                 three.onload = function () {
                     var bg = document.createElement('script');
-                    bg.src = 'js/bg-animation.js?v=<?php echo @filemtime(__DIR__ . '/js/bg-animation.js') ?: time(); ?>';
+                    bg.src = '/js/bg-animation.js?v=<?php echo @filemtime(__DIR__ . '/js/bg-animation.js') ?: time(); ?>';
                     document.body.appendChild(bg);
                 };
                 document.body.appendChild(three);
