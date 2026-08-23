@@ -11,8 +11,8 @@ include 'header.php';
             <h1 class="fade-up">MORE PATIENTS. <br><span class="text-gradient">FULLER CHAIRS.</span></h1>
             <p class="hero-subtitle fade-up">Digital marketing for dental practices &mdash; built to attract new patients, fill hygiene schedules, and grow high-value treatment bookings.</p>
             <div class="hero-buttons fade-up">
-                <a href="contact" class="btn-primary">GET MY FREE PRACTICE AUDIT <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
-                <a href="industries" class="btn-secondary">VIEW ALL INDUSTRIES</a>
+                <a href="/contact" class="btn-primary">GET MY FREE PRACTICE AUDIT <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
+                <a href="/industries" class="btn-secondary">VIEW ALL INDUSTRIES</a>
             </div>
         </div>
     </section>
@@ -22,7 +22,7 @@ include 'header.php';
         <div class="container">
             <div class="agency-grid">
                 <div class="agency-image-wrapper">
-                    <img loading="lazy" decoding="async" src="images/industries/dental.webp" alt="Dental Digital Marketing" onerror="this.remove()">
+                    <img loading="lazy" decoding="async" src="/images/industries/dental.webp" alt="Dental Digital Marketing" onerror="this.remove()">
                 </div>
                 <div class="agency-text">
                     <span class="eyebrow">WHY IT MATTERS</span>
@@ -33,7 +33,7 @@ include 'header.php';
                         <li><i class="fa-solid fa-check"></i> Online Booking-Optimised Websites</li>
                         <li><i class="fa-solid fa-check"></i> Review &amp; Reputation Management</li>
                     </ul>
-                    <a href="contact" class="btn-primary" style="margin-top: 10px;">Speak With A Dental Marketing Strategist</a>
+                    <a href="/contact" class="btn-primary" style="margin-top: 10px;">Speak With A Dental Marketing Strategist</a>
                 </div>
             </div>
         </div>
@@ -84,7 +84,7 @@ include 'header.php';
                     <span><i class="fa-solid fa-check" style="color: var(--cyan-neon);"></i> Proven Australian Results</span>
                 </div>
                 <div class="cta-btn-wrapper">
-                    <a href="contact" class="btn-primary" style="padding: 18px 45px; font-size: 1.1rem;">GET MY FREE PRACTICE AUDIT <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
+                    <a href="/contact" class="btn-primary" style="padding: 18px 45px; font-size: 1.1rem;">GET MY FREE PRACTICE AUDIT <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
                 </div>
             </div>
         </div>

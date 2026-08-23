@@ -11,8 +11,8 @@ include 'header.php';
             <h1 class="fade-up">WEBSITES BUILT TO CONVERT, <br><span class="text-gradient">NOT JUST LOOK GOOD.</span></h1>
             <p class="hero-subtitle fade-up">Fast, mobile-responsive websites engineered around your customer's journey — from first impression to enquiry.</p>
             <div class="hero-buttons fade-up">
-                <a href="contact" class="btn-primary">GET MY FREE WEBSITE AUDIT <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
-                <a href="services" class="btn-secondary">VIEW ALL SERVICES</a>
+                <a href="/contact" class="btn-primary">GET MY FREE WEBSITE AUDIT <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
+                <a href="/services" class="btn-secondary">VIEW ALL SERVICES</a>
             </div>
         </div>
     </section>
@@ -33,7 +33,7 @@ include 'header.php';
                         <li><i class="fa-solid fa-check"></i> Lightning-Fast Load Times</li>
                         <li><i class="fa-solid fa-check"></i> Built-In Conversion Rate Optimization</li>
                     </ul>
-                    <a href="contact" class="btn-primary" style="margin-top: 10px;">Speak With A Web Strategist</a>
+                    <a href="/contact" class="btn-primary" style="margin-top: 10px;">Speak With A Web Strategist</a>
                 </div>
             </div>
         </div>
@@ -140,7 +140,7 @@ include 'header.php';
                     <span><i class="fa-solid fa-check" style="color: var(--cyan-neon);"></i> Proven Australian Results</span>
                 </div>
                 <div class="cta-btn-wrapper">
-                    <a href="contact" class="btn-primary" style="padding: 18px 45px; font-size: 1.1rem;">GET MY FREE WEBSITE AUDIT <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
+                    <a href="/contact" class="btn-primary" style="padding: 18px 45px; font-size: 1.1rem;">GET MY FREE WEBSITE AUDIT <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
                 </div>
             </div>
         </div>

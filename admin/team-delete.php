@@ -16,11 +16,13 @@ $member = $stmt->fetch();
 
 if ($member) {
     $pdo->prepare('DELETE FROM team_members WHERE id = ?')->execute([$id]);
-    // Only remove the file if its path is inside images/team/ -- covers both
-    // photos uploaded through this panel and the pre-seeded team photos placed
-    // there manually, but never anything outside that one directory.
-    if ($member['photo_path'] && str_starts_with($member['photo_path'], 'images/team/')) {
-        $fullPath = __DIR__ . '/../' . $member['photo_path'];
+    // Only remove the file if its path is inside images/team/ -- covers
+    // photos uploaded through this panel (stored root-relative, leading
+    // slash) but never anything outside that one directory. Pre-seeded team
+    // photos placed manually still use the older path format without a
+    // leading slash and are intentionally left alone here.
+    if ($member['photo_path'] && str_starts_with($member['photo_path'], '/images/team/')) {
+        $fullPath = __DIR__ . '/..' . $member['photo_path'];
         if (is_file($fullPath)) {
             @unlink($fullPath);
         }

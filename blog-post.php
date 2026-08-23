@@ -22,7 +22,7 @@ if (!$post) {
             <h1>Post Not Found</h1>
             <p class="hero-subtitle">This article may have been moved or unpublished.</p>
             <div class="hero-buttons">
-                <a href="blog" class="btn-primary">Back To Blog</a>
+                <a href="/blog" class="btn-primary">Back To Blog</a>
             </div>
         </div>
     </section>
@@ -67,7 +67,7 @@ include 'header.php';
                     <?php echo $post['content']; ?>
                 </div>
                 <div style="margin-top: 40px;">
-                    <a href="blog" class="service-link"><i class="fa-solid fa-arrow-left"></i> Back To All Articles</a>
+                    <a href="/blog" class="service-link"><i class="fa-solid fa-arrow-left"></i> Back To All Articles</a>
                 </div>
             </div>
 
@@ -77,7 +77,7 @@ include 'header.php';
                     <h4>More From The Blog</h4>
                     <div class="blog-sidebar-list">
                         <?php foreach ($recentPosts as $recent): ?>
-                        <a class="blog-sidebar-item" href="blog/<?php echo urlencode($recent['slug']); ?>">
+                        <a class="blog-sidebar-item" href="/blog/<?php echo urlencode($recent['slug']); ?>">
                             <?php if ($recent['image_path']): ?>
                             <div class="blog-sidebar-thumb">
                                 <img loading="lazy" decoding="async" src="<?php echo htmlspecialchars($recent['image_path'], ENT_QUOTES, 'UTF-8'); ?>" alt="<?php echo htmlspecialchars($recent['title'], ENT_QUOTES, 'UTF-8'); ?>">
@@ -90,7 +90,7 @@ include 'header.php';
                         </a>
                         <?php endforeach; ?>
                     </div>
-                    <a href="blog" class="btn-secondary blog-sidebar-btn">VIEW ALL ARTICLES <i class="fa-solid fa-arrow-right" style="margin-left: 6px;"></i></a>
+                    <a href="/blog" class="btn-secondary blog-sidebar-btn">VIEW ALL ARTICLES <i class="fa-solid fa-arrow-right" style="margin-left: 6px;"></i></a>
                 </div>
             </aside>
             <?php endif; ?>
@@ -110,7 +110,7 @@ include 'header.php';
                     <span><i class="fa-solid fa-check" style="color: var(--cyan-neon);"></i> Proven Australian Results</span>
                 </div>
                 <div class="cta-btn-wrapper">
-                    <a href="contact" class="btn-primary" style="padding: 18px 45px; font-size: 1.1rem;">GET MY FREE GROWTH PLAN <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
+                    <a href="/contact" class="btn-primary" style="padding: 18px 45px; font-size: 1.1rem;">GET MY FREE GROWTH PLAN <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
                 </div>
             </div>
         </div>

@@ -150,7 +150,7 @@ include 'header.php';
                         </div>
                     <?php endif; ?>
 
-                    <form action="contact" method="POST" style="display: flex; flex-direction: column; gap: 18px;">
+                    <form action="/contact" method="POST" style="display: flex; flex-direction: column; gap: 18px;">
                         <?php if ($selected_plan !== ''): ?>
                             <input type="hidden" name="plan" value="<?php echo htmlspecialchars($selected_plan, ENT_QUOTES, 'UTF-8'); ?>">
                         <?php endif; ?>

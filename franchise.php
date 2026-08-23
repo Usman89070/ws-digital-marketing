@@ -11,8 +11,8 @@ include 'header.php';
             <h1 class="fade-up">LOCAL RESULTS. <br><span class="text-gradient">NATIONAL CONSISTENCY.</span></h1>
             <p class="hero-subtitle fade-up">Digital marketing for multi-location franchise brands &mdash; built to drive local leads at every location while keeping your brand consistent.</p>
             <div class="hero-buttons fade-up">
-                <a href="contact" class="btn-primary">GET MY FREE FRANCHISE AUDIT <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
-                <a href="industries" class="btn-secondary">VIEW ALL INDUSTRIES</a>
+                <a href="/contact" class="btn-primary">GET MY FREE FRANCHISE AUDIT <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
+                <a href="/industries" class="btn-secondary">VIEW ALL INDUSTRIES</a>
             </div>
         </div>
     </section>
@@ -33,7 +33,7 @@ include 'header.php';
                         <li><i class="fa-solid fa-check"></i> Localised Landing Pages For Every Site</li>
                         <li><i class="fa-solid fa-check"></i> Centralised Reporting Across All Locations</li>
                     </ul>
-                    <a href="contact" class="btn-primary" style="margin-top: 10px;">Speak With A Franchise Growth Strategist</a>
+                    <a href="/contact" class="btn-primary" style="margin-top: 10px;">Speak With A Franchise Growth Strategist</a>
                 </div>
             </div>
         </div>
@@ -84,7 +84,7 @@ include 'header.php';
                     <span><i class="fa-solid fa-check" style="color: var(--cyan-neon);"></i> Proven Australian Results</span>
                 </div>
                 <div class="cta-btn-wrapper">
-                    <a href="contact" class="btn-primary" style="padding: 18px 45px; font-size: 1.1rem;">GET MY FREE FRANCHISE AUDIT <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
+                    <a href="/contact" class="btn-primary" style="padding: 18px 45px; font-size: 1.1rem;">GET MY FREE FRANCHISE AUDIT <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
                 </div>
             </div>
         </div>

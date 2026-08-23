@@ -13,7 +13,7 @@ include 'header.php';
             
             <div class="hero-buttons fade-up">
                 <a href="#contact" class="btn-primary">GET MY FREE GROWTH PLAN <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
-                <a href="case-studies" class="btn-secondary">SEE OUR RESULTS</a>
+                <a href="/case-studies" class="btn-secondary">SEE OUR RESULTS</a>
             </div>
         </div>
     </section>
@@ -104,7 +104,7 @@ include 'header.php';
                         </div>
                     </div>
                     <div class="logo-screen">
-                        <img loading="lazy" decoding="async" src="images/logo-ws.webp" alt="W&S Animated Logo">
+                        <img loading="lazy" decoding="async" src="/images/logo-ws.webp" alt="W&S Animated Logo">
                         <div class="logo-screen-sub">Measurable Growth</div>
                     </div>
                 </div>
@@ -173,7 +173,7 @@ include 'header.php';
                             <div class="service-card-back-content">
                                 <h3>Search Engine Optimisation</h3>
                                 <p>Dominate local search and Google Maps to attract high-intent traffic directly to your website organically.</p>
-                                <a href="seo" class="service-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+                                <a href="/seo" class="service-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
                             </div>
                         </div>
                     </div>
@@ -191,7 +191,7 @@ include 'header.php';
                             <div class="service-card-back-content">
                                 <h3>E-commerce</h3>
                                 <p>Shopify and WooCommerce builds, catalog strategy, and conversion-focused checkout flows that turn browsers into repeat customers.</p>
-                                <a href="ecommerce" class="service-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+                                <a href="/ecommerce" class="service-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
                             </div>
                         </div>
                     </div>
@@ -209,7 +209,7 @@ include 'header.php';
                             <div class="service-card-back-content">
                                 <h3>Website Design & CRO</h3>
                                 <p>Beautiful, fast-loading, and mobile-responsive websites engineered specifically to convert visitors into clients.</p>
-                                <a href="website-development" class="service-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+                                <a href="/website-development" class="service-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
                             </div>
                         </div>
                     </div>
@@ -222,12 +222,12 @@ include 'header.php';
                             <h3>Social Media Marketing</h3>
                         </div>
                         <div class="service-card-back">
-                            <img loading="lazy" decoding="async" class="service-card-back-img" src="images/socialMedia.webp" alt="">
+                            <img loading="lazy" decoding="async" class="service-card-back-img" src="/images/socialMedia.webp" alt="">
                             <div class="service-card-back-overlay"></div>
                             <div class="service-card-back-content">
                                 <h3>Social Media Marketing</h3>
                                 <p>Build a strong brand presence and engage your target audience strategically on Meta and TikTok platforms.</p>
-                                <a href="social-media" class="service-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+                                <a href="/social-media" class="service-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
                             </div>
                         </div>
                     </div>
@@ -245,7 +245,7 @@ include 'header.php';
                             <div class="service-card-back-content">
                                 <h3>Google Ads & PPC</h3>
                                 <p>Drive instant, high-converting traffic and get more phone calls, quality leads, and immediate sales.</p>
-                                <a href="ppc-advertising" class="service-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+                                <a href="/ppc-advertising" class="service-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
                             </div>
                         </div>
                     </div>
@@ -263,7 +263,7 @@ include 'header.php';
                             <div class="service-card-back-content">
                                 <h3>Graphic Design</h3>
                                 <p>Brand identity, ad creative, and marketing collateral designed to stand out and stay consistent across every channel.</p>
-                                <a href="graphic-design" class="service-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+                                <a href="/graphic-design" class="service-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
                             </div>
                         </div>
                     </div>
@@ -281,14 +281,14 @@ include 'header.php';
                             <div class="service-card-back-content">
                                 <h3>Content Writing</h3>
                                 <p>SEO-optimized copy, blog content, and website content that ranks, builds authority, and speaks directly to your customers.</p>
-                                <a href="content-writing" class="service-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+                                <a href="/content-writing" class="service-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
             <div style="text-align: center; margin-top: clamp(30px, 4vw, 40px);">
-                <a href="services" class="btn-secondary">VIEW ALL SERVICES <i class="fa-solid fa-arrow-right" style="margin-left: 6px;"></i></a>
+                <a href="/services" class="btn-secondary">VIEW ALL SERVICES <i class="fa-solid fa-arrow-right" style="margin-left: 6px;"></i></a>
             </div>
         </div>
     </section>
@@ -306,7 +306,7 @@ include 'header.php';
                     <span><i class="fa-solid fa-check" style="color: var(--cyan-neon);"></i> Proven Australian Results</span>
                 </div>
                 <div class="cta-btn-wrapper">
-                    <a href="contact" class="btn-primary" style="padding: 18px 45px; font-size: 1.1rem;">GET MY FREE GROWTH PLAN <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
+                    <a href="/contact" class="btn-primary" style="padding: 18px 45px; font-size: 1.1rem;">GET MY FREE GROWTH PLAN <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
                 </div>
             </div>
         </div>

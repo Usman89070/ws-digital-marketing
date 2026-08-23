@@ -11,8 +11,8 @@ include 'header.php';
             <h1 class="fade-up">BIG AGENCY RESULTS. <br><span class="text-gradient">SMALL BUSINESS BUDGET.</span></h1>
             <p class="hero-subtitle fade-up">Digital marketing for small and local businesses &mdash; practical, affordable strategies built to compete with bigger competitors and grow steadily.</p>
             <div class="hero-buttons fade-up">
-                <a href="contact" class="btn-primary">GET MY FREE GROWTH PLAN <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
-                <a href="industries" class="btn-secondary">VIEW ALL INDUSTRIES</a>
+                <a href="/contact" class="btn-primary">GET MY FREE GROWTH PLAN <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
+                <a href="/industries" class="btn-secondary">VIEW ALL INDUSTRIES</a>
             </div>
         </div>
     </section>
@@ -33,7 +33,7 @@ include 'header.php';
                         <li><i class="fa-solid fa-check"></i> Affordable, High-Converting Websites</li>
                         <li><i class="fa-solid fa-check"></i> Lean, ROI-Focused Ad Campaigns</li>
                     </ul>
-                    <a href="contact" class="btn-primary" style="margin-top: 10px;">Speak With A Small Business Strategist</a>
+                    <a href="/contact" class="btn-primary" style="margin-top: 10px;">Speak With A Small Business Strategist</a>
                 </div>
             </div>
         </div>
@@ -84,7 +84,7 @@ include 'header.php';
                     <span><i class="fa-solid fa-check" style="color: var(--cyan-neon);"></i> Proven Australian Results</span>
                 </div>
                 <div class="cta-btn-wrapper">
-                    <a href="contact" class="btn-primary" style="padding: 18px 45px; font-size: 1.1rem;">GET MY FREE GROWTH PLAN <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
+                    <a href="/contact" class="btn-primary" style="padding: 18px 45px; font-size: 1.1rem;">GET MY FREE GROWTH PLAN <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
                 </div>
             </div>
         </div>

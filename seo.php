@@ -11,8 +11,8 @@ include 'header.php';
             <h1 class="fade-up">RANK HIGHER. GET FOUND. <br><span class="text-gradient">GROW ORGANICALLY.</span></h1>
             <p class="hero-subtitle fade-up">We combine technical SEO, local search optimization, and content strategy to get your business in front of customers who are already searching for what you offer.</p>
             <div class="hero-buttons fade-up">
-                <a href="contact" class="btn-primary">GET MY FREE SEO AUDIT <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
-                <a href="services" class="btn-secondary">VIEW ALL SERVICES</a>
+                <a href="/contact" class="btn-primary">GET MY FREE SEO AUDIT <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
+                <a href="/services" class="btn-secondary">VIEW ALL SERVICES</a>
             </div>
         </div>
     </section>
@@ -33,7 +33,7 @@ include 'header.php';
                         <li><i class="fa-solid fa-check"></i> Technical SEO Audits &amp; Fixes</li>
                         <li><i class="fa-solid fa-check"></i> Content &amp; Link-Building Campaigns</li>
                     </ul>
-                    <a href="contact" class="btn-primary" style="margin-top: 10px;">Speak With An SEO Strategist</a>
+                    <a href="/contact" class="btn-primary" style="margin-top: 10px;">Speak With An SEO Strategist</a>
                 </div>
             </div>
         </div>
@@ -270,7 +270,7 @@ include 'header.php';
             </div>
 
             <div style="text-align: center; margin-top: clamp(30px, 4vw, 40px);">
-                <a href="case-studies" class="btn-secondary">VIEW ALL CASE STUDIES <i class="fa-solid fa-arrow-right" style="margin-left: 6px;"></i></a>
+                <a href="/case-studies" class="btn-secondary">VIEW ALL CASE STUDIES <i class="fa-solid fa-arrow-right" style="margin-left: 6px;"></i></a>
             </div>
         </div>
     </section>
@@ -288,7 +288,7 @@ include 'header.php';
                     <span><i class="fa-solid fa-check" style="color: var(--cyan-neon);"></i> Proven Australian Results</span>
                 </div>
                 <div class="cta-btn-wrapper">
-                    <a href="contact" class="btn-primary" style="padding: 18px 45px; font-size: 1.1rem;">GET MY FREE SEO AUDIT <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
+                    <a href="/contact" class="btn-primary" style="padding: 18px 45px; font-size: 1.1rem;">GET MY FREE SEO AUDIT <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
                 </div>
             </div>
         </div>

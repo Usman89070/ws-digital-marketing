@@ -57,13 +57,17 @@ function handle_image_upload(string $fieldName, string $destDir, string $slugHin
     $slug = preg_replace('/[^a-z0-9-]+/', '-', strtolower(trim($slugHint)));
     $slug = trim($slug, '-') ?: 'image';
     $filename = $slug . '-' . substr(bin2hex(random_bytes(4)), 0, 8) . '.' . $ext;
-    $destPath = rtrim($destDir, '/') . '/' . $filename;
+    $relativeDestPath = rtrim($destDir, '/') . '/' . $filename;
     $destAbsoluteDir = __DIR__ . '/../../' . rtrim($destDir, '/');
     if (!is_dir($destAbsoluteDir) && !mkdir($destAbsoluteDir, 0755, true) && !is_dir($destAbsoluteDir)) {
         throw new RuntimeException('Could not create the upload folder (' . $destDir . '). Check folder permissions on the server.');
     }
-    if (!move_uploaded_file($file['tmp_name'], __DIR__ . '/../../' . $destPath)) {
+    if (!move_uploaded_file($file['tmp_name'], __DIR__ . '/../../' . $relativeDestPath)) {
         throw new RuntimeException('Could not save the uploaded file. Check that the "' . $destDir . '" folder exists and is writable.');
     }
-    return $destPath;
+    // Stored (and later rendered) root-relative -- e.g. blog-post.php now
+    // serves at /blog/<slug>, and a document-relative "images/blog/x.jpg"
+    // would resolve against that URL's own directory instead of the site
+    // root, breaking on any page that isn't exactly one path segment deep.
+    return '/' . $relativeDestPath;
 }

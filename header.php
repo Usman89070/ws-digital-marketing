@@ -15,11 +15,11 @@ $page_description = $page_description ?? 'Data-driven Google Ads, Meta Ads, SEO 
          this file is included everywhere. favicon.ico covers old browsers and anything
          that requests /favicon.ico directly regardless of <link> tags; the PNG sizes
          cover modern browsers, Android home-screen icons, and iOS "Add to Home Screen". -->
-    <link rel="icon" href="favicon.ico" sizes="any">
-    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="images/favicon-192.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/images/favicon-192.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
 
     <!-- Connect early to third-party origins so the real requests below don't pay the
          DNS+TLS handshake cost later in the load -->
@@ -31,7 +31,7 @@ $page_description = $page_description ?? 'Data-driven Google Ads, Meta Ads, SEO 
     <link rel="dns-prefetch" href="https://images.unsplash.com">
 
     <!-- The logo renders immediately (splash screen + header on every page) -->
-    <link rel="preload" as="image" href="images/logo-ws.webp" fetchpriority="high">
+    <link rel="preload" as="image" href="/images/logo-ws.webp" fetchpriority="high">
 
     <!-- Site CSS: one external, browser-cached file shared by every page instead of a
          ~20KB inline block repeated on each request. .htaccess caches this file for a
@@ -39,7 +39,7 @@ $page_description = $page_description ?? 'Data-driven Google Ads, Meta Ads, SEO 
          time) is what actually busts that cache on every real edit -- without it,
          visitors who already loaded the site once would keep serving the old CSS for
          a full year no matter how many fixes get shipped. -->
-    <link rel="stylesheet" href="css/style.css?v=<?php echo @filemtime(__DIR__ . '/css/style.css') ?: time(); ?>">
+    <link rel="stylesheet" href="/css/style.css?v=<?php echo @filemtime(__DIR__ . '/css/style.css') ?: time(); ?>">
 
     <!-- GSAP / ScrollTrigger: deferred so they never block HTML parsing or first paint.
          Deferred scripts execute in strict source order before DOMContentLoaded, so
@@ -68,7 +68,7 @@ $page_description = $page_description ?? 'Data-driven Google Ads, Meta Ads, SEO 
 
     <!-- SPLASH SCREEN: plays on every page load/navigation and on refresh -->
     <div id="splash-screen" aria-hidden="true">
-        <img src="images/logo-ws.webp" alt="" class="splash-logo">
+        <img src="/images/logo-ws.webp" alt="" class="splash-logo">
         <div class="splash-bar"></div>
     </div>
 
@@ -76,70 +76,70 @@ $page_description = $page_description ?? 'Data-driven Google Ads, Meta Ads, SEO 
     <header>
         <div class="container nav-wrapper">
             <a href="/" class="logo" style="display: flex; align-items: center;">
-                <img src="images/logo-ws.webp" alt="W&S Digital Marketing Logo" class="logo-img">
+                <img src="/images/logo-ws.webp" alt="W&S Digital Marketing Logo" class="logo-img">
             </a>
             
             <nav>
                 <ul class="nav-menu" id="navMenu">
                     <li><a href="/" onclick="toggleMenu()">Home</a></li>
-                    <li><a href="about" onclick="toggleMenu()">About Us</a></li>
+                    <li><a href="/about" onclick="toggleMenu()">About Us</a></li>
                     
                     <!-- SERVICES DROPDOWN -->
                     <li class="dropdown" onclick="toggleDropdown(event)">
-                        <a href="services">Services <i class="fa-solid fa-chevron-down" style="font-size: 0.75rem; margin-left: 4px;"></i></a>
+                        <a href="/services">Services <i class="fa-solid fa-chevron-down" style="font-size: 0.75rem; margin-left: 4px;"></i></a>
                         <ul class="dropdown-menu">
-                            <li><a href="services" class="dropdown-hub-link">All Services</a></li>
-                            <li><a href="seo">Search Engine Optimization</a></li>
-                            <li><a href="ecommerce">E-commerce</a></li>
-                            <li><a href="website-development">Website Development & Design</a></li>
-                            <li><a href="social-media">Social Media</a></li>
-                            <li><a href="ppc-advertising">PPC Advertising</a></li>
-                            <li><a href="graphic-design">Graphic Design</a></li>
-                            <li><a href="content-writing">Content Writing</a></li>
+                            <li><a href="/services" class="dropdown-hub-link">All Services</a></li>
+                            <li><a href="/seo">Search Engine Optimization</a></li>
+                            <li><a href="/ecommerce">E-commerce</a></li>
+                            <li><a href="/website-development">Website Development & Design</a></li>
+                            <li><a href="/social-media">Social Media</a></li>
+                            <li><a href="/ppc-advertising">PPC Advertising</a></li>
+                            <li><a href="/graphic-design">Graphic Design</a></li>
+                            <li><a href="/content-writing">Content Writing</a></li>
                         </ul>
                     </li>
 
-                    <li><a href="case-studies" onclick="toggleMenu()">Case Studies</a></li>
+                    <li><a href="/case-studies" onclick="toggleMenu()">Case Studies</a></li>
                     
                     <!-- AGENCY DROPDOWN -->
                     <li class="dropdown" onclick="toggleDropdown(event)">
-                        <a href="about">Agency <i class="fa-solid fa-chevron-down" style="font-size: 0.75rem; margin-left: 4px;"></i></a>
+                        <a href="/about">Agency <i class="fa-solid fa-chevron-down" style="font-size: 0.75rem; margin-left: 4px;"></i></a>
                         <ul class="dropdown-menu">
-                            <li><a href="our-team">Our Team</a></li>
-                            <li><a href="reviews">Reviews</a></li>
-                            <li><a href="blog">Blog</a></li>
-                            <li><a href="pricing">Pricing Plans</a></li>
-                            <li><a href="faq">FAQ</a></li>
+                            <li><a href="/our-team">Our Team</a></li>
+                            <li><a href="/reviews">Reviews</a></li>
+                            <li><a href="/blog">Blog</a></li>
+                            <li><a href="/pricing">Pricing Plans</a></li>
+                            <li><a href="/faq">FAQ</a></li>
                         </ul>
                     </li>
 
                     <!-- INDUSTRIES DROPDOWN -->
                     <li class="dropdown" onclick="toggleDropdown(event)">
-                        <a href="industries">Industries <i class="fa-solid fa-chevron-down" style="font-size: 0.75rem; margin-left: 4px;"></i></a>
+                        <a href="/industries">Industries <i class="fa-solid fa-chevron-down" style="font-size: 0.75rem; margin-left: 4px;"></i></a>
                         <ul class="dropdown-menu dropdown-menu-grid">
-                            <li><a href="industries" class="dropdown-hub-link">All Industries</a></li>
-                            <li><a href="accounting-finance">Accounting & Finance</a></li>
-                            <li><a href="automotive">Automotive</a></li>
-                            <li><a href="construction-building">Construction & Building</a></li>
-                            <li><a href="dental">Dental</a></li>
-                            <li><a href="ecommerce-industry">eCommerce</a></li>
-                            <li><a href="franchise">Franchise</a></li>
-                            <li><a href="healthcare-medical">Healthcare & Medical</a></li>
-                            <li><a href="hospitality-tourism">Hospitality & Tourism</a></li>
-                            <li><a href="hotel-motel">Hotel & Motel</a></li>
-                            <li><a href="legal-law">Legal / Law</a></li>
-                            <li><a href="real-estate">Real Estate</a></li>
-                            <li><a href="small-business-digital-marketing">Small Business Digital Marketing</a></li>
-                            <li><a href="ndis">NDIS</a></li>
-                            <li><a href="trades">Trades</a></li>
+                            <li><a href="/industries" class="dropdown-hub-link">All Industries</a></li>
+                            <li><a href="/accounting-finance">Accounting & Finance</a></li>
+                            <li><a href="/automotive">Automotive</a></li>
+                            <li><a href="/construction-building">Construction & Building</a></li>
+                            <li><a href="/dental">Dental</a></li>
+                            <li><a href="/ecommerce-industry">eCommerce</a></li>
+                            <li><a href="/franchise">Franchise</a></li>
+                            <li><a href="/healthcare-medical">Healthcare & Medical</a></li>
+                            <li><a href="/hospitality-tourism">Hospitality & Tourism</a></li>
+                            <li><a href="/hotel-motel">Hotel & Motel</a></li>
+                            <li><a href="/legal-law">Legal / Law</a></li>
+                            <li><a href="/real-estate">Real Estate</a></li>
+                            <li><a href="/small-business-digital-marketing">Small Business Digital Marketing</a></li>
+                            <li><a href="/ndis">NDIS</a></li>
+                            <li><a href="/trades">Trades</a></li>
                         </ul>
                     </li>
-                    <li><a href="contact" onclick="toggleMenu()">Contact Us</a></li>
+                    <li><a href="/contact" onclick="toggleMenu()">Contact Us</a></li>
                 </ul>
                 <div class="nav-roll-edge" id="navRollEdge" aria-hidden="true"></div>
             </nav>
             <div class="nav-cta">
-                <a href="contact" class="header-cta">GET FREE PLAN</a>
+                <a href="/contact" class="header-cta">GET FREE PLAN</a>
             </div>
             
             <!-- Mobile Menu Button -->

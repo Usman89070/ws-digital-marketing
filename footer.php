@@ -6,7 +6,7 @@
                 <!-- Brand Col -->
                 <div class="footer-brand">
                     <a href="/" class="logo footer-logo">
-                        <img src="images/logo-ws.webp" alt="W&S Digital Marketing Logo" class="logo-img">
+                        <img src="/images/logo-ws.webp" alt="W&S Digital Marketing Logo" class="logo-img">
                     </a>
                     <p>
                         Helping ambitious Australian businesses confidently grow online with data-driven strategies that consistently deliver real results.
@@ -24,15 +24,15 @@
                     <h4 class="footer-heading">Company</h4>
                     <ul class="footer-links">
                         <li><a href="/">Home</a></li>
-                        <li><a href="about">About Us</a></li>
-                        <li><a href="our-team">Our Team</a></li>
-                        <li><a href="services">Services</a></li>
-                        <li><a href="industries">Industries</a></li>
-                        <li><a href="case-studies">Case Studies</a></li>
-                        <li><a href="pricing">Pricing</a></li>
-                        <li><a href="blog">Blog</a></li>
-                        <li><a href="faq">FAQ</a></li>
-                        <li><a href="contact">Contact Us</a></li>
+                        <li><a href="/about">About Us</a></li>
+                        <li><a href="/our-team">Our Team</a></li>
+                        <li><a href="/services">Services</a></li>
+                        <li><a href="/industries">Industries</a></li>
+                        <li><a href="/case-studies">Case Studies</a></li>
+                        <li><a href="/pricing">Pricing</a></li>
+                        <li><a href="/blog">Blog</a></li>
+                        <li><a href="/faq">FAQ</a></li>
+                        <li><a href="/contact">Contact Us</a></li>
                     </ul>
                 </div>
 
@@ -40,13 +40,13 @@
                 <div>
                     <h4 class="footer-heading">Services</h4>
                     <ul class="footer-links">
-                        <li><a href="seo">Search Engine Optimization</a></li>
-                        <li><a href="ecommerce">E-commerce</a></li>
-                        <li><a href="website-development">Website Development</a></li>
-                        <li><a href="social-media">Social Media</a></li>
-                        <li><a href="ppc-advertising">PPC Advertising</a></li>
-                        <li><a href="graphic-design">Graphic Design</a></li>
-                        <li><a href="content-writing">Content Writing</a></li>
+                        <li><a href="/seo">Search Engine Optimization</a></li>
+                        <li><a href="/ecommerce">E-commerce</a></li>
+                        <li><a href="/website-development">Website Development</a></li>
+                        <li><a href="/social-media">Social Media</a></li>
+                        <li><a href="/ppc-advertising">PPC Advertising</a></li>
+                        <li><a href="/graphic-design">Graphic Design</a></li>
+                        <li><a href="/content-writing">Content Writing</a></li>
                     </ul>
                 </div>
 
@@ -64,8 +64,8 @@
             <div class="footer-bottom">
                 <p>© 2026 W&S Digital Marketing. All Rights Reserved.</p>
                 <div style="display: flex; gap: 20px;">
-                    <a href="privacy-policy" style="color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.3s;">Privacy Policy</a>
-                    <a href="terms-of-service" style="color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.3s;">Terms of Service</a>
+                    <a href="/privacy-policy" style="color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.3s;">Privacy Policy</a>
+                    <a href="/terms-of-service" style="color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.3s;">Terms of Service</a>
                 </div>
             </div>
         </div>
@@ -81,7 +81,7 @@
          (the file's own last-modified time) is what actually busts that cache on every
          real edit -- without it, visitors who already loaded the site once would keep
          running the old JS for a full year no matter how many fixes get shipped. -->
-    <script src="js/main.js?v=<?php echo @filemtime(__DIR__ . '/js/main.js') ?: time(); ?>" defer></script>
+    <script src="/js/main.js?v=<?php echo @filemtime(__DIR__ . '/js/main.js') ?: time(); ?>" defer></script>
 
     <!-- Three.js + the background wallpaper animation are the heaviest, least
          time-critical piece of the page (~600KB, purely decorative), so rather than

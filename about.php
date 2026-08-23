@@ -26,7 +26,7 @@ include 'header.php';
         <div class="container">
             <div class="agency-grid">
                 <div class="agency-image-wrapper" style="min-height: 400px; background: linear-gradient(160deg, rgba(0, 242, 254, 0.1), rgba(255, 0, 127, 0.08));">
-                    <img loading="lazy" decoding="async" src="images/about-ws.webp" alt="W&S Digital Marketing" onerror="this.remove()">
+                    <img loading="lazy" decoding="async" src="/images/about-ws.webp" alt="W&S Digital Marketing" onerror="this.remove()">
                 </div>
                 <div class="agency-text">
                     <span class="eyebrow">OUR STORY</span>
@@ -144,7 +144,7 @@ include 'header.php';
             <?php endif; ?>
 
             <div style="text-align: center; margin-top: clamp(30px, 4vw, 40px);">
-                <a href="our-team" class="btn-secondary">MEET THE FULL TEAM <i class="fa-solid fa-arrow-right" style="margin-left: 6px;"></i></a>
+                <a href="/our-team" class="btn-secondary">MEET THE FULL TEAM <i class="fa-solid fa-arrow-right" style="margin-left: 6px;"></i></a>
             </div>
         </div>
     </section>
@@ -162,7 +162,7 @@ include 'header.php';
                     <span><i class="fa-solid fa-check" style="color: var(--cyan-neon);"></i> Proven Australian Results</span>
                 </div>
                 <div class="cta-btn-wrapper">
-                    <a href="contact" class="btn-primary" style="padding: 18px 45px; font-size: 1.1rem;">SPEAK WITH OUR TEAM <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
+                    <a href="/contact" class="btn-primary" style="padding: 18px 45px; font-size: 1.1rem;">SPEAK WITH OUR TEAM <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
                 </div>
             </div>
         </div>
