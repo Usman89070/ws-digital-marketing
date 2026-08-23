@@ -13,8 +13,8 @@ return [
         'image' => 'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=1200&q=80',
         'image_alt' => 'Clever Beavers Workbooks and Branding',
         'has_data' => false,
-        'summary' => 'A full-suite engagement covering brand identity, e-commerce development and ongoing marketing for Clever Beavers.',
-        'services' => ['AI Design', 'Content Writing', 'Ecommerce Development', 'Graphic Design', 'PPC Advertising', 'Search Engine Optimization', 'Social Media Marketing', 'Website Design'],
+        'summary' => 'Clever Beavers is an educational brand creating engaging learning resources for preschool and early childhood education. We designed and built a modern Shopify e-commerce store that showcases its educational workbooks, printable learning resources and digital products, giving parents, teachers and caregivers a fast, fully responsive and playful-yet-professional shopping experience -- from custom homepage sections and product pages to an optimised, secure checkout flow.',
+        'services' => ['Custom Shopify Store Development', 'Mobile-First Responsive Design', 'Product & Collection Page Optimization', 'Technical SEO Implementation', 'Payment Gateway Integration', 'Speed & Performance Optimization'],
     ],
     'cafe-calibre' => [
         'name' => 'Cafe Calibre',
