@@ -1,11 +1,16 @@
 <?php
 require_once __DIR__ . '/config.php';
-$pdo = get_db();
 
 $slug = $_GET['slug'] ?? '';
-$stmt = $pdo->prepare('SELECT * FROM case_studies WHERE slug = ?');
-$stmt->execute([$slug]);
-$study = $stmt->fetch();
+$study = null;
+try {
+    $pdo = get_db();
+    $stmt = $pdo->prepare('SELECT * FROM case_studies WHERE slug = ?');
+    $stmt->execute([$slug]);
+    $study = $stmt->fetch();
+} catch (PDOException $e) {
+    $study = null;
+}
 
 if (!$study) {
     header('HTTP/1.0 404 Not Found');
@@ -44,30 +49,36 @@ $page_description = trim(strip_tags($study['summary']));
 
 // A small "More Case Studies" strip below the content -- next 3 entries in
 // display order after the current one (wrapping around), excluding itself.
-$allSlugs = $pdo->query('SELECT slug FROM case_studies ORDER BY display_order ASC, name ASC')->fetchAll(PDO::FETCH_COLUMN);
-$currentIndex = array_search($slug, $allSlugs, true);
-$moreSlugs = [];
-for ($i = 1; count($moreSlugs) < 3 && $i < count($allSlugs); $i++) {
-    $candidate = $allSlugs[($currentIndex + $i) % count($allSlugs)];
-    if ($candidate !== $slug) {
-        $moreSlugs[] = $candidate;
-    }
-}
+// Falls back to an empty strip (the rest of the page still renders) rather
+// than a fatal error if this second query hits a transient DB problem.
 $more = [];
-if ($moreSlugs) {
-    $placeholders = implode(',', array_fill(0, count($moreSlugs), '?'));
-    $moreStmt = $pdo->prepare("SELECT * FROM case_studies WHERE slug IN ($placeholders)");
-    $moreStmt->execute($moreSlugs);
-    $moreRows = $moreStmt->fetchAll();
-    $moreBySlug = [];
-    foreach ($moreRows as $row) {
-        $moreBySlug[$row['slug']] = $row;
-    }
-    foreach ($moreSlugs as $moreSlug) {
-        if (isset($moreBySlug[$moreSlug])) {
-            $more[$moreSlug] = $moreBySlug[$moreSlug];
+try {
+    $allSlugs = $pdo->query('SELECT slug FROM case_studies ORDER BY display_order ASC, name ASC')->fetchAll(PDO::FETCH_COLUMN);
+    $currentIndex = array_search($slug, $allSlugs, true);
+    $moreSlugs = [];
+    for ($i = 1; count($moreSlugs) < 3 && $i < count($allSlugs); $i++) {
+        $candidate = $allSlugs[($currentIndex + $i) % count($allSlugs)];
+        if ($candidate !== $slug) {
+            $moreSlugs[] = $candidate;
         }
     }
+    if ($moreSlugs) {
+        $placeholders = implode(',', array_fill(0, count($moreSlugs), '?'));
+        $moreStmt = $pdo->prepare("SELECT * FROM case_studies WHERE slug IN ($placeholders)");
+        $moreStmt->execute($moreSlugs);
+        $moreRows = $moreStmt->fetchAll();
+        $moreBySlug = [];
+        foreach ($moreRows as $row) {
+            $moreBySlug[$row['slug']] = $row;
+        }
+        foreach ($moreSlugs as $moreSlug) {
+            if (isset($moreBySlug[$moreSlug])) {
+                $more[$moreSlug] = $moreBySlug[$moreSlug];
+            }
+        }
+    }
+} catch (PDOException $e) {
+    $more = [];
 }
 
 include 'header.php';

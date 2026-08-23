@@ -47,6 +47,14 @@
     RewriteEngine On
     Options -MultiViews
 
+    # -1) Force HTTPS site-wide, admin panel included -- the admin login form
+    #     posts a username/password and every request afterward carries the
+    #     session cookie, neither of which should ever be able to travel over
+    #     plain HTTP. Placed first so every rule below it always operates on
+    #     the https:// URL space.
+    RewriteCond %{HTTPS} off
+    RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
     # 0) The homepage is canonically "/" -- collapse both "/index" and
     #    "/index.php" straight to it instead of leaving "/index" as a second,
     #    duplicate-content URL for the same page.

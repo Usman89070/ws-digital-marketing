@@ -1,7 +1,12 @@
 <?php
 require_once __DIR__ . '/config.php';
-$pdo = get_db();
-$caseStudies = $pdo->query('SELECT slug, name, tag, image_path, image_alt, summary FROM case_studies ORDER BY display_order ASC, name ASC')->fetchAll();
+try {
+    $caseStudies = get_db()->query('SELECT slug, name, tag, image_path, image_alt, summary FROM case_studies ORDER BY display_order ASC, name ASC')->fetchAll();
+} catch (PDOException $e) {
+    // Falls back to an empty grid (with the rest of the page still showing)
+    // rather than a fatal error if the database is briefly unreachable.
+    $caseStudies = [];
+}
 
 $page_title = 'Case Studies';
 $page_description = 'Explore real client success stories and results from W&S Digital Marketing across SEO, PPC, eCommerce and web design campaigns.';

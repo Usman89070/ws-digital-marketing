@@ -11,6 +11,14 @@
 // real database credentials with these placeholders again. Do not edit this
 // file (config.sample.php) with real credentials -- it is the template that
 // ships with every update.
+//
+// Never show raw PHP/database errors to site visitors -- if a query ever
+// fails unexpectedly, this stops the response from leaking file paths, table
+// names, or connection details on the page. Errors are still fully recorded
+// in the server's own PHP error log for debugging, just never rendered.
+ini_set('display_errors', '0');
+error_reporting(E_ALL);
+
 define('DB_HOST', 'localhost');
 define('DB_NAME', 'your_database_name');
 define('DB_USER', 'your_database_user');

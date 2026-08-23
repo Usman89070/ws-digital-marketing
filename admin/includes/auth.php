@@ -1,9 +1,7 @@
 <?php
 // Session guard + CSRF helper, included at the top of every protected admin
 // page. login.php is the only admin page that does NOT include this.
-if (session_status() === PHP_SESSION_NONE) {
-    session_start();
-}
+require_once __DIR__ . '/secure-session.php';
 
 require_once __DIR__ . '/../../config.php';
 
