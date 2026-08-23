@@ -108,8 +108,9 @@ include __DIR__ . '/includes/layout-header.php';
         <label for="tag">Tag (short label shown on the card, e.g. "Full Suite", "Local SEO")</label>
         <input type="text" id="tag" name="tag" value="<?php echo htmlspecialchars($study['tag'], ENT_QUOTES, 'UTF-8'); ?>">
 
-        <label for="summary">Summary (shown on the listing card and the detail page)</label>
-        <textarea id="summary" name="summary" rows="5"><?php echo htmlspecialchars($study['summary'], ENT_QUOTES, 'UTF-8'); ?></textarea>
+        <label for="summary">Summary (HTML allowed -- e.g. &lt;p&gt;, &lt;strong&gt;, &lt;a&gt;, &lt;ul&gt;&lt;li&gt;)</label>
+        <textarea id="summary" name="summary" rows="6"><?php echo htmlspecialchars($study['summary'], ENT_QUOTES, 'UTF-8'); ?></textarea>
+        <div class="hint">Shown in full (with formatting) on the case study's own page. The listing card and "More Client Work" preview automatically strip any HTML and show plain text only.</div>
 
         <label for="services">Services Delivered (one per line)</label>
         <textarea id="services" name="services" rows="6"><?php echo htmlspecialchars($study['services'], ENT_QUOTES, 'UTF-8'); ?></textarea>

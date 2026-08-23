@@ -401,6 +401,19 @@
         .agency-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(30px, 5vw, 60px); align-items: center; }
         .agency-text h2 { font-size: clamp(1.8rem, 4vw, 2.8rem); color: var(--navy); font-weight: 800; margin-bottom: 20px; line-height: 1.1; }
         .agency-text p { color: var(--text-muted); font-size: clamp(0.95rem, 1.5vw, 1.05rem); line-height: 1.7; margin-bottom: 25px; }
+
+        /* === CASE STUDY SUMMARY: allows HTML from the admin panel (bold, links,
+           paragraphs, lists) -- styled the same as plain text when no tags are
+           used, so existing plain-text summaries are unaffected. === */
+        .agency-summary { color: var(--text-muted); font-size: clamp(0.95rem, 1.5vw, 1.05rem); line-height: 1.7; margin-bottom: 25px; }
+        .agency-summary p { margin-bottom: 18px; }
+        .agency-summary p:last-child { margin-bottom: 0; }
+        .agency-summary h3 { color: var(--navy); font-size: 1.25rem; font-weight: 800; margin: 24px 0 12px; }
+        .agency-summary h3:first-child { margin-top: 0; }
+        .agency-summary ul, .agency-summary ol { margin: 0 0 18px 22px; }
+        .agency-summary li { margin-bottom: 6px; }
+        .agency-summary a { color: var(--cyan-neon); font-weight: 600; }
+        .agency-summary strong { color: var(--navy); }
         .agency-list { list-style: none; margin-bottom: 30px; }
         .agency-list li { display: flex; align-items: center; gap: 12px; margin-bottom: 15px; font-size: clamp(0.9rem, 1.5vw, 1rem); color: var(--navy); font-weight: 600; }
         .agency-list li i { color: var(--cyan-neon); font-size: 1.2rem; }

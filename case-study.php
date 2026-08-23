@@ -37,7 +37,10 @@ foreach ([1, 2, 3, 4] as $n) {
 $services = array_filter(array_map('trim', explode("\n", $study['services'] ?? '')), fn($s) => $s !== '');
 
 $page_title = $study['name'];
-$page_description = $study['summary'];
+// The summary field allows HTML (edited via the admin panel), so the meta
+// description -- which must be plain text -- strips tags rather than
+// echoing the markup itself.
+$page_description = trim(strip_tags($study['summary']));
 
 // A small "More Case Studies" strip below the content -- next 3 entries in
 // display order after the current one (wrapping around), excluding itself.
@@ -91,7 +94,7 @@ include 'header.php';
                         <?php if ($study['has_data'] && $study['period']): ?><span style="color: var(--text-muted); font-weight: 600; text-transform: none; letter-spacing: normal;"> &middot; <?php echo htmlspecialchars($study['period'], ENT_QUOTES, 'UTF-8'); ?></span><?php endif; ?>
                     </span>
                     <h2><?php echo $study['has_data'] ? 'What We Delivered' : 'The Engagement'; ?></h2>
-                    <p><?php echo htmlspecialchars($study['summary'], ENT_QUOTES, 'UTF-8'); ?></p>
+                    <div class="agency-summary"><?php echo $study['summary']; ?></div>
                     <?php if (!$study['has_data']): ?>
                     <p style="font-style: italic; color: var(--text-muted); font-size: 0.9rem;">Detailed performance results for this project will be published here soon.</p>
                     <?php endif; ?>
@@ -143,7 +146,7 @@ include 'header.php';
                     </div>
                     <div class="case-content">
                         <div>
-                            <p><?php echo htmlspecialchars($item['summary'], ENT_QUOTES, 'UTF-8'); ?></p>
+                            <p><?php echo htmlspecialchars(strip_tags($item['summary']), ENT_QUOTES, 'UTF-8'); ?></p>
                         </div>
                         <div>
                             <a href="/case-studies/<?php echo htmlspecialchars($moreSlug, ENT_QUOTES, 'UTF-8'); ?>" class="service-link">View Details <i class="fa-solid fa-arrow-right"></i></a>
