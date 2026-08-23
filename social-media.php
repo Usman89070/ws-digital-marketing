@@ -11,8 +11,8 @@ include 'header.php';
             <h1 class="fade-up">BUILD A BRAND <br><span class="text-gradient">PEOPLE ACTUALLY FOLLOW.</span></h1>
             <p class="hero-subtitle fade-up">Strategic content and community management across Meta and TikTok that builds real engagement, not just impressions.</p>
             <div class="hero-buttons fade-up">
-                <a href="contact.php" class="btn-primary">GET MY FREE SOCIAL AUDIT <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
-                <a href="services.php" class="btn-secondary">VIEW ALL SERVICES</a>
+                <a href="contact" class="btn-primary">GET MY FREE SOCIAL AUDIT <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
+                <a href="services" class="btn-secondary">VIEW ALL SERVICES</a>
             </div>
         </div>
     </section>
@@ -33,7 +33,7 @@ include 'header.php';
                         <li><i class="fa-solid fa-check"></i> Organic Community Management</li>
                         <li><i class="fa-solid fa-check"></i> Paid Social Campaigns That Convert</li>
                     </ul>
-                    <a href="contact.php" class="btn-primary" style="margin-top: 10px;">Speak With A Social Strategist</a>
+                    <a href="contact" class="btn-primary" style="margin-top: 10px;">Speak With A Social Strategist</a>
                 </div>
             </div>
         </div>
@@ -124,7 +124,7 @@ include 'header.php';
                     <span><i class="fa-solid fa-check" style="color: var(--cyan-neon);"></i> Proven Australian Results</span>
                 </div>
                 <div class="cta-btn-wrapper">
-                    <a href="contact.php" class="btn-primary" style="padding: 18px 45px; font-size: 1.1rem;">GET MY FREE SOCIAL AUDIT <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
+                    <a href="contact" class="btn-primary" style="padding: 18px 45px; font-size: 1.1rem;">GET MY FREE SOCIAL AUDIT <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
                 </div>
             </div>
         </div>

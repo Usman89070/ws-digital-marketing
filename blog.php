@@ -41,7 +41,7 @@ include 'header.php';
                             <p><?php echo htmlspecialchars($post['excerpt'], ENT_QUOTES, 'UTF-8'); ?></p>
                         </div>
                         <div>
-                            <a href="blog-post.php?slug=<?php echo urlencode($post['slug']); ?>" class="service-link">Read More <i class="fa-solid fa-arrow-right"></i></a>
+                            <a href="blog-post?slug=<?php echo urlencode($post['slug']); ?>" class="service-link">Read More <i class="fa-solid fa-arrow-right"></i></a>
                         </div>
                     </div>
                 </article>
@@ -66,7 +66,7 @@ include 'header.php';
                     <span><i class="fa-solid fa-check" style="color: var(--cyan-neon);"></i> Proven Australian Results</span>
                 </div>
                 <div class="cta-btn-wrapper">
-                    <a href="contact.php" class="btn-primary" style="padding: 18px 45px; font-size: 1.1rem;">GET MY FREE GROWTH PLAN <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
+                    <a href="contact" class="btn-primary" style="padding: 18px 45px; font-size: 1.1rem;">GET MY FREE GROWTH PLAN <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
                 </div>
             </div>
         </div>

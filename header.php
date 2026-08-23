@@ -75,71 +75,71 @@ $page_description = $page_description ?? 'Data-driven Google Ads, Meta Ads, SEO 
     <!-- HEADER (Solid Dark Theme, No Blur) -->
     <header>
         <div class="container nav-wrapper">
-            <a href="index.php" class="logo" style="display: flex; align-items: center;">
+            <a href="/" class="logo" style="display: flex; align-items: center;">
                 <img src="images/logo-ws.webp" alt="W&S Digital Marketing Logo" class="logo-img">
             </a>
             
             <nav>
                 <ul class="nav-menu" id="navMenu">
-                    <li><a href="index.php" onclick="toggleMenu()">Home</a></li>
-                    <li><a href="about.php" onclick="toggleMenu()">About Us</a></li>
+                    <li><a href="/" onclick="toggleMenu()">Home</a></li>
+                    <li><a href="about" onclick="toggleMenu()">About Us</a></li>
                     
                     <!-- SERVICES DROPDOWN -->
                     <li class="dropdown" onclick="toggleDropdown(event)">
-                        <a href="services.php">Services <i class="fa-solid fa-chevron-down" style="font-size: 0.75rem; margin-left: 4px;"></i></a>
+                        <a href="services">Services <i class="fa-solid fa-chevron-down" style="font-size: 0.75rem; margin-left: 4px;"></i></a>
                         <ul class="dropdown-menu">
-                            <li><a href="services.php" class="dropdown-hub-link">All Services</a></li>
-                            <li><a href="seo.php">Search Engine Optimization</a></li>
-                            <li><a href="ecommerce.php">E-commerce</a></li>
-                            <li><a href="website-development.php">Website Development & Design</a></li>
-                            <li><a href="social-media.php">Social Media</a></li>
-                            <li><a href="ppc-advertising.php">PPC Advertising</a></li>
-                            <li><a href="graphic-design.php">Graphic Design</a></li>
-                            <li><a href="content-writing.php">Content Writing</a></li>
+                            <li><a href="services" class="dropdown-hub-link">All Services</a></li>
+                            <li><a href="seo">Search Engine Optimization</a></li>
+                            <li><a href="ecommerce">E-commerce</a></li>
+                            <li><a href="website-development">Website Development & Design</a></li>
+                            <li><a href="social-media">Social Media</a></li>
+                            <li><a href="ppc-advertising">PPC Advertising</a></li>
+                            <li><a href="graphic-design">Graphic Design</a></li>
+                            <li><a href="content-writing">Content Writing</a></li>
                         </ul>
                     </li>
 
-                    <li><a href="case-studies.php" onclick="toggleMenu()">Case Studies</a></li>
+                    <li><a href="case-studies" onclick="toggleMenu()">Case Studies</a></li>
                     
                     <!-- AGENCY DROPDOWN -->
                     <li class="dropdown" onclick="toggleDropdown(event)">
-                        <a href="about.php">Agency <i class="fa-solid fa-chevron-down" style="font-size: 0.75rem; margin-left: 4px;"></i></a>
+                        <a href="about">Agency <i class="fa-solid fa-chevron-down" style="font-size: 0.75rem; margin-left: 4px;"></i></a>
                         <ul class="dropdown-menu">
-                            <li><a href="our-team.php">Our Team</a></li>
-                            <li><a href="reviews.php">Reviews</a></li>
-                            <li><a href="blog.php">Blog</a></li>
-                            <li><a href="pricing.php">Pricing Plans</a></li>
-                            <li><a href="faq.php">FAQ</a></li>
+                            <li><a href="our-team">Our Team</a></li>
+                            <li><a href="reviews">Reviews</a></li>
+                            <li><a href="blog">Blog</a></li>
+                            <li><a href="pricing">Pricing Plans</a></li>
+                            <li><a href="faq">FAQ</a></li>
                         </ul>
                     </li>
 
                     <!-- INDUSTRIES DROPDOWN -->
                     <li class="dropdown" onclick="toggleDropdown(event)">
-                        <a href="industries.php">Industries <i class="fa-solid fa-chevron-down" style="font-size: 0.75rem; margin-left: 4px;"></i></a>
+                        <a href="industries">Industries <i class="fa-solid fa-chevron-down" style="font-size: 0.75rem; margin-left: 4px;"></i></a>
                         <ul class="dropdown-menu dropdown-menu-grid">
-                            <li><a href="industries.php" class="dropdown-hub-link">All Industries</a></li>
-                            <li><a href="accounting-finance.php">Accounting & Finance</a></li>
-                            <li><a href="automotive.php">Automotive</a></li>
-                            <li><a href="construction-building.php">Construction & Building</a></li>
-                            <li><a href="dental.php">Dental</a></li>
-                            <li><a href="ecommerce-industry.php">eCommerce</a></li>
-                            <li><a href="franchise.php">Franchise</a></li>
-                            <li><a href="healthcare-medical.php">Healthcare & Medical</a></li>
-                            <li><a href="hospitality-tourism.php">Hospitality & Tourism</a></li>
-                            <li><a href="hotel-motel.php">Hotel & Motel</a></li>
-                            <li><a href="legal-law.php">Legal / Law</a></li>
-                            <li><a href="real-estate.php">Real Estate</a></li>
-                            <li><a href="small-business-digital-marketing.php">Small Business Digital Marketing</a></li>
-                            <li><a href="ndis.php">NDIS</a></li>
-                            <li><a href="trades.php">Trades</a></li>
+                            <li><a href="industries" class="dropdown-hub-link">All Industries</a></li>
+                            <li><a href="accounting-finance">Accounting & Finance</a></li>
+                            <li><a href="automotive">Automotive</a></li>
+                            <li><a href="construction-building">Construction & Building</a></li>
+                            <li><a href="dental">Dental</a></li>
+                            <li><a href="ecommerce-industry">eCommerce</a></li>
+                            <li><a href="franchise">Franchise</a></li>
+                            <li><a href="healthcare-medical">Healthcare & Medical</a></li>
+                            <li><a href="hospitality-tourism">Hospitality & Tourism</a></li>
+                            <li><a href="hotel-motel">Hotel & Motel</a></li>
+                            <li><a href="legal-law">Legal / Law</a></li>
+                            <li><a href="real-estate">Real Estate</a></li>
+                            <li><a href="small-business-digital-marketing">Small Business Digital Marketing</a></li>
+                            <li><a href="ndis">NDIS</a></li>
+                            <li><a href="trades">Trades</a></li>
                         </ul>
                     </li>
-                    <li><a href="contact.php" onclick="toggleMenu()">Contact Us</a></li>
+                    <li><a href="contact" onclick="toggleMenu()">Contact Us</a></li>
                 </ul>
                 <div class="nav-roll-edge" id="navRollEdge" aria-hidden="true"></div>
             </nav>
             <div class="nav-cta">
-                <a href="contact.php" class="header-cta">GET FREE PLAN</a>
+                <a href="contact" class="header-cta">GET FREE PLAN</a>
             </div>
             
             <!-- Mobile Menu Button -->

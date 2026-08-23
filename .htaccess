@@ -37,3 +37,39 @@
 <FilesMatch "\.sql$">
     Require all denied
 </FilesMatch>
+
+# === Clean URLs: serve every page without its .php extension ===
+# /about.php -> /about, /blog-post.php?slug=x -> /blog-post?slug=x, etc.
+# The admin panel (admin/) is deliberately excluded -- it's not indexed by
+# search engines, and its own internal links are relative .php references
+# that don't need to change.
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    Options -MultiViews
+
+    # 0) The homepage is canonically "/" -- collapse both "/index" and
+    #    "/index.php" straight to it instead of leaving "/index" as a second,
+    #    duplicate-content URL for the same page.
+    RewriteCond %{THE_REQUEST} \s/+index(\.php)?[\s?] [NC]
+    RewriteRule ^ / [R=301,L]
+
+    # 1) A browser that actually requests a URL ending in .php gets sent to
+    #    the same URL minus .php, permanently (301) so bookmarks and search
+    #    engines update. THE_REQUEST is the raw request line as the browser
+    #    sent it, so this only matches real incoming requests -- never the
+    #    internal rewrite in step 2 below, which avoids a redirect loop.
+    RewriteCond %{REQUEST_URI} !^/admin/
+    RewriteCond %{THE_REQUEST} \s/+(.*)\.php[\s?] [NC]
+    RewriteRule ^ /%1 [R=301,L]
+
+    # 2) Internally serve the matching .php file for a clean-URL request,
+    #    without changing what's shown in the browser's address bar. Only
+    #    fires when the clean path isn't already a real file/directory and
+    #    a matching .php file actually exists, so 404s and static assets
+    #    (css/, js/, images/) are completely unaffected.
+    RewriteCond %{REQUEST_URI} !^/admin/
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME}.php -f
+    RewriteRule ^(.+)$ $1.php [L]
+</IfModule>

@@ -27,7 +27,7 @@ include 'header.php';
                         <li><i class="fa-solid fa-check"></i> Local Search Optimization</li>
                         <li><i class="fa-solid fa-check"></i> Email Support</li>
                     </ul>
-                    <a href="contact.php?plan=Starter" class="btn-secondary" style="width: 100%;">Get The Starter Plan</a>
+                    <a href="contact?plan=Starter" class="btn-secondary" style="width: 100%;">Get The Starter Plan</a>
                 </div>
 
                 <div class="pricing-card featured">
@@ -40,7 +40,7 @@ include 'header.php';
                         <li><i class="fa-solid fa-check"></i> Landing Page & CRO Support</li>
                         <li><i class="fa-solid fa-check"></i> Priority Support</li>
                     </ul>
-                    <a href="contact.php?plan=Growth" class="btn-primary" style="width: 100%;">Get The Growth Plan</a>
+                    <a href="contact?plan=Growth" class="btn-primary" style="width: 100%;">Get The Growth Plan</a>
                 </div>
 
                 <div class="pricing-card">
@@ -52,7 +52,7 @@ include 'header.php';
                         <li><i class="fa-solid fa-check"></i> Website & Ecommerce Development</li>
                         <li><i class="fa-solid fa-check"></i> Weekly Reporting & Calls</li>
                     </ul>
-                    <a href="contact.php?plan=Scale" class="btn-secondary" style="width: 100%;">Request The Scale Plan</a>
+                    <a href="contact?plan=Scale" class="btn-secondary" style="width: 100%;">Request The Scale Plan</a>
                 </div>
 
             </div>
@@ -73,7 +73,7 @@ include 'header.php';
                     <span><i class="fa-solid fa-check" style="color: var(--cyan-neon);"></i> Proven Australian Results</span>
                 </div>
                 <div class="cta-btn-wrapper">
-                    <a href="contact.php" class="btn-primary" style="padding: 18px 45px; font-size: 1.1rem;">GET MY FREE GROWTH PLAN <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
+                    <a href="contact" class="btn-primary" style="padding: 18px 45px; font-size: 1.1rem;">GET MY FREE GROWTH PLAN <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
                 </div>
             </div>
         </div>

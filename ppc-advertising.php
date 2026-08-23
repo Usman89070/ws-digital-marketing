@@ -11,8 +11,8 @@ include 'header.php';
             <h1 class="fade-up">INSTANT, HIGH-CONVERTING <br><span class="text-gradient">TRAFFIC ON DEMAND.</span></h1>
             <p class="hero-subtitle fade-up">Google Ads and paid social campaigns built to generate leads and sales from day one — with full transparency on where every dollar goes.</p>
             <div class="hero-buttons fade-up">
-                <a href="contact.php" class="btn-primary">GET MY FREE PPC AUDIT <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
-                <a href="services.php" class="btn-secondary">VIEW ALL SERVICES</a>
+                <a href="contact" class="btn-primary">GET MY FREE PPC AUDIT <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
+                <a href="services" class="btn-secondary">VIEW ALL SERVICES</a>
             </div>
         </div>
     </section>
@@ -33,7 +33,7 @@ include 'header.php';
                         <li><i class="fa-solid fa-check"></i> Paid Social Advertising</li>
                         <li><i class="fa-solid fa-check"></i> Full Conversion Tracking &amp; Reporting</li>
                     </ul>
-                    <a href="contact.php" class="btn-primary" style="margin-top: 10px;">Speak With A PPC Strategist</a>
+                    <a href="contact" class="btn-primary" style="margin-top: 10px;">Speak With A PPC Strategist</a>
                 </div>
             </div>
         </div>
@@ -124,7 +124,7 @@ include 'header.php';
                     <span><i class="fa-solid fa-check" style="color: var(--cyan-neon);"></i> Proven Australian Results</span>
                 </div>
                 <div class="cta-btn-wrapper">
-                    <a href="contact.php" class="btn-primary" style="padding: 18px 45px; font-size: 1.1rem;">GET MY FREE PPC AUDIT <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
+                    <a href="contact" class="btn-primary" style="padding: 18px 45px; font-size: 1.1rem;">GET MY FREE PPC AUDIT <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
                 </div>
             </div>
         </div>
