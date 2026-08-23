@@ -26,10 +26,10 @@ include 'header.php';
                 <h2>MARKETING THAT MOVES THE NUMBERS</h2>
             </div>
             
-            <div class="scatter-item fs-1"><span>Total Clicks</span> <div class="val">135 <i class="fa-solid fa-arrow-trend-up"></i></div></div>
-            <div class="scatter-item fs-2"><span>Total Impressions</span> <div class="val">10.2K <i class="fa-solid fa-chart-column"></i></div></div>
-            <div class="scatter-item fs-3"><span>Average CTR</span> <div class="val">1.3% <i class="fa-solid fa-bullseye"></i></div></div>
-            <div class="scatter-item fs-4"><span>Average Position</span> <div class="val">27.7 <i class="fa-solid fa-trophy"></i></div></div>
+            <div class="scatter-item fs-1"><span>Total Clicks</span> <div class="val">2.71K <i class="fa-solid fa-arrow-trend-up"></i></div></div>
+            <div class="scatter-item fs-2"><span>Total Impressions</span> <div class="val">71.9K <i class="fa-solid fa-chart-column"></i></div></div>
+            <div class="scatter-item fs-3"><span>Average CTR</span> <div class="val">3.8% <i class="fa-solid fa-bullseye"></i></div></div>
+            <div class="scatter-item fs-4"><span>Average Position</span> <div class="val">12.5 <i class="fa-solid fa-trophy"></i></div></div>
             
             <!-- Laptop (Hidden on Mobile) -->
             <div class="laptop-container">
@@ -46,10 +46,10 @@ include 'header.php';
                                 <div class="dash-title">SEO Ranking Results</div>
                             </div>
                             <div class="dash-cards">
-                                <div class="dash-card"><div class="dash-card-title">Total Clicks</div><div class="dash-card-value">135</div></div>
-                                <div class="dash-card"><div class="dash-card-title">Total Impressions</div><div class="dash-card-value">10.2K</div></div>
-                                <div class="dash-card"><div class="dash-card-title">Average CTR</div><div class="dash-card-value">1.3%</div></div>
-                                <div class="dash-card"><div class="dash-card-title">Average Position</div><div class="dash-card-value">27.7</div></div>
+                                <div class="dash-card"><div class="dash-card-title">Total Clicks</div><div class="dash-card-value">2.71K</div></div>
+                                <div class="dash-card"><div class="dash-card-title">Total Impressions</div><div class="dash-card-value">71.9K</div></div>
+                                <div class="dash-card"><div class="dash-card-title">Average CTR</div><div class="dash-card-value">3.8%</div></div>
+                                <div class="dash-card"><div class="dash-card-title">Average Position</div><div class="dash-card-value">12.5</div></div>
                             </div>
                             <div class="dash-chart-area">
                                 <span style="font-weight: 700; font-size: 0.85rem; color: var(--navy); z-index: 10; position: relative;">SEO Ranking Growth Analytics</span>
@@ -121,10 +121,10 @@ include 'header.php';
                     <span style="font-size: 11px; color: var(--text-muted); background: var(--bg-secondary); padding: 5px 12px; border-radius: 15px; border: 1px solid var(--border-light);">Last 30 Days <i class="fa-solid fa-chevron-down" style="margin-left:3px;"></i></span>
                 </div>
                 <div class="mobile-dash-cards">
-                    <div class="m-dash-card"><div class="m-dash-card-title">Total Clicks</div><div class="m-dash-card-value">135</div></div>
-                    <div class="m-dash-card"><div class="m-dash-card-title">Impressions</div><div class="m-dash-card-value">10.2K</div></div>
-                    <div class="m-dash-card"><div class="m-dash-card-title">Avg CTR</div><div class="m-dash-card-value">1.3%</div></div>
-                    <div class="m-dash-card"><div class="m-dash-card-title">Avg Position</div><div class="m-dash-card-value">27.7</div></div>
+                    <div class="m-dash-card"><div class="m-dash-card-title">Total Clicks</div><div class="m-dash-card-value">2.71K</div></div>
+                    <div class="m-dash-card"><div class="m-dash-card-title">Impressions</div><div class="m-dash-card-value">71.9K</div></div>
+                    <div class="m-dash-card"><div class="m-dash-card-title">Avg CTR</div><div class="m-dash-card-value">3.8%</div></div>
+                    <div class="m-dash-card"><div class="m-dash-card-title">Avg Position</div><div class="m-dash-card-value">12.5</div></div>
                 </div>
             </div>
         </div>
