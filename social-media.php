@@ -107,6 +107,32 @@ include 'header.php';
         </div>
     </section>
 
+    <!-- CAMPAIGN CHART -->
+    <section class="services-section fade-up">
+        <div class="container">
+            <!-- ANIMATED GROWTH CHART -->
+            <div class="seo-chart-card">
+                <div class="seo-chart-head">
+                    <span class="eyebrow">AT A GLANCE</span>
+                    <h3>Messaging Conversations By Campaign</h3>
+                    <p>Results from a live client Meta Ads account, 24 Jul – 22 Aug 2026 (30-day reporting window).</p>
+                </div>
+                <div class="seo-chart-rows">
+                    <div class="seo-chart-row">
+                        <span class="seo-chart-label" data-value="81">Events by V - Ad 2</span>
+                        <div class="seo-chart-track"><div class="seo-chart-fill" style="--pct: 100%;"></div></div>
+                        <span class="seo-chart-value">81</span>
+                    </div>
+                    <div class="seo-chart-row">
+                        <span class="seo-chart-label" data-value="57">Sales Campaign Eventsbyv</span>
+                        <div class="seo-chart-track"><div class="seo-chart-fill" style="--pct: 70.4%;"></div></div>
+                        <span class="seo-chart-value">57</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- PROCESS -->
     <section class="methodology-section fade-up">
         <div class="container">
