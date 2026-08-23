@@ -81,7 +81,7 @@ include 'header.php';
     <!-- CASE STUDY CONTENT -->
     <section class="agency-section fade-up">
         <div class="container">
-            <div class="agency-grid">
+            <div class="agency-grid case-study-feature">
                 <div class="agency-image-wrapper">
                     <img loading="lazy" decoding="async" src="<?php echo htmlspecialchars($study['image_path'], ENT_QUOTES, 'UTF-8'); ?>" alt="<?php echo htmlspecialchars($study['image_alt'], ENT_QUOTES, 'UTF-8'); ?>">
                 </div>
