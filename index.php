@@ -222,7 +222,7 @@ include 'header.php';
                             <h3>Social Media Marketing</h3>
                         </div>
                         <div class="service-card-back">
-                            <img loading="lazy" decoding="async" class="service-card-back-img" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80" alt="">
+                            <img loading="lazy" decoding="async" class="service-card-back-img" src="images/socialMedia.webp" alt="">
                             <div class="service-card-back-overlay"></div>
                             <div class="service-card-back-content">
                                 <h3>Social Media Marketing</h3>
