@@ -691,7 +691,10 @@
         .metric-box { flex: 1; min-width: 110px; background: var(--bg-secondary); padding: 12px; border-radius: 12px;}
         .metric { font-size: clamp(1.4rem, 3vw, 1.8rem); font-weight: 800; color: var(--magenta-neon); display: block; line-height: 1; margin-bottom: 5px; }
         .metric-label { font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; font-weight: 700; letter-spacing: 0.5px; }
-        .case-content p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin: 0; }
+        .case-content p {
+            color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin: 0;
+            display: -webkit-box; -webkit-line-clamp: 3; line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
+        }
 
         /* === TESTIMONIALS === */
         .testimonials-section {
