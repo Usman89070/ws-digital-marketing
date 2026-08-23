@@ -422,9 +422,20 @@
         .agency-image-wrapper:hover img { transform: scale(1.03); }
 
         /* === CASE STUDY DETAIL PAGE: feature image full-width above the text,
-           instead of the side-by-side layout every other .agency-grid page uses === */
+           instead of the side-by-side layout every other .agency-grid page uses.
+           Uploaded proof images vary wildly in aspect ratio (tall website
+           screenshots, wide photos, square logos), so the wrapper is a fixed-
+           height "frame" and the image uses object-fit: contain rather than
+           cover -- the whole image is always visible, letterboxed on a light
+           background instead of ever being cropped. === */
         .agency-grid.case-study-feature { grid-template-columns: 1fr; }
-        .agency-grid.case-study-feature .agency-image-wrapper img { height: clamp(260px, 42vw, 480px); object-fit: cover; }
+        .agency-grid.case-study-feature .agency-image-wrapper {
+            display: flex; align-items: center; justify-content: center;
+            height: clamp(260px, 42vw, 480px); background: var(--bg-secondary);
+        }
+        .agency-grid.case-study-feature .agency-image-wrapper img {
+            width: 100%; height: 100%; object-fit: contain;
+        }
 
         /* === TRUSTED STRIP === */
         .trusted-strip-wrapper { background: rgba(248, 250, 252, 0.8); padding: 40px 0; border-top: 1px solid var(--border-light); border-bottom: 1px solid var(--border-light); }
