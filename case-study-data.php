@@ -10,7 +10,7 @@ return [
     'clever-beavers' => [
         'name' => 'Clever Beavers',
         'tag' => 'Full Suite',
-        'image' => 'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=1200&q=80',
+        'image' => 'https://wsdigitalmarketing.com.au/wp-content/uploads/2026/07/screencapture-cleverbeavers-2026-07-27-10_25_46-scaled-e1785130737259.webp',
         'image_alt' => 'Clever Beavers Workbooks and Branding',
         'has_data' => false,
         'summary' => 'Clever Beavers is an educational brand creating engaging learning resources for preschool and early childhood education. We designed and built a modern Shopify e-commerce store that showcases its educational workbooks, printable learning resources and digital products, giving parents, teachers and caregivers a fast, fully responsive and playful-yet-professional shopping experience -- from custom homepage sections and product pages to an optimised, secure checkout flow.',

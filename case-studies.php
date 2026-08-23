@@ -26,7 +26,7 @@ include 'header.php';
                 <div class="case-card">
                     <div class="case-image">
                         <span class="case-tag">Full Suite</span>
-                        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=800&q=80" alt="Clever Beavers Workbooks and Branding">
+                        <img loading="lazy" decoding="async" src="https://wsdigitalmarketing.com.au/wp-content/uploads/2026/07/screencapture-cleverbeavers-2026-07-27-10_25_46-scaled-e1785130737259.webp" alt="Clever Beavers Workbooks and Branding">
                         <h3>CLEVER BEAVERS</h3>
                     </div>
                     <div class="case-content">
