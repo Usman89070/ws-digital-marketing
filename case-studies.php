@@ -34,7 +34,7 @@ include 'header.php';
                             <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px;">AI Design, Content Writing, Ecommerce Development, Graphic Design, PPC Advertising, Search Engine Optimization, Social Media Marketing, Website Design.</p>
                         </div>
                         <div>
-                            <a href="/contact" class="service-link">View Details <i class="fa-solid fa-arrow-right"></i></a>
+                            <a href="/case-studies/clever-beavers" class="service-link">View Details <i class="fa-solid fa-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
@@ -51,7 +51,7 @@ include 'header.php';
                             <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px;">AI Design, Content Writing, Ecommerce Development, Graphic Design, PPC Advertising, Search Engine Optimization, Social Media Marketing, Website Design.</p>
                         </div>
                         <div>
-                            <a href="/contact" class="service-link">View Details <i class="fa-solid fa-arrow-right"></i></a>
+                            <a href="/case-studies/cafe-calibre" class="service-link">View Details <i class="fa-solid fa-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
@@ -68,7 +68,7 @@ include 'header.php';
                             <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px;">Content Writing, Ecommerce Development, Graphic Design, PPC Advertising, Search Engine Optimization, Social Media Marketing, Website Design.</p>
                         </div>
                         <div>
-                            <a href="/contact" class="service-link">View Details <i class="fa-solid fa-arrow-right"></i></a>
+                            <a href="/case-studies/on-crew" class="service-link">View Details <i class="fa-solid fa-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
@@ -85,7 +85,7 @@ include 'header.php';
                             <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px;">Content Writing, Ecommerce Development, Graphic Design, PPC Advertising, Search Engine Optimization, Social Media Marketing, Website Design.</p>
                         </div>
                         <div>
-                            <a href="/contact" class="service-link">View Details <i class="fa-solid fa-arrow-right"></i></a>
+                            <a href="/case-studies/master-fridge-repairs" class="service-link">View Details <i class="fa-solid fa-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
@@ -102,7 +102,7 @@ include 'header.php';
                             <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px;">Content Writing, Ecommerce Development, Graphic Design, PPC Advertising, Search Engine Optimization, Social Media Marketing, Website Design.</p>
                         </div>
                         <div>
-                            <a href="/contact" class="service-link">View Details <i class="fa-solid fa-arrow-right"></i></a>
+                            <a href="/case-studies/commercial-fridge-repairs-sydney" class="service-link">View Details <i class="fa-solid fa-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
@@ -119,7 +119,7 @@ include 'header.php';
                             <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px;">Content Writing, Ecommerce Development, Graphic Design, PPC Advertising, Search Engine Optimization, Social Media Marketing, Website Design.</p>
                         </div>
                         <div>
-                            <a href="/contact" class="service-link">View Details <i class="fa-solid fa-arrow-right"></i></a>
+                            <a href="/case-studies/fridge-experts" class="service-link">View Details <i class="fa-solid fa-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
@@ -136,7 +136,7 @@ include 'header.php';
                             <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px;">Content Writing, Ecommerce Development, Graphic Design, PPC Advertising, Search Engine Optimization, Social Media Marketing, Website Design.</p>
                         </div>
                         <div>
-                            <a href="/contact" class="service-link">View Details <i class="fa-solid fa-arrow-right"></i></a>
+                            <a href="/case-studies/ace-fridge-repairs-sydney" class="service-link">View Details <i class="fa-solid fa-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
@@ -153,7 +153,7 @@ include 'header.php';
                             <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px;">Content Writing, Ecommerce Development, Graphic Design, PPC Advertising, Search Engine Optimization, Social Media Marketing, Website Design.</p>
                         </div>
                         <div>
-                            <a href="/contact" class="service-link">View Details <i class="fa-solid fa-arrow-right"></i></a>
+                            <a href="/case-studies/sydney-art-flooring" class="service-link">View Details <i class="fa-solid fa-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
@@ -170,7 +170,7 @@ include 'header.php';
                             <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px;">Content Writing, Ecommerce Development, Graphic Design, PPC Advertising, Search Engine Optimization, Social Media Marketing, Website Design.</p>
                         </div>
                         <div>
-                            <a href="/contact" class="service-link">View Details <i class="fa-solid fa-arrow-right"></i></a>
+                            <a href="/case-studies/fast-fridge-repairs" class="service-link">View Details <i class="fa-solid fa-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
@@ -187,7 +187,7 @@ include 'header.php';
                             <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px;">Content Writing, Ecommerce Development, Graphic Design, PPC Advertising, Search Engine Optimization, Social Media Marketing, Website Design.</p>
                         </div>
                         <div>
-                            <a href="/contact" class="service-link">View Details <i class="fa-solid fa-arrow-right"></i></a>
+                            <a href="/case-studies/magnet-cleaning-australia" class="service-link">View Details <i class="fa-solid fa-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
@@ -204,7 +204,7 @@ include 'header.php';
                             <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px;">Content Writing, Ecommerce Development, Graphic Design, PPC Advertising, Search Engine Optimization, Social Media Marketing, Website Design.</p>
                         </div>
                         <div>
-                            <a href="/contact" class="service-link">View Details <i class="fa-solid fa-arrow-right"></i></a>
+                            <a href="/case-studies/fast-appliance-repairs" class="service-link">View Details <i class="fa-solid fa-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
@@ -221,7 +221,7 @@ include 'header.php';
                             <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px;">Content Writing, Ecommerce Development, Graphic Design, PPC Advertising, Search Engine Optimization, Social Media Marketing, Website Design.</p>
                         </div>
                         <div>
-                            <a href="/contact" class="service-link">View Details <i class="fa-solid fa-arrow-right"></i></a>
+                            <a href="/case-studies/royal-fragrances" class="service-link">View Details <i class="fa-solid fa-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
@@ -238,7 +238,7 @@ include 'header.php';
                             <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px;">Content Writing, Ecommerce Development, Graphic Design, PPC Advertising, Search Engine Optimization, Social Media Marketing, Website Design.</p>
                         </div>
                         <div>
-                            <a href="/contact" class="service-link">View Details <i class="fa-solid fa-arrow-right"></i></a>
+                            <a href="/case-studies/becoming-her-with-salma" class="service-link">View Details <i class="fa-solid fa-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
@@ -255,7 +255,7 @@ include 'header.php';
                             <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px;">Content Writing, Ecommerce Development, Graphic Design, PPC Advertising, Search Engine Optimization, Social Media Marketing, Website Design.</p>
                         </div>
                         <div>
-                            <a href="/contact" class="service-link">View Details <i class="fa-solid fa-arrow-right"></i></a>
+                            <a href="/case-studies/northside-coffee" class="service-link">View Details <i class="fa-solid fa-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
@@ -272,7 +272,7 @@ include 'header.php';
                             <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px;">Content Writing, Ecommerce Development, Graphic Design, PPC Advertising, Search Engine Optimization, Social Media Marketing, Website Design.</p>
                         </div>
                         <div>
-                            <a href="/contact" class="service-link">View Details <i class="fa-solid fa-arrow-right"></i></a>
+                            <a href="/case-studies/freak-eats" class="service-link">View Details <i class="fa-solid fa-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>

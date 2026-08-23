@@ -97,4 +97,9 @@
     #    literal "blog/<slug>.php" file exists) so it reads as the next step
     #    in the same numbered sequence.
     RewriteRule ^blog/([^/]+)/?$ blog-post.php?slug=$1 [L,QSA]
+
+    # 4) Same pattern for case study detail pages: /case-studies/<slug> is
+    #    served from case-study.php?slug=<slug> (singular filename, so it
+    #    can never collide with case-studies.php, the listing page itself).
+    RewriteRule ^case-studies/([^/]+)/?$ case-study.php?slug=$1 [L,QSA]
 </IfModule>
