@@ -77,7 +77,7 @@ include 'header.php';
                     <h4>More From The Blog</h4>
                     <div class="blog-sidebar-list">
                         <?php foreach ($recentPosts as $recent): ?>
-                        <a class="blog-sidebar-item" href="blog-post?slug=<?php echo urlencode($recent['slug']); ?>">
+                        <a class="blog-sidebar-item" href="blog/<?php echo urlencode($recent['slug']); ?>">
                             <?php if ($recent['image_path']): ?>
                             <div class="blog-sidebar-thumb">
                                 <img loading="lazy" decoding="async" src="<?php echo htmlspecialchars($recent['image_path'], ENT_QUOTES, 'UTF-8'); ?>" alt="<?php echo htmlspecialchars($recent['title'], ENT_QUOTES, 'UTF-8'); ?>">

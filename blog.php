@@ -41,7 +41,7 @@ include 'header.php';
                             <p><?php echo htmlspecialchars($post['excerpt'], ENT_QUOTES, 'UTF-8'); ?></p>
                         </div>
                         <div>
-                            <a href="blog-post?slug=<?php echo urlencode($post['slug']); ?>" class="service-link">Read More <i class="fa-solid fa-arrow-right"></i></a>
+                            <a href="blog/<?php echo urlencode($post['slug']); ?>" class="service-link">Read More <i class="fa-solid fa-arrow-right"></i></a>
                         </div>
                     </div>
                 </article>

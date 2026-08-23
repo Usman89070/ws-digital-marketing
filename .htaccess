@@ -53,6 +53,13 @@
     RewriteCond %{THE_REQUEST} \s/+index(\.php)?[\s?] [NC]
     RewriteRule ^ / [R=301,L]
 
+    # 0.5) Blog posts are canonically /blog/<slug> -- collapse the older
+    #      /blog-post.php?slug=x and /blog-post?slug=x forms straight there
+    #      in one hop (placed ahead of the generic .php-stripping rule below,
+    #      which would otherwise catch the .php variant first).
+    RewriteCond %{THE_REQUEST} \s/+blog-post(\.php)?\?slug=([^\s&]+)[\s&] [NC]
+    RewriteRule ^ /blog/%2? [R=301,L]
+
     # 1) A browser that actually requests a URL ending in .php gets sent to
     #    the same URL minus .php, permanently (301) so bookmarks and search
     #    engines update. THE_REQUEST is the raw request line as the browser
@@ -67,9 +74,27 @@
     #    fires when the clean path isn't already a real file/directory and
     #    a matching .php file actually exists, so 404s and static assets
     #    (css/, js/, images/) are completely unaffected.
+    #
+    #    Uses %{DOCUMENT_ROOT}%{REQUEST_URI} rather than %{REQUEST_FILENAME}
+    #    deliberately: for a nonexistent multi-segment path like
+    #    /blog/some-slug, Apache's own filename translation resolves
+    #    REQUEST_FILENAME down to just ".../blog" (silently dropping
+    #    "/some-slug" as if it were PATH_INFO on a script named "blog"),
+    #    even though "blog" itself doesn't exist either. That truncated
+    #    value then wrongly matched "blog.php" here and produced a
+    #    self-amplifying rewrite (blog -> blog.php -> blog.php.php -> ...)
+    #    until Apache's internal-redirect limit killed the request with a
+    #    500. REQUEST_URI is the literal request path with no such
+    #    filesystem-based reinterpretation, so this can't happen.
     RewriteCond %{REQUEST_URI} !^/admin/
-    RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteCond %{REQUEST_FILENAME}.php -f
+    RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} !-f
+    RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} !-d
+    RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI}.php -f
     RewriteRule ^(.+)$ $1.php [L]
+
+    # 3) Serve /blog/<slug> from blog-post.php?slug=<slug> internally. Placed
+    #    after rule 2 (which never matches this path anyway, since no
+    #    literal "blog/<slug>.php" file exists) so it reads as the next step
+    #    in the same numbered sequence.
+    RewriteRule ^blog/([^/]+)/?$ blog-post.php?slug=$1 [L,QSA]
 </IfModule>
