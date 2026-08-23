@@ -71,6 +71,42 @@ include 'header.php';
         </div>
     </section>
 
+    <!-- REAL RESULTS PROOF SECTION -->
+    <section class="stats-section fade-up">
+        <div class="container">
+            <div class="section-header">
+                <span class="eyebrow" style="color: var(--cyan-neon);">REAL RESULTS</span>
+                <h2 style="color: #fff; font-size: clamp(1.8rem, 4vw, 2.8rem);">Real Meta Ads Performance, Verified From Campaign Reporting</h2>
+                <p style="color: rgba(255,255,255,0.6); margin-top: 10px;">From a live client Meta Ads account, 24 Jul – 22 Aug 2026 (30-day reporting window).</p>
+            </div>
+            <div class="stats-4-grid">
+                <div class="stat-box">
+                    <div class="stat-icon"><i class="fa-solid fa-comments"></i></div>
+                    <h3>138</h3>
+                    <p>Messaging Conversations Started</p>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-icon"><i class="fa-solid fa-eye"></i></div>
+                    <h3>22.8K</h3>
+                    <p>Combined Impressions</p>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-icon"><i class="fa-solid fa-arrow-trend-up"></i></div>
+                    <h3>4.8%+</h3>
+                    <p>Click-Through Rate</p>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-icon"><i class="fa-solid fa-sack-dollar"></i></div>
+                    <h3>AU$2.64</h3>
+                    <p>Lowest Cost Per Conversation</p>
+                </div>
+            </div>
+            <div style="max-width: 800px; margin: clamp(30px, 4vw, 40px) auto 0; color: rgba(255,255,255,0.75); font-size: 0.95rem; line-height: 1.7;">
+                <p>Two campaigns were tested side by side across the reporting period: a lower-spend campaign that proved more cost-efficient at AU$2.64 per messaging conversation, and a higher-spend campaign that drove more total conversations (81) at AU$3.60 each. Both held a strong click-through rate above 4.8%, giving a clear, data-backed read on where to scale spend next.</p>
+            </div>
+        </div>
+    </section>
+
     <!-- PROCESS -->
     <section class="methodology-section fade-up">
         <div class="container">
