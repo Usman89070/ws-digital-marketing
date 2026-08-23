@@ -22,7 +22,7 @@ include 'header.php';
         <div class="container">
             <div class="agency-grid">
                 <div class="agency-image-wrapper">
-                    <img loading="lazy" decoding="async" src="images/industries/resort.webp" alt="Hotel & Motel Digital Marketing" onerror="this.remove()">
+                    <img loading="lazy" decoding="async" src="images/industries/hotelMotel.webp" alt="Hotel & Motel Digital Marketing" onerror="this.remove()">
                 </div>
                 <div class="agency-text">
                     <span class="eyebrow">WHY IT MATTERS</span>
