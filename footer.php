@@ -112,5 +112,7 @@
             }
         });
     </script>
+
+    <!-- Developed and designed by Usman Zahid -->
 </body>
 </html>
