@@ -32,13 +32,17 @@ if (!$study) {
     exit;
 }
 
-// This study's stat pairs, skipping any the admin left empty.
+// This study's stat pairs, skipping any the admin left empty. Whether to show
+// the "Results At A Glance" section is derived directly from these -- not
+// from the stored has_data column -- so the page always matches what's
+// actually filled in, even if that column is ever out of sync.
 $stats = [];
 foreach ([1, 2, 3, 4] as $n) {
     if ($study["stat{$n}_value"] !== '' || $study["stat{$n}_label"] !== '') {
         $stats[] = [$study["stat{$n}_value"], $study["stat{$n}_label"]];
     }
 }
+$hasResults = !empty($stats);
 $services = array_filter(array_map('trim', explode("\n", $study['services'] ?? '')), fn($s) => $s !== '');
 
 $page_title = $study['name'];
@@ -101,12 +105,12 @@ include 'header.php';
                 </div>
                 <div class="agency-text">
                     <span class="eyebrow">
-                        <?php echo $study['has_data'] ? 'PROJECT RESULTS' : 'PROJECT SCOPE'; ?>
-                        <?php if ($study['has_data'] && $study['period']): ?><span style="color: var(--text-muted); font-weight: 600; text-transform: none; letter-spacing: normal;"> &middot; <?php echo htmlspecialchars($study['period'], ENT_QUOTES, 'UTF-8'); ?></span><?php endif; ?>
+                        <?php echo $hasResults ? 'PROJECT RESULTS' : 'PROJECT SCOPE'; ?>
+                        <?php if ($hasResults && $study['period']): ?><span style="color: var(--text-muted); font-weight: 600; text-transform: none; letter-spacing: normal;"> &middot; <?php echo htmlspecialchars($study['period'], ENT_QUOTES, 'UTF-8'); ?></span><?php endif; ?>
                     </span>
-                    <h2><?php echo $study['has_data'] ? 'What We Delivered' : 'The Engagement'; ?></h2>
+                    <h2><?php echo $hasResults ? 'What We Delivered' : 'The Engagement'; ?></h2>
                     <div class="agency-summary"><?php echo $study['summary']; ?></div>
-                    <?php if (!$study['has_data']): ?>
+                    <?php if (!$hasResults): ?>
                     <p style="font-style: italic; color: var(--text-muted); font-size: 0.9rem;">Detailed performance results for this project will be published here soon.</p>
                     <?php endif; ?>
                     <ul class="agency-list" style="margin-top: 20px;">
@@ -119,7 +123,7 @@ include 'header.php';
         </div>
     </section>
 
-    <?php if ($study['has_data'] && $stats): ?>
+    <?php if ($hasResults): ?>
     <!-- RESULTS AT A GLANCE -->
     <section class="stats-section fade-up">
         <div class="container">
