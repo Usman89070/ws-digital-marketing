@@ -20,17 +20,36 @@ function seo_parse_stat_number(string $v): float
     return 0.0;
 }
 
+// A case study's tag can be a single label ("Local SEO") or a slash-
+// separated combo ("Ecommerce/SEO/Web Development") so one project can count
+// as real client work on every matching service page at once. Matches case-
+// insensitively against each "/"-separated segment.
+function case_study_tag_has(string $tag, string $keyword): bool
+{
+    foreach (explode('/', $tag) as $segment) {
+        if (stripos(trim($segment), $keyword) !== false) {
+            return true;
+        }
+    }
+    return false;
+}
+
 $seoCaseStudies = [];
 $seoStats = [];
 $seoClicksChart = [];
 try {
-    // Every case study with real "Results At A Glance" data -- these are all
-    // local-SEO campaigns, so they double as this page's real client work and
-    // the source for both stats sections below. Pulled live from the same
-    // table the Case Studies admin section manages: adding/editing a real
-    // client's stats from the dashboard updates this page automatically.
-    $rows = get_db()->query("SELECT slug, name, tag, image_path, image_alt, summary, stat1_value, stat1_label, stat2_value, stat2_label, stat3_value, stat3_label, stat4_value, stat4_label FROM case_studies WHERE has_data = 1 ORDER BY display_order ASC")->fetchAll();
+    // Shown below as real client work, and as the source for both stats
+    // sections: every case study with real "Results At A Glance" data (these
+    // are all local-SEO campaigns), PLUS any case study explicitly tagged
+    // "SEO" (alone or combined with other services) even before it has real
+    // stats yet. Pulled live from the same table the Case Studies admin
+    // section manages: adding/editing a client's stats or tag from the
+    // dashboard updates this page automatically.
+    $rows = get_db()->query("SELECT slug, name, tag, image_path, image_alt, summary, stat1_value, stat1_label, stat2_value, stat2_label, stat3_value, stat3_label, stat4_value, stat4_label, has_data FROM case_studies ORDER BY display_order ASC")->fetchAll();
     foreach ($rows as $row) {
+        if (!$row['has_data'] && !case_study_tag_has($row['tag'], 'seo')) {
+            continue;
+        }
         $seoCaseStudies[] = $row;
         $gotClicksStat = false;
         foreach ([1, 2, 3, 4] as $n) {

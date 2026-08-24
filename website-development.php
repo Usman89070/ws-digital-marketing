@@ -1,16 +1,38 @@
 <?php
 require_once __DIR__ . '/config.php';
+
+// A case study's tag can be a single label ("Web Development") or a slash-
+// separated combo ("Ecommerce/SEO/Web Development") so one project can count
+// as real client work on every matching service page at once. Matches case-
+// insensitively against each "/"-separated segment.
+function case_study_tag_has(string $tag, string $keyword): bool
+{
+    foreach (explode('/', $tag) as $segment) {
+        if (stripos(trim($segment), $keyword) !== false) {
+            return true;
+        }
+    }
+    return false;
+}
+
+$webdevKnownRebuildSlugs = ['commercial-fridge-repairs-sydney', 'fast-appliance-repairs', 'freak-eats'];
 $webdevCaseStudies = [];
 $webdevStats = [];
 try {
-    // The 3 case studies whose engagement included an actual site rebuild
-    // (not just SEO/local-search work) -- shown below as real proof, and as
-    // the source for the "Proven Results" stats grid. Pulled live from the
-    // same table the Case Studies admin section manages: adding/editing
-    // stats for one of these three from the dashboard updates this page
+    // Shown below as real client work, and as the source for the "Proven
+    // Results" stats grid: the 3 case studies whose engagement included an
+    // actual site rebuild, PLUS any case study explicitly tagged "Web
+    // Development" (alone or combined with other services). Pulled live from
+    // the same table the Case Studies admin section manages: adding/editing
+    // stats or a tag for one of these from the dashboard updates this page
     // automatically.
-    $rows = get_db()->query("SELECT slug, name, tag, image_path, image_alt, summary, stat1_value, stat1_label, stat2_value, stat2_label, stat3_value, stat3_label, stat4_value, stat4_label FROM case_studies WHERE slug IN ('commercial-fridge-repairs-sydney', 'fast-appliance-repairs', 'freak-eats') ORDER BY display_order ASC")->fetchAll();
+    $rows = get_db()->query("SELECT slug, name, tag, image_path, image_alt, summary, stat1_value, stat1_label, stat2_value, stat2_label, stat3_value, stat3_label, stat4_value, stat4_label FROM case_studies ORDER BY display_order ASC")->fetchAll();
     foreach ($rows as $row) {
+        $isKnownRebuild = in_array($row['slug'], $webdevKnownRebuildSlugs, true);
+        $isTaggedWebDev = case_study_tag_has($row['tag'], 'web development') || case_study_tag_has($row['tag'], 'website development');
+        if (!$isKnownRebuild && !$isTaggedWebDev) {
+            continue;
+        }
         $webdevCaseStudies[] = $row;
         foreach ([1, 2, 3, 4] as $n) {
             if ($row["stat{$n}_value"] !== '' || $row["stat{$n}_label"] !== '') {
