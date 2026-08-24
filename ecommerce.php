@@ -1,4 +1,14 @@
 <?php
+require_once __DIR__ . '/config.php';
+try {
+    // Every case study tagged "Ecommerce" -- shown below as real proof. Pulled
+    // live from the same table the Case Studies admin section manages, so a
+    // new ecommerce project tagged this way appears here automatically.
+    $ecommerceCaseStudies = get_db()->query("SELECT slug, name, tag, image_path, image_alt, summary FROM case_studies WHERE tag = 'Ecommerce' ORDER BY display_order ASC")->fetchAll();
+} catch (PDOException $e) {
+    $ecommerceCaseStudies = [];
+}
+
 $page_title = 'E-commerce';
 $page_description = 'Shopify and WooCommerce builds, catalog strategy, and conversion-focused checkout flows that turn browsers into repeat customers.';
 include 'header.php';
@@ -110,6 +120,40 @@ include 'header.php';
             </div>
         </div>
     </section>
+
+    <?php if ($ecommerceCaseStudies): ?>
+    <!-- REAL ECOMMERCE CLIENT WORK -->
+    <section class="services-section fade-up">
+        <div class="container">
+            <div class="section-header">
+                <span class="eyebrow">REAL CLIENT WORK</span>
+                <h2 style="font-size: clamp(1.8rem, 4vw, 2.8rem); margin-top: 10px;">Ecommerce Projects We've Delivered</h2>
+            </div>
+            <div class="case-grid">
+                <?php foreach ($ecommerceCaseStudies as $cs): ?>
+                <article class="case-card">
+                    <div class="case-image">
+                        <span class="case-tag"><?php echo htmlspecialchars($cs['tag'], ENT_QUOTES, 'UTF-8'); ?></span>
+                        <img loading="lazy" decoding="async" src="<?php echo htmlspecialchars($cs['image_path'], ENT_QUOTES, 'UTF-8'); ?>" alt="<?php echo htmlspecialchars($cs['image_alt'], ENT_QUOTES, 'UTF-8'); ?>">
+                        <h3><?php echo htmlspecialchars(strtoupper($cs['name']), ENT_QUOTES, 'UTF-8'); ?></h3>
+                    </div>
+                    <div class="case-content">
+                        <div>
+                            <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px;"><?php echo htmlspecialchars(strip_tags($cs['summary']), ENT_QUOTES, 'UTF-8'); ?></p>
+                        </div>
+                        <div>
+                            <a href="/case-studies/<?php echo htmlspecialchars($cs['slug'], ENT_QUOTES, 'UTF-8'); ?>" class="service-link">View Details <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </article>
+                <?php endforeach; ?>
+            </div>
+            <div style="text-align: center; margin-top: clamp(30px, 4vw, 40px);">
+                <a href="/case-studies" class="service-link"><i class="fa-solid fa-arrow-left"></i> View All Case Studies</a>
+            </div>
+        </div>
+    </section>
+    <?php endif; ?>
 
     <!-- STATS -->
     <section class="stats-section fade-up">
