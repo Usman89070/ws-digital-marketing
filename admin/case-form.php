@@ -38,11 +38,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $study["stat{$n}_value"] = trim($_POST["stat{$n}_value"] ?? '');
         $study["stat{$n}_label"] = trim($_POST["stat{$n}_label"] ?? '');
     }
-    // The "Results At A Glance" section shows automatically whenever any stat
-    // is actually filled in -- not behind a separate checkbox that's easy to
-    // forget to also tick, which was previously why saved stats sometimes
-    // didn't appear on the live page.
-    $study['has_data'] = 0;
+    // The "Results At A Glance" section shows if the checkbox is ticked OR
+    // any stat is actually filled in -- either one is enough. This keeps the
+    // manual checkbox as an explicit override, while fixing the original bug
+    // where filling in stats but forgetting to also tick the checkbox meant
+    // the saved stats silently never appeared on the live page.
+    $study['has_data'] = isset($_POST['has_data']) ? 1 : 0;
     foreach ([1, 2, 3, 4] as $n) {
         if ($study["stat{$n}_value"] !== '' || $study["stat{$n}_label"] !== '') {
             $study['has_data'] = 1;
@@ -142,10 +143,16 @@ include __DIR__ . '/includes/layout-header.php';
         <label for="image_alt">Image Alt Text</label>
         <input type="text" id="image_alt" name="image_alt" value="<?php echo htmlspecialchars($study['image_alt'], ENT_QUOTES, 'UTF-8'); ?>">
 
-        <label for="period" style="margin-top:20px;">Reporting Period (shown next to the stats below once any are filled in)</label>
+        <label style="display:flex; align-items:center; gap:8px; margin-top:20px;">
+            <input type="checkbox" name="has_data" value="1" style="width:auto;" <?php echo $study['has_data'] ? 'checked' : ''; ?>>
+            Show a "Results At A Glance" stats section on the detail page
+        </label>
+        <div class="hint">Optional -- filling in any stat below turns this on automatically anyway, even if left unchecked. Use this to force the section on/off explicitly.</div>
+
+        <label for="period">Reporting Period (shown next to the stats below once any are filled in)</label>
         <input type="text" id="period" name="period" placeholder="e.g. 20 Jul – 20 Aug 2026" value="<?php echo htmlspecialchars($study['period'], ENT_QUOTES, 'UTF-8'); ?>">
 
-        <div class="hint" style="margin-top:16px;">Up to 4 result stats (value + label), e.g. value "282" label "Organic Clicks". Fill in at least one and the "Results At A Glance" section appears automatically on the live page -- leave all four blank to show a "results coming soon" note instead.</div>
+        <div class="hint" style="margin-top:16px;">Up to 4 result stats (value + label), e.g. value "282" label "Organic Clicks". Leave all four blank (and the checkbox above unchecked) to show a "results coming soon" note instead.</div>
         <?php foreach ([1, 2, 3, 4] as $n): ?>
             <div style="display:flex; gap:10px; margin-top:8px;">
                 <input type="text" name="stat<?php echo $n; ?>_value" placeholder="Value" value="<?php echo htmlspecialchars($study["stat{$n}_value"], ENT_QUOTES, 'UTF-8'); ?>">

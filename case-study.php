@@ -32,17 +32,17 @@ if (!$study) {
     exit;
 }
 
-// This study's stat pairs, skipping any the admin left empty. Whether to show
-// the "Results At A Glance" section is derived directly from these -- not
-// from the stored has_data column -- so the page always matches what's
-// actually filled in, even if that column is ever out of sync.
+// This study's stat pairs, skipping any the admin left empty. The section
+// shows if the admin's manual has_data checkbox is on OR any stat is
+// actually filled in -- either is enough, so filled-in stats can never
+// silently fail to appear just because the checkbox was left unticked.
 $stats = [];
 foreach ([1, 2, 3, 4] as $n) {
     if ($study["stat{$n}_value"] !== '' || $study["stat{$n}_label"] !== '') {
         $stats[] = [$study["stat{$n}_value"], $study["stat{$n}_label"]];
     }
 }
-$hasResults = !empty($stats);
+$hasResults = (bool) $study['has_data'] || !empty($stats);
 $services = array_filter(array_map('trim', explode("\n", $study['services'] ?? '')), fn($s) => $s !== '');
 
 $page_title = $study['name'];
