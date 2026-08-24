@@ -1,38 +1,6 @@
 <?php
 require_once __DIR__ . '/config.php';
-
-// Turns a stat's raw display string ("1.63K", "775", "28/33") into a rough
-// number for sorting/bar-width purposes -- the K/M suffix is the only part
-// that matters here, everything else just needs to compare sensibly.
-function seo_parse_stat_number(string $v): float
-{
-    $v = trim($v);
-    if (preg_match('/^([\d,.]+)\s*([kKmM]?)/', $v, $m)) {
-        $num = (float) str_replace(',', '', $m[1]);
-        $suffix = strtolower($m[2]);
-        if ($suffix === 'k') {
-            $num *= 1000;
-        } elseif ($suffix === 'm') {
-            $num *= 1000000;
-        }
-        return $num;
-    }
-    return 0.0;
-}
-
-// A case study's tag can be a single label ("Local SEO") or a slash-
-// separated combo ("Ecommerce/SEO/Web Development") so one project can count
-// as real client work on every matching service page at once. Matches case-
-// insensitively against each "/"-separated segment.
-function case_study_tag_has(string $tag, string $keyword): bool
-{
-    foreach (explode('/', $tag) as $segment) {
-        if (stripos(trim($segment), $keyword) !== false) {
-            return true;
-        }
-    }
-    return false;
-}
+require_once __DIR__ . '/includes/case-study-helpers.php';
 
 $seoCaseStudies = [];
 $seoStats = [];
@@ -65,8 +33,11 @@ try {
             }
         }
     }
-    usort($seoClicksChart, fn($a, $b) => seo_parse_stat_number($b['value']) <=> seo_parse_stat_number($a['value']));
-    $seoClicksMax = $seoClicksChart ? seo_parse_stat_number($seoClicksChart[0]['value']) : 0;
+    usort($seoClicksChart, fn($a, $b) => parse_stat_number($b['value']) <=> parse_stat_number($a['value']));
+    $seoClicksMax = $seoClicksChart ? parse_stat_number($seoClicksChart[0]['value']) : 0;
+    // Stats sharing the same label (e.g. multiple businesses' "Organic
+    // Clicks") are combined into one box instead of shown per-business.
+    $seoStats = combine_stats($seoStats);
 } catch (PDOException $e) {
     $seoCaseStudies = [];
     $seoStats = [];

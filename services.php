@@ -1,4 +1,26 @@
 <?php
+require_once __DIR__ . '/config.php';
+require_once __DIR__ . '/includes/case-study-helpers.php';
+
+$servicesStats = [];
+try {
+    // Every real "Results At A Glance" stat across every case study, combined
+    // into one site-wide proof section -- pulled live from the same table the
+    // Case Studies admin section manages, so adding/editing a client's stats
+    // from the dashboard updates this page automatically.
+    $rows = get_db()->query('SELECT stat1_value, stat1_label, stat2_value, stat2_label, stat3_value, stat3_label, stat4_value, stat4_label FROM case_studies')->fetchAll();
+    foreach ($rows as $row) {
+        foreach ([1, 2, 3, 4] as $n) {
+            if ($row["stat{$n}_value"] !== '' || $row["stat{$n}_label"] !== '') {
+                $servicesStats[] = [$row["stat{$n}_value"], $row["stat{$n}_label"]];
+            }
+        }
+    }
+    $servicesStats = combine_stats($servicesStats);
+} catch (PDOException $e) {
+    $servicesStats = [];
+}
+
 $page_title = 'Digital Marketing Services';
 $page_description = 'SEO, PPC, eCommerce, web design, social media, graphic design and content writing services engineered to generate measurable growth for Australian businesses.';
 include 'header.php';
@@ -151,6 +173,29 @@ include 'header.php';
             </div>
         </div>
     </section>
+
+    <?php if ($servicesStats): ?>
+    <!-- PROVEN RESULTS: combined real "Results At A Glance" stats across
+         every case study, pulled live -- adding stats to any case study from
+         the admin dashboard updates this section automatically. -->
+    <section class="stats-section fade-up">
+        <div class="container">
+            <div class="section-header">
+                <span class="eyebrow" style="color: var(--cyan-neon);">PROVEN RESULTS</span>
+                <h2 style="color: #fff; font-size: clamp(1.8rem, 4vw, 2.8rem);">Real Results, Combined Across Every Service</h2>
+            </div>
+            <div class="stats-4-grid">
+                <?php foreach ($servicesStats as [$value, $label]): ?>
+                <div class="stat-box">
+                    <div class="stat-icon"><i class="fa-solid fa-arrow-trend-up"></i></div>
+                    <h3><?php echo htmlspecialchars($value, ENT_QUOTES, 'UTF-8'); ?></h3>
+                    <p><?php echo htmlspecialchars($label, ENT_QUOTES, 'UTF-8'); ?></p>
+                </div>
+                <?php endforeach; ?>
+            </div>
+        </div>
+    </section>
+    <?php endif; ?>
 
     <!-- FINAL CTA SECTION -->
     <section class="cta-section" id="contact">

@@ -1,19 +1,6 @@
 <?php
 require_once __DIR__ . '/config.php';
-
-// A case study's tag can be a single label ("Ecommerce") or a slash-separated
-// combo ("Ecommerce/SEO/Web Development") so one project can count as real
-// client work on every matching service page at once. Matches case-
-// insensitively against each "/"-separated segment.
-function case_study_tag_has(string $tag, string $keyword): bool
-{
-    foreach (explode('/', $tag) as $segment) {
-        if (stripos(trim($segment), $keyword) !== false) {
-            return true;
-        }
-    }
-    return false;
-}
+require_once __DIR__ . '/includes/case-study-helpers.php';
 
 $ecommerceCaseStudies = [];
 $ecommerceStats = [];
@@ -36,6 +23,9 @@ try {
             }
         }
     }
+    // Stats sharing the same label (e.g. multiple businesses' "Organic
+    // Clicks") are combined into one box instead of shown per-business.
+    $ecommerceStats = combine_stats($ecommerceStats);
 } catch (PDOException $e) {
     $ecommerceCaseStudies = [];
     $ecommerceStats = [];
