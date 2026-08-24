@@ -157,29 +157,6 @@ include 'header.php';
         </div>
     </section>
 
-    <?php if ($seoStats): ?>
-    <!-- STATS: combined real "Results At A Glance" stats from every case study
-         with verified results, pulled live -- adding stats to a case study
-         from the admin dashboard makes them appear here automatically. -->
-    <section class="stats-section fade-up">
-        <div class="container">
-            <div class="section-header">
-                <span class="eyebrow" style="color: var(--cyan-neon);">PROVEN RESULTS</span>
-                <h2 style="color: #fff; font-size: clamp(1.8rem, 4vw, 2.8rem);">SEO That Shows Up In The Numbers</h2>
-            </div>
-            <div class="stats-4-grid">
-                <?php foreach ($seoStats as [$value, $label]): ?>
-                <div class="stat-box">
-                    <div class="stat-icon"><i class="fa-solid fa-arrow-trend-up"></i></div>
-                    <h3><?php echo htmlspecialchars($value, ENT_QUOTES, 'UTF-8'); ?></h3>
-                    <p><?php echo htmlspecialchars($label, ENT_QUOTES, 'UTF-8'); ?></p>
-                </div>
-                <?php endforeach; ?>
-            </div>
-        </div>
-    </section>
-    <?php endif; ?>
-
     <?php if ($seoCaseStudies): ?>
     <!-- REAL CLIENT WORK: every case study with verified results, pulled live
          from the same table the Case Studies admin section manages. -->
@@ -219,7 +196,7 @@ include 'header.php';
                     <p>Total Google Search clicks recorded for each client during their most recent reporting period.</p>
                 </div>
                 <div class="seo-chart-rows">
-                    <?php foreach ($seoClicksChart as $row): $pct = $seoClicksMax > 0 ? (seo_parse_stat_number($row['value']) / $seoClicksMax * 100) : 0; ?>
+                    <?php foreach ($seoClicksChart as $row): $pct = $seoClicksMax > 0 ? (parse_stat_number($row['value']) / $seoClicksMax * 100) : 0; ?>
                     <div class="seo-chart-row">
                         <span class="seo-chart-label" data-value="<?php echo htmlspecialchars($row['value'], ENT_QUOTES, 'UTF-8'); ?>"><?php echo htmlspecialchars($row['name'], ENT_QUOTES, 'UTF-8'); ?></span>
                         <div class="seo-chart-track"><div class="seo-chart-fill" style="--pct: <?php echo htmlspecialchars((string) round($pct, 1), ENT_QUOTES, 'UTF-8'); ?>%;"></div></div>
@@ -237,6 +214,28 @@ include 'header.php';
     </section>
     <?php endif; ?>
 
+    <?php if ($seoStats): ?>
+    <!-- STATS: combined real "Results At A Glance" stats from every case study
+         with verified results, pulled live -- adding stats to a case study
+         from the admin dashboard makes them appear here automatically. -->
+    <section class="stats-section fade-up">
+        <div class="container">
+            <div class="section-header">
+                <span class="eyebrow" style="color: var(--cyan-neon);">PROVEN RESULTS</span>
+                <h2 style="color: #fff; font-size: clamp(1.8rem, 4vw, 2.8rem);">SEO That Shows Up In The Numbers</h2>
+            </div>
+            <div class="stats-4-grid">
+                <?php foreach ($seoStats as [$value, $label]): ?>
+                <div class="stat-box">
+                    <div class="stat-icon"><i class="fa-solid fa-arrow-trend-up"></i></div>
+                    <h3><?php echo htmlspecialchars($value, ENT_QUOTES, 'UTF-8'); ?></h3>
+                    <p><?php echo htmlspecialchars($label, ENT_QUOTES, 'UTF-8'); ?></p>
+                </div>
+                <?php endforeach; ?>
+            </div>
+        </div>
+    </section>
+    <?php endif; ?>
 
     <!-- FINAL CTA -->
     <section class="cta-section" id="contact">
