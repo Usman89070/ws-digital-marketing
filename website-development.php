@@ -1,4 +1,28 @@
 <?php
+require_once __DIR__ . '/config.php';
+$webdevCaseStudies = [];
+$webdevStats = [];
+try {
+    // The 3 case studies whose engagement included an actual site rebuild
+    // (not just SEO/local-search work) -- shown below as real proof, and as
+    // the source for the "Proven Results" stats grid. Pulled live from the
+    // same table the Case Studies admin section manages: adding/editing
+    // stats for one of these three from the dashboard updates this page
+    // automatically.
+    $rows = get_db()->query("SELECT slug, name, tag, image_path, image_alt, summary, stat1_value, stat1_label, stat2_value, stat2_label, stat3_value, stat3_label, stat4_value, stat4_label FROM case_studies WHERE slug IN ('commercial-fridge-repairs-sydney', 'fast-appliance-repairs', 'freak-eats') ORDER BY display_order ASC")->fetchAll();
+    foreach ($rows as $row) {
+        $webdevCaseStudies[] = $row;
+        foreach ([1, 2, 3, 4] as $n) {
+            if ($row["stat{$n}_value"] !== '' || $row["stat{$n}_label"] !== '') {
+                $webdevStats[] = [$row["stat{$n}_value"], $row["stat{$n}_label"]];
+            }
+        }
+    }
+} catch (PDOException $e) {
+    $webdevCaseStudies = [];
+    $webdevStats = [];
+}
+
 $page_title = 'Website Development & Design';
 $page_description = 'Fast, mobile-responsive websites engineered specifically for conversion rate optimization, not just aesthetics.';
 include 'header.php';
@@ -111,7 +135,46 @@ include 'header.php';
         </div>
     </section>
 
-    <!-- STATS -->
+    <?php if ($webdevCaseStudies): ?>
+    <!-- REAL CLIENT WORK: the 3 case studies whose engagement included an
+         actual site rebuild, pulled live from the same table the Case
+         Studies admin section manages. -->
+    <section class="services-section fade-up">
+        <div class="container">
+            <div class="section-header">
+                <span class="eyebrow">REAL CLIENT WORK</span>
+                <h2 style="font-size: clamp(1.8rem, 4vw, 2.8rem); margin-top: 10px;">Websites We've Built And Rebuilt</h2>
+            </div>
+            <div class="case-grid">
+                <?php foreach ($webdevCaseStudies as $cs): ?>
+                <article class="case-card">
+                    <div class="case-image">
+                        <span class="case-tag"><?php echo htmlspecialchars($cs['tag'], ENT_QUOTES, 'UTF-8'); ?></span>
+                        <img loading="lazy" decoding="async" src="<?php echo htmlspecialchars($cs['image_path'], ENT_QUOTES, 'UTF-8'); ?>" alt="<?php echo htmlspecialchars($cs['image_alt'], ENT_QUOTES, 'UTF-8'); ?>">
+                        <h3><?php echo htmlspecialchars(strtoupper($cs['name']), ENT_QUOTES, 'UTF-8'); ?></h3>
+                    </div>
+                    <div class="case-content">
+                        <div>
+                            <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px;"><?php echo htmlspecialchars(strip_tags($cs['summary']), ENT_QUOTES, 'UTF-8'); ?></p>
+                        </div>
+                        <div>
+                            <a href="/case-studies/<?php echo htmlspecialchars($cs['slug'], ENT_QUOTES, 'UTF-8'); ?>" class="service-link">View Details <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </article>
+                <?php endforeach; ?>
+            </div>
+            <div style="text-align: center; margin-top: clamp(30px, 4vw, 40px);">
+                <a href="/case-studies" class="service-link"><i class="fa-solid fa-arrow-left"></i> View All Case Studies</a>
+            </div>
+        </div>
+    </section>
+    <?php endif; ?>
+
+    <?php if ($webdevStats): ?>
+    <!-- STATS: combined real "Results At A Glance" stats from the case
+         studies above, pulled live -- adding stats to one of them from the
+         admin dashboard makes them appear here automatically. -->
     <section class="stats-section fade-up">
         <div class="container">
             <div class="section-header">
@@ -119,13 +182,17 @@ include 'header.php';
                 <h2 style="color: #fff; font-size: clamp(1.8rem, 4vw, 2.8rem);">Websites That Perform, Not Just Impress</h2>
             </div>
             <div class="stats-4-grid">
-                <div class="stat-box"><div class="stat-icon"><i class="fa-solid fa-bolt"></i></div><h3>&lt;2s</h3><p>Avg. Page Load Time</p></div>
-                <div class="stat-box"><div class="stat-icon"><i class="fa-solid fa-gauge-high"></i></div><h3>+63%</h3><p>Avg. Conversion Rate Lift</p></div>
-                <div class="stat-box"><div class="stat-icon"><i class="fa-solid fa-mobile-screen"></i></div><h3>100%</h3><p>Mobile-Responsive Builds</p></div>
-                <div class="stat-box"><div class="stat-icon"><i class="fa-solid fa-face-smile"></i></div><h3>98%</h3><p>Client Satisfaction</p></div>
+                <?php foreach ($webdevStats as [$value, $label]): ?>
+                <div class="stat-box">
+                    <div class="stat-icon"><i class="fa-solid fa-arrow-trend-up"></i></div>
+                    <h3><?php echo htmlspecialchars($value, ENT_QUOTES, 'UTF-8'); ?></h3>
+                    <p><?php echo htmlspecialchars($label, ENT_QUOTES, 'UTF-8'); ?></p>
+                </div>
+                <?php endforeach; ?>
             </div>
         </div>
     </section>
+    <?php endif; ?>
 
     <!-- FINAL CTA -->
     <section class="cta-section" id="contact">

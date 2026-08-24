@@ -1,4 +1,60 @@
 <?php
+require_once __DIR__ . '/config.php';
+
+// Turns a stat's raw display string ("1.63K", "775", "28/33") into a rough
+// number for sorting/bar-width purposes -- the K/M suffix is the only part
+// that matters here, everything else just needs to compare sensibly.
+function seo_parse_stat_number(string $v): float
+{
+    $v = trim($v);
+    if (preg_match('/^([\d,.]+)\s*([kKmM]?)/', $v, $m)) {
+        $num = (float) str_replace(',', '', $m[1]);
+        $suffix = strtolower($m[2]);
+        if ($suffix === 'k') {
+            $num *= 1000;
+        } elseif ($suffix === 'm') {
+            $num *= 1000000;
+        }
+        return $num;
+    }
+    return 0.0;
+}
+
+$seoCaseStudies = [];
+$seoStats = [];
+$seoClicksChart = [];
+try {
+    // Every case study with real "Results At A Glance" data -- these are all
+    // local-SEO campaigns, so they double as this page's real client work and
+    // the source for both stats sections below. Pulled live from the same
+    // table the Case Studies admin section manages: adding/editing a real
+    // client's stats from the dashboard updates this page automatically.
+    $rows = get_db()->query("SELECT slug, name, tag, image_path, image_alt, summary, stat1_value, stat1_label, stat2_value, stat2_label, stat3_value, stat3_label, stat4_value, stat4_label FROM case_studies WHERE has_data = 1 ORDER BY display_order ASC")->fetchAll();
+    foreach ($rows as $row) {
+        $seoCaseStudies[] = $row;
+        $gotClicksStat = false;
+        foreach ([1, 2, 3, 4] as $n) {
+            $value = $row["stat{$n}_value"];
+            $label = $row["stat{$n}_label"];
+            if ($value === '' && $label === '') {
+                continue;
+            }
+            $seoStats[] = [$value, $label];
+            if (!$gotClicksStat && stripos($label, 'organic click') !== false) {
+                $seoClicksChart[] = ['name' => $row['name'], 'value' => $value];
+                $gotClicksStat = true;
+            }
+        }
+    }
+    usort($seoClicksChart, fn($a, $b) => seo_parse_stat_number($b['value']) <=> seo_parse_stat_number($a['value']));
+    $seoClicksMax = $seoClicksChart ? seo_parse_stat_number($seoClicksChart[0]['value']) : 0;
+} catch (PDOException $e) {
+    $seoCaseStudies = [];
+    $seoStats = [];
+    $seoClicksChart = [];
+    $seoClicksMax = 0;
+}
+
 $page_title = 'Search Engine Optimization';
 $page_description = 'Local SEO, technical audits, and content strategies engineered to get your business found on Google and Google Maps.';
 include 'header.php';
@@ -111,7 +167,10 @@ include 'header.php';
         </div>
     </section>
 
-    <!-- STATS -->
+    <?php if ($seoStats): ?>
+    <!-- STATS: combined real "Results At A Glance" stats from every case study
+         with verified results, pulled live -- adding stats to a case study
+         from the admin dashboard makes them appear here automatically. -->
     <section class="stats-section fade-up">
         <div class="container">
             <div class="section-header">
@@ -119,110 +178,49 @@ include 'header.php';
                 <h2 style="color: #fff; font-size: clamp(1.8rem, 4vw, 2.8rem);">SEO That Shows Up In The Numbers</h2>
             </div>
             <div class="stats-4-grid">
-                <div class="stat-box"><div class="stat-icon"><i class="fa-solid fa-arrow-trend-up"></i></div><h3>3,090</h3><p>Organic Clicks Delivered</p></div>
-                <div class="stat-box"><div class="stat-icon"><i class="fa-solid fa-eye"></i></div><h3>387K+</h3><p>Search Impressions Earned</p></div>
-                <div class="stat-box"><div class="stat-icon"><i class="fa-solid fa-phone-volume"></i></div><h3>1,952</h3><p>Google Business Profile Actions</p></div>
-                <div class="stat-box"><div class="stat-icon"><i class="fa-solid fa-magnifying-glass-chart"></i></div><h3>7</h3><p>Verified Client Campaigns</p></div>
+                <?php foreach ($seoStats as [$value, $label]): ?>
+                <div class="stat-box">
+                    <div class="stat-icon"><i class="fa-solid fa-arrow-trend-up"></i></div>
+                    <h3><?php echo htmlspecialchars($value, ENT_QUOTES, 'UTF-8'); ?></h3>
+                    <p><?php echo htmlspecialchars($label, ENT_QUOTES, 'UTF-8'); ?></p>
+                </div>
+                <?php endforeach; ?>
             </div>
         </div>
     </section>
+    <?php endif; ?>
 
-    <!-- REAL CLIENT RESULTS (verified figures pulled from each client's own
-         Google Search Console / Google Business Profile reporting) -->
+    <?php if ($seoCaseStudies): ?>
+    <!-- REAL CLIENT WORK: every case study with verified results, pulled live
+         from the same table the Case Studies admin section manages. -->
     <section class="services-section fade-up">
         <div class="container">
             <div class="section-header">
                 <span class="eyebrow">VERIFIED RESULTS</span>
                 <h2 style="font-size: clamp(1.8rem, 4vw, 2.8rem); margin-top: 10px;">Real Campaigns. Real Numbers.</h2>
-                <p style="color: var(--text-muted); max-width: 700px; margin: 15px auto 0; font-size: 1.05rem;">Every figure below comes straight from Google Search Console and Google Business Profile reporting for current clients — not projections. Reporting windows vary by client.</p>
+                <p style="color: var(--text-muted); max-width: 700px; margin: 15px auto 0; font-size: 1.05rem;">Every figure on this page comes straight from Google Search Console and Google Business Profile reporting for current clients -- not projections. Reporting windows vary by client.</p>
             </div>
-            <div class="seo-proof-grid">
-                <div class="seo-proof-card">
-                    <div class="seo-proof-head">
-                        <h4>Commercial Fridge Repairs</h4>
-                        <span class="seo-proof-period">20 Jul – 20 Aug 2026</span>
+            <div class="case-grid">
+                <?php foreach ($seoCaseStudies as $cs): ?>
+                <article class="case-card">
+                    <div class="case-image">
+                        <span class="case-tag"><?php echo htmlspecialchars($cs['tag'], ENT_QUOTES, 'UTF-8'); ?></span>
+                        <img loading="lazy" decoding="async" src="<?php echo htmlspecialchars($cs['image_path'], ENT_QUOTES, 'UTF-8'); ?>" alt="<?php echo htmlspecialchars($cs['image_alt'], ENT_QUOTES, 'UTF-8'); ?>">
+                        <h3><?php echo htmlspecialchars(strtoupper($cs['name']), ENT_QUOTES, 'UTF-8'); ?></h3>
                     </div>
-                    <p class="seo-proof-desc">Sydney commercial refrigeration. Rebuilt from a near-invisible baseline into measurable organic and local visibility.</p>
-                    <div class="seo-proof-stats">
-                        <div><strong>102</strong><span>Organic Clicks</span></div>
-                        <div><strong>24.1K</strong><span>Impressions</span></div>
-                        <div><strong>+5.3%</strong><span>GBP Growth YoY</span></div>
+                    <div class="case-content">
+                        <div>
+                            <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px;"><?php echo htmlspecialchars(strip_tags($cs['summary']), ENT_QUOTES, 'UTF-8'); ?></p>
+                        </div>
+                        <div>
+                            <a href="/case-studies/<?php echo htmlspecialchars($cs['slug'], ENT_QUOTES, 'UTF-8'); ?>" class="service-link">View Details <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
                     </div>
-                </div>
-                <div class="seo-proof-card">
-                    <div class="seo-proof-head">
-                        <h4>Fast Fridge Repairs</h4>
-                        <span class="seo-proof-period">20 Jul – 20 Aug 2026</span>
-                    </div>
-                    <p class="seo-proof-desc">Sydney residential fridge repair. Consistent month-on-month click growth across desktop and mobile search.</p>
-                    <div class="seo-proof-stats">
-                        <div><strong>282</strong><span>Organic Clicks</span></div>
-                        <div><strong>34.8K</strong><span>Impressions</span></div>
-                        <div><strong>2.68K</strong><span>AI Overview Impr.</span></div>
-                    </div>
-                </div>
-                <div class="seo-proof-card">
-                    <div class="seo-proof-head">
-                        <h4>Fridge Experts</h4>
-                        <span class="seo-proof-period">1 Jun – 21 Aug 2026</span>
-                    </div>
-                    <p class="seo-proof-desc">Sydney refrigeration sales &amp; service. 33 tracked commercial keywords, dominating the results that generate enquiries.</p>
-                    <div class="seo-proof-stats">
-                        <div><strong>28/33</strong><span>Keywords Page 1</span></div>
-                        <div><strong>5.8</strong><span>Avg. Tracked Position</span></div>
-                        <div><strong>232</strong><span>GBP Interactions</span></div>
-                    </div>
-                </div>
-                <div class="seo-proof-card">
-                    <div class="seo-proof-head">
-                        <h4>Freak Eats Australia</h4>
-                        <span class="seo-proof-period">1 Jun – 21 Aug 2026</span>
-                    </div>
-                    <p class="seo-proof-desc">Western Sydney food truck &amp; event catering. Full site rebuild plus GBP overhaul across 56 tracked keywords.</p>
-                    <div class="seo-proof-stats">
-                        <div><strong>53/56</strong><span>Keywords Page 1</span></div>
-                        <div><strong>36</strong><span>Keywords at #1</span></div>
-                        <div><strong>258</strong><span>GBP Interactions</span></div>
-                    </div>
-                </div>
-                <div class="seo-proof-card">
-                    <div class="seo-proof-head">
-                        <h4>Fast Appliance Repairs</h4>
-                        <span class="seo-proof-period">1 Jun – 21 Aug 2026</span>
-                    </div>
-                    <p class="seo-proof-desc">Sydney appliance repair across 58 tracked keywords spanning brand, location and service terms.</p>
-                    <div class="seo-proof-stats">
-                        <div><strong>57/58</strong><span>Keywords Page 1</span></div>
-                        <div><strong>775</strong><span>Organic Clicks</span></div>
-                        <div><strong>333</strong><span>Calls From GBP</span></div>
-                    </div>
-                </div>
-                <div class="seo-proof-card">
-                    <div class="seo-proof-head">
-                        <h4>Ace Fridge Repairs</h4>
-                        <span class="seo-proof-period">1 Jul – 8 Aug 2026</span>
-                    </div>
-                    <p class="seo-proof-desc">Sydney fridge repair specialist. Dominant on brand-name searches (CHiQ, GE, Skipio) with near-universal presence inside Google's AI answers.</p>
-                    <div class="seo-proof-stats">
-                        <div><strong>10/18</strong><span>Keywords at #1</span></div>
-                        <div><strong>39.3K</strong><span>Impressions</span></div>
-                        <div><strong>16/18</strong><span>Visible in AI</span></div>
-                    </div>
-                </div>
-                <div class="seo-proof-card">
-                    <div class="seo-proof-head">
-                        <h4>Fridge Repair Experts</h4>
-                        <span class="seo-proof-period">1 Jun – 18 Aug 2026</span>
-                    </div>
-                    <p class="seo-proof-desc">Sydney fridge repair specialist. Broad page-one coverage across 33 suburb, brand and commercial keywords.</p>
-                    <div class="seo-proof-stats">
-                        <div><strong>421</strong><span>Organic Clicks</span></div>
-                        <div><strong>20/33</strong><span>Keywords Page 1</span></div>
-                        <div><strong>27/33</strong><span>Visible in AI</span></div>
-                    </div>
-                </div>
+                </article>
+                <?php endforeach; ?>
             </div>
 
+            <?php if ($seoClicksChart): ?>
             <!-- ANIMATED GROWTH CHART -->
             <div class="seo-chart-card">
                 <div class="seo-chart-head">
@@ -231,49 +229,24 @@ include 'header.php';
                     <p>Total Google Search clicks recorded for each client during their most recent reporting period.</p>
                 </div>
                 <div class="seo-chart-rows">
+                    <?php foreach ($seoClicksChart as $row): $pct = $seoClicksMax > 0 ? (seo_parse_stat_number($row['value']) / $seoClicksMax * 100) : 0; ?>
                     <div class="seo-chart-row">
-                        <span class="seo-chart-label" data-value="776">Freak Eats Australia</span>
-                        <div class="seo-chart-track"><div class="seo-chart-fill" style="--pct: 100%;"></div></div>
-                        <span class="seo-chart-value">776</span>
+                        <span class="seo-chart-label" data-value="<?php echo htmlspecialchars($row['value'], ENT_QUOTES, 'UTF-8'); ?>"><?php echo htmlspecialchars($row['name'], ENT_QUOTES, 'UTF-8'); ?></span>
+                        <div class="seo-chart-track"><div class="seo-chart-fill" style="--pct: <?php echo htmlspecialchars((string) round($pct, 1), ENT_QUOTES, 'UTF-8'); ?>%;"></div></div>
+                        <span class="seo-chart-value"><?php echo htmlspecialchars($row['value'], ENT_QUOTES, 'UTF-8'); ?></span>
                     </div>
-                    <div class="seo-chart-row">
-                        <span class="seo-chart-label" data-value="775">Fast Appliance Repairs</span>
-                        <div class="seo-chart-track"><div class="seo-chart-fill" style="--pct: 99.9%;"></div></div>
-                        <span class="seo-chart-value">775</span>
-                    </div>
-                    <div class="seo-chart-row">
-                        <span class="seo-chart-label" data-value="514">Fridge Experts</span>
-                        <div class="seo-chart-track"><div class="seo-chart-fill" style="--pct: 66.2%;"></div></div>
-                        <span class="seo-chart-value">514</span>
-                    </div>
-                    <div class="seo-chart-row">
-                        <span class="seo-chart-label" data-value="421">Fridge Repair Experts</span>
-                        <div class="seo-chart-track"><div class="seo-chart-fill" style="--pct: 54.3%;"></div></div>
-                        <span class="seo-chart-value">421</span>
-                    </div>
-                    <div class="seo-chart-row">
-                        <span class="seo-chart-label" data-value="282">Fast Fridge Repairs</span>
-                        <div class="seo-chart-track"><div class="seo-chart-fill" style="--pct: 36.3%;"></div></div>
-                        <span class="seo-chart-value">282</span>
-                    </div>
-                    <div class="seo-chart-row">
-                        <span class="seo-chart-label" data-value="220">Ace Fridge Repairs</span>
-                        <div class="seo-chart-track"><div class="seo-chart-fill" style="--pct: 28.4%;"></div></div>
-                        <span class="seo-chart-value">220</span>
-                    </div>
-                    <div class="seo-chart-row">
-                        <span class="seo-chart-label" data-value="102">Commercial Fridge Repairs</span>
-                        <div class="seo-chart-track"><div class="seo-chart-fill" style="--pct: 13.1%;"></div></div>
-                        <span class="seo-chart-value">102</span>
-                    </div>
+                    <?php endforeach; ?>
                 </div>
             </div>
+            <?php endif; ?>
 
             <div style="text-align: center; margin-top: clamp(30px, 4vw, 40px);">
                 <a href="/case-studies" class="btn-secondary">VIEW ALL CASE STUDIES <i class="fa-solid fa-arrow-right" style="margin-left: 6px;"></i></a>
             </div>
         </div>
     </section>
+    <?php endif; ?>
+
 
     <!-- FINAL CTA -->
     <section class="cta-section" id="contact">
