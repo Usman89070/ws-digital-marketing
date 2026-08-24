@@ -1,12 +1,25 @@
 <?php
 require_once __DIR__ . '/config.php';
+$ecommerceCaseStudies = [];
+$ecommerceStats = [];
 try {
-    // Every case study tagged "Ecommerce" -- shown below as real proof. Pulled
-    // live from the same table the Case Studies admin section manages, so a
-    // new ecommerce project tagged this way appears here automatically.
-    $ecommerceCaseStudies = get_db()->query("SELECT slug, name, tag, image_path, image_alt, summary FROM case_studies WHERE tag = 'Ecommerce' ORDER BY display_order ASC")->fetchAll();
+    // Every case study tagged "Ecommerce" -- shown below as real proof, and
+    // as the source for the "Proven Results" stats grid. Pulled live from the
+    // same table the Case Studies admin section manages, so a new ecommerce
+    // project tagged this way -- and any "Results At A Glance" stats added
+    // for it from the dashboard -- appears here automatically.
+    $rows = get_db()->query("SELECT slug, name, tag, image_path, image_alt, summary, stat1_value, stat1_label, stat2_value, stat2_label, stat3_value, stat3_label, stat4_value, stat4_label FROM case_studies WHERE tag = 'Ecommerce' ORDER BY display_order ASC")->fetchAll();
+    foreach ($rows as $row) {
+        $ecommerceCaseStudies[] = $row;
+        foreach ([1, 2, 3, 4] as $n) {
+            if ($row["stat{$n}_value"] !== '' || $row["stat{$n}_label"] !== '') {
+                $ecommerceStats[] = [$row["stat{$n}_value"], $row["stat{$n}_label"]];
+            }
+        }
+    }
 } catch (PDOException $e) {
     $ecommerceCaseStudies = [];
+    $ecommerceStats = [];
 }
 
 $page_title = 'E-commerce';
@@ -155,21 +168,28 @@ include 'header.php';
     </section>
     <?php endif; ?>
 
-    <!-- STATS -->
+    <?php if ($ecommerceStats): ?>
+    <!-- STATS: combined real "Results At A Glance" stats from every ecommerce-
+         tagged case study, pulled live -- adding stats to an ecommerce case
+         study from the admin dashboard makes them appear here automatically. -->
     <section class="stats-section fade-up">
         <div class="container">
             <div class="section-header">
                 <span class="eyebrow" style="color: var(--cyan-neon);">PROVEN RESULTS</span>
-                <h2 style="color: #fff; font-size: clamp(1.8rem, 4vw, 2.8rem);">Ecommerce Growth That Compounds</h2>
+                <h2 style="color: #fff; font-size: clamp(1.8rem, 4vw, 2.8rem);">Real Ecommerce Results, Verified From Client Reporting</h2>
             </div>
             <div class="stats-4-grid">
-                <div class="stat-box"><div class="stat-icon"><i class="fa-solid fa-gauge-high"></i></div><h3>+58%</h3><p>Avg. Conversion Rate Lift</p></div>
-                <div class="stat-box"><div class="stat-icon"><i class="fa-solid fa-chart-line"></i></div><h3>7.2x</h3><p>Avg. ROAS On Shopping Ads</p></div>
-                <div class="stat-box"><div class="stat-icon"><i class="fa-solid fa-cart-shopping"></i></div><h3>-24%</h3><p>Cart Abandonment</p></div>
-                <div class="stat-box"><div class="stat-icon"><i class="fa-solid fa-rotate"></i></div><h3>+41%</h3><p>Repeat Purchase Rate</p></div>
+                <?php foreach ($ecommerceStats as [$value, $label]): ?>
+                <div class="stat-box">
+                    <div class="stat-icon"><i class="fa-solid fa-arrow-trend-up"></i></div>
+                    <h3><?php echo htmlspecialchars($value, ENT_QUOTES, 'UTF-8'); ?></h3>
+                    <p><?php echo htmlspecialchars($label, ENT_QUOTES, 'UTF-8'); ?></p>
+                </div>
+                <?php endforeach; ?>
             </div>
         </div>
     </section>
+    <?php endif; ?>
 
     <!-- FINAL CTA -->
     <section class="cta-section" id="contact">
