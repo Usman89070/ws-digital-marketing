@@ -1,4 +1,13 @@
 <?php
+require_once __DIR__ . '/config.php';
+try {
+    $reviews = get_db()->query('SELECT author_name, author_role, quote, rating, photo_path FROM reviews ORDER BY display_order ASC, id ASC')->fetchAll();
+} catch (PDOException $e) {
+    // Falls back to an empty grid (with the rest of the page still showing)
+    // rather than a fatal error if the database is briefly unreachable.
+    $reviews = [];
+}
+
 $page_title = 'Client Reviews';
 $page_description = 'Read verified client reviews and testimonials for W&S Digital Marketing from Australian businesses across trades, healthcare, hospitality and more.';
 include 'header.php';
@@ -28,90 +37,44 @@ include 'header.php';
                     <h5>Excellent</h5>
                     <p>Based on 150+ verified Google Reviews from Australian businesses just like yours.</p>
 
+                    <?php $stackPhotos = array_filter(array_column(array_slice($reviews, 0, 4), 'photo_path')); ?>
+                    <?php if ($stackPhotos): ?>
                     <div class="testi-avatar-stack">
-                        <div class="stack-avatar"><img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=100&q=80" alt=""></div>
-                        <div class="stack-avatar"><img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=100&q=80" alt=""></div>
-                        <div class="stack-avatar"><img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=100&q=80" alt=""></div>
-                        <div class="stack-avatar"><img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=100&q=80" alt=""></div>
+                        <?php foreach ($stackPhotos as $photo): ?>
+                        <div class="stack-avatar"><img loading="lazy" decoding="async" src="<?php echo htmlspecialchars($photo, ENT_QUOTES, 'UTF-8'); ?>" alt="" onerror="this.parentElement.remove()"></div>
+                        <?php endforeach; ?>
                         <div class="stack-count">+196</div>
                     </div>
+                    <?php endif; ?>
 
                     <div class="testi-trust-badge"><i class="fa-brands fa-google" style="color: #4285F4;"></i> Verified On Google</div>
                 </div>
 
                 <div class="testimonials-grid">
+                    <?php foreach ($reviews as $review): ?>
                     <div class="testi-card">
                         <div>
-                            <div class="testi-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-                            <p class="testi-text">"WS Digital helped us generate significantly more qualified enquiries while actively reducing our cost per lead by 32%. The entire team is transparent and responsive."</p>
+                            <div class="testi-stars">
+                                <?php for ($i = 0; $i < (int) $review['rating']; $i++): ?><i class="fa-solid fa-star"></i><?php endfor; ?>
+                            </div>
+                            <p class="testi-text">"<?php echo htmlspecialchars($review['quote'], ENT_QUOTES, 'UTF-8'); ?>"</p>
                         </div>
                         <div class="testi-author">
                             <div class="testi-avatar-wrap">
+                                <?php if ($review['photo_path']): ?>
                                 <div class="testi-avatar">
-                                    <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=150&q=80" alt="John Smith">
+                                    <img loading="lazy" decoding="async" src="<?php echo htmlspecialchars($review['photo_path'], ENT_QUOTES, 'UTF-8'); ?>" alt="<?php echo htmlspecialchars($review['author_name'], ENT_QUOTES, 'UTF-8'); ?>" onerror="this.closest('.testi-avatar-wrap').remove()">
                                 </div>
                                 <span class="testi-verified"><i class="fa-solid fa-check"></i></span>
+                                <?php endif; ?>
                             </div>
                             <div class="testi-author-info">
-                                <h5>John Smith</h5>
-                                <span>Director, Apex Plumbing</span>
+                                <h5><?php echo htmlspecialchars($review['author_name'], ENT_QUOTES, 'UTF-8'); ?></h5>
+                                <?php if ($review['author_role']): ?><span><?php echo htmlspecialchars($review['author_role'], ENT_QUOTES, 'UTF-8'); ?></span><?php endif; ?>
                             </div>
                         </div>
                     </div>
-                    <div class="testi-card">
-                        <div>
-                            <div class="testi-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-                            <p class="testi-text">"Our overall online bookings increased by a massive 68% in just 3 short months. I highly recommend their custom strategies and clear monthly reporting processes!"</p>
-                        </div>
-                        <div class="testi-author">
-                            <div class="testi-avatar-wrap">
-                                <div class="testi-avatar">
-                                    <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=150&q=80" alt="Sarah Collins">
-                                </div>
-                                <span class="testi-verified"><i class="fa-solid fa-check"></i></span>
-                            </div>
-                            <div class="testi-author-info">
-                                <h5>Sarah Collins</h5>
-                                <span>Owner, Luxe Homes</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="testi-card">
-                        <div>
-                            <div class="testi-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-                            <p class="testi-text">"Extremely professional, incredibly proactive and they always deliver exactly the results they promise. Our ROAS has quite frankly never been better since we switched to them!"</p>
-                        </div>
-                        <div class="testi-author">
-                            <div class="testi-avatar-wrap">
-                                <div class="testi-avatar">
-                                    <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=150&q=80" alt="Michael Brown">
-                                </div>
-                                <span class="testi-verified"><i class="fa-solid fa-check"></i></span>
-                            </div>
-                            <div class="testi-author-info">
-                                <h5>Michael Brown</h5>
-                                <span>CEO, Premium Brands</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="testi-card">
-                        <div>
-                            <div class="testi-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-                            <p class="testi-text">"The reporting alone is worth it — for the first time we can actually see where every dollar goes. Bookings are up and our front desk isn't drowning in no-shows anymore."</p>
-                        </div>
-                        <div class="testi-author">
-                            <div class="testi-avatar-wrap">
-                                <div class="testi-avatar">
-                                    <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&q=80" alt="Emma Rodriguez">
-                                </div>
-                                <span class="testi-verified"><i class="fa-solid fa-check"></i></span>
-                            </div>
-                            <div class="testi-author-info">
-                                <h5>Emma Rodriguez</h5>
-                                <span>Marketing Manager, Bright Dental Group</span>
-                            </div>
-                        </div>
-                    </div>
+                    <?php endforeach; ?>
                 </div>
             </div>
         </div>
@@ -130,7 +93,7 @@ include 'header.php';
                     <span><i class="fa-solid fa-check" style="color: var(--cyan-neon);"></i> Proven Australian Results</span>
                 </div>
                 <div class="cta-btn-wrapper">
-                    <a href="contact.php" class="btn-primary" style="padding: 18px 45px; font-size: 1.1rem;">GET MY FREE GROWTH PLAN <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
+                    <a href="/contact" class="btn-primary" style="padding: 18px 45px; font-size: 1.1rem;">GET MY FREE GROWTH PLAN <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
                 </div>
             </div>
         </div>

@@ -1,4 +1,40 @@
 <?php
+require_once __DIR__ . '/config.php';
+require_once __DIR__ . '/includes/case-study-helpers.php';
+
+$webdevKnownRebuildSlugs = ['commercial-fridge-repairs-sydney', 'fast-appliance-repairs', 'freak-eats'];
+$webdevCaseStudies = [];
+$webdevStats = [];
+try {
+    // Shown below as real client work, and as the source for the "Proven
+    // Results" stats grid: the 3 case studies whose engagement included an
+    // actual site rebuild, PLUS any case study explicitly tagged "Web
+    // Development" (alone or combined with other services). Pulled live from
+    // the same table the Case Studies admin section manages: adding/editing
+    // stats or a tag for one of these from the dashboard updates this page
+    // automatically.
+    $rows = get_db()->query("SELECT slug, name, tag, image_path, image_alt, summary, stat1_value, stat1_label, stat2_value, stat2_label, stat3_value, stat3_label, stat4_value, stat4_label FROM case_studies ORDER BY display_order ASC")->fetchAll();
+    foreach ($rows as $row) {
+        $isKnownRebuild = in_array($row['slug'], $webdevKnownRebuildSlugs, true);
+        $isTaggedWebDev = case_study_tag_has($row['tag'], 'web development') || case_study_tag_has($row['tag'], 'website development');
+        if (!$isKnownRebuild && !$isTaggedWebDev) {
+            continue;
+        }
+        $webdevCaseStudies[] = $row;
+        foreach ([1, 2, 3, 4] as $n) {
+            if ($row["stat{$n}_value"] !== '' || $row["stat{$n}_label"] !== '') {
+                $webdevStats[] = [$row["stat{$n}_value"], $row["stat{$n}_label"]];
+            }
+        }
+    }
+    // Stats sharing the same label (e.g. multiple businesses' "Organic
+    // Clicks") are combined into one box instead of shown per-business.
+    $webdevStats = combine_stats($webdevStats);
+} catch (PDOException $e) {
+    $webdevCaseStudies = [];
+    $webdevStats = [];
+}
+
 $page_title = 'Website Development & Design';
 $page_description = 'Fast, mobile-responsive websites engineered specifically for conversion rate optimization, not just aesthetics.';
 include 'header.php';
@@ -11,8 +47,8 @@ include 'header.php';
             <h1 class="fade-up">WEBSITES BUILT TO CONVERT, <br><span class="text-gradient">NOT JUST LOOK GOOD.</span></h1>
             <p class="hero-subtitle fade-up">Fast, mobile-responsive websites engineered around your customer's journey — from first impression to enquiry.</p>
             <div class="hero-buttons fade-up">
-                <a href="contact.php" class="btn-primary">GET MY FREE WEBSITE AUDIT <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
-                <a href="services.php" class="btn-secondary">VIEW ALL SERVICES</a>
+                <a href="/contact" class="btn-primary">GET MY FREE WEBSITE AUDIT <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
+                <a href="/services" class="btn-secondary">VIEW ALL SERVICES</a>
             </div>
         </div>
     </section>
@@ -33,7 +69,7 @@ include 'header.php';
                         <li><i class="fa-solid fa-check"></i> Lightning-Fast Load Times</li>
                         <li><i class="fa-solid fa-check"></i> Built-In Conversion Rate Optimization</li>
                     </ul>
-                    <a href="contact.php" class="btn-primary" style="margin-top: 10px;">Speak With A Web Strategist</a>
+                    <a href="/contact" class="btn-primary" style="margin-top: 10px;">Speak With A Web Strategist</a>
                 </div>
             </div>
         </div>
@@ -78,45 +114,79 @@ include 'header.php';
                 <span class="eyebrow">OUR PROCESS</span>
                 <h2 style="font-size: clamp(1.8rem, 4vw, 2.8rem); margin-top: 10px;">How We Build Your Website</h2>
             </div>
-            <div class="methodology-grid">
-                <div class="methodology-image">
-                    <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=800&q=80" alt="Website Build Process">
+            <div class="methodology-steps">
+                <div class="m-step">
+                    <div class="m-step-num">01</div>
+                    <div class="m-step-content">
+                        <h4><i class="fa-solid fa-lightbulb"></i> Discovery &amp; Wireframing</h4>
+                        <p>We map out your site structure and user journey before a single pixel is designed.</p>
+                    </div>
                 </div>
-                <div class="methodology-steps">
-                    <div class="m-step">
-                        <div class="m-step-num">01</div>
-                        <div class="m-step-content">
-                            <h4><i class="fa-solid fa-lightbulb"></i> Discovery &amp; Wireframing</h4>
-                            <p>We map out your site structure and user journey before a single pixel is designed.</p>
-                        </div>
+                <div class="m-step">
+                    <div class="m-step-num">02</div>
+                    <div class="m-step-content">
+                        <h4><i class="fa-solid fa-palette"></i> Design</h4>
+                        <p>We design a custom, on-brand look and feel across every key page and device size.</p>
                     </div>
-                    <div class="m-step">
-                        <div class="m-step-num">02</div>
-                        <div class="m-step-content">
-                            <h4><i class="fa-solid fa-palette"></i> Design</h4>
-                            <p>We design a custom, on-brand look and feel across every key page and device size.</p>
-                        </div>
+                </div>
+                <div class="m-step">
+                    <div class="m-step-num">03</div>
+                    <div class="m-step-content">
+                        <h4><i class="fa-solid fa-code"></i> Development &amp; QA</h4>
+                        <p>We build, test, and QA across browsers and devices before anything goes live.</p>
                     </div>
-                    <div class="m-step">
-                        <div class="m-step-num">03</div>
-                        <div class="m-step-content">
-                            <h4><i class="fa-solid fa-code"></i> Development &amp; QA</h4>
-                            <p>We build, test, and QA across browsers and devices before anything goes live.</p>
-                        </div>
-                    </div>
-                    <div class="m-step">
-                        <div class="m-step-num">04</div>
-                        <div class="m-step-content">
-                            <h4><i class="fa-solid fa-rocket"></i> Launch &amp; Optimize</h4>
-                            <p>We launch, monitor performance, and keep refining based on real visitor behavior.</p>
-                        </div>
+                </div>
+                <div class="m-step">
+                    <div class="m-step-num">04</div>
+                    <div class="m-step-content">
+                        <h4><i class="fa-solid fa-rocket"></i> Launch &amp; Optimize</h4>
+                        <p>We launch, monitor performance, and keep refining based on real visitor behavior.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- STATS -->
+    <?php if ($webdevCaseStudies): ?>
+    <!-- REAL CLIENT WORK: the 3 case studies whose engagement included an
+         actual site rebuild, pulled live from the same table the Case
+         Studies admin section manages. -->
+    <section class="services-section fade-up">
+        <div class="container">
+            <div class="section-header">
+                <span class="eyebrow">REAL CLIENT WORK</span>
+                <h2 style="font-size: clamp(1.8rem, 4vw, 2.8rem); margin-top: 10px;">Websites We've Built And Rebuilt</h2>
+            </div>
+            <div class="case-grid">
+                <?php foreach ($webdevCaseStudies as $cs): ?>
+                <article class="case-card">
+                    <div class="case-image">
+                        <span class="case-tag"><?php echo htmlspecialchars($cs['tag'], ENT_QUOTES, 'UTF-8'); ?></span>
+                        <img loading="lazy" decoding="async" src="<?php echo htmlspecialchars($cs['image_path'], ENT_QUOTES, 'UTF-8'); ?>" alt="<?php echo htmlspecialchars($cs['image_alt'], ENT_QUOTES, 'UTF-8'); ?>">
+                        <h3><?php echo htmlspecialchars(strtoupper($cs['name']), ENT_QUOTES, 'UTF-8'); ?></h3>
+                    </div>
+                    <div class="case-content">
+                        <div>
+                            <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px;"><?php echo htmlspecialchars(strip_tags($cs['summary']), ENT_QUOTES, 'UTF-8'); ?></p>
+                        </div>
+                        <div>
+                            <a href="/case-studies/<?php echo htmlspecialchars($cs['slug'], ENT_QUOTES, 'UTF-8'); ?>" class="service-link">View Details <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </article>
+                <?php endforeach; ?>
+            </div>
+            <div style="text-align: center; margin-top: clamp(30px, 4vw, 40px);">
+                <a href="/case-studies" class="service-link"><i class="fa-solid fa-arrow-left"></i> View All Case Studies</a>
+            </div>
+        </div>
+    </section>
+    <?php endif; ?>
+
+    <?php if ($webdevStats): ?>
+    <!-- STATS: combined real "Results At A Glance" stats from the case
+         studies above, pulled live -- adding stats to one of them from the
+         admin dashboard makes them appear here automatically. -->
     <section class="stats-section fade-up">
         <div class="container">
             <div class="section-header">
@@ -124,13 +194,17 @@ include 'header.php';
                 <h2 style="color: #fff; font-size: clamp(1.8rem, 4vw, 2.8rem);">Websites That Perform, Not Just Impress</h2>
             </div>
             <div class="stats-4-grid">
-                <div class="stat-box"><div class="stat-icon"><i class="fa-solid fa-bolt"></i></div><h3>&lt;2s</h3><p>Avg. Page Load Time</p></div>
-                <div class="stat-box"><div class="stat-icon"><i class="fa-solid fa-gauge-high"></i></div><h3>+63%</h3><p>Avg. Conversion Rate Lift</p></div>
-                <div class="stat-box"><div class="stat-icon"><i class="fa-solid fa-mobile-screen"></i></div><h3>100%</h3><p>Mobile-Responsive Builds</p></div>
-                <div class="stat-box"><div class="stat-icon"><i class="fa-solid fa-face-smile"></i></div><h3>98%</h3><p>Client Satisfaction</p></div>
+                <?php foreach ($webdevStats as [$value, $label]): ?>
+                <div class="stat-box">
+                    <div class="stat-icon"><i class="fa-solid fa-arrow-trend-up"></i></div>
+                    <h3><?php echo htmlspecialchars($value, ENT_QUOTES, 'UTF-8'); ?></h3>
+                    <p><?php echo htmlspecialchars($label, ENT_QUOTES, 'UTF-8'); ?></p>
+                </div>
+                <?php endforeach; ?>
             </div>
         </div>
     </section>
+    <?php endif; ?>
 
     <!-- FINAL CTA -->
     <section class="cta-section" id="contact">
@@ -145,7 +219,7 @@ include 'header.php';
                     <span><i class="fa-solid fa-check" style="color: var(--cyan-neon);"></i> Proven Australian Results</span>
                 </div>
                 <div class="cta-btn-wrapper">
-                    <a href="contact.php" class="btn-primary" style="padding: 18px 45px; font-size: 1.1rem;">GET MY FREE WEBSITE AUDIT <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
+                    <a href="/contact" class="btn-primary" style="padding: 18px 45px; font-size: 1.1rem;">GET MY FREE WEBSITE AUDIT <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
                 </div>
             </div>
         </div>

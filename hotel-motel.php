@@ -11,8 +11,8 @@ include 'header.php';
             <h1 class="fade-up">MORE DIRECT BOOKINGS. <br><span class="text-gradient">LESS OTA COMMISSION.</span></h1>
             <p class="hero-subtitle fade-up">Digital marketing for hotels and motels &mdash; built to win more direct bookings and reduce reliance on costly OTA commissions.</p>
             <div class="hero-buttons fade-up">
-                <a href="contact.php" class="btn-primary">GET MY FREE PROPERTY AUDIT <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
-                <a href="industries.php" class="btn-secondary">VIEW ALL INDUSTRIES</a>
+                <a href="/contact" class="btn-primary">GET MY FREE PROPERTY AUDIT <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
+                <a href="/industries" class="btn-secondary">VIEW ALL INDUSTRIES</a>
             </div>
         </div>
     </section>
@@ -22,7 +22,7 @@ include 'header.php';
         <div class="container">
             <div class="agency-grid">
                 <div class="agency-image-wrapper">
-                    <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=800&q=80" alt="Hotel & Motel Digital Marketing">
+                    <img loading="lazy" decoding="async" src="/images/industries/hotelMotel.webp" alt="Hotel & Motel Digital Marketing" onerror="this.remove()">
                 </div>
                 <div class="agency-text">
                     <span class="eyebrow">WHY IT MATTERS</span>
@@ -33,7 +33,7 @@ include 'header.php';
                         <li><i class="fa-solid fa-check"></i> Direct-Booking Website Optimisation</li>
                         <li><i class="fa-solid fa-check"></i> Retargeting &amp; Repeat-Guest Campaigns</li>
                     </ul>
-                    <a href="contact.php" class="btn-primary" style="margin-top: 10px;">Speak With A Hospitality Strategist</a>
+                    <a href="/contact" class="btn-primary" style="margin-top: 10px;">Speak With A Hospitality Strategist</a>
                 </div>
             </div>
         </div>
@@ -71,22 +71,6 @@ include 'header.php';
         </div>
     </section>
 
-    <!-- STATS -->
-    <section class="stats-section fade-up">
-        <div class="container">
-            <div class="section-header">
-                <span class="eyebrow" style="color: var(--cyan-neon);">PROVEN RESULTS</span>
-                <h2 style="color: #fff; font-size: clamp(1.8rem, 4vw, 2.8rem);">Real Growth In Direct Revenue</h2>
-            </div>
-            <div class="stats-4-grid">
-                <div class="stat-box"><div class="stat-icon"><i class="fa-solid fa-sack-dollar"></i></div><h3>-27%</h3><p>OTA Commission Paid</p></div>
-                <div class="stat-box"><div class="stat-icon"><i class="fa-solid fa-bed"></i></div><h3>+82</h3><p>Direct Bookings (Avg. Monthly)</p></div>
-                <div class="stat-box"><div class="stat-icon"><i class="fa-solid fa-ranking-star"></i></div><h3>Top 5</h3><p>Avg. Search Ranking</p></div>
-                <div class="stat-box"><div class="stat-icon"><i class="fa-solid fa-star"></i></div><h3>4.7/5</h3><p>Avg. Guest Review Rating</p></div>
-            </div>
-        </div>
-    </section>
-
     <!-- FINAL CTA -->
     <section class="cta-section" id="contact">
         <div class="container">
@@ -100,7 +84,7 @@ include 'header.php';
                     <span><i class="fa-solid fa-check" style="color: var(--cyan-neon);"></i> Proven Australian Results</span>
                 </div>
                 <div class="cta-btn-wrapper">
-                    <a href="contact.php" class="btn-primary" style="padding: 18px 45px; font-size: 1.1rem;">GET MY FREE PROPERTY AUDIT <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
+                    <a href="/contact" class="btn-primary" style="padding: 18px 45px; font-size: 1.1rem;">GET MY FREE PROPERTY AUDIT <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
                 </div>
             </div>
         </div>

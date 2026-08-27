@@ -11,8 +11,8 @@ include 'header.php';
             <h1 class="fade-up">BUILD A BRAND <br><span class="text-gradient">PEOPLE ACTUALLY FOLLOW.</span></h1>
             <p class="hero-subtitle fade-up">Strategic content and community management across Meta and TikTok that builds real engagement, not just impressions.</p>
             <div class="hero-buttons fade-up">
-                <a href="contact.php" class="btn-primary">GET MY FREE SOCIAL AUDIT <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
-                <a href="services.php" class="btn-secondary">VIEW ALL SERVICES</a>
+                <a href="/contact" class="btn-primary">GET MY FREE SOCIAL AUDIT <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
+                <a href="/services" class="btn-secondary">VIEW ALL SERVICES</a>
             </div>
         </div>
     </section>
@@ -22,7 +22,7 @@ include 'header.php';
         <div class="container">
             <div class="agency-grid">
                 <div class="agency-image-wrapper">
-                    <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=800&q=80" alt="Social Media Strategy">
+                    <img loading="lazy" decoding="async" src="/images/socialMedia.webp" alt="Social Media Strategy" onerror="this.remove()">
                 </div>
                 <div class="agency-text">
                     <span class="eyebrow">WHY IT MATTERS</span>
@@ -33,7 +33,7 @@ include 'header.php';
                         <li><i class="fa-solid fa-check"></i> Organic Community Management</li>
                         <li><i class="fa-solid fa-check"></i> Paid Social Campaigns That Convert</li>
                     </ul>
-                    <a href="contact.php" class="btn-primary" style="margin-top: 10px;">Speak With A Social Strategist</a>
+                    <a href="/contact" class="btn-primary" style="margin-top: 10px;">Speak With A Social Strategist</a>
                 </div>
             </div>
         </div>
@@ -71,6 +71,42 @@ include 'header.php';
         </div>
     </section>
 
+    <!-- REAL RESULTS PROOF SECTION -->
+    <section class="stats-section fade-up">
+        <div class="container">
+            <div class="section-header">
+                <span class="eyebrow" style="color: var(--cyan-neon);">REAL RESULTS</span>
+                <h2 style="color: #fff; font-size: clamp(1.8rem, 4vw, 2.8rem);">Real Meta Ads Performance, Verified From Campaign Reporting</h2>
+                <p style="color: rgba(255,255,255,0.6); margin-top: 10px;">From a live client Meta Ads account, 24 Jul – 22 Aug 2026 (30-day reporting window).</p>
+            </div>
+            <div class="stats-4-grid">
+                <div class="stat-box">
+                    <div class="stat-icon"><i class="fa-solid fa-comments"></i></div>
+                    <h3>138</h3>
+                    <p>Messaging Conversations Started</p>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-icon"><i class="fa-solid fa-eye"></i></div>
+                    <h3>22.8K</h3>
+                    <p>Combined Impressions</p>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-icon"><i class="fa-solid fa-arrow-trend-up"></i></div>
+                    <h3>4.8%+</h3>
+                    <p>Click-Through Rate</p>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-icon"><i class="fa-solid fa-sack-dollar"></i></div>
+                    <h3>AU$2.64</h3>
+                    <p>Lowest Cost Per Conversation</p>
+                </div>
+            </div>
+            <div style="max-width: 800px; margin: clamp(30px, 4vw, 40px) auto 0; color: rgba(255,255,255,0.75); font-size: 0.95rem; line-height: 1.7;">
+                <p>Two campaigns were tested side by side across the reporting period: a lower-spend campaign that proved more cost-efficient at AU$2.64 per messaging conversation, and a higher-spend campaign that drove more total conversations (81) at AU$3.60 each. Both held a strong click-through rate above 4.8%, giving a clear, data-backed read on where to scale spend next.</p>
+            </div>
+        </div>
+    </section>
+
     <!-- PROCESS -->
     <section class="methodology-section fade-up">
         <div class="container">
@@ -78,56 +114,35 @@ include 'header.php';
                 <span class="eyebrow">OUR PROCESS</span>
                 <h2 style="font-size: clamp(1.8rem, 4vw, 2.8rem); margin-top: 10px;">How We Grow Your Social Presence</h2>
             </div>
-            <div class="methodology-grid">
-                <div class="methodology-image">
-                    <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80" alt="Social Media Growth Process">
-                </div>
-                <div class="methodology-steps">
-                    <div class="m-step">
-                        <div class="m-step-num">01</div>
-                        <div class="m-step-content">
-                            <h4><i class="fa-solid fa-magnifying-glass"></i> Audit &amp; Strategy</h4>
-                            <p>We review your current channels and build a content strategy around your goals.</p>
-                        </div>
-                    </div>
-                    <div class="m-step">
-                        <div class="m-step-num">02</div>
-                        <div class="m-step-content">
-                            <h4><i class="fa-solid fa-pen"></i> Content Planning &amp; Creation</h4>
-                            <p>We plan, create, and schedule content built for each platform's audience.</p>
-                        </div>
-                    </div>
-                    <div class="m-step">
-                        <div class="m-step-num">03</div>
-                        <div class="m-step-content">
-                            <h4><i class="fa-solid fa-thumbs-up"></i> Publish &amp; Engage</h4>
-                            <p>We post consistently and manage community engagement in your brand voice.</p>
-                        </div>
-                    </div>
-                    <div class="m-step">
-                        <div class="m-step-num">04</div>
-                        <div class="m-step-content">
-                            <h4><i class="fa-solid fa-chart-line"></i> Analyze &amp; Scale</h4>
-                            <p>We double down on what's working and cut what isn't, every month.</p>
-                        </div>
+            <div class="methodology-steps">
+                <div class="m-step">
+                    <div class="m-step-num">01</div>
+                    <div class="m-step-content">
+                        <h4><i class="fa-solid fa-magnifying-glass"></i> Audit &amp; Strategy</h4>
+                        <p>We review your current channels and build a content strategy around your goals.</p>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- STATS -->
-    <section class="stats-section fade-up">
-        <div class="container">
-            <div class="section-header">
-                <span class="eyebrow" style="color: var(--cyan-neon);">PROVEN RESULTS</span>
-                <h2 style="color: #fff; font-size: clamp(1.8rem, 4vw, 2.8rem);">Social Growth That Compounds</h2>
-            </div>
-            <div class="stats-4-grid">
-                <div class="stat-box"><div class="stat-icon"><i class="fa-solid fa-heart"></i></div><h3>+87%</h3><p>Avg. Engagement Growth</p></div>
-                <div class="stat-box"><div class="stat-icon"><i class="fa-solid fa-chart-line"></i></div><h3>5.6x</h3><p>Avg. ROAS On Paid Social</p></div>
-                <div class="stat-box"><div class="stat-icon"><i class="fa-solid fa-users"></i></div><h3>+120%</h3><p>Follower Growth (6mo)</p></div>
-                <div class="stat-box"><div class="stat-icon"><i class="fa-solid fa-calendar-days"></i></div><h3>3x</h3><p>Weekly Posting Cadence</p></div>
+                <div class="m-step">
+                    <div class="m-step-num">02</div>
+                    <div class="m-step-content">
+                        <h4><i class="fa-solid fa-pen"></i> Content Planning &amp; Creation</h4>
+                        <p>We plan, create, and schedule content built for each platform's audience.</p>
+                    </div>
+                </div>
+                <div class="m-step">
+                    <div class="m-step-num">03</div>
+                    <div class="m-step-content">
+                        <h4><i class="fa-solid fa-thumbs-up"></i> Publish &amp; Engage</h4>
+                        <p>We post consistently and manage community engagement in your brand voice.</p>
+                    </div>
+                </div>
+                <div class="m-step">
+                    <div class="m-step-num">04</div>
+                    <div class="m-step-content">
+                        <h4><i class="fa-solid fa-chart-line"></i> Analyze &amp; Scale</h4>
+                        <p>We double down on what's working and cut what isn't, every month.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -145,7 +160,7 @@ include 'header.php';
                     <span><i class="fa-solid fa-check" style="color: var(--cyan-neon);"></i> Proven Australian Results</span>
                 </div>
                 <div class="cta-btn-wrapper">
-                    <a href="contact.php" class="btn-primary" style="padding: 18px 45px; font-size: 1.1rem;">GET MY FREE SOCIAL AUDIT <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
+                    <a href="/contact" class="btn-primary" style="padding: 18px 45px; font-size: 1.1rem;">GET MY FREE SOCIAL AUDIT <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
                 </div>
             </div>
         </div>

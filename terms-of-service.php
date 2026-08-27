@@ -20,7 +20,7 @@ include 'header.php';
             <p>These Terms of Service ("Terms") govern your use of the W&amp;S Digital Marketing website and the services we provide. By using our website or engaging our services, you agree to these Terms.</p>
 
             <h3>Our Services</h3>
-            <p>W&amp;S Digital Marketing provides digital marketing services including SEO, PPC advertising, social media management, web design and development, graphic design, and content writing, as described on our <a href="services.php">Services</a> page. Specific scope, deliverables, and pricing for any engagement are set out in a separate proposal or agreement between us and the client.</p>
+            <p>W&amp;S Digital Marketing provides digital marketing services including SEO, PPC advertising, social media management, web design and development, graphic design, and content writing, as described on our <a href="/services">Services</a> page. Specific scope, deliverables, and pricing for any engagement are set out in a separate proposal or agreement between us and the client.</p>
 
             <h3>Use of This Website</h3>
             <p>You agree to use this website only for lawful purposes and in a way that does not infringe the rights of, or restrict or inhibit the use and enjoyment of this site by, any third party. You must not misuse this website by knowingly introducing viruses or other malicious material.</p>
@@ -44,7 +44,7 @@ include 'header.php';
             <p>We may update these Terms from time to time. Continued use of our website or services after changes are posted constitutes acceptance of the updated Terms.</p>
 
             <h3>Contact Us</h3>
-            <p>Questions about these Terms can be directed to us via our <a href="contact.php">contact page</a> or by emailing <a href="mailto:info@wsdigital.com.au">info@wsdigital.com.au</a>.</p>
+            <p>Questions about these Terms can be directed to us via our <a href="/contact">contact page</a> or by emailing <a href="mailto:info@wsdigitalmarketing.com.au">info@wsdigitalmarketing.com.au</a>.</p>
 
         </div>
     </section>

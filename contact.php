@@ -24,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($name === '' || $message === '' || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $form_error = 'Please fill in your name, a valid email address, and your message.';
     } else {
-        $to = "info@wsdigital.com.au";
+        $to = "info@wsdigitalmarketing.com.au";
         $subject = "New Growth Plan Request from " . $name;
 
         $plan = in_array($_POST['plan'] ?? '', $valid_plans, true) ? $_POST['plan'] : '';
@@ -40,7 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // Reply-To carries the visitor's address; From stays a domain address
         // the sending server is authorized for, avoiding SPF/DMARC failures.
-        $headers = "From: W&S Digital Marketing <info@wsdigital.com.au>\r\n";
+        $headers = "From: W&S Digital Marketing <info@wsdigitalmarketing.com.au>\r\n";
         $headers .= "Reply-To: $name <$email>\r\n";
         $headers .= "X-Mailer: PHP/" . phpversion();
 
@@ -112,7 +112,7 @@ include 'header.php';
                                 </div>
                                 <div>
                                     <h5 style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); font-weight: 700; margin-bottom: 2px; letter-spacing: 1px;">Email Us</h5>
-                                    <a href="mailto:info@wsdigital.com.au" style="color: var(--navy); font-weight: 700; font-size: 1.05rem; text-decoration: none; transition: color 0.3s; word-break: break-all;">info@wsdigital.com.au</a>
+                                    <a href="mailto:info@wsdigitalmarketing.com.au" style="color: var(--navy); font-weight: 700; font-size: 1.05rem; text-decoration: none; transition: color 0.3s; word-break: break-all;">info@wsdigitalmarketing.com.au</a>
                                 </div>
                             </li>
                             
@@ -150,7 +150,7 @@ include 'header.php';
                         </div>
                     <?php endif; ?>
 
-                    <form action="contact.php" method="POST" style="display: flex; flex-direction: column; gap: 18px;">
+                    <form action="/contact" method="POST" style="display: flex; flex-direction: column; gap: 18px;">
                         <?php if ($selected_plan !== ''): ?>
                             <input type="hidden" name="plan" value="<?php echo htmlspecialchars($selected_plan, ENT_QUOTES, 'UTF-8'); ?>">
                         <?php endif; ?>

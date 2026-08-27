@@ -1,0 +1,4 @@
+# Real database credentials -- never tracked, so future updates can't
+# overwrite the live site's working config with the placeholder template.
+# See config.sample.php for setup instructions.
+config.php

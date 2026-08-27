@@ -11,8 +11,8 @@ include 'header.php';
             <h1 class="fade-up">SCALE YOUR STORE. <br><span class="text-gradient">NOT JUST YOUR TRAFFIC.</span></h1>
             <p class="hero-subtitle fade-up">Digital marketing for online retailers and product brands &mdash; full-funnel strategies built to grow revenue, not just visits.</p>
             <div class="hero-buttons fade-up">
-                <a href="contact.php" class="btn-primary">GET MY FREE GROWTH AUDIT <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
-                <a href="industries.php" class="btn-secondary">VIEW ALL INDUSTRIES</a>
+                <a href="/contact" class="btn-primary">GET MY FREE GROWTH AUDIT <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
+                <a href="/industries" class="btn-secondary">VIEW ALL INDUSTRIES</a>
             </div>
         </div>
     </section>
@@ -33,7 +33,7 @@ include 'header.php';
                         <li><i class="fa-solid fa-check"></i> Conversion Rate Optimisation</li>
                         <li><i class="fa-solid fa-check"></i> Retention &amp; Repeat-Purchase Campaigns</li>
                     </ul>
-                    <a href="contact.php" class="btn-primary" style="margin-top: 10px;">Speak With An Ecommerce Strategist</a>
+                    <a href="/contact" class="btn-primary" style="margin-top: 10px;">Speak With An Ecommerce Strategist</a>
                 </div>
             </div>
         </div>
@@ -71,22 +71,6 @@ include 'header.php';
         </div>
     </section>
 
-    <!-- STATS -->
-    <section class="stats-section fade-up">
-        <div class="container">
-            <div class="section-header">
-                <span class="eyebrow" style="color: var(--cyan-neon);">PROVEN RESULTS</span>
-                <h2 style="color: #fff; font-size: clamp(1.8rem, 4vw, 2.8rem);">Growth That Shows Up In Revenue</h2>
-            </div>
-            <div class="stats-4-grid">
-                <div class="stat-box"><div class="stat-icon"><i class="fa-solid fa-sack-dollar"></i></div><h3>+118%</h3><p>Avg. Revenue Growth</p></div>
-                <div class="stat-box"><div class="stat-icon"><i class="fa-solid fa-chart-line"></i></div><h3>7.6x</h3><p>Avg. ROAS</p></div>
-                <div class="stat-box"><div class="stat-icon"><i class="fa-solid fa-gauge-high"></i></div><h3>+41%</h3><p>Conversion Rate Lift</p></div>
-                <div class="stat-box"><div class="stat-icon"><i class="fa-solid fa-rotate"></i></div><h3>+33%</h3><p>Repeat Purchase Rate</p></div>
-            </div>
-        </div>
-    </section>
-
     <!-- FINAL CTA -->
     <section class="cta-section" id="contact">
         <div class="container">
@@ -100,7 +84,7 @@ include 'header.php';
                     <span><i class="fa-solid fa-check" style="color: var(--cyan-neon);"></i> Proven Australian Results</span>
                 </div>
                 <div class="cta-btn-wrapper">
-                    <a href="contact.php" class="btn-primary" style="padding: 18px 45px; font-size: 1.1rem;">GET MY FREE GROWTH AUDIT <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
+                    <a href="/contact" class="btn-primary" style="padding: 18px 45px; font-size: 1.1rem;">GET MY FREE GROWTH AUDIT <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
                 </div>
             </div>
         </div>

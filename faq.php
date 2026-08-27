@@ -30,7 +30,7 @@ include 'header.php';
 
                 <details class="faq-item">
                     <summary>What industries do you work with?</summary>
-                    <p>We work across trades &amp; services, healthcare, professional services, eCommerce, hospitality, and automotive — see our <a href="industries.php">Industries</a> page for more detail on how we tailor strategy per sector.</p>
+                    <p>We work across trades &amp; services, healthcare, professional services, eCommerce, hospitality, and automotive — see our <a href="/industries">Industries</a> page for more detail on how we tailor strategy per sector.</p>
                 </details>
 
                 <details class="faq-item">
@@ -45,12 +45,12 @@ include 'header.php';
 
                 <details class="faq-item">
                     <summary>Can you build me a new website?</summary>
-                    <p>Yes. Our web design &amp; CRO service builds fast, mobile-responsive websites engineered to convert, whether that's a brochure site or a full ecommerce store. See our <a href="website-development.php">Website Development</a> service for details.</p>
+                    <p>Yes. Our web design &amp; CRO service builds fast, mobile-responsive websites engineered to convert, whether that's a brochure site or a full ecommerce store. See our <a href="/website-development">Website Development</a> service for details.</p>
                 </details>
 
                 <details class="faq-item">
                     <summary>How do I get started?</summary>
-                    <p>Book a zero-obligation growth audit through our <a href="contact.php">contact page</a>. We'll review your current marketing, identify opportunities, and recommend a plan tailored to your goals.</p>
+                    <p>Book a zero-obligation growth audit through our <a href="/contact">contact page</a>. We'll review your current marketing, identify opportunities, and recommend a plan tailored to your goals.</p>
                 </details>
 
             </div>
@@ -70,7 +70,7 @@ include 'header.php';
                     <span><i class="fa-solid fa-check" style="color: var(--cyan-neon);"></i> Proven Australian Results</span>
                 </div>
                 <div class="cta-btn-wrapper">
-                    <a href="contact.php" class="btn-primary" style="padding: 18px 45px; font-size: 1.1rem;">GET MY FREE GROWTH PLAN <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
+                    <a href="/contact" class="btn-primary" style="padding: 18px 45px; font-size: 1.1rem;">GET MY FREE GROWTH PLAN <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
                 </div>
             </div>
         </div>

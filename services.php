@@ -34,7 +34,7 @@ include 'header.php';
                             <div class="service-card-back-content">
                                 <h3>Search Engine Optimization</h3>
                                 <p>Dominate local search and Google Maps with technical SEO, content, and link-building strategies that attract high-intent organic traffic.</p>
-                                <a href="seo.php" class="service-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+                                <a href="/seo" class="service-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
                             </div>
                         </div>
                     </div>
@@ -52,7 +52,7 @@ include 'header.php';
                             <div class="service-card-back-content">
                                 <h3>E-commerce</h3>
                                 <p>Shopify and WooCommerce builds, catalog strategy, and conversion-focused checkout flows that turn browsers into repeat customers.</p>
-                                <a href="ecommerce.php" class="service-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+                                <a href="/ecommerce" class="service-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
                             </div>
                         </div>
                     </div>
@@ -70,7 +70,7 @@ include 'header.php';
                             <div class="service-card-back-content">
                                 <h3>Website Development &amp; Design</h3>
                                 <p>Fast, mobile-responsive websites engineered specifically for conversion rate optimization, not just aesthetics.</p>
-                                <a href="website-development.php" class="service-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+                                <a href="/website-development" class="service-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
                             </div>
                         </div>
                     </div>
@@ -83,12 +83,12 @@ include 'header.php';
                             <h3>Social Media</h3>
                         </div>
                         <div class="service-card-back">
-                            <img loading="lazy" decoding="async" class="service-card-back-img" src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=800&q=80" alt="">
+                            <img loading="lazy" decoding="async" class="service-card-back-img" src="/images/socialMedia.webp" alt="">
                             <div class="service-card-back-overlay"></div>
                             <div class="service-card-back-content">
                                 <h3>Social Media</h3>
                                 <p>Strategic content and community management across Meta and TikTok to build brand presence and engage your target audience.</p>
-                                <a href="social-media.php" class="service-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+                                <a href="/social-media" class="service-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
                             </div>
                         </div>
                     </div>
@@ -106,7 +106,7 @@ include 'header.php';
                             <div class="service-card-back-content">
                                 <h3>PPC Advertising</h3>
                                 <p>Google Ads and paid social campaigns built for instant, high-converting traffic, more phone calls, and maximum ROAS.</p>
-                                <a href="ppc-advertising.php" class="service-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+                                <a href="/ppc-advertising" class="service-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
                             </div>
                         </div>
                     </div>
@@ -124,7 +124,7 @@ include 'header.php';
                             <div class="service-card-back-content">
                                 <h3>Graphic Design</h3>
                                 <p>Brand identity, ad creative, and marketing collateral designed to stand out and stay consistent across every channel.</p>
-                                <a href="graphic-design.php" class="service-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+                                <a href="/graphic-design" class="service-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
                             </div>
                         </div>
                     </div>
@@ -142,44 +142,12 @@ include 'header.php';
                             <div class="service-card-back-content">
                                 <h3>Content Writing</h3>
                                 <p>SEO-optimized copy, blog content, and website content that ranks, builds authority, and speaks directly to your customers.</p>
-                                <a href="content-writing.php" class="service-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+                                <a href="/content-writing" class="service-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
                             </div>
                         </div>
                     </div>
                 </div>
 
-            </div>
-        </div>
-    </section>
-
-    <!-- STATISTICS PROOF STRIP -->
-    <section class="stats-section fade-up">
-        <div class="container">
-            <div class="section-header">
-                <span class="eyebrow" style="color: var(--cyan-neon);">PROVEN RESULTS</span>
-                <h2 style="color: #fff; font-size: clamp(1.8rem, 4vw, 2.8rem);">Services That Move The Numbers</h2>
-            </div>
-            <div class="stats-4-grid">
-                <div class="stat-box">
-                    <div class="stat-icon"><i class="fa-solid fa-ranking-star"></i></div>
-                    <h3>+89</h3>
-                    <p>Keywords Ranked Page 1</p>
-                </div>
-                <div class="stat-box">
-                    <div class="stat-icon"><i class="fa-solid fa-chart-line"></i></div>
-                    <h3>8.4x</h3>
-                    <p>ROAS Achieved</p>
-                </div>
-                <div class="stat-box">
-                    <div class="stat-icon"><i class="fa-solid fa-user-plus"></i></div>
-                    <h3>+193</h3>
-                    <p>Leads Generated</p>
-                </div>
-                <div class="stat-box">
-                    <div class="stat-icon"><i class="fa-solid fa-rocket"></i></div>
-                    <h3>150+</h3>
-                    <p>Campaigns Launched</p>
-                </div>
             </div>
         </div>
     </section>
@@ -197,7 +165,7 @@ include 'header.php';
                     <span><i class="fa-solid fa-check" style="color: var(--cyan-neon);"></i> Proven Australian Results</span>
                 </div>
                 <div class="cta-btn-wrapper">
-                    <a href="contact.php" class="btn-primary" style="padding: 18px 45px; font-size: 1.1rem;">GET MY FREE GROWTH PLAN <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
+                    <a href="/contact" class="btn-primary" style="padding: 18px 45px; font-size: 1.1rem;">GET MY FREE GROWTH PLAN <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
                 </div>
             </div>
         </div>

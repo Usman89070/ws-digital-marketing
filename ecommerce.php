@@ -1,4 +1,36 @@
 <?php
+require_once __DIR__ . '/config.php';
+require_once __DIR__ . '/includes/case-study-helpers.php';
+
+$ecommerceCaseStudies = [];
+$ecommerceStats = [];
+try {
+    // Every case study whose tag includes "Ecommerce" (alone or combined with
+    // other services) -- shown below as real proof, and as the source for the
+    // "Proven Results" stats grid. Pulled live from the same table the Case
+    // Studies admin section manages, so a new ecommerce project tagged this
+    // way -- and any "Results At A Glance" stats added for it from the
+    // dashboard -- appears here automatically.
+    $rows = get_db()->query("SELECT slug, name, tag, image_path, image_alt, summary, stat1_value, stat1_label, stat2_value, stat2_label, stat3_value, stat3_label, stat4_value, stat4_label FROM case_studies ORDER BY display_order ASC")->fetchAll();
+    foreach ($rows as $row) {
+        if (!case_study_tag_has($row['tag'], 'ecommerce')) {
+            continue;
+        }
+        $ecommerceCaseStudies[] = $row;
+        foreach ([1, 2, 3, 4] as $n) {
+            if ($row["stat{$n}_value"] !== '' || $row["stat{$n}_label"] !== '') {
+                $ecommerceStats[] = [$row["stat{$n}_value"], $row["stat{$n}_label"]];
+            }
+        }
+    }
+    // Stats sharing the same label (e.g. multiple businesses' "Organic
+    // Clicks") are combined into one box instead of shown per-business.
+    $ecommerceStats = combine_stats($ecommerceStats);
+} catch (PDOException $e) {
+    $ecommerceCaseStudies = [];
+    $ecommerceStats = [];
+}
+
 $page_title = 'E-commerce';
 $page_description = 'Shopify and WooCommerce builds, catalog strategy, and conversion-focused checkout flows that turn browsers into repeat customers.';
 include 'header.php';
@@ -11,8 +43,8 @@ include 'header.php';
             <h1 class="fade-up">TURN BROWSERS <br><span class="text-gradient">INTO BUYERS.</span></h1>
             <p class="hero-subtitle fade-up">From store builds to checkout optimization, we build and grow ecommerce stores engineered to convert traffic into repeat revenue.</p>
             <div class="hero-buttons fade-up">
-                <a href="contact.php" class="btn-primary">GET MY FREE STORE AUDIT <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
-                <a href="services.php" class="btn-secondary">VIEW ALL SERVICES</a>
+                <a href="/contact" class="btn-primary">GET MY FREE STORE AUDIT <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
+                <a href="/services" class="btn-secondary">VIEW ALL SERVICES</a>
             </div>
         </div>
     </section>
@@ -22,7 +54,7 @@ include 'header.php';
         <div class="container">
             <div class="agency-grid">
                 <div class="agency-image-wrapper">
-                    <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80" alt="E-commerce Store Strategy">
+                    <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=80" alt="E-commerce Store Strategy">
                 </div>
                 <div class="agency-text">
                     <span class="eyebrow">WHY IT MATTERS</span>
@@ -33,7 +65,7 @@ include 'header.php';
                         <li><i class="fa-solid fa-check"></i> Conversion-Focused Checkout Flows</li>
                         <li><i class="fa-solid fa-check"></i> Product Feed &amp; Shopping Ads Management</li>
                     </ul>
-                    <a href="contact.php" class="btn-primary" style="margin-top: 10px;">Speak With An Ecommerce Strategist</a>
+                    <a href="/contact" class="btn-primary" style="margin-top: 10px;">Speak With An Ecommerce Strategist</a>
                 </div>
             </div>
         </div>
@@ -78,59 +110,95 @@ include 'header.php';
                 <span class="eyebrow">OUR PROCESS</span>
                 <h2 style="font-size: clamp(1.8rem, 4vw, 2.8rem); margin-top: 10px;">How We Build Ecommerce Growth</h2>
             </div>
-            <div class="methodology-grid">
-                <div class="methodology-image">
-                    <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=80" alt="Ecommerce Growth Process">
+            <div class="methodology-steps">
+                <div class="m-step">
+                    <div class="m-step-num">01</div>
+                    <div class="m-step-content">
+                        <h4><i class="fa-solid fa-magnifying-glass"></i> Audit &amp; Strategy</h4>
+                        <p>We review your store's funnel end-to-end and identify where revenue is leaking.</p>
+                    </div>
                 </div>
-                <div class="methodology-steps">
-                    <div class="m-step">
-                        <div class="m-step-num">01</div>
-                        <div class="m-step-content">
-                            <h4><i class="fa-solid fa-magnifying-glass"></i> Audit &amp; Strategy</h4>
-                            <p>We review your store's funnel end-to-end and identify where revenue is leaking.</p>
-                        </div>
+                <div class="m-step">
+                    <div class="m-step-num">02</div>
+                    <div class="m-step-content">
+                        <h4><i class="fa-solid fa-hammer"></i> Build Or Migrate</h4>
+                        <p>We build your store from scratch or migrate it cleanly with zero data loss.</p>
                     </div>
-                    <div class="m-step">
-                        <div class="m-step-num">02</div>
-                        <div class="m-step-content">
-                            <h4><i class="fa-solid fa-hammer"></i> Build Or Migrate</h4>
-                            <p>We build your store from scratch or migrate it cleanly with zero data loss.</p>
-                        </div>
+                </div>
+                <div class="m-step">
+                    <div class="m-step-num">03</div>
+                    <div class="m-step-content">
+                        <h4><i class="fa-solid fa-gauge-high"></i> Optimize Conversion</h4>
+                        <p>We test and refine product pages, checkout, and offers to lift conversion rate.</p>
                     </div>
-                    <div class="m-step">
-                        <div class="m-step-num">03</div>
-                        <div class="m-step-content">
-                            <h4><i class="fa-solid fa-gauge-high"></i> Optimize Conversion</h4>
-                            <p>We test and refine product pages, checkout, and offers to lift conversion rate.</p>
-                        </div>
-                    </div>
-                    <div class="m-step">
-                        <div class="m-step-num">04</div>
-                        <div class="m-step-content">
-                            <h4><i class="fa-solid fa-rocket"></i> Launch &amp; Scale</h4>
-                            <p>We layer in paid and organic traffic strategies to scale revenue predictably.</p>
-                        </div>
+                </div>
+                <div class="m-step">
+                    <div class="m-step-num">04</div>
+                    <div class="m-step-content">
+                        <h4><i class="fa-solid fa-rocket"></i> Launch &amp; Scale</h4>
+                        <p>We layer in paid and organic traffic strategies to scale revenue predictably.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- STATS -->
+    <?php if ($ecommerceCaseStudies): ?>
+    <!-- REAL ECOMMERCE CLIENT WORK -->
+    <section class="services-section fade-up">
+        <div class="container">
+            <div class="section-header">
+                <span class="eyebrow">REAL CLIENT WORK</span>
+                <h2 style="font-size: clamp(1.8rem, 4vw, 2.8rem); margin-top: 10px;">Ecommerce Projects We've Delivered</h2>
+            </div>
+            <div class="case-grid">
+                <?php foreach ($ecommerceCaseStudies as $cs): ?>
+                <article class="case-card">
+                    <div class="case-image">
+                        <span class="case-tag"><?php echo htmlspecialchars($cs['tag'], ENT_QUOTES, 'UTF-8'); ?></span>
+                        <img loading="lazy" decoding="async" src="<?php echo htmlspecialchars($cs['image_path'], ENT_QUOTES, 'UTF-8'); ?>" alt="<?php echo htmlspecialchars($cs['image_alt'], ENT_QUOTES, 'UTF-8'); ?>">
+                        <h3><?php echo htmlspecialchars(strtoupper($cs['name']), ENT_QUOTES, 'UTF-8'); ?></h3>
+                    </div>
+                    <div class="case-content">
+                        <div>
+                            <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px;"><?php echo htmlspecialchars(strip_tags($cs['summary']), ENT_QUOTES, 'UTF-8'); ?></p>
+                        </div>
+                        <div>
+                            <a href="/case-studies/<?php echo htmlspecialchars($cs['slug'], ENT_QUOTES, 'UTF-8'); ?>" class="service-link">View Details <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </article>
+                <?php endforeach; ?>
+            </div>
+            <div style="text-align: center; margin-top: clamp(30px, 4vw, 40px);">
+                <a href="/case-studies" class="service-link"><i class="fa-solid fa-arrow-left"></i> View All Case Studies</a>
+            </div>
+        </div>
+    </section>
+    <?php endif; ?>
+
+    <?php if ($ecommerceStats): ?>
+    <!-- STATS: combined real "Results At A Glance" stats from every ecommerce-
+         tagged case study, pulled live -- adding stats to an ecommerce case
+         study from the admin dashboard makes them appear here automatically. -->
     <section class="stats-section fade-up">
         <div class="container">
             <div class="section-header">
                 <span class="eyebrow" style="color: var(--cyan-neon);">PROVEN RESULTS</span>
-                <h2 style="color: #fff; font-size: clamp(1.8rem, 4vw, 2.8rem);">Ecommerce Growth That Compounds</h2>
+                <h2 style="color: #fff; font-size: clamp(1.8rem, 4vw, 2.8rem);">Real Ecommerce Results, Verified From Client Reporting</h2>
             </div>
             <div class="stats-4-grid">
-                <div class="stat-box"><div class="stat-icon"><i class="fa-solid fa-gauge-high"></i></div><h3>+58%</h3><p>Avg. Conversion Rate Lift</p></div>
-                <div class="stat-box"><div class="stat-icon"><i class="fa-solid fa-chart-line"></i></div><h3>7.2x</h3><p>Avg. ROAS On Shopping Ads</p></div>
-                <div class="stat-box"><div class="stat-icon"><i class="fa-solid fa-cart-shopping"></i></div><h3>-24%</h3><p>Cart Abandonment</p></div>
-                <div class="stat-box"><div class="stat-icon"><i class="fa-solid fa-rotate"></i></div><h3>+41%</h3><p>Repeat Purchase Rate</p></div>
+                <?php foreach ($ecommerceStats as [$value, $label]): ?>
+                <div class="stat-box">
+                    <div class="stat-icon"><i class="fa-solid fa-arrow-trend-up"></i></div>
+                    <h3><?php echo htmlspecialchars($value, ENT_QUOTES, 'UTF-8'); ?></h3>
+                    <p><?php echo htmlspecialchars($label, ENT_QUOTES, 'UTF-8'); ?></p>
+                </div>
+                <?php endforeach; ?>
             </div>
         </div>
     </section>
+    <?php endif; ?>
 
     <!-- FINAL CTA -->
     <section class="cta-section" id="contact">
@@ -145,7 +213,7 @@ include 'header.php';
                     <span><i class="fa-solid fa-check" style="color: var(--cyan-neon);"></i> Proven Australian Results</span>
                 </div>
                 <div class="cta-btn-wrapper">
-                    <a href="contact.php" class="btn-primary" style="padding: 18px 45px; font-size: 1.1rem;">GET MY FREE STORE AUDIT <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
+                    <a href="/contact" class="btn-primary" style="padding: 18px 45px; font-size: 1.1rem;">GET MY FREE STORE AUDIT <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
                 </div>
             </div>
         </div>

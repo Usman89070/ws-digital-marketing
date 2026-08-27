@@ -11,8 +11,8 @@ include 'header.php';
             <h1 class="fade-up">CLIENTS WHO TRUST YOU <br><span class="text-gradient">BEFORE THEY EVEN CALL.</span></h1>
             <p class="hero-subtitle fade-up">Digital marketing for accountants, bookkeepers, and financial advisors &mdash; built to establish authority and fill your pipeline with qualified, ready-to-engage leads.</p>
             <div class="hero-buttons fade-up">
-                <a href="contact.php" class="btn-primary">GET MY FREE FIRM AUDIT <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
-                <a href="industries.php" class="btn-secondary">VIEW ALL INDUSTRIES</a>
+                <a href="/contact" class="btn-primary">GET MY FREE FIRM AUDIT <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
+                <a href="/industries" class="btn-secondary">VIEW ALL INDUSTRIES</a>
             </div>
         </div>
     </section>
@@ -22,7 +22,7 @@ include 'header.php';
         <div class="container">
             <div class="agency-grid">
                 <div class="agency-image-wrapper">
-                    <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=800&q=80" alt="Accounting & Finance Digital Marketing">
+                    <img loading="lazy" decoding="async" src="/images/industries/finance.webp" alt="Accounting & Finance Digital Marketing" onerror="this.remove()">
                 </div>
                 <div class="agency-text">
                     <span class="eyebrow">WHY IT MATTERS</span>
@@ -33,7 +33,7 @@ include 'header.php';
                         <li><i class="fa-solid fa-check"></i> Authority-Building Content &amp; Guides</li>
                         <li><i class="fa-solid fa-check"></i> Compliant, Trust-First Website Design</li>
                     </ul>
-                    <a href="contact.php" class="btn-primary" style="margin-top: 10px;">Speak With An Industry Strategist</a>
+                    <a href="/contact" class="btn-primary" style="margin-top: 10px;">Speak With An Industry Strategist</a>
                 </div>
             </div>
         </div>
@@ -71,22 +71,6 @@ include 'header.php';
         </div>
     </section>
 
-    <!-- STATS -->
-    <section class="stats-section fade-up">
-        <div class="container">
-            <div class="section-header">
-                <span class="eyebrow" style="color: var(--cyan-neon);">PROVEN RESULTS</span>
-                <h2 style="color: #fff; font-size: clamp(1.8rem, 4vw, 2.8rem);">Results Firms Can Take To The Bank</h2>
-            </div>
-            <div class="stats-4-grid">
-                <div class="stat-box"><div class="stat-icon"><i class="fa-solid fa-user-plus"></i></div><h3>+87</h3><p>New Client Inquiries (Avg.)</p></div>
-                <div class="stat-box"><div class="stat-icon"><i class="fa-solid fa-ranking-star"></i></div><h3>+64%</h3><p>More Page 1 Rankings</p></div>
-                <div class="stat-box"><div class="stat-icon"><i class="fa-solid fa-arrow-trend-down"></i></div><h3>-22%</h3><p>Cost Per Lead</p></div>
-                <div class="stat-box"><div class="stat-icon"><i class="fa-solid fa-handshake"></i></div><h3>96%</h3><p>Client Retention</p></div>
-            </div>
-        </div>
-    </section>
-
     <!-- FINAL CTA -->
     <section class="cta-section" id="contact">
         <div class="container">
@@ -100,7 +84,7 @@ include 'header.php';
                     <span><i class="fa-solid fa-check" style="color: var(--cyan-neon);"></i> Proven Australian Results</span>
                 </div>
                 <div class="cta-btn-wrapper">
-                    <a href="contact.php" class="btn-primary" style="padding: 18px 45px; font-size: 1.1rem;">GET MY FREE FIRM AUDIT <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
+                    <a href="/contact" class="btn-primary" style="padding: 18px 45px; font-size: 1.1rem;">GET MY FREE FIRM AUDIT <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
                 </div>
             </div>
         </div>
