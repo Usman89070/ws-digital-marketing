@@ -47,7 +47,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (mail($to, $subject, $email_content, $headers)) {
             $email_sent = true;
         } else {
-            $form_error = 'Something went wrong sending your message. Please try again or email us directly at info@wsdigitalmarketing.com.au.';
+            $form_error = 'Something went wrong sending your message. Please try again or call us directly.';
         }
     }
 }
@@ -89,13 +89,23 @@ include 'header.php';
                     <div>
                         <span class="eyebrow">CONTACT INFORMATION</span>
                         <h2 style="font-size: clamp(1.8rem, 3vw, 2.4rem); color: var(--navy); font-weight: 800; margin-bottom: 15px; line-height: 1.2;">We’re Here To Help You Scale</h2>
-                        <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; margin-bottom: 20px;">Have questions about our SEO, Google Ads, or custom web design services? Drop us a message or email us directly.</p>
+                        <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; margin-bottom: 20px;">Have questions about our SEO, Google Ads, or custom web design services? Drop us a message or give us a call directly.</p>
 
                         <div style="display: inline-flex; align-items: center; gap: 8px; background: rgba(0, 242, 254, 0.1); color: var(--navy); border: 1px solid rgba(0, 242, 254, 0.25); padding: 8px 16px; border-radius: 30px; font-size: 0.8rem; font-weight: 700; margin-bottom: 30px;">
                             <i class="fa-solid fa-bolt" style="color: var(--cyan-neon);"></i> We typically respond within 2 business hours
                         </div>
 
                         <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 22px;">
+                            <li style="display: flex; align-items: flex-start; gap: 15px;">
+                                <div style="width: 45px; height: 45px; background: rgba(0, 242, 254, 0.1); border: 1px solid rgba(0, 242, 254, 0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--cyan-neon); font-size: 1.1rem; flex-shrink: 0;">
+                                    <i class="fa-solid fa-phone"></i>
+                                </div>
+                                <div>
+                                    <h5 style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); font-weight: 700; margin-bottom: 2px; letter-spacing: 1px;">Call Us</h5>
+                                    <a href="tel:1300123456" style="color: var(--navy); font-weight: 700; font-size: 1.05rem; text-decoration: none; transition: color 0.3s;">1300 123 456</a>
+                                </div>
+                            </li>
+                            
                             <li style="display: flex; align-items: flex-start; gap: 15px;">
                                 <div style="width: 45px; height: 45px; background: rgba(0, 242, 254, 0.1); border: 1px solid rgba(0, 242, 254, 0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--cyan-neon); font-size: 1.1rem; flex-shrink: 0;">
                                     <i class="fa-solid fa-envelope"></i>
