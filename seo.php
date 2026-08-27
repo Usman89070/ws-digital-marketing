@@ -4,10 +4,9 @@ require_once __DIR__ . '/includes/case-study-helpers.php';
 
 $seoCaseStudies = [];
 $seoStats = [];
-$seoClicksChart = [];
 try {
-    // Shown below as real client work, and as the source for both stats
-    // sections: every case study with real "Results At A Glance" data (these
+    // Shown below as real client work, and as the source for the stats
+    // section: every case study with real "Results At A Glance" data (these
     // are all local-SEO campaigns), PLUS any case study explicitly tagged
     // "SEO" (alone or combined with other services) even before it has real
     // stats yet. Pulled live from the same table the Case Studies admin
@@ -19,7 +18,6 @@ try {
             continue;
         }
         $seoCaseStudies[] = $row;
-        $gotClicksStat = false;
         foreach ([1, 2, 3, 4] as $n) {
             $value = $row["stat{$n}_value"];
             $label = $row["stat{$n}_label"];
@@ -27,22 +25,14 @@ try {
                 continue;
             }
             $seoStats[] = [$value, $label];
-            if (!$gotClicksStat && stripos($label, 'organic click') !== false) {
-                $seoClicksChart[] = ['name' => $row['name'], 'value' => $value];
-                $gotClicksStat = true;
-            }
         }
     }
-    usort($seoClicksChart, fn($a, $b) => parse_stat_number($b['value']) <=> parse_stat_number($a['value']));
-    $seoClicksMax = $seoClicksChart ? parse_stat_number($seoClicksChart[0]['value']) : 0;
     // Stats sharing the same label (e.g. multiple businesses' "Organic
     // Clicks") are combined into one box instead of shown per-business.
     $seoStats = combine_stats($seoStats);
 } catch (PDOException $e) {
     $seoCaseStudies = [];
     $seoStats = [];
-    $seoClicksChart = [];
-    $seoClicksMax = 0;
 }
 
 $page_title = 'Search Engine Optimization';
@@ -186,26 +176,6 @@ include 'header.php';
                 </article>
                 <?php endforeach; ?>
             </div>
-
-            <?php if ($seoClicksChart): ?>
-            <!-- ANIMATED GROWTH CHART -->
-            <div class="seo-chart-card">
-                <div class="seo-chart-head">
-                    <span class="eyebrow">AT A GLANCE</span>
-                    <h3>Organic Clicks By Campaign</h3>
-                    <p>Total Google Search clicks recorded for each client during their most recent reporting period.</p>
-                </div>
-                <div class="seo-chart-rows">
-                    <?php foreach ($seoClicksChart as $row): $pct = $seoClicksMax > 0 ? (parse_stat_number($row['value']) / $seoClicksMax * 100) : 0; ?>
-                    <div class="seo-chart-row">
-                        <span class="seo-chart-label" data-value="<?php echo htmlspecialchars($row['value'], ENT_QUOTES, 'UTF-8'); ?>"><?php echo htmlspecialchars($row['name'], ENT_QUOTES, 'UTF-8'); ?></span>
-                        <div class="seo-chart-track"><div class="seo-chart-fill" style="--pct: <?php echo htmlspecialchars((string) round($pct, 1), ENT_QUOTES, 'UTF-8'); ?>%;"></div></div>
-                        <span class="seo-chart-value"><?php echo htmlspecialchars($row['value'], ENT_QUOTES, 'UTF-8'); ?></span>
-                    </div>
-                    <?php endforeach; ?>
-                </div>
-            </div>
-            <?php endif; ?>
 
             <div style="text-align: center; margin-top: clamp(30px, 4vw, 40px);">
                 <a href="/case-studies" class="btn-secondary">VIEW ALL CASE STUDIES <i class="fa-solid fa-arrow-right" style="margin-left: 6px;"></i></a>
