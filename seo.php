@@ -35,7 +35,7 @@ try {
     $seoStats = [];
 }
 
-$page_title = 'Search Engine Optimization';
+$page_title = 'Search Engine Optimisation';
 $page_description = 'Local SEO, technical audits, and content strategies engineered to get your business found on Google and Google Maps.';
 include 'header.php';
 ?>
@@ -43,7 +43,7 @@ include 'header.php';
     <!-- SEO HERO SECTION -->
     <section class="hero" style="padding-bottom: clamp(40px, 8vw, 80px);">
         <div class="container hero-content">
-            <span class="eyebrow fade-up">SEARCH ENGINE OPTIMIZATION</span>
+            <span class="eyebrow fade-up">SEARCH ENGINE OPTIMISATION</span>
             <h1 class="fade-up">RANK HIGHER. GET FOUND. <br><span class="text-gradient">GROW ORGANICALLY.</span></h1>
             <p class="hero-subtitle fade-up">We combine technical SEO, local search optimization, and content strategy to get your business in front of customers who are already searching for what you offer.</p>
             <div class="hero-buttons fade-up">
@@ -58,11 +58,11 @@ include 'header.php';
         <div class="container">
             <div class="agency-grid">
                 <div class="agency-image-wrapper">
-                    <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?auto=format&fit=crop&w=800&q=80" alt="Search Engine Optimization Strategy">
+                    <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?auto=format&fit=crop&w=800&q=80" alt="Search Engine Optimisation Strategy">
                 </div>
                 <div class="agency-text">
                     <span class="eyebrow">WHY SEO</span>
-                    <h2>Search Engine Optimization That Actually Moves Rankings</h2>
+                    <h2>Search Engine Optimisation That Actually Moves Rankings</h2>
                     <p>Most SEO agencies sell reports full of vanity metrics. We focus on the fundamentals that actually move rankings and revenue: technical health, local visibility, and content that answers what your customers are searching for.</p>
                     <ul class="agency-list" style="margin-top: 20px;">
                         <li><i class="fa-solid fa-check"></i> Local SEO &amp; Google Business Profile Optimization</li>

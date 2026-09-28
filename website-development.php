@@ -35,7 +35,7 @@ try {
     $webdevStats = [];
 }
 
-$page_title = 'Website Development & Design';
+$page_title = 'Website Design & Development';
 $page_description = 'Fast, mobile-responsive websites engineered specifically for conversion rate optimization, not just aesthetics.';
 include 'header.php';
 ?>
@@ -43,7 +43,7 @@ include 'header.php';
     <!-- WEBSITE DEV HERO SECTION -->
     <section class="hero" style="padding-bottom: clamp(40px, 8vw, 80px);">
         <div class="container hero-content">
-            <span class="eyebrow fade-up">WEBSITE DEVELOPMENT &amp; DESIGN</span>
+            <span class="eyebrow fade-up">WEBSITE DESIGN &amp; DEVELOPMENT</span>
             <h1 class="fade-up">WEBSITES BUILT TO CONVERT, <br><span class="text-gradient">NOT JUST LOOK GOOD.</span></h1>
             <p class="hero-subtitle fade-up">Fast, mobile-responsive websites engineered around your customer's journey — from first impression to enquiry.</p>
             <div class="hero-buttons fade-up">

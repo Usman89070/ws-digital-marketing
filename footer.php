@@ -40,11 +40,11 @@
                 <div>
                     <h4 class="footer-heading">Services</h4>
                     <ul class="footer-links">
-                        <li><a href="/seo">Search Engine Optimization</a></li>
-                        <li><a href="/ecommerce">E-commerce</a></li>
-                        <li><a href="/website-development">Website Development</a></li>
-                        <li><a href="/social-media">Social Media</a></li>
-                        <li><a href="/ppc-advertising">PPC Advertising</a></li>
+                        <li><a href="/seo">Search Engine Optimisation</a></li>
+                        <li><a href="/ecommerce">Ecommerce</a></li>
+                        <li><a href="/website-development">Website Design &amp; Development</a></li>
+                        <li><a href="/social-media">Social Media Marketing</a></li>
+                        <li><a href="/ppc-advertising">Paid Advertising</a></li>
                         <li><a href="/graphic-design">Graphic Design</a></li>
                         <li><a href="/content-writing">Content Writing</a></li>
                     </ul>
@@ -54,8 +54,8 @@
                 <div>
                     <h4 class="footer-heading">Get In Touch</h4>
                     <ul class="footer-contact">
-                        <li><i class="fa-solid fa-phone"></i> <span>1300 123 456</span></li>
-                        <li><i class="fa-solid fa-envelope"></i> <span>info@wsdigitalmarketing.com.au</span></li>
+                        <li><i class="fa-solid fa-phone"></i> <a href="tel:+61403889630"><span>+61 403 889 630</span></a></li>
+                        <li><i class="fa-solid fa-envelope"></i> <a href="mailto:info@wsdigitalmarketing.com.au"><span>info@wsdigitalmarketing.com.au</span></a></li>
                         <li><i class="fa-solid fa-location-dot"></i> <span>Level 32, Sydney, NSW 2000, Australia</span></li>
                     </ul>
                 </div>

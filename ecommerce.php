@@ -31,7 +31,7 @@ try {
     $ecommerceStats = [];
 }
 
-$page_title = 'E-commerce';
+$page_title = 'Ecommerce';
 $page_description = 'Shopify and WooCommerce builds, catalog strategy, and conversion-focused checkout flows that turn browsers into repeat customers.';
 include 'header.php';
 ?>
@@ -39,7 +39,7 @@ include 'header.php';
     <!-- ECOMMERCE HERO SECTION -->
     <section class="hero" style="padding-bottom: clamp(40px, 8vw, 80px);">
         <div class="container hero-content">
-            <span class="eyebrow fade-up">E-COMMERCE</span>
+            <span class="eyebrow fade-up">ECOMMERCE</span>
             <h1 class="fade-up">TURN BROWSERS <br><span class="text-gradient">INTO BUYERS.</span></h1>
             <p class="hero-subtitle fade-up">From store builds to checkout optimization, we build and grow ecommerce stores engineered to convert traffic into repeat revenue.</p>
             <div class="hero-buttons fade-up">
@@ -54,7 +54,7 @@ include 'header.php';
         <div class="container">
             <div class="agency-grid">
                 <div class="agency-image-wrapper">
-                    <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=80" alt="E-commerce Store Strategy">
+                    <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=80" alt="Ecommerce Store Strategy">
                 </div>
                 <div class="agency-text">
                     <span class="eyebrow">WHY IT MATTERS</span>

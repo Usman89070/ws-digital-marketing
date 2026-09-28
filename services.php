@@ -26,13 +26,13 @@ include 'header.php';
                     <div class="service-card-inner">
                         <div class="service-card-front">
                             <div class="service-icon-badge"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
-                            <h3>Search Engine Optimization</h3>
+                            <h3>Search Engine Optimisation</h3>
                         </div>
                         <div class="service-card-back">
                             <img loading="lazy" decoding="async" class="service-card-back-img" src="https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?auto=format&fit=crop&w=800&q=80" alt="">
                             <div class="service-card-back-overlay"></div>
                             <div class="service-card-back-content">
-                                <h3>Search Engine Optimization</h3>
+                                <p class="service-card-back-title" aria-hidden="true">Search Engine Optimisation</p>
                                 <p>Dominate local search and Google Maps with technical SEO, content, and link-building strategies that attract high-intent organic traffic.</p>
                                 <a href="/seo" class="service-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
                             </div>
@@ -44,13 +44,13 @@ include 'header.php';
                     <div class="service-card-inner">
                         <div class="service-card-front">
                             <div class="service-icon-badge"><i class="fa-solid fa-cart-shopping"></i></div>
-                            <h3>E-commerce</h3>
+                            <h3>Ecommerce</h3>
                         </div>
                         <div class="service-card-back">
                             <img loading="lazy" decoding="async" class="service-card-back-img" src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=80" alt="">
                             <div class="service-card-back-overlay"></div>
                             <div class="service-card-back-content">
-                                <h3>E-commerce</h3>
+                                <p class="service-card-back-title" aria-hidden="true">Ecommerce</p>
                                 <p>Shopify and WooCommerce builds, catalog strategy, and conversion-focused checkout flows that turn browsers into repeat customers.</p>
                                 <a href="/ecommerce" class="service-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
                             </div>
@@ -62,13 +62,13 @@ include 'header.php';
                     <div class="service-card-inner">
                         <div class="service-card-front">
                             <div class="service-icon-badge"><i class="fa-solid fa-laptop-code"></i></div>
-                            <h3>Website Development &amp; Design</h3>
+                            <h3>Website Design &amp; Development</h3>
                         </div>
                         <div class="service-card-back">
                             <img loading="lazy" decoding="async" class="service-card-back-img" src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80" alt="">
                             <div class="service-card-back-overlay"></div>
                             <div class="service-card-back-content">
-                                <h3>Website Development &amp; Design</h3>
+                                <p class="service-card-back-title" aria-hidden="true">Website Design &amp; Development</p>
                                 <p>Fast, mobile-responsive websites engineered specifically for conversion rate optimization, not just aesthetics.</p>
                                 <a href="/website-development" class="service-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
                             </div>
@@ -80,13 +80,13 @@ include 'header.php';
                     <div class="service-card-inner">
                         <div class="service-card-front">
                             <div class="service-icon-badge"><i class="fa-solid fa-share-nodes"></i></div>
-                            <h3>Social Media</h3>
+                            <h3>Social Media Marketing</h3>
                         </div>
                         <div class="service-card-back">
                             <img loading="lazy" decoding="async" class="service-card-back-img" src="/images/socialMedia.webp" alt="">
                             <div class="service-card-back-overlay"></div>
                             <div class="service-card-back-content">
-                                <h3>Social Media</h3>
+                                <p class="service-card-back-title" aria-hidden="true">Social Media Marketing</p>
                                 <p>Strategic content and community management across Meta and TikTok to build brand presence and engage your target audience.</p>
                                 <a href="/social-media" class="service-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
                             </div>
@@ -98,13 +98,13 @@ include 'header.php';
                     <div class="service-card-inner">
                         <div class="service-card-front">
                             <div class="service-icon-badge"><i class="fa-solid fa-hand-pointer"></i></div>
-                            <h3>PPC Advertising</h3>
+                            <h3>Paid Advertising</h3>
                         </div>
                         <div class="service-card-back">
                             <img loading="lazy" decoding="async" class="service-card-back-img" src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" alt="">
                             <div class="service-card-back-overlay"></div>
                             <div class="service-card-back-content">
-                                <h3>PPC Advertising</h3>
+                                <p class="service-card-back-title" aria-hidden="true">Paid Advertising</p>
                                 <p>Google Ads and paid social campaigns built for instant, high-converting traffic, more phone calls, and maximum ROAS.</p>
                                 <a href="/ppc-advertising" class="service-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
                             </div>
@@ -122,7 +122,7 @@ include 'header.php';
                             <img loading="lazy" decoding="async" class="service-card-back-img" src="https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=800&q=80" alt="">
                             <div class="service-card-back-overlay"></div>
                             <div class="service-card-back-content">
-                                <h3>Graphic Design</h3>
+                                <p class="service-card-back-title" aria-hidden="true">Graphic Design</p>
                                 <p>Brand identity, ad creative, and marketing collateral designed to stand out and stay consistent across every channel.</p>
                                 <a href="/graphic-design" class="service-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
                             </div>
@@ -140,7 +140,7 @@ include 'header.php';
                             <img loading="lazy" decoding="async" class="service-card-back-img" src="https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=800&q=80" alt="">
                             <div class="service-card-back-overlay"></div>
                             <div class="service-card-back-content">
-                                <h3>Content Writing</h3>
+                                <p class="service-card-back-title" aria-hidden="true">Content Writing</p>
                                 <p>SEO-optimized copy, blog content, and website content that ranks, builds authority, and speaks directly to your customers.</p>
                                 <a href="/content-writing" class="service-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
                             </div>

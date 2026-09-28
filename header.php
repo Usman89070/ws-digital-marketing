@@ -89,11 +89,11 @@ $page_description = $page_description ?? 'Data-driven Google Ads, Meta Ads, SEO 
                         <a href="/services">Services <i class="fa-solid fa-chevron-down" style="font-size: 0.75rem; margin-left: 4px;"></i></a>
                         <ul class="dropdown-menu">
                             <li><a href="/services" class="dropdown-hub-link">All Services</a></li>
-                            <li><a href="/seo">Search Engine Optimization</a></li>
-                            <li><a href="/ecommerce">E-commerce</a></li>
-                            <li><a href="/website-development">Website Development & Design</a></li>
-                            <li><a href="/social-media">Social Media</a></li>
-                            <li><a href="/ppc-advertising">PPC Advertising</a></li>
+                            <li><a href="/seo">Search Engine Optimisation</a></li>
+                            <li><a href="/ecommerce">Ecommerce</a></li>
+                            <li><a href="/website-development">Website Design &amp; Development</a></li>
+                            <li><a href="/social-media">Social Media Marketing</a></li>
+                            <li><a href="/ppc-advertising">Paid Advertising</a></li>
                             <li><a href="/graphic-design">Graphic Design</a></li>
                             <li><a href="/content-writing">Content Writing</a></li>
                         </ul>

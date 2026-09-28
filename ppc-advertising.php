@@ -1,5 +1,5 @@
 <?php
-$page_title = 'PPC Advertising';
+$page_title = 'Paid Advertising';
 $page_description = 'Google Ads and paid social campaigns built for instant, high-converting traffic, more phone calls, and maximum ROAS.';
 include 'header.php';
 ?>
@@ -7,7 +7,7 @@ include 'header.php';
     <!-- PPC HERO SECTION -->
     <section class="hero" style="padding-bottom: clamp(40px, 8vw, 80px);">
         <div class="container hero-content">
-            <span class="eyebrow fade-up">PPC ADVERTISING</span>
+            <span class="eyebrow fade-up">PAID ADVERTISING</span>
             <h1 class="fade-up">INSTANT, HIGH-CONVERTING <br><span class="text-gradient">TRAFFIC ON DEMAND.</span></h1>
             <p class="hero-subtitle fade-up">Google Ads and paid social campaigns built to generate leads and sales from day one — with full transparency on where every dollar goes.</p>
             <div class="hero-buttons fade-up">
@@ -22,7 +22,7 @@ include 'header.php';
         <div class="container">
             <div class="agency-grid">
                 <div class="agency-image-wrapper">
-                    <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" alt="PPC Advertising Strategy">
+                    <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" alt="Paid Advertising Strategy">
                 </div>
                 <div class="agency-text">
                     <span class="eyebrow">WHY IT MATTERS</span>

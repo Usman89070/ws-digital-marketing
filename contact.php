@@ -183,11 +183,11 @@ include 'header.php';
                                 <label style="font-size: 0.8rem; font-weight: 700; color: var(--navy); text-transform: uppercase;">Service Needed</label>
                                 <div class="input-wrap">
                                     <select name="service">
-                                        <option value="Search Engine Optimization">Search Engine Optimization</option>
-                                        <option value="E-commerce">E-commerce</option>
-                                        <option value="Website Development">Website Development &amp; Design</option>
-                                        <option value="Social Media">Social Media</option>
-                                        <option value="PPC Advertising">PPC Advertising</option>
+                                        <option value="Search Engine Optimisation">Search Engine Optimisation</option>
+                                        <option value="Ecommerce">Ecommerce</option>
+                                        <option value="Website Design &amp; Development">Website Design &amp; Development</option>
+                                        <option value="Social Media Marketing">Social Media Marketing</option>
+                                        <option value="Paid Advertising">Paid Advertising</option>
                                         <option value="Graphic Design">Graphic Design</option>
                                         <option value="Content Writing">Content Writing</option>
                                     </select>

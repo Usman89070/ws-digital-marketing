@@ -575,7 +575,8 @@
             background: linear-gradient(180deg, rgba(11,15,37,0.35) 0%, rgba(11,15,37,0.85) 60%, rgba(11,15,37,0.95) 100%);
         }
         .service-card-back-content { position: relative; z-index: 2; width: 100%; padding: 28px 25px; }
-        .service-card-back-content h3 { font-size: 1.15rem; color: #fff; font-weight: 700; margin-bottom: 10px; }
+        .service-card-back-content h3,
+        .service-card-back-content .service-card-back-title { font-size: 1.15rem; color: #fff; font-weight: 700; margin-bottom: 10px; }
         .service-card-back-content p { color: rgba(255,255,255,0.85); font-size: 0.9rem; line-height: 1.6; margin-bottom: 18px; }
         .service-card-back-content .service-link {
             display: inline-flex; align-items: center; gap: 7px; margin-top: 2px;
@@ -1148,7 +1149,9 @@
         .footer-contact { list-style: none !important; padding: 0 !important; margin: 0 !important; }
         .footer-contact li { display: flex !important; align-items: flex-start !important; gap: 15px !important; color: rgba(255,255,255,0.7) !important; margin-bottom: 18px !important; font-size: 0.95rem !important; line-height: 1.5 !important; word-break: break-word !important; }
         .footer-contact i { color: var(--cyan-neon) !important; font-size: 1.1rem !important; background: rgba(0, 242, 254, 0.05) !important; width: 35px !important; height: 35px !important; display: flex !important; align-items: center !important; justify-content: center !important; border-radius: 50% !important; flex-shrink: 0 !important; border: 1px solid rgba(0, 242, 254, 0.1) !important; }
-        
+        .footer-contact a { color: inherit !important; text-decoration: none !important; transition: color 0.3s !important; }
+        .footer-contact a:hover { color: var(--cyan-neon) !important; }
+
         .social-links { display: flex !important; gap: 15px !important; margin-top: 25px !important; }
         .social-links a { width: 40px !important; height: 40px !important; border-radius: 50% !important; background: rgba(255,255,255,0.05) !important; border: 1px solid rgba(255,255,255,0.1) !important; display: flex !important; align-items: center !important; justify-content: center !important; color: #fff !important; transition: var(--transition-smooth) !important; text-decoration: none !important; font-size: 1rem !important; }
         .social-links a:hover { background: var(--cyan-neon) !important; color: var(--navy) !important; transform: translateY(-3px) !important; box-shadow: 0 5px 15px rgba(0, 242, 254, 0.3) !important; }
