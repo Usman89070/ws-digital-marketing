@@ -1,47 +1,5 @@
 <?php
-// Homepage enquiry form (inside the "Ready To Grow Your Business?" section
-// below) -- same header-injection-safe mail handling as contact.php's form.
-$home_email_sent = false;
-$home_form_error = '';
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Strip control characters (incl. CR/LF) to prevent email header injection,
-    // then strip tags and trim on top of that.
-    $clean = function ($value) {
-        $value = preg_replace('/[\r\n\x00-\x1F\x7F]/', '', (string) $value);
-        return trim(strip_tags($value));
-    };
-
-    $home_name    = $clean($_POST['name'] ?? '');
-    $home_email   = filter_var($clean($_POST['email'] ?? ''), FILTER_SANITIZE_EMAIL);
-    $home_phone   = $clean($_POST['phone'] ?? '');
-    $home_service = $clean($_POST['service'] ?? '');
-    $home_message = $clean($_POST['message'] ?? '');
-
-    if ($home_name === '' || $home_message === '' || !filter_var($home_email, FILTER_VALIDATE_EMAIL)) {
-        $home_form_error = 'Please fill in your name, a valid email address, and your message.';
-    } else {
-        $to = "info@wsdigitalmarketing.com.au";
-        $subject = "New Growth Plan Request from " . $home_name;
-
-        $email_content = "Name: $home_name\n";
-        $email_content .= "Email: $home_email\n";
-        $email_content .= "Phone: $home_phone\n";
-        $email_content .= "Service Needed: $home_service\n";
-        $email_content .= "\nMessage:\n$home_message\n";
-
-        // Reply-To carries the visitor's address; From stays a domain address
-        // the sending server is authorized for, avoiding SPF/DMARC failures.
-        $headers = "From: W&S Digital Marketing <info@wsdigitalmarketing.com.au>\r\n";
-        $headers .= "Reply-To: $home_name <$home_email>\r\n";
-        $headers .= "X-Mailer: PHP/" . phpversion();
-
-        if (mail($to, $subject, $email_content, $headers)) {
-            $home_email_sent = true;
-        } else {
-            $home_form_error = 'Something went wrong sending your message. Please try again or email us directly at info@wsdigitalmarketing.com.au.';
-        }
-    }
-}
+require_once __DIR__ . '/includes/cta-form-handler.php';
 
 $page_title = 'Digital Marketing Agency Australia';
 $page_description = 'Grow your Australian business with SEO, Google Ads, social media and website design from W&S Digital Marketing. Request your free growth plan today.';
@@ -340,96 +298,22 @@ include 'header.php';
     <!-- PREMIUM FINAL CTA SECTION -->
     <section class="cta-section" id="contact">
         <div class="container">
-            <div class="cta-box fade-up">
-                <div class="cta-badge"><i class="fa-solid fa-rocket"></i> Let's Scale Together</div>
-                <h2>Ready To Grow Your Business?</h2>
-                <p>Partner with W&S Digital Marketing to build a custom, data-driven growth plan that generates high-intent leads, sales, and maximum ROAS.</p>
-                <div class="cta-features">
-                    <span><i class="fa-solid fa-check" style="color: var(--cyan-neon);"></i> Zero Obligation Audit</span>
-                    <span><i class="fa-solid fa-check" style="color: var(--cyan-neon);"></i> Custom Growth Strategy</span>
-                    <span><i class="fa-solid fa-check" style="color: var(--cyan-neon);"></i> Proven Australian Results</span>
+            <div class="cta-box cta-box-split fade-up">
+                <div class="cta-info">
+                    <div class="cta-badge"><i class="fa-solid fa-rocket"></i> Let's Scale Together</div>
+                    <h2>Ready To Grow Your Business?</h2>
+                    <p>Partner with W&S Digital Marketing to build a custom, data-driven growth plan that generates high-intent leads, sales, and maximum ROAS.</p>
+                    <div class="cta-features">
+                        <span><i class="fa-solid fa-check" style="color: var(--cyan-neon);"></i> Zero Obligation Audit</span>
+                        <span><i class="fa-solid fa-check" style="color: var(--cyan-neon);"></i> Custom Growth Strategy</span>
+                        <span><i class="fa-solid fa-check" style="color: var(--cyan-neon);"></i> Proven Australian Results</span>
+                    </div>
                 </div>
-
-                <?php if ($home_email_sent): ?>
-                    <div style="background: #D1E7DD; color: #0F5132; padding: 18px; border-radius: 12px; margin-bottom: 10px; text-align: center; font-weight: 600; border: 1px solid #badbcc;">
-                        <i class="fa-solid fa-circle-check" style="margin-right: 8px;"></i> Thank you! Your message has been successfully sent. We will get back to you shortly.
-                    </div>
-                <?php elseif ($home_form_error): ?>
-                    <div style="background: #F8D7DA; color: #842029; padding: 18px; border-radius: 12px; margin-bottom: 10px; text-align: center; font-weight: 600; border: 1px solid #f5c2c7;">
-                        <i class="fa-solid fa-triangle-exclamation" style="margin-right: 8px;"></i> <?php echo htmlspecialchars($home_form_error, ENT_QUOTES, 'UTF-8'); ?>
-                    </div>
-                <?php endif; ?>
-
-                <?php if (!$home_email_sent): ?>
-                <form action="/#contact" method="POST" class="home-enquiry-form">
-                    <div class="home-enquiry-row">
-                        <div class="home-enquiry-field">
-                            <label for="home-name">Your Name *</label>
-                            <input type="text" id="home-name" name="name" placeholder="John Smith" required value="<?php echo htmlspecialchars($_POST['name'] ?? '', ENT_QUOTES, 'UTF-8'); ?>">
-                        </div>
-                        <div class="home-enquiry-field">
-                            <label for="home-email">Email Address *</label>
-                            <input type="email" id="home-email" name="email" placeholder="john@example.com" required value="<?php echo htmlspecialchars($_POST['email'] ?? '', ENT_QUOTES, 'UTF-8'); ?>">
-                        </div>
-                    </div>
-                    <div class="home-enquiry-row">
-                        <div class="home-enquiry-field">
-                            <label for="home-phone">Phone Number (optional)</label>
-                            <input type="tel" id="home-phone" name="phone" placeholder="0400 000 000" value="<?php echo htmlspecialchars($_POST['phone'] ?? '', ENT_QUOTES, 'UTF-8'); ?>">
-                        </div>
-                        <div class="home-enquiry-field">
-                            <label for="home-service">Service Needed</label>
-                            <select id="home-service" name="service">
-                                <option value="Search Engine Optimisation">Search Engine Optimisation</option>
-                                <option value="Ecommerce">Ecommerce</option>
-                                <option value="Website Design & Development">Website Design &amp; Development</option>
-                                <option value="Social Media Marketing">Social Media Marketing</option>
-                                <option value="Paid Advertising">Paid Advertising</option>
-                                <option value="Graphic Design">Graphic Design</option>
-                                <option value="Content Writing">Content Writing</option>
-                                <option value="Not sure / Multiple services" selected>Not sure / Multiple services</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="home-enquiry-field">
-                        <label for="home-message">Tell Us About Your Project *</label>
-                        <textarea id="home-message" name="message" rows="3" placeholder="Share your goals, current challenges, or what you'd like to achieve..." required><?php echo htmlspecialchars($_POST['message'] ?? '', ENT_QUOTES, 'UTF-8'); ?></textarea>
-                    </div>
-                    <p class="home-enquiry-privacy">By submitting this form, you agree to our <a href="/privacy-policy">Privacy Policy</a>.</p>
-                    <div class="cta-btn-wrapper">
-                        <button type="submit" class="btn-primary" style="padding: 18px 45px; font-size: 1.1rem; cursor: pointer;">REQUEST MY FREE GROWTH PLAN <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></button>
-                    </div>
-                </form>
-                <?php endif; ?>
+                <div class="cta-form-wrap">
+                    <?php $cta_button_label = 'REQUEST MY FREE GROWTH PLAN'; include __DIR__ . '/includes/cta-form.php'; ?>
+                </div>
             </div>
         </div>
     </section>
-
-    <!-- Homepage Enquiry Form Styling: light inputs readable against the dark cta-box -->
-    <style>
-        .home-enquiry-form { max-width: 600px; margin: 0 auto; text-align: left; }
-        .home-enquiry-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
-        .home-enquiry-field { display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; }
-        .home-enquiry-row .home-enquiry-field { margin-bottom: 0; }
-        .home-enquiry-field label { font-size: 0.75rem; font-weight: 700; color: rgba(255,255,255,0.75); text-transform: uppercase; letter-spacing: 0.5px; }
-        .home-enquiry-field input, .home-enquiry-field select, .home-enquiry-field textarea {
-            padding: 13px 14px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.15);
-            font-size: 0.95rem; outline: none; background: rgba(255,255,255,0.06); color: #fff;
-            width: 100%; font-family: inherit; resize: vertical; transition: var(--transition-smooth);
-        }
-        .home-enquiry-field select { cursor: pointer; }
-        .home-enquiry-field select option { background: var(--navy); color: #fff; }
-        .home-enquiry-field input::placeholder, .home-enquiry-field textarea::placeholder { color: rgba(255,255,255,0.4); }
-        .home-enquiry-field input:focus, .home-enquiry-field select:focus, .home-enquiry-field textarea:focus {
-            border-color: var(--cyan-neon); background: rgba(255,255,255,0.1);
-            box-shadow: 0 0 0 4px rgba(0, 242, 254, 0.12);
-        }
-        .home-enquiry-privacy { font-size: 0.8rem; color: rgba(255,255,255,0.55); margin-bottom: 20px; }
-        .home-enquiry-privacy a { color: var(--cyan-neon); text-decoration: none; }
-        .home-enquiry-privacy a:hover { text-decoration: underline; }
-        @media (max-width: 576px) {
-            .home-enquiry-row { grid-template-columns: 1fr; gap: 16px; }
-        }
-    </style>
 
 <?php include 'footer.php'; ?>

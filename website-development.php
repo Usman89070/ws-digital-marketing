@@ -1,4 +1,5 @@
 <?php
+require_once __DIR__ . '/includes/cta-form-handler.php';
 require_once __DIR__ . '/config.php';
 require_once __DIR__ . '/includes/case-study-helpers.php';
 
@@ -209,17 +210,20 @@ include 'header.php';
     <!-- FINAL CTA -->
     <section class="cta-section" id="contact">
         <div class="container">
-            <div class="cta-box fade-up">
-                <div class="cta-badge"><i class="fa-solid fa-rocket"></i> Let's Scale Together</div>
-                <h2>Ready For A Website That Converts?</h2>
-                <p>Get a free audit of your current site and a clear plan to turn more visitors into enquiries.</p>
-                <div class="cta-features">
+            <div class="cta-box cta-box-split fade-up">
+                <div class="cta-info">
+                    <div class="cta-badge"><i class="fa-solid fa-rocket"></i> Let's Scale Together</div>
+                    <h2>Ready For A Website That Converts?</h2>
+                    <p>Get a free audit of your current site and a clear plan to turn more visitors into enquiries.</p>
+                    <div class="cta-features">
                     <span><i class="fa-solid fa-check" style="color: var(--cyan-neon);"></i> Zero Obligation Audit</span>
                     <span><i class="fa-solid fa-check" style="color: var(--cyan-neon);"></i> Custom Growth Strategy</span>
                     <span><i class="fa-solid fa-check" style="color: var(--cyan-neon);"></i> Proven Australian Results</span>
+                    </div>
                 </div>
-                <div class="cta-btn-wrapper">
-                    <a href="/contact" class="btn-primary" style="padding: 18px 45px; font-size: 1.1rem;">GET MY FREE WEBSITE AUDIT <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
+                <div class="cta-form-wrap">
+                <?php $cta_default_service = 'Website Design & Development'; ?>
+                    <?php $cta_button_label = 'GET MY FREE WEBSITE AUDIT'; include __DIR__ . '/includes/cta-form.php'; ?>
                 </div>
             </div>
         </div>

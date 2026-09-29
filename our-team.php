@@ -1,4 +1,5 @@
 <?php
+require_once __DIR__ . '/includes/cta-form-handler.php';
 $page_title = 'Our Team';
 $page_description = 'Meet the strategists, developers, and creatives behind W&S Digital Marketing — the team driving measurable growth for Australian businesses.';
 
@@ -61,17 +62,19 @@ include 'header.php';
     <!-- FINAL CTA SECTION -->
     <section class="cta-section" id="contact">
         <div class="container">
-            <div class="cta-box fade-up">
-                <div class="cta-badge"><i class="fa-solid fa-rocket"></i> Let's Scale Together</div>
-                <h2>Ready To Work With Us?</h2>
-                <p>Get a zero-obligation growth audit from the team that will actually be running your campaigns.</p>
-                <div class="cta-features">
+            <div class="cta-box cta-box-split fade-up">
+                <div class="cta-info">
+                    <div class="cta-badge"><i class="fa-solid fa-rocket"></i> Let's Scale Together</div>
+                    <h2>Ready To Work With Us?</h2>
+                    <p>Get a zero-obligation growth audit from the team that will actually be running your campaigns.</p>
+                    <div class="cta-features">
                     <span><i class="fa-solid fa-check" style="color: var(--cyan-neon);"></i> Zero Obligation Audit</span>
                     <span><i class="fa-solid fa-check" style="color: var(--cyan-neon);"></i> Custom Growth Strategy</span>
                     <span><i class="fa-solid fa-check" style="color: var(--cyan-neon);"></i> Proven Australian Results</span>
+                    </div>
                 </div>
-                <div class="cta-btn-wrapper">
-                    <a href="/contact" class="btn-primary" style="padding: 18px 45px; font-size: 1.1rem;">GET MY FREE GROWTH PLAN <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
+                <div class="cta-form-wrap">
+                    <?php $cta_button_label = 'GET MY FREE GROWTH PLAN'; include __DIR__ . '/includes/cta-form.php'; ?>
                 </div>
             </div>
         </div>

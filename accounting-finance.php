@@ -1,4 +1,5 @@
 <?php
+require_once __DIR__ . '/includes/cta-form-handler.php';
 $page_title = 'Accounting & Finance';
 $page_description = 'Digital marketing for accounting and financial services firms including SEO, content, and lead generation built to establish trust and fill your pipeline.';
 include 'header.php';
@@ -74,17 +75,19 @@ include 'header.php';
     <!-- FINAL CTA -->
     <section class="cta-section" id="contact">
         <div class="container">
-            <div class="cta-box fade-up">
-                <div class="cta-badge"><i class="fa-solid fa-rocket"></i> Let's Scale Together</div>
-                <h2>Ready To Fill Your Client Pipeline?</h2>
-                <p>Get a free audit of your firm's digital presence and a plan to attract more of the clients you actually want.</p>
-                <div class="cta-features">
+            <div class="cta-box cta-box-split fade-up">
+                <div class="cta-info">
+                    <div class="cta-badge"><i class="fa-solid fa-rocket"></i> Let's Scale Together</div>
+                    <h2>Ready To Fill Your Client Pipeline?</h2>
+                    <p>Get a free audit of your firm's digital presence and a plan to attract more of the clients you actually want.</p>
+                    <div class="cta-features">
                     <span><i class="fa-solid fa-check" style="color: var(--cyan-neon);"></i> Zero Obligation Audit</span>
                     <span><i class="fa-solid fa-check" style="color: var(--cyan-neon);"></i> Custom Growth Strategy</span>
                     <span><i class="fa-solid fa-check" style="color: var(--cyan-neon);"></i> Proven Australian Results</span>
+                    </div>
                 </div>
-                <div class="cta-btn-wrapper">
-                    <a href="/contact" class="btn-primary" style="padding: 18px 45px; font-size: 1.1rem;">GET MY FREE FIRM AUDIT <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
+                <div class="cta-form-wrap">
+                    <?php $cta_button_label = 'GET MY FREE FIRM AUDIT'; include __DIR__ . '/includes/cta-form.php'; ?>
                 </div>
             </div>
         </div>

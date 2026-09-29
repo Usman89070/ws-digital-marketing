@@ -1,4 +1,5 @@
 <?php
+require_once __DIR__ . '/includes/cta-form-handler.php';
 $page_title = 'Dental';
 $page_description = 'Digital marketing for dental practices including local SEO, ads, and websites built to attract new patients and fill your schedule.';
 include 'header.php';
@@ -74,17 +75,19 @@ include 'header.php';
     <!-- FINAL CTA -->
     <section class="cta-section" id="contact">
         <div class="container">
-            <div class="cta-box fade-up">
-                <div class="cta-badge"><i class="fa-solid fa-rocket"></i> Let's Scale Together</div>
-                <h2>Ready To Fill Your Chairs?</h2>
-                <p>Get a free audit of your practice's digital presence and a plan to attract more of the patients you want.</p>
-                <div class="cta-features">
+            <div class="cta-box cta-box-split fade-up">
+                <div class="cta-info">
+                    <div class="cta-badge"><i class="fa-solid fa-rocket"></i> Let's Scale Together</div>
+                    <h2>Ready To Fill Your Chairs?</h2>
+                    <p>Get a free audit of your practice's digital presence and a plan to attract more of the patients you want.</p>
+                    <div class="cta-features">
                     <span><i class="fa-solid fa-check" style="color: var(--cyan-neon);"></i> Zero Obligation Audit</span>
                     <span><i class="fa-solid fa-check" style="color: var(--cyan-neon);"></i> Custom Growth Strategy</span>
                     <span><i class="fa-solid fa-check" style="color: var(--cyan-neon);"></i> Proven Australian Results</span>
+                    </div>
                 </div>
-                <div class="cta-btn-wrapper">
-                    <a href="/contact" class="btn-primary" style="padding: 18px 45px; font-size: 1.1rem;">GET MY FREE PRACTICE AUDIT <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
+                <div class="cta-form-wrap">
+                    <?php $cta_button_label = 'GET MY FREE PRACTICE AUDIT'; include __DIR__ . '/includes/cta-form.php'; ?>
                 </div>
             </div>
         </div>

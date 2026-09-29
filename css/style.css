@@ -1026,6 +1026,61 @@
         .cta-features { display: flex; justify-content: center; gap: clamp(10px, 2vw, 30px); margin-bottom: 40px; font-weight: 600; font-size: clamp(0.8rem, 1.5vw, 0.95rem); flex-wrap: wrap; }
         .cta-features span { display: flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.05); padding: 8px 16px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.1); }
 
+        /* === CTA SECTION: two-column split (info left, enquiry form right) === */
+        .cta-box-split {
+            max-width: 1140px; text-align: left; display: grid;
+            grid-template-columns: minmax(0, 0.85fr) minmax(0, 1fr);
+            gap: clamp(30px, 5vw, 70px); align-items: center;
+        }
+        .cta-box-split .cta-info { text-align: left; }
+        .cta-box-split .cta-badge { margin-bottom: 20px; }
+        .cta-box-split h2 { text-align: left; }
+        .cta-box-split p { text-align: left; margin-left: 0; margin-right: 0; max-width: none; }
+        .cta-box-split .cta-features { justify-content: flex-start; margin-bottom: 0; }
+        .cta-form-wrap {
+            background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 20px; padding: clamp(22px, 3vw, 34px);
+        }
+        .cta-form-message {
+            padding: 16px; border-radius: 12px; margin-bottom: 16px; text-align: center;
+            font-weight: 600; font-size: 0.95rem;
+        }
+        .cta-form-message.cta-form-success { background: #D1E7DD; color: #0F5132; border: 1px solid #badbcc; }
+        .cta-form-message.cta-form-error { background: #F8D7DA; color: #842029; border: 1px solid #f5c2c7; }
+        .cta-enquiry-form { text-align: left; }
+        .cta-enquiry-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+        .cta-enquiry-field { display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; }
+        .cta-enquiry-row .cta-enquiry-field { margin-bottom: 0; }
+        .cta-enquiry-field label { font-size: 0.75rem; font-weight: 700; color: rgba(255,255,255,0.75); text-transform: uppercase; letter-spacing: 0.5px; }
+        .cta-enquiry-field input, .cta-enquiry-field select, .cta-enquiry-field textarea {
+            padding: 13px 14px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.15);
+            font-size: 0.95rem; outline: none; background: rgba(255,255,255,0.06); color: #fff;
+            width: 100%; font-family: inherit; resize: vertical; transition: var(--transition-smooth);
+        }
+        .cta-enquiry-field select { cursor: pointer; }
+        .cta-enquiry-field select option { background: var(--navy); color: #fff; }
+        .cta-enquiry-field input::placeholder, .cta-enquiry-field textarea::placeholder { color: rgba(255,255,255,0.4); }
+        .cta-enquiry-field input:focus, .cta-enquiry-field select:focus, .cta-enquiry-field textarea:focus {
+            border-color: var(--cyan-neon); background: rgba(255,255,255,0.1);
+            box-shadow: 0 0 0 4px rgba(0, 242, 254, 0.12);
+        }
+        .cta-enquiry-privacy { font-size: 0.8rem; color: rgba(255,255,255,0.55); margin-bottom: 20px; }
+        .cta-enquiry-privacy a { color: var(--cyan-neon); text-decoration: none; }
+        .cta-enquiry-privacy a:hover { text-decoration: underline; }
+        .cta-enquiry-submit {
+            padding: 16px 30px; font-size: 1.05rem; cursor: pointer; border: none;
+            width: 100%; display: flex; align-items: center; justify-content: center;
+        }
+        @media (max-width: 900px) {
+            .cta-box-split { grid-template-columns: 1fr; text-align: center; }
+            .cta-box-split .cta-info { text-align: center; }
+            .cta-box-split h2, .cta-box-split p { text-align: center; }
+            .cta-box-split .cta-features { justify-content: center; }
+        }
+        @media (max-width: 576px) {
+            .cta-enquiry-row { grid-template-columns: 1fr; gap: 16px; }
+        }
+
         /* === TABLET & MOBILE OVERRIDES === */
         @media(max-width: 1200px) {
             .nav-menu {
