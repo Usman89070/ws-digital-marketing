@@ -12,7 +12,7 @@ include 'header.php';
             <h1 class="fade-up">INSTANT, HIGH-CONVERTING <br><span class="text-gradient">TRAFFIC ON DEMAND.</span></h1>
             <p class="hero-subtitle fade-up">Google Ads and paid social campaigns built to generate leads and sales from day one — with full transparency on where every dollar goes.</p>
             <div class="hero-buttons fade-up">
-                <a href="/contact" class="btn-primary">GET MY FREE PPC AUDIT <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
+                <a href="#contact" class="btn-primary">GET MY FREE PPC AUDIT <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
                 <a href="/services" class="btn-secondary">VIEW ALL SERVICES</a>
             </div>
         </div>
@@ -34,7 +34,7 @@ include 'header.php';
                         <li><i class="fa-solid fa-check"></i> Paid Social Advertising</li>
                         <li><i class="fa-solid fa-check"></i> Full Conversion Tracking &amp; Reporting</li>
                     </ul>
-                    <a href="/contact" class="btn-primary" style="margin-top: 10px;">Speak With A PPC Strategist</a>
+                    <a href="#contact" class="btn-primary" style="margin-top: 10px;">Speak With A PPC Strategist</a>
                 </div>
             </div>
         </div>

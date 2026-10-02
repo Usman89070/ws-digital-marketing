@@ -12,7 +12,7 @@ include 'header.php';
             <h1 class="fade-up">TRUSTED PATIENT PIPELINES. <br><span class="text-gradient">COMPLIANT BY DESIGN.</span></h1>
             <p class="hero-subtitle fade-up">Digital marketing for clinics, medical practices, and health specialists &mdash; built to attract patients while staying fully compliant.</p>
             <div class="hero-buttons fade-up">
-                <a href="/contact" class="btn-primary">GET MY FREE CLINIC AUDIT <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
+                <a href="#contact" class="btn-primary">GET MY FREE CLINIC AUDIT <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
                 <a href="/industries" class="btn-secondary">VIEW ALL INDUSTRIES</a>
             </div>
         </div>
@@ -34,7 +34,7 @@ include 'header.php';
                         <li><i class="fa-solid fa-check"></i> Patient-Focused, Accessible Websites</li>
                         <li><i class="fa-solid fa-check"></i> Reputation &amp; Review Management</li>
                     </ul>
-                    <a href="/contact" class="btn-primary" style="margin-top: 10px;">Speak With A Healthcare Marketing Strategist</a>
+                    <a href="#contact" class="btn-primary" style="margin-top: 10px;">Speak With A Healthcare Marketing Strategist</a>
                 </div>
             </div>
         </div>

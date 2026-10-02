@@ -12,7 +12,7 @@ include 'header.php';
             <h1 class="fade-up">A BRAND THAT LOOKS <br><span class="text-gradient">AS GOOD AS YOUR WORK.</span></h1>
             <p class="hero-subtitle fade-up">Brand identity, ad creative, and marketing collateral designed to stand out and stay consistent across every channel.</p>
             <div class="hero-buttons fade-up">
-                <a href="/contact" class="btn-primary">GET MY FREE BRAND REVIEW <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
+                <a href="#contact" class="btn-primary">GET MY FREE BRAND REVIEW <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
                 <a href="/services" class="btn-secondary">VIEW ALL SERVICES</a>
             </div>
         </div>
@@ -34,7 +34,7 @@ include 'header.php';
                         <li><i class="fa-solid fa-check"></i> Ad &amp; Social Creative</li>
                         <li><i class="fa-solid fa-check"></i> Print &amp; Marketing Collateral</li>
                     </ul>
-                    <a href="/contact" class="btn-primary" style="margin-top: 10px;">Speak With A Design Strategist</a>
+                    <a href="#contact" class="btn-primary" style="margin-top: 10px;">Speak With A Design Strategist</a>
                 </div>
             </div>
         </div>

@@ -44,7 +44,7 @@ include 'header.php';
             <h1 class="fade-up">TURN BROWSERS <br><span class="text-gradient">INTO BUYERS.</span></h1>
             <p class="hero-subtitle fade-up">From store builds to checkout optimization, we build and grow ecommerce stores engineered to convert traffic into repeat revenue.</p>
             <div class="hero-buttons fade-up">
-                <a href="/contact" class="btn-primary">GET MY FREE STORE AUDIT <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
+                <a href="#contact" class="btn-primary">GET MY FREE STORE AUDIT <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
                 <a href="/services" class="btn-secondary">VIEW ALL SERVICES</a>
             </div>
         </div>
@@ -66,7 +66,7 @@ include 'header.php';
                         <li><i class="fa-solid fa-check"></i> Conversion-Focused Checkout Flows</li>
                         <li><i class="fa-solid fa-check"></i> Product Feed &amp; Shopping Ads Management</li>
                     </ul>
-                    <a href="/contact" class="btn-primary" style="margin-top: 10px;">Speak With An Ecommerce Strategist</a>
+                    <a href="#contact" class="btn-primary" style="margin-top: 10px;">Speak With An Ecommerce Strategist</a>
                 </div>
             </div>
         </div>

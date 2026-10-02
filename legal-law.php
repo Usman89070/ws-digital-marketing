@@ -12,7 +12,7 @@ include 'header.php';
             <h1 class="fade-up">CLIENTS WHO NEED YOU. <br><span class="text-gradient">FINDING YOU FIRST.</span></h1>
             <p class="hero-subtitle fade-up">Digital marketing for law firms and legal practices &mdash; built to attract high-value cases and build authority in your practice area.</p>
             <div class="hero-buttons fade-up">
-                <a href="/contact" class="btn-primary">GET MY FREE FIRM AUDIT <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
+                <a href="#contact" class="btn-primary">GET MY FREE FIRM AUDIT <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
                 <a href="/industries" class="btn-secondary">VIEW ALL INDUSTRIES</a>
             </div>
         </div>
@@ -34,7 +34,7 @@ include 'header.php';
                         <li><i class="fa-solid fa-check"></i> Authority-Building Legal Content</li>
                         <li><i class="fa-solid fa-check"></i> Compliant, High-Converting Websites</li>
                     </ul>
-                    <a href="/contact" class="btn-primary" style="margin-top: 10px;">Speak With A Legal Marketing Strategist</a>
+                    <a href="#contact" class="btn-primary" style="margin-top: 10px;">Speak With A Legal Marketing Strategist</a>
                 </div>
             </div>
         </div>

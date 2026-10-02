@@ -12,7 +12,7 @@ include 'header.php';
             <h1 class="fade-up">MORE LISTINGS. <br><span class="text-gradient">MORE CLOSED DEALS.</span></h1>
             <p class="hero-subtitle fade-up">Digital marketing for real estate agents and agencies &mdash; built to win more listings and turn buyer searches into closed deals.</p>
             <div class="hero-buttons fade-up">
-                <a href="/contact" class="btn-primary">GET MY FREE AGENCY AUDIT <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
+                <a href="#contact" class="btn-primary">GET MY FREE AGENCY AUDIT <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
                 <a href="/industries" class="btn-secondary">VIEW ALL INDUSTRIES</a>
             </div>
         </div>
@@ -34,7 +34,7 @@ include 'header.php';
                         <li><i class="fa-solid fa-check"></i> Listing &amp; Agent Personal Branding</li>
                         <li><i class="fa-solid fa-check"></i> Buyer &amp; Seller Lead Generation</li>
                     </ul>
-                    <a href="/contact" class="btn-primary" style="margin-top: 10px;">Speak With A Real Estate Strategist</a>
+                    <a href="#contact" class="btn-primary" style="margin-top: 10px;">Speak With A Real Estate Strategist</a>
                 </div>
             </div>
         </div>

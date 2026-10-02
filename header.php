@@ -139,7 +139,7 @@ $page_description = $page_description ?? 'Data-driven Google Ads, Meta Ads, SEO 
                 <div class="nav-roll-edge" id="navRollEdge" aria-hidden="true"></div>
             </nav>
             <div class="nav-cta">
-                <a href="/contact" class="header-cta">GET FREE PLAN</a>
+                <a href="#contact" class="header-cta">GET FREE PLAN</a>
             </div>
             
             <!-- Mobile Menu Button -->

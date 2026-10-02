@@ -12,7 +12,7 @@ include 'header.php';
             <h1 class="fade-up">WORDS THAT RANK <br><span class="text-gradient">AND CONVERT.</span></h1>
             <p class="hero-subtitle fade-up">SEO-optimized copy, blog content, and website content that ranks, builds authority, and speaks directly to your customers.</p>
             <div class="hero-buttons fade-up">
-                <a href="/contact" class="btn-primary">GET MY FREE CONTENT AUDIT <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
+                <a href="#contact" class="btn-primary">GET MY FREE CONTENT AUDIT <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
                 <a href="/services" class="btn-secondary">VIEW ALL SERVICES</a>
             </div>
         </div>
@@ -34,7 +34,7 @@ include 'header.php';
                         <li><i class="fa-solid fa-check"></i> Blog &amp; Article Writing</li>
                         <li><i class="fa-solid fa-check"></i> Email &amp; Newsletter Content</li>
                     </ul>
-                    <a href="/contact" class="btn-primary" style="margin-top: 10px;">Speak With A Content Strategist</a>
+                    <a href="#contact" class="btn-primary" style="margin-top: 10px;">Speak With A Content Strategist</a>
                 </div>
             </div>
         </div>

@@ -1064,6 +1064,11 @@
             border-color: var(--cyan-neon); background: rgba(255,255,255,0.1);
             box-shadow: 0 0 0 4px rgba(0, 242, 254, 0.12);
         }
+        .cta-enquiry-plan-note {
+            display: inline-flex; align-items: center; background: rgba(0, 242, 254, 0.1); color: #fff;
+            border: 1px solid rgba(0, 242, 254, 0.3); padding: 8px 16px; border-radius: 30px;
+            font-size: 0.85rem; font-weight: 700; margin-bottom: 16px;
+        }
         .cta-enquiry-privacy { font-size: 0.8rem; color: rgba(255,255,255,0.55); margin-bottom: 20px; }
         .cta-enquiry-privacy a { color: var(--cyan-neon); text-decoration: none; }
         .cta-enquiry-privacy a:hover { text-decoration: underline; }

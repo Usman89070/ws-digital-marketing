@@ -48,7 +48,7 @@ include 'header.php';
             <h1 class="fade-up">RANK HIGHER. GET FOUND. <br><span class="text-gradient">GROW ORGANICALLY.</span></h1>
             <p class="hero-subtitle fade-up">We combine technical SEO, local search optimization, and content strategy to get your business in front of customers who are already searching for what you offer.</p>
             <div class="hero-buttons fade-up">
-                <a href="/contact" class="btn-primary">GET MY FREE SEO AUDIT <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
+                <a href="#contact" class="btn-primary">GET MY FREE SEO AUDIT <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
                 <a href="/services" class="btn-secondary">VIEW ALL SERVICES</a>
             </div>
         </div>
@@ -70,7 +70,7 @@ include 'header.php';
                         <li><i class="fa-solid fa-check"></i> Technical SEO Audits &amp; Fixes</li>
                         <li><i class="fa-solid fa-check"></i> Content &amp; Link-Building Campaigns</li>
                     </ul>
-                    <a href="/contact" class="btn-primary" style="margin-top: 10px;">Speak With An SEO Strategist</a>
+                    <a href="#contact" class="btn-primary" style="margin-top: 10px;">Speak With An SEO Strategist</a>
                 </div>
             </div>
         </div>

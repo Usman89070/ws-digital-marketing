@@ -2,11 +2,17 @@
 // Shared right-column enquiry form for every "Ready To...?" CTA section.
 // Included inside a .cta-form-wrap; expects includes/cta-form-handler.php to
 // have already run higher up the page. The including page may set
-// $cta_button_label (submit button text) and $cta_default_service (service
-// pre-selected in the dropdown) before including this file.
+// $cta_button_label (submit button text), $cta_default_service (service
+// pre-selected in the dropdown), $cta_plan (an already-validated plan name
+// carried as a hidden field, e.g. from pricing.php's plan buttons) and
+// $cta_prefill_message (starting text for the message box) before including
+// this file.
 $cta_button_label = $cta_button_label ?? 'REQUEST MY FREE GROWTH PLAN';
 $cta_default_service = $cta_default_service ?? '';
 $cta_selected_service = $_POST['service'] ?? $cta_default_service;
+$cta_plan = $_POST['plan'] ?? $cta_plan ?? '';
+$cta_prefill_message = $cta_prefill_message ?? '';
+$cta_message_value = $_POST['message'] ?? $cta_prefill_message;
 $cta_services = [
     'Search Engine Optimisation',
     'Ecommerce',
@@ -30,6 +36,10 @@ $cta_form_action = htmlspecialchars($_SERVER['REQUEST_URI'] ?? '/', ENT_QUOTES, 
 
 <?php if (!$cta_email_sent): ?>
 <form action="<?php echo $cta_form_action; ?>" method="POST" class="cta-enquiry-form">
+    <?php if ($cta_plan !== ''): ?>
+    <input type="hidden" name="plan" value="<?php echo htmlspecialchars($cta_plan, ENT_QUOTES, 'UTF-8'); ?>">
+    <p class="cta-enquiry-plan-note"><i class="fa-solid fa-circle-check" style="color: var(--cyan-neon); margin-right: 6px;"></i>Enquiring about the <?php echo htmlspecialchars($cta_plan, ENT_QUOTES, 'UTF-8'); ?> Plan</p>
+    <?php endif; ?>
     <div class="cta-enquiry-row">
         <div class="cta-enquiry-field">
             <label for="cta-name">Your Name *</label>
@@ -57,7 +67,7 @@ $cta_form_action = htmlspecialchars($_SERVER['REQUEST_URI'] ?? '/', ENT_QUOTES, 
     </div>
     <div class="cta-enquiry-field">
         <label for="cta-message">Tell Us About Your Project *</label>
-        <textarea id="cta-message" name="message" rows="3" placeholder="Share your goals, current challenges, or what you'd like to achieve..." required><?php echo htmlspecialchars($_POST['message'] ?? '', ENT_QUOTES, 'UTF-8'); ?></textarea>
+        <textarea id="cta-message" name="message" rows="3" placeholder="Share your goals, current challenges, or what you'd like to achieve..." required><?php echo htmlspecialchars($cta_message_value, ENT_QUOTES, 'UTF-8'); ?></textarea>
     </div>
     <p class="cta-enquiry-privacy">By submitting this form, you agree to our <a href="/privacy-policy">Privacy Policy</a>.</p>
     <button type="submit" class="btn-primary cta-enquiry-submit"><?php echo htmlspecialchars($cta_button_label, ENT_QUOTES, 'UTF-8'); ?> <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></button>

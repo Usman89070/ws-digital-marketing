@@ -18,6 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['name'], $_POST['email
     $cta_phone   = $cta_clean($_POST['phone'] ?? '');
     $cta_service = $cta_clean($_POST['service'] ?? '');
     $cta_message = $cta_clean($_POST['message'] ?? '');
+    $cta_plan    = $cta_clean($_POST['plan'] ?? '');
 
     if ($cta_name === '' || $cta_message === '' || !filter_var($cta_email, FILTER_VALIDATE_EMAIL)) {
         $cta_form_error = 'Please fill in your name, a valid email address, and your message.';
@@ -30,6 +31,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['name'], $_POST['email
         $cta_body .= "Email: $cta_email\n";
         $cta_body .= "Phone: $cta_phone\n";
         $cta_body .= "Service Needed: $cta_service\n";
+        if ($cta_plan !== '') {
+            $cta_body .= "Plan Enquired About: $cta_plan\n";
+        }
         $cta_body .= "Page: $cta_page\n";
         $cta_body .= "\nMessage:\n$cta_message\n";
 
