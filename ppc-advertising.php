@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . '/includes/cta-form-handler.php';
-$page_title = 'Paid Advertising';
-$page_description = 'Google Ads and paid social campaigns built for instant, high-converting traffic, more phone calls, and maximum ROAS.';
+$page_title = 'Google Ads & Paid Social';
+$page_description = 'Reach relevant customers with Google Ads and paid social campaigns from W&S Digital Marketing. Explore campaign setup, management and conversion tracking.';
 include 'header.php';
 ?>
 
@@ -9,10 +9,10 @@ include 'header.php';
     <section class="hero" style="padding-bottom: clamp(40px, 8vw, 80px);">
         <div class="container hero-content">
             <span class="eyebrow fade-up">PAID ADVERTISING</span>
-            <h1 class="fade-up">INSTANT, HIGH-CONVERTING <br><span class="text-gradient">TRAFFIC ON DEMAND.</span></h1>
-            <p class="hero-subtitle fade-up">Google Ads and paid social campaigns built to generate leads and sales from day one — with full transparency on where every dollar goes.</p>
+            <h1 class="fade-up">PUT YOUR BUSINESS IN FRONT <br><span class="text-gradient">OF RELEVANT CUSTOMERS.</span></h1>
+            <p class="hero-subtitle fade-up">Reach people through Google Ads and paid social campaigns, with clear targeting, ongoing testing and reporting focused on the actions that matter to your business.</p>
             <div class="hero-buttons fade-up">
-                <a href="#contact" class="btn-primary">GET MY FREE PPC AUDIT <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
+                <a href="#contact" class="btn-primary">GET MY FREE ADS AUDIT <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
                 <a href="/services" class="btn-secondary">VIEW ALL SERVICES</a>
             </div>
         </div>
@@ -27,46 +27,46 @@ include 'header.php';
                 </div>
                 <div class="agency-text">
                     <span class="eyebrow">WHY IT MATTERS</span>
-                    <h2>Paid Traffic That Pays For Itself</h2>
-                    <p>SEO takes time to build. PPC gives you qualified leads and sales while that foundation is being laid — if it's managed with real discipline around targeting, bidding, and conversion tracking.</p>
+                    <h2>Give Your Advertising A Clear Purpose</h2>
+                    <p>Effective advertising starts with a clear offer, a relevant audience and a useful destination after the click. We plan and manage campaigns around your services, budget and goals, reviewing performance to identify where changes are needed. Advertising spend is separate from our management fees.</p>
                     <ul class="agency-list" style="margin-top: 20px;">
-                        <li><i class="fa-solid fa-check"></i> Google Search &amp; Display Campaigns</li>
-                        <li><i class="fa-solid fa-check"></i> Paid Social Advertising</li>
-                        <li><i class="fa-solid fa-check"></i> Full Conversion Tracking &amp; Reporting</li>
+                        <li><i class="fa-solid fa-check"></i> Google Search &amp; Display Advertising</li>
+                        <li><i class="fa-solid fa-check"></i> Facebook, Instagram &amp; TikTok Campaigns</li>
+                        <li><i class="fa-solid fa-check"></i> Conversion Tracking &amp; Campaign Reporting</li>
                     </ul>
-                    <a href="#contact" class="btn-primary" style="margin-top: 10px;">Speak With A PPC Strategist</a>
+                    <a href="#contact" class="btn-primary" style="margin-top: 10px;">Speak With An Advertising Strategist</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- WHAT'S INCLUDED -->
+    <!-- HOW WE CAN HELP -->
     <section class="services-section fade-up">
         <div class="container">
             <div class="section-header">
-                <span class="eyebrow">WHAT'S INCLUDED</span>
-                <h2 style="font-size: clamp(1.8rem, 4vw, 2.8rem); margin-top: 10px;">A Complete Paid Media Engine</h2>
+                <span class="eyebrow">HOW WE CAN HELP</span>
+                <h2 style="font-size: clamp(1.8rem, 4vw, 2.8rem); margin-top: 10px;">Support Across Your Advertising Campaigns</h2>
             </div>
             <div class="industry-tile-grid">
                 <div class="industry-tile">
                     <div class="industry-tile-icon"><i class="fa-brands fa-google"></i></div>
-                    <h5>Google Search &amp; Display Ads</h5>
-                    <p>Campaigns built around high-intent search terms and smart display retargeting.</p>
+                    <h5>Google Ads Management</h5>
+                    <p>Build and manage search and display campaigns with targeting, advertising copy and budgets shaped around your business priorities.</p>
                 </div>
                 <div class="industry-tile">
                     <div class="industry-tile-icon"><i class="fa-solid fa-hand-pointer"></i></div>
                     <h5>Paid Social Campaigns</h5>
-                    <p>Meta and TikTok ad campaigns engineered for leads and sales, not just clicks.</p>
+                    <p>Develop campaigns for relevant social platforms, combining audience selection, creative testing and clear calls to action.</p>
                 </div>
                 <div class="industry-tile">
                     <div class="industry-tile-icon"><i class="fa-solid fa-arrow-pointer"></i></div>
-                    <h5>Landing Page Optimization</h5>
-                    <p>Dedicated landing pages built to match ad intent and lift conversion rate.</p>
+                    <h5>Landing Page Improvements</h5>
+                    <p>Review the pages receiving advertising traffic and scope improvements or new pages where the customer journey needs attention.</p>
                 </div>
                 <div class="industry-tile">
                     <div class="industry-tile-icon"><i class="fa-solid fa-chart-pie"></i></div>
-                    <h5>Conversion Tracking &amp; Reporting</h5>
-                    <p>Full-funnel tracking so you know exactly what's generating leads and sales.</p>
+                    <h5>Tracking &amp; Reporting</h5>
+                    <p>Configure agreed conversion tracking and explain campaign performance, including the measurement limitations relevant to your setup.</p>
                 </div>
             </div>
         </div>
@@ -77,35 +77,35 @@ include 'header.php';
         <div class="container">
             <div class="section-header">
                 <span class="eyebrow">OUR PROCESS</span>
-                <h2 style="font-size: clamp(1.8rem, 4vw, 2.8rem); margin-top: 10px;">How We Run Profitable Campaigns</h2>
+                <h2 style="font-size: clamp(1.8rem, 4vw, 2.8rem); margin-top: 10px;">How We Plan And Manage Your Ads</h2>
             </div>
             <div class="methodology-steps">
                 <div class="m-step">
                     <div class="m-step-num">01</div>
                     <div class="m-step-content">
-                        <h4><i class="fa-solid fa-magnifying-glass"></i> Audit &amp; Account Setup</h4>
-                        <p>We audit existing accounts or build clean, properly structured campaigns from scratch.</p>
+                        <h4><i class="fa-solid fa-magnifying-glass"></i> Review &amp; Set Goals</h4>
+                        <p>We review your offer, existing accounts and budget, then agree on campaign objectives and the actions to measure.</p>
                     </div>
                 </div>
                 <div class="m-step">
                     <div class="m-step-num">02</div>
                     <div class="m-step-content">
-                        <h4><i class="fa-solid fa-rocket"></i> Campaign Build &amp; Launch</h4>
-                        <p>We build targeting, ad creative, and tracking, then launch with tight budget controls.</p>
+                        <h4><i class="fa-solid fa-rocket"></i> Build &amp; Launch</h4>
+                        <p>We prepare targeting, advertising creative and tracking, with account access and spending arrangements confirmed before launch.</p>
                     </div>
                 </div>
                 <div class="m-step">
                     <div class="m-step-num">03</div>
                     <div class="m-step-content">
-                        <h4><i class="fa-solid fa-flask"></i> Optimize &amp; Test</h4>
-                        <p>We test ad creative, bidding, and audiences weekly to bring cost per lead down.</p>
+                        <h4><i class="fa-solid fa-flask"></i> Test &amp; Improve</h4>
+                        <p>We review search terms, audiences, creative and landing pages, using campaign data to guide ongoing adjustments.</p>
                     </div>
                 </div>
                 <div class="m-step">
                     <div class="m-step-num">04</div>
                     <div class="m-step-content">
-                        <h4><i class="fa-solid fa-chart-line"></i> Scale What Works</h4>
-                        <p>We reinvest budget into the campaigns and audiences delivering the best return.</p>
+                        <h4><i class="fa-solid fa-chart-line"></i> Review &amp; Plan Ahead</h4>
+                        <p>We explain what the campaigns are delivering and recommend the next changes within your agreed budget.</p>
                     </div>
                 </div>
             </div>
@@ -128,7 +128,7 @@ include 'header.php';
                 </div>
                 <div class="cta-form-wrap">
                 <?php $cta_default_service = 'Paid Advertising'; ?>
-                    <?php $cta_button_label = 'GET MY FREE PPC AUDIT'; include __DIR__ . '/includes/cta-form.php'; ?>
+                    <?php $cta_button_label = 'GET MY FREE ADS AUDIT'; include __DIR__ . '/includes/cta-form.php'; ?>
                 </div>
             </div>
         </div>
