@@ -29,3 +29,85 @@
         Header set Cache-Control "no-cache, must-revalidate"
     </FilesMatch>
 </IfModule>
+
+# === Security: block direct download of the raw SQL import file ===
+# database.sql only needs to exist here long enough to import through
+# phpMyAdmin -- leaving it downloadable would expose the schema and the
+# default admin password hash to anyone who requests the URL directly.
+<FilesMatch "\.sql$">
+    Require all denied
+</FilesMatch>
+
+# === Clean URLs: serve every page without its .php extension ===
+# /about.php -> /about, /blog-post.php?slug=x -> /blog-post?slug=x, etc.
+# The admin panel (admin/) is deliberately excluded -- it's not indexed by
+# search engines, and its own internal links are relative .php references
+# that don't need to change.
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    Options -MultiViews
+
+    # -1) Force HTTPS site-wide, admin panel included -- the admin login form
+    #     posts a username/password and every request afterward carries the
+    #     session cookie, neither of which should ever be able to travel over
+    #     plain HTTP. Placed first so every rule below it always operates on
+    #     the https:// URL space.
+    RewriteCond %{HTTPS} off
+    RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+    # 0) The homepage is canonically "/" -- collapse both "/index" and
+    #    "/index.php" straight to it instead of leaving "/index" as a second,
+    #    duplicate-content URL for the same page.
+    RewriteCond %{THE_REQUEST} \s/+index(\.php)?[\s?] [NC]
+    RewriteRule ^ / [R=301,L]
+
+    # 0.5) Blog posts are canonically /blog/<slug> -- collapse the older
+    #      /blog-post.php?slug=x and /blog-post?slug=x forms straight there
+    #      in one hop (placed ahead of the generic .php-stripping rule below,
+    #      which would otherwise catch the .php variant first).
+    RewriteCond %{THE_REQUEST} \s/+blog-post(\.php)?\?slug=([^\s&]+)[\s&] [NC]
+    RewriteRule ^ /blog/%2? [R=301,L]
+
+    # 1) A browser that actually requests a URL ending in .php gets sent to
+    #    the same URL minus .php, permanently (301) so bookmarks and search
+    #    engines update. THE_REQUEST is the raw request line as the browser
+    #    sent it, so this only matches real incoming requests -- never the
+    #    internal rewrite in step 2 below, which avoids a redirect loop.
+    RewriteCond %{REQUEST_URI} !^/admin/
+    RewriteCond %{THE_REQUEST} \s/+(.*)\.php[\s?] [NC]
+    RewriteRule ^ /%1 [R=301,L]
+
+    # 2) Internally serve the matching .php file for a clean-URL request,
+    #    without changing what's shown in the browser's address bar. Only
+    #    fires when the clean path isn't already a real file/directory and
+    #    a matching .php file actually exists, so 404s and static assets
+    #    (css/, js/, images/) are completely unaffected.
+    #
+    #    Uses %{DOCUMENT_ROOT}%{REQUEST_URI} rather than %{REQUEST_FILENAME}
+    #    deliberately: for a nonexistent multi-segment path like
+    #    /blog/some-slug, Apache's own filename translation resolves
+    #    REQUEST_FILENAME down to just ".../blog" (silently dropping
+    #    "/some-slug" as if it were PATH_INFO on a script named "blog"),
+    #    even though "blog" itself doesn't exist either. That truncated
+    #    value then wrongly matched "blog.php" here and produced a
+    #    self-amplifying rewrite (blog -> blog.php -> blog.php.php -> ...)
+    #    until Apache's internal-redirect limit killed the request with a
+    #    500. REQUEST_URI is the literal request path with no such
+    #    filesystem-based reinterpretation, so this can't happen.
+    RewriteCond %{REQUEST_URI} !^/admin/
+    RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} !-f
+    RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} !-d
+    RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI}.php -f
+    RewriteRule ^(.+)$ $1.php [L]
+
+    # 3) Serve /blog/<slug> from blog-post.php?slug=<slug> internally. Placed
+    #    after rule 2 (which never matches this path anyway, since no
+    #    literal "blog/<slug>.php" file exists) so it reads as the next step
+    #    in the same numbered sequence.
+    RewriteRule ^blog/([^/]+)/?$ blog-post.php?slug=$1 [L,QSA]
+
+    # 4) Same pattern for case study detail pages: /case-studies/<slug> is
+    #    served from case-study.php?slug=<slug> (singular filename, so it
+    #    can never collide with case-studies.php, the listing page itself).
+    RewriteRule ^case-studies/([^/]+)/?$ case-study.php?slug=$1 [L,QSA]
+</IfModule>

@@ -24,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($name === '' || $message === '' || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $form_error = 'Please fill in your name, a valid email address, and your message.';
     } else {
-        $to = "info@wsdigital.com.au";
+        $to = "info@wsdigitalmarketing.com.au";
         $subject = "New Growth Plan Request from " . $name;
 
         $plan = in_array($_POST['plan'] ?? '', $valid_plans, true) ? $_POST['plan'] : '';
@@ -40,7 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // Reply-To carries the visitor's address; From stays a domain address
         // the sending server is authorized for, avoiding SPF/DMARC failures.
-        $headers = "From: W&S Digital Marketing <info@wsdigital.com.au>\r\n";
+        $headers = "From: W&S Digital Marketing <info@wsdigitalmarketing.com.au>\r\n";
         $headers .= "Reply-To: $name <$email>\r\n";
         $headers .= "X-Mailer: PHP/" . phpversion();
 
@@ -112,7 +112,7 @@ include 'header.php';
                                 </div>
                                 <div>
                                     <h5 style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); font-weight: 700; margin-bottom: 2px; letter-spacing: 1px;">Email Us</h5>
-                                    <a href="mailto:info@wsdigital.com.au" style="color: var(--navy); font-weight: 700; font-size: 1.05rem; text-decoration: none; transition: color 0.3s; word-break: break-all;">info@wsdigital.com.au</a>
+                                    <a href="mailto:info@wsdigitalmarketing.com.au" style="color: var(--navy); font-weight: 700; font-size: 1.05rem; text-decoration: none; transition: color 0.3s; word-break: break-all;">info@wsdigitalmarketing.com.au</a>
                                 </div>
                             </li>
                             
@@ -131,9 +131,9 @@ include 'header.php';
                     <div style="margin-top: 35px; border-top: 1px solid var(--border-light); padding-top: 20px;">
                         <h5 style="font-size: 0.8rem; text-transform: uppercase; color: var(--text-muted); font-weight: 700; margin-bottom: 12px; letter-spacing: 1px;">Follow Our Socials</h5>
                         <div class="contact-social-links">
-                            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-                            <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                            <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                            <a href="https://www.facebook.com/share/19axg2NC9v/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                            <a href="https://www.instagram.com/wsdigitalmarketing" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="https://www.linkedin.com/company/143768176/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
                             <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
                         </div>
                     </div>
@@ -150,7 +150,7 @@ include 'header.php';
                         </div>
                     <?php endif; ?>
 
-                    <form action="contact.php" method="POST" style="display: flex; flex-direction: column; gap: 18px;">
+                    <form action="/contact" method="POST" style="display: flex; flex-direction: column; gap: 18px;">
                         <?php if ($selected_plan !== ''): ?>
                             <input type="hidden" name="plan" value="<?php echo htmlspecialchars($selected_plan, ENT_QUOTES, 'UTF-8'); ?>">
                         <?php endif; ?>
@@ -183,11 +183,11 @@ include 'header.php';
                                 <label style="font-size: 0.8rem; font-weight: 700; color: var(--navy); text-transform: uppercase;">Service Needed</label>
                                 <div class="input-wrap">
                                     <select name="service">
-                                        <option value="Search Engine Optimization">Search Engine Optimization</option>
-                                        <option value="E-commerce">E-commerce</option>
-                                        <option value="Website Development">Website Development &amp; Design</option>
-                                        <option value="Social Media">Social Media</option>
-                                        <option value="PPC Advertising">PPC Advertising</option>
+                                        <option value="Search Engine Optimisation">Search Engine Optimisation</option>
+                                        <option value="Ecommerce">Ecommerce</option>
+                                        <option value="Website Design &amp; Development">Website Design &amp; Development</option>
+                                        <option value="Social Media Marketing">Social Media Marketing</option>
+                                        <option value="Paid Advertising">Paid Advertising</option>
                                         <option value="Graphic Design">Graphic Design</option>
                                         <option value="Content Writing">Content Writing</option>
                                     </select>

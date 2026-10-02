@@ -1,4 +1,13 @@
 <?php
+require_once __DIR__ . '/includes/cta-form-handler.php';
+
+// The 3 plan buttons below link to this same page's CTA form, carrying which
+// plan the visitor clicked (?plan=Growth#contact) so the form can show and
+// pre-fill it -- whitelisted since it's reflected back into the page.
+$valid_plans = ['Starter', 'Growth', 'Scale'];
+$selected_plan = $_POST['plan'] ?? $_GET['plan'] ?? '';
+$selected_plan = in_array($selected_plan, $valid_plans, true) ? $selected_plan : '';
+
 $page_title = 'Pricing Plans';
 $page_description = 'Transparent digital marketing pricing plans for Australian businesses. Choose Starter, Growth or Scale, or request a custom quote tailored to your goals.';
 include 'header.php';
@@ -27,7 +36,7 @@ include 'header.php';
                         <li><i class="fa-solid fa-check"></i> Local Search Optimization</li>
                         <li><i class="fa-solid fa-check"></i> Email Support</li>
                     </ul>
-                    <a href="contact.php?plan=Starter" class="btn-secondary" style="width: 100%;">Get The Starter Plan</a>
+                    <a href="?plan=Starter#contact" class="btn-secondary" style="width: 100%;">Get The Starter Plan</a>
                 </div>
 
                 <div class="pricing-card featured">
@@ -40,7 +49,7 @@ include 'header.php';
                         <li><i class="fa-solid fa-check"></i> Landing Page & CRO Support</li>
                         <li><i class="fa-solid fa-check"></i> Priority Support</li>
                     </ul>
-                    <a href="contact.php?plan=Growth" class="btn-primary" style="width: 100%;">Get The Growth Plan</a>
+                    <a href="?plan=Growth#contact" class="btn-primary" style="width: 100%;">Get The Growth Plan</a>
                 </div>
 
                 <div class="pricing-card">
@@ -52,7 +61,7 @@ include 'header.php';
                         <li><i class="fa-solid fa-check"></i> Website & Ecommerce Development</li>
                         <li><i class="fa-solid fa-check"></i> Weekly Reporting & Calls</li>
                     </ul>
-                    <a href="contact.php?plan=Scale" class="btn-secondary" style="width: 100%;">Request The Scale Plan</a>
+                    <a href="?plan=Scale#contact" class="btn-secondary" style="width: 100%;">Request The Scale Plan</a>
                 </div>
 
             </div>
@@ -63,17 +72,24 @@ include 'header.php';
     <!-- FINAL CTA SECTION -->
     <section class="cta-section" id="contact">
         <div class="container">
-            <div class="cta-box fade-up">
-                <div class="cta-badge"><i class="fa-solid fa-rocket"></i> Let's Scale Together</div>
-                <h2>Need Something More Tailored?</h2>
-                <p>Every business is different. Book a free audit and we'll build a plan and quote around your actual goals.</p>
-                <div class="cta-features">
+            <div class="cta-box cta-box-split fade-up">
+                <div class="cta-info">
+                    <div class="cta-badge"><i class="fa-solid fa-rocket"></i> Let's Scale Together</div>
+                    <h2>Need Something More Tailored?</h2>
+                    <p>Every business is different. Book a free audit and we'll build a plan and quote around your actual goals.</p>
+                    <div class="cta-features">
                     <span><i class="fa-solid fa-check" style="color: var(--cyan-neon);"></i> Zero Obligation Audit</span>
                     <span><i class="fa-solid fa-check" style="color: var(--cyan-neon);"></i> Custom Growth Strategy</span>
                     <span><i class="fa-solid fa-check" style="color: var(--cyan-neon);"></i> Proven Australian Results</span>
+                    </div>
                 </div>
-                <div class="cta-btn-wrapper">
-                    <a href="contact.php" class="btn-primary" style="padding: 18px 45px; font-size: 1.1rem;">GET MY FREE GROWTH PLAN <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
+                <div class="cta-form-wrap">
+                    <?php
+                    $cta_button_label = 'GET MY FREE GROWTH PLAN';
+                    $cta_plan = $selected_plan;
+                    $cta_prefill_message = $selected_plan !== '' ? "I'm interested in the {$selected_plan} plan and would like to learn more." : '';
+                    include __DIR__ . '/includes/cta-form.php';
+                    ?>
                 </div>
             </div>
         </div>

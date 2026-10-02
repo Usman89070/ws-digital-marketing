@@ -1,4 +1,5 @@
 <?php
+require_once __DIR__ . '/includes/cta-form-handler.php';
 $page_title = 'Construction & Building';
 $page_description = 'Digital marketing for construction and building companies including lead generation and portfolio-driven websites built to win bigger contracts.';
 include 'header.php';
@@ -11,8 +12,8 @@ include 'header.php';
             <h1 class="fade-up">BIGGER PROJECTS. <br><span class="text-gradient">BIGGER PIPELINE.</span></h1>
             <p class="hero-subtitle fade-up">Digital marketing for builders, developers, and construction companies &mdash; built to win larger contracts and keep your project pipeline full.</p>
             <div class="hero-buttons fade-up">
-                <a href="contact.php" class="btn-primary">GET MY FREE PIPELINE AUDIT <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
-                <a href="industries.php" class="btn-secondary">VIEW ALL INDUSTRIES</a>
+                <a href="#contact" class="btn-primary">GET MY FREE PIPELINE AUDIT <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
+                <a href="/industries" class="btn-secondary">VIEW ALL INDUSTRIES</a>
             </div>
         </div>
     </section>
@@ -33,7 +34,7 @@ include 'header.php';
                         <li><i class="fa-solid fa-check"></i> Commercial &amp; Residential Lead Generation</li>
                         <li><i class="fa-solid fa-check"></i> Local SEO For High-Value Search Terms</li>
                     </ul>
-                    <a href="contact.php" class="btn-primary" style="margin-top: 10px;">Speak With A Construction Strategist</a>
+                    <a href="#contact" class="btn-primary" style="margin-top: 10px;">Speak With A Construction Strategist</a>
                 </div>
             </div>
         </div>
@@ -71,36 +72,22 @@ include 'header.php';
         </div>
     </section>
 
-    <!-- STATS -->
-    <section class="stats-section fade-up">
-        <div class="container">
-            <div class="section-header">
-                <span class="eyebrow" style="color: var(--cyan-neon);">PROVEN RESULTS</span>
-                <h2 style="color: #fff; font-size: clamp(1.8rem, 4vw, 2.8rem);">Growth Built On Solid Ground</h2>
-            </div>
-            <div class="stats-4-grid">
-                <div class="stat-box"><div class="stat-icon"><i class="fa-solid fa-user-plus"></i></div><h3>+76</h3><p>Qualified Leads (Avg.)</p></div>
-                <div class="stat-box"><div class="stat-icon"><i class="fa-solid fa-sack-dollar"></i></div><h3>+54%</h3><p>Avg. Project Value Increase</p></div>
-                <div class="stat-box"><div class="stat-icon"><i class="fa-solid fa-ranking-star"></i></div><h3>Top 5</h3><p>Avg. Local Ranking</p></div>
-                <div class="stat-box"><div class="stat-icon"><i class="fa-solid fa-handshake"></i></div><h3>94%</h3><p>Client Retention</p></div>
-            </div>
-        </div>
-    </section>
-
     <!-- FINAL CTA -->
     <section class="cta-section" id="contact">
         <div class="container">
-            <div class="cta-box fade-up">
-                <div class="cta-badge"><i class="fa-solid fa-rocket"></i> Let's Scale Together</div>
-                <h2>Ready To Fill Your Project Pipeline?</h2>
-                <p>Get a free audit of your digital presence and a plan to win bigger, better projects.</p>
-                <div class="cta-features">
+            <div class="cta-box cta-box-split fade-up">
+                <div class="cta-info">
+                    <div class="cta-badge"><i class="fa-solid fa-rocket"></i> Let's Scale Together</div>
+                    <h2>Ready To Fill Your Project Pipeline?</h2>
+                    <p>Get a free audit of your digital presence and a plan to win bigger, better projects.</p>
+                    <div class="cta-features">
                     <span><i class="fa-solid fa-check" style="color: var(--cyan-neon);"></i> Zero Obligation Audit</span>
                     <span><i class="fa-solid fa-check" style="color: var(--cyan-neon);"></i> Custom Growth Strategy</span>
                     <span><i class="fa-solid fa-check" style="color: var(--cyan-neon);"></i> Proven Australian Results</span>
+                    </div>
                 </div>
-                <div class="cta-btn-wrapper">
-                    <a href="contact.php" class="btn-primary" style="padding: 18px 45px; font-size: 1.1rem;">GET MY FREE PIPELINE AUDIT <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
+                <div class="cta-form-wrap">
+                    <?php $cta_button_label = 'GET MY FREE PIPELINE AUDIT'; include __DIR__ . '/includes/cta-form.php'; ?>
                 </div>
             </div>
         </div>
