@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . '/includes/cta-form-handler.php';
-$page_title = 'Graphic Design';
-$page_description = 'Brand identity, ad creative, and marketing collateral designed to stand out and stay consistent across every channel.';
+$page_title = 'Graphic Design Services Australia';
+$page_description = 'Build a consistent brand with logo design, social media graphics and marketing materials from W&S Digital Marketing. Request your free brand review.';
 include 'header.php';
 ?>
 
@@ -9,8 +9,8 @@ include 'header.php';
     <section class="hero" style="padding-bottom: clamp(40px, 8vw, 80px);">
         <div class="container hero-content">
             <span class="eyebrow fade-up">GRAPHIC DESIGN</span>
-            <h1 class="fade-up">A BRAND THAT LOOKS <br><span class="text-gradient">AS GOOD AS YOUR WORK.</span></h1>
-            <p class="hero-subtitle fade-up">Brand identity, ad creative, and marketing collateral designed to stand out and stay consistent across every channel.</p>
+            <h1 class="fade-up">MAKE YOUR BUSINESS RECOGNISABLE <br><span class="text-gradient">AT EVERY TOUCHPOINT.</span></h1>
+            <p class="hero-subtitle fade-up">Bring your brand together with logo design, advertising creative and marketing materials that communicate clearly and look consistent wherever customers encounter your business.</p>
             <div class="hero-buttons fade-up">
                 <a href="#contact" class="btn-primary">GET MY FREE BRAND REVIEW <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
                 <a href="/services" class="btn-secondary">VIEW ALL SERVICES</a>
@@ -27,12 +27,12 @@ include 'header.php';
                 </div>
                 <div class="agency-text">
                     <span class="eyebrow">WHY IT MATTERS</span>
-                    <h2>Design That Builds Trust At A Glance</h2>
-                    <p>Inconsistent, dated design quietly costs you trust before a customer ever reads a word. We build brand systems and creative that look professional everywhere your business shows up.</p>
+                    <h2>Give Your Brand A Consistent Visual Identity</h2>
+                    <p>Your logo, website, social posts and printed materials should feel like parts of the same business. We create designs around your audience, message and practical requirements, helping your team present the brand consistently across everyday marketing and larger campaigns.</p>
                     <ul class="agency-list" style="margin-top: 20px;">
-                        <li><i class="fa-solid fa-check"></i> Brand Identity &amp; Logo Design</li>
-                        <li><i class="fa-solid fa-check"></i> Ad &amp; Social Creative</li>
-                        <li><i class="fa-solid fa-check"></i> Print &amp; Marketing Collateral</li>
+                        <li><i class="fa-solid fa-check"></i> Logo Design &amp; Visual Identity</li>
+                        <li><i class="fa-solid fa-check"></i> Advertising &amp; Social Media Graphics</li>
+                        <li><i class="fa-solid fa-check"></i> Print-Ready Marketing Materials</li>
                     </ul>
                     <a href="#contact" class="btn-primary" style="margin-top: 10px;">Speak With A Design Strategist</a>
                 </div>
@@ -40,33 +40,33 @@ include 'header.php';
         </div>
     </section>
 
-    <!-- WHAT'S INCLUDED -->
+    <!-- HOW WE CAN HELP -->
     <section class="services-section fade-up">
         <div class="container">
             <div class="section-header">
-                <span class="eyebrow">WHAT'S INCLUDED</span>
-                <h2 style="font-size: clamp(1.8rem, 4vw, 2.8rem); margin-top: 10px;">A Complete Creative Toolkit</h2>
+                <span class="eyebrow">HOW WE CAN HELP</span>
+                <h2 style="font-size: clamp(1.8rem, 4vw, 2.8rem); margin-top: 10px;">Design Support Across Your Brand</h2>
             </div>
             <div class="industry-tile-grid">
                 <div class="industry-tile">
                     <div class="industry-tile-icon"><i class="fa-solid fa-signature"></i></div>
-                    <h5>Brand Identity &amp; Logo Design</h5>
-                    <p>A distinctive logo and visual identity system built to work across every touchpoint.</p>
+                    <h5>Logo &amp; Visual Identity</h5>
+                    <p>Develop a logo and supporting colours, typography and visual elements suited to your business and intended uses.</p>
                 </div>
                 <div class="industry-tile">
                     <div class="industry-tile-icon"><i class="fa-solid fa-image"></i></div>
-                    <h5>Ad &amp; Social Creative</h5>
-                    <p>Scroll-stopping creative for paid campaigns and organic social content.</p>
+                    <h5>Advertising &amp; Social Graphics</h5>
+                    <p>Create graphics for agreed advertising formats and social platforms, keeping your message and brand presentation consistent.</p>
                 </div>
                 <div class="industry-tile">
                     <div class="industry-tile-icon"><i class="fa-solid fa-print"></i></div>
-                    <h5>Print &amp; Marketing Collateral</h5>
-                    <p>Brochures, signage, and sales materials designed to match your digital presence.</p>
+                    <h5>Print &amp; Marketing Materials</h5>
+                    <p>Design brochures, signage and other business materials, with artwork prepared to the agreed production specifications.</p>
                 </div>
                 <div class="industry-tile">
                     <div class="industry-tile-icon"><i class="fa-solid fa-swatchbook"></i></div>
-                    <h5>Brand Guidelines</h5>
-                    <p>A clear style guide so your brand stays consistent across every team and channel.</p>
+                    <h5>Brand Guidelines &amp; Handover</h5>
+                    <p>Document the approved visual direction and provide agreed file formats so your team can apply the brand consistently.</p>
                 </div>
             </div>
         </div>
@@ -77,35 +77,35 @@ include 'header.php';
         <div class="container">
             <div class="section-header">
                 <span class="eyebrow">OUR PROCESS</span>
-                <h2 style="font-size: clamp(1.8rem, 4vw, 2.8rem); margin-top: 10px;">How We Build Your Brand</h2>
+                <h2 style="font-size: clamp(1.8rem, 4vw, 2.8rem); margin-top: 10px;">From Your Brief To Finished Artwork</h2>
             </div>
             <div class="methodology-steps">
                 <div class="m-step">
                     <div class="m-step-num">01</div>
                     <div class="m-step-content">
-                        <h4><i class="fa-solid fa-lightbulb"></i> Discovery &amp; Moodboarding</h4>
-                        <p>We learn your business, audience, and competitors before any design starts.</p>
+                        <h4><i class="fa-solid fa-lightbulb"></i> Understand &amp; Define</h4>
+                        <p>We discuss your audience, brand and required materials, then agree on the brief, deliverables and review stages.</p>
                     </div>
                 </div>
                 <div class="m-step">
                     <div class="m-step-num">02</div>
                     <div class="m-step-content">
-                        <h4><i class="fa-solid fa-pen-nib"></i> Concept &amp; Design</h4>
-                        <p>We design concepts around a clear creative direction, not random guesses.</p>
+                        <h4><i class="fa-solid fa-pen-nib"></i> Explore &amp; Design</h4>
+                        <p>We develop design concepts around the agreed direction, considering both visual presentation and practical use.</p>
                     </div>
                 </div>
                 <div class="m-step">
                     <div class="m-step-num">03</div>
                     <div class="m-step-content">
-                        <h4><i class="fa-solid fa-arrows-rotate"></i> Refine &amp; Finalize</h4>
-                        <p>We refine based on your feedback until the brand feels exactly right.</p>
+                        <h4><i class="fa-solid fa-arrows-rotate"></i> Review &amp; Refine</h4>
+                        <p>We gather your feedback and refine the selected designs through the revision rounds included in your project.</p>
                     </div>
                 </div>
                 <div class="m-step">
                     <div class="m-step-num">04</div>
                     <div class="m-step-content">
-                        <h4><i class="fa-solid fa-box-open"></i> Deliver &amp; Brand Guidelines</h4>
-                        <p>You get final files and a guideline doc so your team stays consistent going forward.</p>
+                        <h4><i class="fa-solid fa-box-open"></i> Prepare &amp; Deliver</h4>
+                        <p>We prepare approved artwork and agreed files, explaining any relevant usage guidance or third-party licensing requirements.</p>
                     </div>
                 </div>
             </div>
