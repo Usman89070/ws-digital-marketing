@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . '/includes/cta-form-handler.php';
-$page_title = 'eCommerce';
-$page_description = 'Digital marketing for eCommerce and retail brands including SEO, paid ads, and CRO built to grow revenue, not just traffic.';
+$page_title = 'Ecommerce Marketing Australia';
+$page_description = 'Explore SEO, paid advertising, shopping experience improvements and email marketing for online retailers with W&S Digital Marketing.';
 include 'header.php';
 ?>
 
@@ -9,10 +9,10 @@ include 'header.php';
     <section class="hero" style="padding-bottom: clamp(40px, 8vw, 80px);">
         <div class="container hero-content">
             <span class="eyebrow fade-up">ECOMMERCE &amp; RETAIL</span>
-            <h1 class="fade-up">SCALE YOUR STORE. <br><span class="text-gradient">NOT JUST YOUR TRAFFIC.</span></h1>
-            <p class="hero-subtitle fade-up">Digital marketing for online retailers and product brands &mdash; full-funnel strategies built to grow revenue, not just visits.</p>
+            <h1 class="fade-up">REACH MORE SHOPPERS. <br><span class="text-gradient">BUILD REPEAT BUSINESS.</span></h1>
+            <p class="hero-subtitle fade-up">Digital marketing for online retailers and product brands &mdash; connecting search, advertising, shopping experience improvements and email campaigns around your customers and products.</p>
             <div class="hero-buttons fade-up">
-                <a href="#contact" class="btn-primary">GET MY FREE GROWTH AUDIT <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
+                <a href="#contact" class="btn-primary">GET MY FREE MARKETING AUDIT <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
                 <a href="/industries" class="btn-secondary">VIEW ALL INDUSTRIES</a>
             </div>
         </div>
@@ -27,47 +27,51 @@ include 'header.php';
                 </div>
                 <div class="agency-text">
                     <span class="eyebrow">WHY IT MATTERS</span>
-                    <h2>Traffic Is Easy. Profitable Growth Is Not.</h2>
-                    <p>Any agency can send traffic to your store. We focus on the metrics that actually matter, conversion rate, average order value, and repeat purchase rate, so your growth is sustainable, not just a traffic spike.</p>
+                    <h2>Connect Your Marketing To The Shopping Journey</h2>
+                    <p>Online shoppers need to discover your products, understand their value and feel confident placing an order. We coordinate marketing around those steps, using search, advertising and email alongside practical store improvements. Priorities are shaped by your products, customer behaviour, available data and budget.</p>
                     <ul class="agency-list" style="margin-top: 20px;">
-                        <li><i class="fa-solid fa-check"></i> Full-Funnel Paid &amp; Organic Strategy</li>
-                        <li><i class="fa-solid fa-check"></i> Conversion Rate Optimisation</li>
-                        <li><i class="fa-solid fa-check"></i> Retention &amp; Repeat-Purchase Campaigns</li>
+                        <li><i class="fa-solid fa-check"></i> Search &amp; Advertising For Relevant Shoppers</li>
+                        <li><i class="fa-solid fa-check"></i> Product Page &amp; Purchase Journey Improvements</li>
+                        <li><i class="fa-solid fa-check"></i> Email Campaigns To Encourage Repeat Purchases</li>
                     </ul>
-                    <a href="#contact" class="btn-primary" style="margin-top: 10px;">Speak With An Ecommerce Strategist</a>
+                    <a href="#contact" class="btn-primary" style="margin-top: 10px;">Speak With Our Team</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- WHAT WE OFFER -->
+    <!-- HOW WE CAN HELP -->
     <section class="services-section fade-up">
         <div class="container">
             <div class="section-header">
-                <span class="eyebrow">WHAT WE OFFER</span>
-                <h2 style="font-size: clamp(1.8rem, 4vw, 2.8rem); margin-top: 10px;">Marketing Built For Retail Growth</h2>
+                <span class="eyebrow">HOW WE CAN HELP</span>
+                <h2 style="font-size: clamp(1.8rem, 4vw, 2.8rem); margin-top: 10px;">Marketing Support For Your Online Store</h2>
             </div>
             <div class="industry-tile-grid">
                 <div class="industry-tile">
                     <div class="industry-tile-icon"><i class="fa-solid fa-magnifying-glass-dollar"></i></div>
-                    <h5>SEO &amp; Shopping Ads</h5>
-                    <p>Capture high-intent shoppers across Google Search and Shopping.</p>
+                    <h5>Search &amp; Shopping Campaigns</h5>
+                    <p>Improve product visibility through search optimisation and agreed Google Shopping campaigns, with clear product information and organised feeds.</p>
                 </div>
                 <div class="industry-tile">
                     <div class="industry-tile-icon"><i class="fa-solid fa-share-nodes"></i></div>
-                    <h5>Paid Social &amp; Retargeting</h5>
-                    <p>Meta and TikTok campaigns that turn browsers into buyers.</p>
+                    <h5>Social &amp; Returning Visitor Ads</h5>
+                    <p>Introduce products to relevant audiences and reconnect with previous visitors through suitable Meta and TikTok advertising campaigns.</p>
                 </div>
                 <div class="industry-tile">
                     <div class="industry-tile-icon"><i class="fa-solid fa-gauge-high"></i></div>
-                    <h5>Conversion Rate Optimisation</h5>
-                    <p>Data-driven testing to lift conversion rate across your store.</p>
+                    <h5>Shopping Experience Improvements</h5>
+                    <p>Review product pages and purchase journeys, prioritising practical improvements and testing changes where traffic and measurement support reliable comparisons.</p>
                 </div>
                 <div class="industry-tile">
                     <div class="industry-tile-icon"><i class="fa-solid fa-rotate"></i></div>
-                    <h5>Retention &amp; Email Marketing</h5>
-                    <p>Lifecycle campaigns that grow repeat purchase rate and LTV.</p>
+                    <h5>Email &amp; Repeat Purchases</h5>
+                    <p>Plan newsletters and customer emails, with writing, automation setup and ongoing campaign management agreed around your store's needs.</p>
                 </div>
+            </div>
+            <div style="max-width: 800px; margin: clamp(30px, 4vw, 40px) auto 0; text-align: center;">
+                <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.6;">Advertising spend is separate from management fees. Campaign scope, platform costs and any additional store work are agreed before work begins.</p>
+                <p style="margin-top: 15px;"><a href="/ecommerce" class="service-link">Need A New Store Or Website Improvements? Explore Our Ecommerce Development Services <i class="fa-solid fa-arrow-right"></i></a></p>
             </div>
         </div>
     </section>
@@ -87,7 +91,7 @@ include 'header.php';
                     </div>
                 </div>
                 <div class="cta-form-wrap">
-                    <?php $cta_button_label = 'GET MY FREE GROWTH AUDIT'; include __DIR__ . '/includes/cta-form.php'; ?>
+                    <?php $cta_button_label = 'GET MY FREE MARKETING AUDIT'; include __DIR__ . '/includes/cta-form.php'; ?>
                 </div>
             </div>
         </div>

@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . '/includes/cta-form-handler.php';
-$page_title = 'Construction & Building';
-$page_description = 'Digital marketing for construction and building companies including lead generation and portfolio-driven websites built to win bigger contracts.';
+$page_title = 'Construction & Building Marketing';
+$page_description = 'Showcase your projects and attract relevant enquiries with website design, SEO and advertising for Australian builders and construction businesses.';
 include 'header.php';
 ?>
 
@@ -9,10 +9,10 @@ include 'header.php';
     <section class="hero" style="padding-bottom: clamp(40px, 8vw, 80px);">
         <div class="container hero-content">
             <span class="eyebrow fade-up">CONSTRUCTION &amp; BUILDING</span>
-            <h1 class="fade-up">BIGGER PROJECTS. <br><span class="text-gradient">BIGGER PIPELINE.</span></h1>
-            <p class="hero-subtitle fade-up">Digital marketing for builders, developers, and construction companies &mdash; built to win larger contracts and keep your project pipeline full.</p>
+            <h1 class="fade-up">SHOWCASE YOUR WORK. <br><span class="text-gradient">REACH THE RIGHT CLIENTS.</span></h1>
+            <p class="hero-subtitle fade-up">Digital marketing for builders and construction companies &mdash; showcasing your capabilities and helping prospective clients enquire about projects that suit your services and experience.</p>
             <div class="hero-buttons fade-up">
-                <a href="#contact" class="btn-primary">GET MY FREE PIPELINE AUDIT <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
+                <a href="#contact" class="btn-primary">GET MY FREE MARKETING AUDIT <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
                 <a href="/industries" class="btn-secondary">VIEW ALL INDUSTRIES</a>
             </div>
         </div>
@@ -27,46 +27,46 @@ include 'header.php';
                 </div>
                 <div class="agency-text">
                     <span class="eyebrow">WHY IT MATTERS</span>
-                    <h2>Your Portfolio Should Be Winning You Work</h2>
-                    <p>Builders lose bigger contracts every day to competitors with a stronger online presence. We turn your completed projects into a lead-generating portfolio and make sure you show up when developers and homeowners are searching.</p>
+                    <h2>Help Clients See What You Can Deliver</h2>
+                    <p>Prospective clients need to understand your experience, project types and service areas before making an enquiry. We bring that information together through clear websites, detailed project portfolios and targeted marketing that helps homeowners, developers and project managers assess your suitability for their next project.</p>
                     <ul class="agency-list" style="margin-top: 20px;">
-                        <li><i class="fa-solid fa-check"></i> Project Portfolio &amp; Case Study Websites</li>
-                        <li><i class="fa-solid fa-check"></i> Commercial &amp; Residential Lead Generation</li>
-                        <li><i class="fa-solid fa-check"></i> Local SEO For High-Value Search Terms</li>
+                        <li><i class="fa-solid fa-check"></i> Project Portfolios &amp; Clear Capability Information</li>
+                        <li><i class="fa-solid fa-check"></i> Commercial &amp; Residential Enquiry Campaigns</li>
+                        <li><i class="fa-solid fa-check"></i> Search Visibility Across Your Service Areas</li>
                     </ul>
-                    <a href="#contact" class="btn-primary" style="margin-top: 10px;">Speak With A Construction Strategist</a>
+                    <a href="#contact" class="btn-primary" style="margin-top: 10px;">Speak With Our Team</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- WHAT WE OFFER -->
+    <!-- HOW WE CAN HELP -->
     <section class="services-section fade-up">
         <div class="container">
             <div class="section-header">
-                <span class="eyebrow">WHAT WE OFFER</span>
-                <h2 style="font-size: clamp(1.8rem, 4vw, 2.8rem); margin-top: 10px;">Marketing Built To Win Bigger Contracts</h2>
+                <span class="eyebrow">HOW WE CAN HELP</span>
+                <h2 style="font-size: clamp(1.8rem, 4vw, 2.8rem); margin-top: 10px;">Marketing Built Around Your Project Expertise</h2>
             </div>
             <div class="industry-tile-grid">
                 <div class="industry-tile">
                     <div class="industry-tile-icon"><i class="fa-solid fa-diagram-project"></i></div>
-                    <h5>Portfolio-Driven Websites</h5>
-                    <p>Showcase completed projects in a way that builds instant credibility.</p>
+                    <h5>Project Portfolio Websites</h5>
+                    <p>Present completed work through project descriptions, photographs and clear explanations of your role, capabilities and services.</p>
                 </div>
                 <div class="industry-tile">
                     <div class="industry-tile-icon"><i class="fa-solid fa-helmet-safety"></i></div>
-                    <h5>Commercial Lead Generation</h5>
-                    <p>Targeted campaigns to reach developers and project managers.</p>
+                    <h5>Commercial Project Enquiries</h5>
+                    <p>Develop pages and campaigns that communicate your capabilities to developers, project managers and other commercial decision-makers.</p>
                 </div>
                 <div class="industry-tile">
                     <div class="industry-tile-icon"><i class="fa-solid fa-house-chimney"></i></div>
-                    <h5>Residential Lead Generation</h5>
-                    <p>High-intent leads for renovations, extensions, and new builds.</p>
+                    <h5>Residential Project Enquiries</h5>
+                    <p>Help homeowners explore your renovation, extension or new-build services, with clear information about project types and service areas.</p>
                 </div>
                 <div class="industry-tile">
                     <div class="industry-tile-icon"><i class="fa-solid fa-ranking-star"></i></div>
-                    <h5>Local &amp; Regional SEO</h5>
-                    <p>Rank for the high-value search terms your next client is using.</p>
+                    <h5>Local &amp; Regional Search</h5>
+                    <p>Improve search visibility for the construction services and locations that match the work your business wants to attract.</p>
                 </div>
             </div>
         </div>
@@ -87,7 +87,7 @@ include 'header.php';
                     </div>
                 </div>
                 <div class="cta-form-wrap">
-                    <?php $cta_button_label = 'GET MY FREE PIPELINE AUDIT'; include __DIR__ . '/includes/cta-form.php'; ?>
+                    <?php $cta_button_label = 'GET MY FREE MARKETING AUDIT'; include __DIR__ . '/includes/cta-form.php'; ?>
                 </div>
             </div>
         </div>

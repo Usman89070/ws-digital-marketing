@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . '/includes/cta-form-handler.php';
-$page_title = 'Dental';
-$page_description = 'Digital marketing for dental practices including local SEO, ads, and websites built to attract new patients and fill your schedule.';
+$page_title = 'Dental Digital Marketing';
+$page_description = 'Explore local SEO, website design and advertising for dental practices. Help prospective patients find your practice and request an appointment.';
 include 'header.php';
 ?>
 
@@ -9,10 +9,10 @@ include 'header.php';
     <section class="hero" style="padding-bottom: clamp(40px, 8vw, 80px);">
         <div class="container hero-content">
             <span class="eyebrow fade-up">DENTAL</span>
-            <h1 class="fade-up">MORE PATIENTS. <br><span class="text-gradient">FULLER CHAIRS.</span></h1>
-            <p class="hero-subtitle fade-up">Digital marketing for dental practices &mdash; built to attract new patients, fill hygiene schedules, and grow high-value treatment bookings.</p>
+            <h1 class="fade-up">HELP PATIENTS FIND <br><span class="text-gradient">YOUR DENTAL PRACTICE.</span></h1>
+            <p class="hero-subtitle fade-up">Digital marketing for dental practices &mdash; helping prospective patients find your location, understand your services and take the next step towards an appointment.</p>
             <div class="hero-buttons fade-up">
-                <a href="#contact" class="btn-primary">GET MY FREE PRACTICE AUDIT <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
+                <a href="#contact" class="btn-primary">GET MY FREE MARKETING AUDIT <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
                 <a href="/industries" class="btn-secondary">VIEW ALL INDUSTRIES</a>
             </div>
         </div>
@@ -27,46 +27,46 @@ include 'header.php';
                 </div>
                 <div class="agency-text">
                     <span class="eyebrow">WHY IT MATTERS</span>
-                    <h2>Turn Local Searches Into Booked Patients</h2>
-                    <p>Most new patients start with a Google search. We help your practice show up, look trustworthy, and convert that search into a booked appointment, from routine check-ups to high-value cosmetic and implant work.</p>
+                    <h2>Make Choosing And Contacting Your Practice Easier</h2>
+                    <p>People comparing dental practices need clear information about services, practitioners, location and appointment options. We help your practice present that information through local search, useful website content and straightforward enquiry pathways, with treatment information reviewed by your practice before it is published.</p>
                     <ul class="agency-list" style="margin-top: 20px;">
-                        <li><i class="fa-solid fa-check"></i> Local SEO For Dental &amp; Cosmetic Terms</li>
-                        <li><i class="fa-solid fa-check"></i> Online Booking-Optimised Websites</li>
-                        <li><i class="fa-solid fa-check"></i> Review &amp; Reputation Management</li>
+                        <li><i class="fa-solid fa-check"></i> Local Search Visibility For Your Practice</li>
+                        <li><i class="fa-solid fa-check"></i> Clear Service Information &amp; Appointment Options</li>
+                        <li><i class="fa-solid fa-check"></i> Practice-Reviewed Website &amp; Campaign Content</li>
                     </ul>
-                    <a href="#contact" class="btn-primary" style="margin-top: 10px;">Speak With A Dental Marketing Strategist</a>
+                    <a href="#contact" class="btn-primary" style="margin-top: 10px;">Speak With Our Team</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- WHAT WE OFFER -->
+    <!-- HOW WE CAN HELP -->
     <section class="services-section fade-up">
         <div class="container">
             <div class="section-header">
-                <span class="eyebrow">WHAT WE OFFER</span>
-                <h2 style="font-size: clamp(1.8rem, 4vw, 2.8rem); margin-top: 10px;">Marketing Built To Fill Your Schedule</h2>
+                <span class="eyebrow">HOW WE CAN HELP</span>
+                <h2 style="font-size: clamp(1.8rem, 4vw, 2.8rem); margin-top: 10px;">Marketing Built Around Your Dental Practice</h2>
             </div>
             <div class="industry-tile-grid">
                 <div class="industry-tile">
                     <div class="industry-tile-icon"><i class="fa-solid fa-tooth"></i></div>
-                    <h5>Local SEO For Dental Terms</h5>
-                    <p>Rank for dentist near me and high-value treatment searches.</p>
+                    <h5>Local Search Visibility</h5>
+                    <p>Improve your business profile and service pages to help people find relevant information about your practice and location.</p>
                 </div>
                 <div class="industry-tile">
                     <div class="industry-tile-icon"><i class="fa-solid fa-calendar-check"></i></div>
-                    <h5>Booking-Optimised Website</h5>
-                    <p>A fast, reassuring website designed to convert visits into bookings.</p>
+                    <h5>Websites &amp; Appointment Options</h5>
+                    <p>Create clear, mobile-friendly pages with appointment requests or links to your booking system, with integrations scoped separately.</p>
                 </div>
                 <div class="industry-tile">
                     <div class="industry-tile-icon"><i class="fa-solid fa-star"></i></div>
-                    <h5>Review Generation</h5>
-                    <p>Build a steady stream of 5-star reviews that build patient trust.</p>
+                    <h5>Reputation &amp; Patient Feedback</h5>
+                    <p>Support feedback monitoring and careful response processes, with any use of patient comments assessed against applicable advertising requirements.</p>
                 </div>
                 <div class="industry-tile">
                     <div class="industry-tile-icon"><i class="fa-solid fa-hand-holding-dollar"></i></div>
-                    <h5>High-Value Treatment Campaigns</h5>
-                    <p>Targeted campaigns for implants, invisalign, and cosmetic dentistry.</p>
+                    <h5>Service Information &amp; Campaigns</h5>
+                    <p>Develop clear pages and campaigns for the treatments you offer, with information checked and approved by your practice.</p>
                 </div>
             </div>
         </div>
@@ -87,7 +87,7 @@ include 'header.php';
                     </div>
                 </div>
                 <div class="cta-form-wrap">
-                    <?php $cta_button_label = 'GET MY FREE PRACTICE AUDIT'; include __DIR__ . '/includes/cta-form.php'; ?>
+                    <?php $cta_button_label = 'GET MY FREE MARKETING AUDIT'; include __DIR__ . '/includes/cta-form.php'; ?>
                 </div>
             </div>
         </div>
