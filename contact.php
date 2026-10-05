@@ -122,7 +122,7 @@ include 'header.php';
                                 </div>
                                 <div>
                                     <h5 style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); font-weight: 700; margin-bottom: 2px; letter-spacing: 1px;">Office Location</h5>
-                                    <p style="color: var(--navy); font-weight: 600; font-size: 0.95rem; line-height: 1.5;">Level 32, Sydney, NSW 2000, Australia</p>
+                                    <p style="color: var(--navy); font-weight: 600; font-size: 0.95rem; line-height: 1.5;">3 Weebill St, Melonba, NSW 2765, Australia</p>
                                 </div>
                             </li>
                         </ul>

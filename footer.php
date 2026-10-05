@@ -55,7 +55,7 @@
                     <ul class="footer-contact">
                         <li><i class="fa-solid fa-phone"></i> <a href="tel:+61403889630"><span>+61 403 889 630</span></a></li>
                         <li><i class="fa-solid fa-envelope"></i> <a href="mailto:info@wsdigitalmarketing.com.au"><span>info@wsdigitalmarketing.com.au</span></a></li>
-                        <li><i class="fa-solid fa-location-dot"></i> <span>Level 32, Sydney, NSW 2000, Australia</span></li>
+                        <li><i class="fa-solid fa-location-dot"></i> <span>3 Weebill St, Melonba, NSW 2765, Australia</span></li>
                     </ul>
                 </div>
             </div>
