@@ -131,10 +131,9 @@ include 'header.php';
                     <div style="margin-top: 35px; border-top: 1px solid var(--border-light); padding-top: 20px;">
                         <h5 style="font-size: 0.8rem; text-transform: uppercase; color: var(--text-muted); font-weight: 700; margin-bottom: 12px; letter-spacing: 1px;">Follow Our Socials</h5>
                         <div class="contact-social-links">
-                            <a href="https://www.facebook.com/share/19axg2NC9v/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                            <a href="https://www.facebook.com/w.and.s.digital.marketing" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
                             <a href="https://www.instagram.com/wsdigitalmarketing" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                            <a href="https://www.linkedin.com/company/143768176/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-                            <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                            <a href="https://www.linkedin.com/company/w-s-digital-marketing/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
                         </div>
                     </div>
                 </div>

@@ -12,10 +12,9 @@
                         Helping ambitious Australian businesses confidently grow online with data-driven strategies that consistently deliver real results.
                     </p>
                     <div class="social-links">
-                        <a href="https://www.facebook.com/share/19axg2NC9v/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="https://www.facebook.com/w.and.s.digital.marketing" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
                         <a href="https://www.instagram.com/wsdigitalmarketing" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                        <a href="https://www.linkedin.com/company/143768176/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-                        <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                        <a href="https://www.linkedin.com/company/w-s-digital-marketing/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
                     </div>
                 </div>
                 
