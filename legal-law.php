@@ -1,18 +1,18 @@
 <?php
 require_once __DIR__ . '/includes/cta-form-handler.php';
-$page_title = 'Legal / Law';
-$page_description = 'Digital marketing for law firms including SEO and lead generation campaigns built to attract high-value cases and build authority.';
+$page_title = 'Law Firm Digital Marketing';
+$page_description = 'Digital marketing for law firms and legal practices. Explore local search, website design and content that explain your services and support relevant enquiries.';
 include 'header.php';
 ?>
 
     <!-- LEGAL / LAW HERO SECTION -->
     <section class="hero" style="padding-bottom: clamp(40px, 8vw, 80px);">
         <div class="container hero-content">
-            <span class="eyebrow fade-up">LEGAL / LAW</span>
-            <h1 class="fade-up">CLIENTS WHO NEED YOU. <br><span class="text-gradient">FINDING YOU FIRST.</span></h1>
-            <p class="hero-subtitle fade-up">Digital marketing for law firms and legal practices &mdash; built to attract high-value cases and build authority in your practice area.</p>
+            <span class="eyebrow fade-up">LEGAL &amp; LAW</span>
+            <h1 class="fade-up">MAKE YOUR EXPERTISE CLEAR. <br><span class="text-gradient">HELP CLIENTS FIND YOU.</span></h1>
+            <p class="hero-subtitle fade-up">Digital marketing for law firms and legal practices &mdash; helping prospective clients understand your services, explore your expertise and contact the right team.</p>
             <div class="hero-buttons fade-up">
-                <a href="#contact" class="btn-primary">GET MY FREE FIRM AUDIT <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
+                <a href="#contact" class="btn-primary">GET MY FREE MARKETING AUDIT <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
                 <a href="/industries" class="btn-secondary">VIEW ALL INDUSTRIES</a>
             </div>
         </div>
@@ -27,46 +27,46 @@ include 'header.php';
                 </div>
                 <div class="agency-text">
                     <span class="eyebrow">WHY IT MATTERS</span>
-                    <h2>Be The Firm They Find First</h2>
-                    <p>People searching for a lawyer are often in a stressful, urgent situation, they will choose whoever looks most credible, fastest. We build the SEO, content, and reputation that makes your firm the obvious choice.</p>
+                    <h2>Help Prospective Clients Understand How You Can Help</h2>
+                    <p>Choosing a law firm starts with understanding its services, experience and approach. We organise your digital presence around the matters you handle and the clients you serve, using clear content, local search and straightforward enquiry options. Your firm reviews legal information before publication.</p>
                     <ul class="agency-list" style="margin-top: 20px;">
-                        <li><i class="fa-solid fa-check"></i> Practice-Area SEO &amp; Local Search</li>
-                        <li><i class="fa-solid fa-check"></i> Authority-Building Legal Content</li>
-                        <li><i class="fa-solid fa-check"></i> Compliant, High-Converting Websites</li>
+                        <li><i class="fa-solid fa-check"></i> Search Visibility For Your Practice Areas</li>
+                        <li><i class="fa-solid fa-check"></i> Clear Service Pages &amp; Firm-Reviewed Content</li>
+                        <li><i class="fa-solid fa-check"></i> Professional Websites &amp; Enquiry Pathways</li>
                     </ul>
-                    <a href="#contact" class="btn-primary" style="margin-top: 10px;">Speak With A Legal Marketing Strategist</a>
+                    <a href="#contact" class="btn-primary" style="margin-top: 10px;">Speak With Our Team</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- WHAT WE OFFER -->
+    <!-- HOW WE CAN HELP -->
     <section class="services-section fade-up">
         <div class="container">
             <div class="section-header">
-                <span class="eyebrow">WHAT WE OFFER</span>
-                <h2 style="font-size: clamp(1.8rem, 4vw, 2.8rem); margin-top: 10px;">Marketing Built For Law Firms</h2>
+                <span class="eyebrow">HOW WE CAN HELP</span>
+                <h2 style="font-size: clamp(1.8rem, 4vw, 2.8rem); margin-top: 10px;">Marketing Built Around Your Legal Practice</h2>
             </div>
             <div class="industry-tile-grid">
                 <div class="industry-tile">
                     <div class="industry-tile-icon"><i class="fa-solid fa-scale-balanced"></i></div>
-                    <h5>Practice-Area SEO</h5>
-                    <p>Rank for the specific case types and locations you want more of.</p>
+                    <h5>Practice Area &amp; Local Search</h5>
+                    <p>Improve service and location pages around the legal matters you handle and the areas your firm serves.</p>
                 </div>
                 <div class="industry-tile">
                     <div class="industry-tile-icon"><i class="fa-solid fa-file-lines"></i></div>
-                    <h5>Authority-Building Content</h5>
-                    <p>Legal guides and content that build trust and demonstrate expertise.</p>
+                    <h5>Legal Website Content</h5>
+                    <p>Develop service explanations, guides and frequently asked questions, with your firm reviewing legal accuracy and suitability before publication.</p>
                 </div>
                 <div class="industry-tile">
                     <div class="industry-tile-icon"><i class="fa-solid fa-shield-halved"></i></div>
-                    <h5>Compliant Website Design</h5>
-                    <p>Professional, credible sites built within advertising regulations.</p>
+                    <h5>Professional Website Design</h5>
+                    <p>Present your team, experience and practice areas clearly, with readable layouts and straightforward ways to contact your firm.</p>
                 </div>
                 <div class="industry-tile">
                     <div class="industry-tile-icon"><i class="fa-solid fa-phone-volume"></i></div>
-                    <h5>Lead Intake Optimisation</h5>
-                    <p>Turn more enquiries into signed clients with a faster, smoother intake.</p>
+                    <h5>Enquiry Journey Improvements</h5>
+                    <p>Review forms, contact options and enquiry routing to help prospective clients reach the appropriate team within your firm.</p>
                 </div>
             </div>
         </div>
@@ -87,7 +87,7 @@ include 'header.php';
                     </div>
                 </div>
                 <div class="cta-form-wrap">
-                    <?php $cta_button_label = 'GET MY FREE FIRM AUDIT'; include __DIR__ . '/includes/cta-form.php'; ?>
+                    <?php $cta_button_label = 'GET MY FREE MARKETING AUDIT'; include __DIR__ . '/includes/cta-form.php'; ?>
                 </div>
             </div>
         </div>

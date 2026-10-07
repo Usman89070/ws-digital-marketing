@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . '/includes/cta-form-handler.php';
-$page_title = 'Healthcare & Medical';
-$page_description = 'Digital marketing for healthcare and medical practices including compliant SEO and patient acquisition campaigns that build trust.';
+$page_title = 'Healthcare & Medical Marketing';
+$page_description = 'Explore local search, website design and content for healthcare and medical practices. Help people find your services and understand appointment options.';
 include 'header.php';
 ?>
 
@@ -9,10 +9,10 @@ include 'header.php';
     <section class="hero" style="padding-bottom: clamp(40px, 8vw, 80px);">
         <div class="container hero-content">
             <span class="eyebrow fade-up">HEALTHCARE &amp; MEDICAL</span>
-            <h1 class="fade-up">TRUSTED PATIENT PIPELINES. <br><span class="text-gradient">COMPLIANT BY DESIGN.</span></h1>
-            <p class="hero-subtitle fade-up">Digital marketing for clinics, medical practices, and health specialists &mdash; built to attract patients while staying fully compliant.</p>
+            <h1 class="fade-up">CLEAR INFORMATION. <br><span class="text-gradient">EASIER ACCESS TO YOUR PRACTICE.</span></h1>
+            <p class="hero-subtitle fade-up">Digital marketing for clinics, medical practices and healthcare providers &mdash; helping people find your services, understand their options and contact your team.</p>
             <div class="hero-buttons fade-up">
-                <a href="#contact" class="btn-primary">GET MY FREE CLINIC AUDIT <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
+                <a href="#contact" class="btn-primary">GET MY FREE MARKETING AUDIT <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
                 <a href="/industries" class="btn-secondary">VIEW ALL INDUSTRIES</a>
             </div>
         </div>
@@ -27,46 +27,46 @@ include 'header.php';
                 </div>
                 <div class="agency-text">
                     <span class="eyebrow">WHY IT MATTERS</span>
-                    <h2>Build Trust Before The First Appointment</h2>
-                    <p>Patients research thoroughly before choosing a provider. We build a compliant, trustworthy digital presence that answers their questions, builds confidence, and turns searches into booked appointments.</p>
+                    <h2>Help People Understand Your Services Before They Enquire</h2>
+                    <p>People looking for healthcare need clear information about services, practitioners, locations and appointment requirements. We organise that information across your website and local search presence, with clinical content and service claims reviewed by your practice before publication.</p>
                     <ul class="agency-list" style="margin-top: 20px;">
-                        <li><i class="fa-solid fa-check"></i> Compliant Healthcare SEO &amp; Content</li>
-                        <li><i class="fa-solid fa-check"></i> Patient-Focused, Accessible Websites</li>
-                        <li><i class="fa-solid fa-check"></i> Reputation &amp; Review Management</li>
+                        <li><i class="fa-solid fa-check"></i> Local Search &amp; Accurate Practice Information</li>
+                        <li><i class="fa-solid fa-check"></i> Clear Service Pages &amp; Appointment Pathways</li>
+                        <li><i class="fa-solid fa-check"></i> Practice-Reviewed Content &amp; Campaign Messaging</li>
                     </ul>
-                    <a href="#contact" class="btn-primary" style="margin-top: 10px;">Speak With A Healthcare Marketing Strategist</a>
+                    <a href="#contact" class="btn-primary" style="margin-top: 10px;">Speak With Our Team</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- WHAT WE OFFER -->
+    <!-- HOW WE CAN HELP -->
     <section class="services-section fade-up">
         <div class="container">
             <div class="section-header">
-                <span class="eyebrow">WHAT WE OFFER</span>
-                <h2 style="font-size: clamp(1.8rem, 4vw, 2.8rem); margin-top: 10px;">Marketing Built For Healthcare Providers</h2>
+                <span class="eyebrow">HOW WE CAN HELP</span>
+                <h2 style="font-size: clamp(1.8rem, 4vw, 2.8rem); margin-top: 10px;">Marketing Support For Your Healthcare Practice</h2>
             </div>
             <div class="industry-tile-grid">
                 <div class="industry-tile">
                     <div class="industry-tile-icon"><i class="fa-solid fa-user-doctor"></i></div>
-                    <h5>Compliant Local SEO</h5>
-                    <p>Rank for patient searches while staying within advertising guidelines.</p>
+                    <h5>Local Search Visibility</h5>
+                    <p>Improve business profiles and service pages so people can find accurate information about your practice, services and locations.</p>
                 </div>
                 <div class="industry-tile">
                     <div class="industry-tile-icon"><i class="fa-solid fa-briefcase-medical"></i></div>
-                    <h5>Patient-Focused Websites</h5>
-                    <p>Accessible, reassuring websites designed around the patient journey.</p>
+                    <h5>Practice Website Design</h5>
+                    <p>Create clear navigation, readable content and mobile-friendly layouts, with straightforward access to practitioner details and appointment information.</p>
                 </div>
                 <div class="industry-tile">
                     <div class="industry-tile-icon"><i class="fa-solid fa-star"></i></div>
-                    <h5>Reputation Management</h5>
-                    <p>Build and protect a trusted online reputation across review platforms.</p>
+                    <h5>Reputation &amp; Feedback Support</h5>
+                    <p>Support review monitoring and response preparation, with your practice approving replies and decisions about using patient feedback.</p>
                 </div>
                 <div class="industry-tile">
                     <div class="industry-tile-icon"><i class="fa-solid fa-calendar-check"></i></div>
-                    <h5>Booking &amp; Referral Campaigns</h5>
-                    <p>Campaigns that grow both new patient bookings and referrals.</p>
+                    <h5>Appointment &amp; Referral Information</h5>
+                    <p>Develop pages and campaigns that explain appointment options and referral requirements, with booking-system connections scoped to your needs.</p>
                 </div>
             </div>
         </div>
@@ -87,7 +87,7 @@ include 'header.php';
                     </div>
                 </div>
                 <div class="cta-form-wrap">
-                    <?php $cta_button_label = 'GET MY FREE CLINIC AUDIT'; include __DIR__ . '/includes/cta-form.php'; ?>
+                    <?php $cta_button_label = 'GET MY FREE MARKETING AUDIT'; include __DIR__ . '/includes/cta-form.php'; ?>
                 </div>
             </div>
         </div>

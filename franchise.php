@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . '/includes/cta-form-handler.php';
-$page_title = 'Franchise';
-$page_description = 'Digital marketing for franchise brands including multi-location SEO and local campaigns built to drive leads at every location.';
+$page_title = 'Franchise Digital Marketing';
+$page_description = 'Coordinate local search, location pages and advertising across your franchise network with W&S Digital Marketing. Request a free marketing audit.';
 include 'header.php';
 ?>
 
@@ -9,10 +9,10 @@ include 'header.php';
     <section class="hero" style="padding-bottom: clamp(40px, 8vw, 80px);">
         <div class="container hero-content">
             <span class="eyebrow fade-up">FRANCHISE</span>
-            <h1 class="fade-up">LOCAL RESULTS. <br><span class="text-gradient">NATIONAL CONSISTENCY.</span></h1>
-            <p class="hero-subtitle fade-up">Digital marketing for multi-location franchise brands &mdash; built to drive local leads at every location while keeping your brand consistent.</p>
+            <h1 class="fade-up">LOCAL REACH. <br><span class="text-gradient">ONE CONSISTENT BRAND.</span></h1>
+            <p class="hero-subtitle fade-up">Digital marketing for franchise networks &mdash; connecting local search, location pages and advertising to support individual businesses while keeping your brand consistent.</p>
             <div class="hero-buttons fade-up">
-                <a href="#contact" class="btn-primary">GET MY FREE FRANCHISE AUDIT <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
+                <a href="#contact" class="btn-primary">GET MY FREE MARKETING AUDIT <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
                 <a href="/industries" class="btn-secondary">VIEW ALL INDUSTRIES</a>
             </div>
         </div>
@@ -27,46 +27,46 @@ include 'header.php';
                 </div>
                 <div class="agency-text">
                     <span class="eyebrow">WHY IT MATTERS</span>
-                    <h2>Every Location Deserves Its Own Growth Engine</h2>
-                    <p>Franchise marketing means balancing national brand consistency with hyper-local results. We build multi-location SEO, local landing pages, and campaign structures that let every franchisee compete and win locally.</p>
+                    <h2>Give Each Location A Clear Local Presence</h2>
+                    <p>Your locations share a brand, but serve different communities. We coordinate marketing around your brand guidelines while reflecting each location's services, trading details and audience. Clear responsibilities, local content and reporting help your head office and franchisees work towards shared priorities.</p>
                     <ul class="agency-list" style="margin-top: 20px;">
-                        <li><i class="fa-solid fa-check"></i> Multi-Location SEO &amp; Google Business Management</li>
-                        <li><i class="fa-solid fa-check"></i> Localised Landing Pages For Every Site</li>
-                        <li><i class="fa-solid fa-check"></i> Centralised Reporting Across All Locations</li>
+                        <li><i class="fa-solid fa-check"></i> Local Search &amp; Business Profile Management</li>
+                        <li><i class="fa-solid fa-check"></i> Location Pages With Relevant Local Information</li>
+                        <li><i class="fa-solid fa-check"></i> Coordinated Campaigns &amp; Location Reporting</li>
                     </ul>
-                    <a href="#contact" class="btn-primary" style="margin-top: 10px;">Speak With A Franchise Growth Strategist</a>
+                    <a href="#contact" class="btn-primary" style="margin-top: 10px;">Speak With Our Team</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- WHAT WE OFFER -->
+    <!-- HOW WE CAN HELP -->
     <section class="services-section fade-up">
         <div class="container">
             <div class="section-header">
-                <span class="eyebrow">WHAT WE OFFER</span>
-                <h2 style="font-size: clamp(1.8rem, 4vw, 2.8rem); margin-top: 10px;">Marketing Built To Scale Across Locations</h2>
+                <span class="eyebrow">HOW WE CAN HELP</span>
+                <h2 style="font-size: clamp(1.8rem, 4vw, 2.8rem); margin-top: 10px;">Marketing Support Across Your Franchise Network</h2>
             </div>
             <div class="industry-tile-grid">
                 <div class="industry-tile">
                     <div class="industry-tile-icon"><i class="fa-solid fa-map-location-dot"></i></div>
-                    <h5>Multi-Location SEO</h5>
-                    <p>Rank in every local market your franchise operates in.</p>
+                    <h5>Local Search Management</h5>
+                    <p>Improve business profiles and website information so customers can find relevant locations, services, opening hours and contact details.</p>
                 </div>
                 <div class="industry-tile">
                     <div class="industry-tile-icon"><i class="fa-solid fa-store"></i></div>
-                    <h5>Localised Landing Pages</h5>
-                    <p>On-brand pages tailored to each location's audience and area.</p>
+                    <h5>Individual Location Pages</h5>
+                    <p>Create pages with useful local information and clear enquiry options, while maintaining your franchise's visual identity and messaging.</p>
                 </div>
                 <div class="industry-tile">
                     <div class="industry-tile-icon"><i class="fa-solid fa-chart-pie"></i></div>
-                    <h5>Centralised Reporting</h5>
-                    <p>One dashboard for performance across every location.</p>
+                    <h5>Network &amp; Location Reporting</h5>
+                    <p>Bring agreed campaign measures together to review network activity, compare locations and identify priorities using available tracking data.</p>
                 </div>
                 <div class="industry-tile">
                     <div class="industry-tile-icon"><i class="fa-solid fa-bullhorn"></i></div>
-                    <h5>Local &amp; National Paid Campaigns</h5>
-                    <p>Coordinated campaigns that support both brand and franchisee goals.</p>
+                    <h5>Brand &amp; Local Advertising</h5>
+                    <p>Coordinate campaigns around shared brand goals, with local targeting, budgets and approvals agreed with your franchise team.</p>
                 </div>
             </div>
         </div>
@@ -87,7 +87,7 @@ include 'header.php';
                     </div>
                 </div>
                 <div class="cta-form-wrap">
-                    <?php $cta_button_label = 'GET MY FREE FRANCHISE AUDIT'; include __DIR__ . '/includes/cta-form.php'; ?>
+                    <?php $cta_button_label = 'GET MY FREE MARKETING AUDIT'; include __DIR__ . '/includes/cta-form.php'; ?>
                 </div>
             </div>
         </div>
