@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . '/includes/cta-form-handler.php';
-$page_title = 'Trades';
-$page_description = 'Digital marketing for trades and local service businesses including local SEO and lead generation built to keep your trucks rolling.';
+$page_title = 'Digital Marketing for Trades';
+$page_description = 'Digital marketing for plumbers, electricians and trade businesses. Explore local search, websites and advertising that support calls and quote requests.';
 include 'header.php';
 ?>
 
@@ -9,10 +9,10 @@ include 'header.php';
     <section class="hero" style="padding-bottom: clamp(40px, 8vw, 80px);">
         <div class="container hero-content">
             <span class="eyebrow fade-up">TRADES &amp; SERVICES</span>
-            <h1 class="fade-up">MORE JOBS BOOKED. <br><span class="text-gradient">MORE TRUCKS ROLLING.</span></h1>
-            <p class="hero-subtitle fade-up">Digital marketing for plumbers, electricians, and local trade businesses &mdash; built to win high-intent local leads that actually convert.</p>
+            <h1 class="fade-up">GET FOUND LOCALLY. <br><span class="text-gradient">MAKE ENQUIRING EASY.</span></h1>
+            <p class="hero-subtitle fade-up">Digital marketing for plumbers, electricians and local trade businesses &mdash; helping customers find your services, check your coverage and request a quote or repair.</p>
             <div class="hero-buttons fade-up">
-                <a href="#contact" class="btn-primary">GET MY FREE TRADE AUDIT <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
+                <a href="#contact" class="btn-primary">GET MY FREE MARKETING AUDIT <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
                 <a href="/industries" class="btn-secondary">VIEW ALL INDUSTRIES</a>
             </div>
         </div>
@@ -27,46 +27,46 @@ include 'header.php';
                 </div>
                 <div class="agency-text">
                     <span class="eyebrow">WHY IT MATTERS</span>
-                    <h2>Be The First Call, Every Time</h2>
-                    <p>When something breaks, customers call whoever shows up first and looks trustworthy. We build the local SEO, reviews, and ads that put your trade business at the top of the search, every single time.</p>
+                    <h2>Help Customers Find The Right Trade For The Job</h2>
+                    <p>Some customers need urgent repairs; others are planning maintenance or installation work. We help them understand your services, coverage and availability through clear websites, local search and targeted campaigns, with straightforward ways to call, describe the job or request a quote.</p>
                     <ul class="agency-list" style="margin-top: 20px;">
-                        <li><i class="fa-solid fa-check"></i> Local SEO &amp; Google Business Optimisation</li>
-                        <li><i class="fa-solid fa-check"></i> Review Generation &amp; Reputation Management</li>
-                        <li><i class="fa-solid fa-check"></i> Emergency &amp; Same-Day Job Campaigns</li>
+                        <li><i class="fa-solid fa-check"></i> Local Search &amp; Business Profile Improvements</li>
+                        <li><i class="fa-solid fa-check"></i> Clear Service Areas &amp; Quote Request Options</li>
+                        <li><i class="fa-solid fa-check"></i> Campaigns Matched To Your Services &amp; Availability</li>
                     </ul>
-                    <a href="#contact" class="btn-primary" style="margin-top: 10px;">Speak With A Trades Marketing Strategist</a>
+                    <a href="#contact" class="btn-primary" style="margin-top: 10px;">Speak With Our Team</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- WHAT WE OFFER -->
+    <!-- HOW WE CAN HELP -->
     <section class="services-section fade-up">
         <div class="container">
             <div class="section-header">
-                <span class="eyebrow">WHAT WE OFFER</span>
-                <h2 style="font-size: clamp(1.8rem, 4vw, 2.8rem); margin-top: 10px;">Marketing Built To Keep You Booked</h2>
+                <span class="eyebrow">HOW WE CAN HELP</span>
+                <h2 style="font-size: clamp(1.8rem, 4vw, 2.8rem); margin-top: 10px;">Marketing Built Around Your Trade Business</h2>
             </div>
             <div class="industry-tile-grid">
                 <div class="industry-tile">
                     <div class="industry-tile-icon"><i class="fa-solid fa-location-dot"></i></div>
-                    <h5>Local SEO &amp; Map Pack</h5>
-                    <p>Dominate near me searches for your trade and service area.</p>
+                    <h5>Local Search Visibility</h5>
+                    <p>Improve business profiles and service pages so customers can find relevant information about your trade and service areas.</p>
                 </div>
                 <div class="industry-tile">
                     <div class="industry-tile-icon"><i class="fa-solid fa-star"></i></div>
-                    <h5>Review &amp; Reputation Management</h5>
-                    <p>A steady stream of 5-star reviews that win the next job.</p>
+                    <h5>Reviews &amp; Reputation</h5>
+                    <p>Support honest customer feedback requests, monitor reviews and help your team respond professionally to customer experiences.</p>
                 </div>
                 <div class="industry-tile">
                     <div class="industry-tile-icon"><i class="fa-solid fa-truck-fast"></i></div>
-                    <h5>Emergency &amp; Same-Day Campaigns</h5>
-                    <p>Capture urgent jobs the moment someone searches for help.</p>
+                    <h5>Targeted Service Advertising</h5>
+                    <p>Plan ads around your services, coverage and working hours, including urgent repairs where your business offers that service.</p>
                 </div>
                 <div class="industry-tile">
                     <div class="industry-tile-icon"><i class="fa-solid fa-calendar-check"></i></div>
-                    <h5>Booking-Optimised Website</h5>
-                    <p>A fast, mobile-first site that turns visits into booked jobs.</p>
+                    <h5>Websites &amp; Quote Requests</h5>
+                    <p>Build clear, mobile-friendly pages with click-to-call links and enquiry forms that help customers explain the work they need.</p>
                 </div>
             </div>
         </div>
@@ -87,7 +87,7 @@ include 'header.php';
                     </div>
                 </div>
                 <div class="cta-form-wrap">
-                    <?php $cta_button_label = 'GET MY FREE TRADE AUDIT'; include __DIR__ . '/includes/cta-form.php'; ?>
+                    <?php $cta_button_label = 'GET MY FREE MARKETING AUDIT'; include __DIR__ . '/includes/cta-form.php'; ?>
                 </div>
             </div>
         </div>
