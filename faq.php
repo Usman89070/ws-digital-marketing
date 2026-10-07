@@ -1,4 +1,5 @@
 <?php
+require_once __DIR__ . '/includes/cta-form-handler.php';
 $page_title = 'Frequently Asked Questions';
 $page_description = 'Answers to common questions about working with W&S Digital Marketing, our pricing, contracts, reporting, and how our growth strategies work.';
 include 'header.php';
@@ -30,7 +31,7 @@ include 'header.php';
 
                 <details class="faq-item">
                     <summary>What industries do you work with?</summary>
-                    <p>We work across trades &amp; services, healthcare, professional services, eCommerce, hospitality, and automotive — see our <a href="industries.php">Industries</a> page for more detail on how we tailor strategy per sector.</p>
+                    <p>We work across trades &amp; services, healthcare, professional services, eCommerce, hospitality, and automotive — see our <a href="/industries">Industries</a> page for more detail on how we tailor strategy per sector.</p>
                 </details>
 
                 <details class="faq-item">
@@ -45,12 +46,12 @@ include 'header.php';
 
                 <details class="faq-item">
                     <summary>Can you build me a new website?</summary>
-                    <p>Yes. Our web design &amp; CRO service builds fast, mobile-responsive websites engineered to convert, whether that's a brochure site or a full ecommerce store. See our <a href="website-development.php">Website Development</a> service for details.</p>
+                    <p>Yes. Our web design &amp; CRO service builds fast, mobile-responsive websites engineered to convert, whether that's a brochure site or a full ecommerce store. See our <a href="/website-development">Website Development</a> service for details.</p>
                 </details>
 
                 <details class="faq-item">
                     <summary>How do I get started?</summary>
-                    <p>Book a zero-obligation growth audit through our <a href="contact.php">contact page</a>. We'll review your current marketing, identify opportunities, and recommend a plan tailored to your goals.</p>
+                    <p>Book a zero-obligation growth audit through our <a href="/contact">contact page</a>. We'll review your current marketing, identify opportunities, and recommend a plan tailored to your goals.</p>
                 </details>
 
             </div>
@@ -60,17 +61,19 @@ include 'header.php';
     <!-- FINAL CTA SECTION -->
     <section class="cta-section" id="contact">
         <div class="container">
-            <div class="cta-box fade-up">
-                <div class="cta-badge"><i class="fa-solid fa-rocket"></i> Let's Scale Together</div>
-                <h2>Still Have Questions?</h2>
-                <p>Our team is happy to walk you through exactly how we'd approach your growth strategy.</p>
-                <div class="cta-features">
+            <div class="cta-box cta-box-split fade-up">
+                <div class="cta-info">
+                    <div class="cta-badge"><i class="fa-solid fa-rocket"></i> Let's Scale Together</div>
+                    <h2>Still Have Questions?</h2>
+                    <p>Our team is happy to walk you through exactly how we'd approach your growth strategy.</p>
+                    <div class="cta-features">
                     <span><i class="fa-solid fa-check" style="color: var(--cyan-neon);"></i> Zero Obligation Audit</span>
                     <span><i class="fa-solid fa-check" style="color: var(--cyan-neon);"></i> Custom Growth Strategy</span>
                     <span><i class="fa-solid fa-check" style="color: var(--cyan-neon);"></i> Proven Australian Results</span>
+                    </div>
                 </div>
-                <div class="cta-btn-wrapper">
-                    <a href="contact.php" class="btn-primary" style="padding: 18px 45px; font-size: 1.1rem;">GET MY FREE GROWTH PLAN <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
+                <div class="cta-form-wrap">
+                    <?php $cta_button_label = 'GET MY FREE GROWTH PLAN'; include __DIR__ . '/includes/cta-form.php'; ?>
                 </div>
             </div>
         </div>

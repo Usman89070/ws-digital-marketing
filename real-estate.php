@@ -1,6 +1,7 @@
 <?php
-$page_title = 'Real Estate';
-$page_description = 'Digital marketing for real estate agents and agencies including local SEO and lead generation campaigns built to win listings and buyers.';
+require_once __DIR__ . '/includes/cta-form-handler.php';
+$page_title = 'Real Estate Digital Marketing';
+$page_description = 'Digital marketing for real estate agents and agencies. Explore local search, agent branding and campaigns for property enquiries and appraisal requests.';
 include 'header.php';
 ?>
 
@@ -8,11 +9,11 @@ include 'header.php';
     <section class="hero" style="padding-bottom: clamp(40px, 8vw, 80px);">
         <div class="container hero-content">
             <span class="eyebrow fade-up">REAL ESTATE</span>
-            <h1 class="fade-up">MORE LISTINGS. <br><span class="text-gradient">MORE CLOSED DEALS.</span></h1>
-            <p class="hero-subtitle fade-up">Digital marketing for real estate agents and agencies &mdash; built to win more listings and turn buyer searches into closed deals.</p>
+            <h1 class="fade-up">BUILD YOUR LOCAL PRESENCE. <br><span class="text-gradient">SHOWCASE YOUR EXPERTISE.</span></h1>
+            <p class="hero-subtitle fade-up">Digital marketing for real estate agents and agencies &mdash; helping buyers discover properties and prospective sellers understand your services, local knowledge and approach.</p>
             <div class="hero-buttons fade-up">
-                <a href="contact.php" class="btn-primary">GET MY FREE AGENCY AUDIT <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
-                <a href="industries.php" class="btn-secondary">VIEW ALL INDUSTRIES</a>
+                <a href="#contact" class="btn-primary">GET MY FREE MARKETING AUDIT <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
+                <a href="/industries" class="btn-secondary">VIEW ALL INDUSTRIES</a>
             </div>
         </div>
     </section>
@@ -22,67 +23,51 @@ include 'header.php';
         <div class="container">
             <div class="agency-grid">
                 <div class="agency-image-wrapper">
-                    <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=800&q=80" alt="Real Estate Digital Marketing">
+                    <img loading="lazy" decoding="async" src="/images/industries/realEstate.webp" alt="Real Estate Digital Marketing" onerror="this.remove()">
                 </div>
                 <div class="agency-text">
                     <span class="eyebrow">WHY IT MATTERS</span>
-                    <h2>Be Top Of Mind When They Are Ready To List Or Buy</h2>
-                    <p>Buyers and sellers research agents long before they make contact. We build the local visibility, personal branding, and lead generation that makes you the agent they call first.</p>
+                    <h2>Connect Your Agency With Buyers And Sellers</h2>
+                    <p>Buyers want useful property information, while sellers need to understand who will represent them. We develop your local search presence, agent profiles and campaigns around these different needs, with clear pathways for property enquiries, inspection requests and appraisal bookings.</p>
                     <ul class="agency-list" style="margin-top: 20px;">
-                        <li><i class="fa-solid fa-check"></i> Local &amp; Suburb-Level SEO</li>
-                        <li><i class="fa-solid fa-check"></i> Listing &amp; Agent Personal Branding</li>
-                        <li><i class="fa-solid fa-check"></i> Buyer &amp; Seller Lead Generation</li>
+                        <li><i class="fa-solid fa-check"></i> Local Search &amp; Useful Suburb Content</li>
+                        <li><i class="fa-solid fa-check"></i> Consistent Agent &amp; Agency Branding</li>
+                        <li><i class="fa-solid fa-check"></i> Property Enquiry &amp; Appraisal Campaigns</li>
                     </ul>
-                    <a href="contact.php" class="btn-primary" style="margin-top: 10px;">Speak With A Real Estate Strategist</a>
+                    <a href="#contact" class="btn-primary" style="margin-top: 10px;">Speak With Our Team</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- WHAT WE OFFER -->
+    <!-- HOW WE CAN HELP -->
     <section class="services-section fade-up">
         <div class="container">
             <div class="section-header">
-                <span class="eyebrow">WHAT WE OFFER</span>
-                <h2 style="font-size: clamp(1.8rem, 4vw, 2.8rem); margin-top: 10px;">Marketing Built To Win More Listings</h2>
+                <span class="eyebrow">HOW WE CAN HELP</span>
+                <h2 style="font-size: clamp(1.8rem, 4vw, 2.8rem); margin-top: 10px;">Marketing For Your Agency, Agents And Listings</h2>
             </div>
             <div class="industry-tile-grid">
                 <div class="industry-tile">
                     <div class="industry-tile-icon"><i class="fa-solid fa-house"></i></div>
-                    <h5>Local &amp; Suburb SEO</h5>
-                    <p>Rank for the suburbs and property types you want to dominate.</p>
+                    <h5>Local &amp; Suburb Search</h5>
+                    <p>Develop useful suburb and service pages that help people discover your agency and understand the areas you work in.</p>
                 </div>
                 <div class="industry-tile">
                     <div class="industry-tile-icon"><i class="fa-solid fa-id-badge"></i></div>
-                    <h5>Agent Personal Branding</h5>
-                    <p>Build a personal brand that wins trust before the first inspection.</p>
+                    <h5>Agent &amp; Agency Branding</h5>
+                    <p>Present your experience, local knowledge and approach consistently across agent profiles, website content and campaign materials.</p>
                 </div>
                 <div class="industry-tile">
                     <div class="industry-tile-icon"><i class="fa-solid fa-bullhorn"></i></div>
-                    <h5>Listing Promotion Campaigns</h5>
-                    <p>Paid campaigns that get your listings in front of serious buyers.</p>
+                    <h5>Property Listing Campaigns</h5>
+                    <p>Promote current listings through agreed advertising channels, using accurate property details and clear inspection or enquiry options.</p>
                 </div>
                 <div class="industry-tile">
                     <div class="industry-tile-icon"><i class="fa-solid fa-user-plus"></i></div>
-                    <h5>Buyer &amp; Seller Lead Generation</h5>
-                    <p>Consistent, qualified leads for both sides of every transaction.</p>
+                    <h5>Seller &amp; Appraisal Campaigns</h5>
+                    <p>Create campaigns and landing pages that explain your selling services and help property owners request an appraisal.</p>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- STATS -->
-    <section class="stats-section fade-up">
-        <div class="container">
-            <div class="section-header">
-                <span class="eyebrow" style="color: var(--cyan-neon);">PROVEN RESULTS</span>
-                <h2 style="color: #fff; font-size: clamp(1.8rem, 4vw, 2.8rem);">Real Growth For Real Agents</h2>
-            </div>
-            <div class="stats-4-grid">
-                <div class="stat-box"><div class="stat-icon"><i class="fa-solid fa-key"></i></div><h3>+64</h3><p>New Listings (Avg.)</p></div>
-                <div class="stat-box"><div class="stat-icon"><i class="fa-solid fa-user-plus"></i></div><h3>+156</h3><p>Buyer &amp; Seller Leads</p></div>
-                <div class="stat-box"><div class="stat-icon"><i class="fa-solid fa-location-dot"></i></div><h3>Top 3</h3><p>Avg. Local Ranking</p></div>
-                <div class="stat-box"><div class="stat-icon"><i class="fa-solid fa-sack-dollar"></i></div><h3>+47%</h3><p>Avg. Pipeline Value Growth</p></div>
             </div>
         </div>
     </section>
@@ -90,17 +75,19 @@ include 'header.php';
     <!-- FINAL CTA -->
     <section class="cta-section" id="contact">
         <div class="container">
-            <div class="cta-box fade-up">
-                <div class="cta-badge"><i class="fa-solid fa-rocket"></i> Let's Scale Together</div>
-                <h2>Ready To Win More Listings?</h2>
-                <p>Get a free audit of your agency's digital presence and a plan to win more listings and deals.</p>
-                <div class="cta-features">
+            <div class="cta-box cta-box-split fade-up">
+                <div class="cta-info">
+                    <div class="cta-badge"><i class="fa-solid fa-rocket"></i> Let's Scale Together</div>
+                    <h2>Ready To Win More Listings?</h2>
+                    <p>Get a free audit of your agency's digital presence and a plan to win more listings and deals.</p>
+                    <div class="cta-features">
                     <span><i class="fa-solid fa-check" style="color: var(--cyan-neon);"></i> Zero Obligation Audit</span>
                     <span><i class="fa-solid fa-check" style="color: var(--cyan-neon);"></i> Custom Growth Strategy</span>
                     <span><i class="fa-solid fa-check" style="color: var(--cyan-neon);"></i> Proven Australian Results</span>
+                    </div>
                 </div>
-                <div class="cta-btn-wrapper">
-                    <a href="contact.php" class="btn-primary" style="padding: 18px 45px; font-size: 1.1rem;">GET MY FREE AGENCY AUDIT <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
+                <div class="cta-form-wrap">
+                    <?php $cta_button_label = 'GET MY FREE MARKETING AUDIT'; include __DIR__ . '/includes/cta-form.php'; ?>
                 </div>
             </div>
         </div>

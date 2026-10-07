@@ -1,18 +1,65 @@
 <?php
-$page_title = 'Website Development & Design';
-$page_description = 'Fast, mobile-responsive websites engineered specifically for conversion rate optimization, not just aesthetics.';
+require_once __DIR__ . '/includes/cta-form-handler.php';
+require_once __DIR__ . '/config.php';
+require_once __DIR__ . '/includes/case-study-helpers.php';
+
+// This page's "Client Projects" section is a curated showcase (not every
+// case study, and not in the admin's display_order) -- these 2 slugs, in
+// this exact order, with a short page-specific blurb for each. The blurb is
+// page-specific copy, kept here rather than overwriting the case study's own
+// (longer) summary field, which other pages and /case-studies/{slug} still
+// show in full.
+$webdevProjectSlugs = [
+    'commercial-fridge-repairs-sydney' => 'A WordPress website presenting commercial refrigeration services, service information and clear contact options for business customers.',
+    'fast-appliance-repairs' => 'A responsive WordPress website helping customers explore repair services, find coverage information and request assistance.',
+];
+
+$webdevCaseStudies = [];
+$webdevStats = [];
+try {
+    // Pulled live from the same table the Case Studies admin section
+    // manages, keyed by slug so editing one of these 2 case studies'
+    // image/tag/stats from the dashboard updates this page automatically.
+    $rows = get_db()->query("SELECT slug, name, tag, image_path, image_alt, summary, stat1_value, stat1_label, stat2_value, stat2_label, stat3_value, stat3_label, stat4_value, stat4_label FROM case_studies")->fetchAll();
+    $rowsBySlug = [];
+    foreach ($rows as $row) {
+        $rowsBySlug[$row['slug']] = $row;
+    }
+    foreach ($webdevProjectSlugs as $slug => $blurb) {
+        if (!isset($rowsBySlug[$slug])) {
+            continue;
+        }
+        $row = $rowsBySlug[$slug];
+        $row['summary'] = $blurb;
+        $webdevCaseStudies[] = $row;
+        foreach ([1, 2, 3, 4] as $n) {
+            if ($row["stat{$n}_value"] !== '' || $row["stat{$n}_label"] !== '') {
+                $webdevStats[] = [$row["stat{$n}_value"], $row["stat{$n}_label"]];
+            }
+        }
+    }
+    // Stats sharing the same label (e.g. multiple businesses' "Organic
+    // Clicks") are combined into one box instead of shown per-business.
+    $webdevStats = combine_stats($webdevStats);
+} catch (PDOException $e) {
+    $webdevCaseStudies = [];
+    $webdevStats = [];
+}
+
+$page_title = 'Website Design & Development';
+$page_description = 'Explore website design and development for Australian businesses. W&S Digital Marketing creates mobile-friendly sites with clear navigation and enquiry options.';
 include 'header.php';
 ?>
 
     <!-- WEBSITE DEV HERO SECTION -->
     <section class="hero" style="padding-bottom: clamp(40px, 8vw, 80px);">
         <div class="container hero-content">
-            <span class="eyebrow fade-up">WEBSITE DEVELOPMENT &amp; DESIGN</span>
-            <h1 class="fade-up">WEBSITES BUILT TO CONVERT, <br><span class="text-gradient">NOT JUST LOOK GOOD.</span></h1>
-            <p class="hero-subtitle fade-up">Fast, mobile-responsive websites engineered around your customer's journey — from first impression to enquiry.</p>
+            <span class="eyebrow fade-up">WEBSITE DESIGN &amp; DEVELOPMENT</span>
+            <h1 class="fade-up">WEBSITES THAT MAKE <br><span class="text-gradient">THE NEXT STEP EASY.</span></h1>
+            <p class="hero-subtitle fade-up">Give customers a clear introduction to your business with a responsive website that explains your services and makes it straightforward to enquire, book or buy.</p>
             <div class="hero-buttons fade-up">
-                <a href="contact.php" class="btn-primary">GET MY FREE WEBSITE AUDIT <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
-                <a href="services.php" class="btn-secondary">VIEW ALL SERVICES</a>
+                <a href="#contact" class="btn-primary">GET MY FREE WEBSITE AUDIT <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
+                <a href="/services" class="btn-secondary">VIEW ALL SERVICES</a>
             </div>
         </div>
     </section>
@@ -26,46 +73,46 @@ include 'header.php';
                 </div>
                 <div class="agency-text">
                     <span class="eyebrow">WHY IT MATTERS</span>
-                    <h2>A Website Is A Sales Tool, Not Just A Digital Business Card</h2>
-                    <p>Your website is often the first — and sometimes only — chance to convert a visitor into a client. We design and build sites that load fast, look sharp on any device, and are structured to guide visitors toward an enquiry.</p>
+                    <h2>Build A Website Around Your Customers</h2>
+                    <p>Your website should help visitors understand what you offer and how to take the next step. We plan and develop websites around your business, combining clear content, logical navigation and practical features that support customers across desktop, tablet and mobile devices.</p>
                     <ul class="agency-list" style="margin-top: 20px;">
-                        <li><i class="fa-solid fa-check"></i> Mobile-First Responsive Design</li>
-                        <li><i class="fa-solid fa-check"></i> Lightning-Fast Load Times</li>
-                        <li><i class="fa-solid fa-check"></i> Built-In Conversion Rate Optimization</li>
+                        <li><i class="fa-solid fa-check"></i> Website Design Matched To Your Brand</li>
+                        <li><i class="fa-solid fa-check"></i> Responsive Layouts &amp; Clear Navigation</li>
+                        <li><i class="fa-solid fa-check"></i> Enquiry Features &amp; Analytics Setup</li>
                     </ul>
-                    <a href="contact.php" class="btn-primary" style="margin-top: 10px;">Speak With A Web Strategist</a>
+                    <a href="#contact" class="btn-primary" style="margin-top: 10px;">Speak With A Website Strategist</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- WHAT'S INCLUDED -->
+    <!-- HOW WE CAN HELP -->
     <section class="services-section fade-up">
         <div class="container">
             <div class="section-header">
-                <span class="eyebrow">WHAT'S INCLUDED</span>
-                <h2 style="font-size: clamp(1.8rem, 4vw, 2.8rem); margin-top: 10px;">Everything Your Website Needs</h2>
+                <span class="eyebrow">HOW WE CAN HELP</span>
+                <h2 style="font-size: clamp(1.8rem, 4vw, 2.8rem); margin-top: 10px;">The Essentials Of A Useful Business Website</h2>
             </div>
             <div class="industry-tile-grid">
                 <div class="industry-tile">
                     <div class="industry-tile-icon"><i class="fa-solid fa-pen-ruler"></i></div>
-                    <h5>Custom UI/UX Design</h5>
-                    <p>Purpose-built layouts designed around your brand and your customer's decision-making journey.</p>
+                    <h5>Website Design &amp; User Experience</h5>
+                    <p>Plan layouts and navigation around your services, brand identity and the information customers need before making contact.</p>
                 </div>
                 <div class="industry-tile">
                     <div class="industry-tile-icon"><i class="fa-solid fa-mobile-screen"></i></div>
-                    <h5>Mobile-First Development</h5>
-                    <p>Every build is engineered for mobile first, since most of your traffic will arrive on a phone.</p>
+                    <h5>Responsive Development</h5>
+                    <p>Build pages that adapt to desktop, tablet and mobile screens, with readable content and straightforward controls.</p>
                 </div>
                 <div class="industry-tile">
                     <div class="industry-tile-icon"><i class="fa-solid fa-gauge-high"></i></div>
-                    <h5>Speed &amp; Performance</h5>
-                    <p>Optimized images, code, and hosting so pages load in a couple of seconds, not ten.</p>
+                    <h5>Speed &amp; Technical Setup</h5>
+                    <p>Optimise images and website resources, and review the technical setup supporting page performance and ongoing maintenance.</p>
                 </div>
                 <div class="industry-tile">
                     <div class="industry-tile-icon"><i class="fa-solid fa-chart-simple"></i></div>
-                    <h5>CRO &amp; Analytics Setup</h5>
-                    <p>Conversion tracking and analytics wired up from day one so every decision is backed by data.</p>
+                    <h5>Enquiries &amp; Analytics</h5>
+                    <p>Configure agreed forms, calls to action and analytics so you can understand how visitors use your website.</p>
                 </div>
             </div>
         </div>
@@ -78,45 +125,80 @@ include 'header.php';
                 <span class="eyebrow">OUR PROCESS</span>
                 <h2 style="font-size: clamp(1.8rem, 4vw, 2.8rem); margin-top: 10px;">How We Build Your Website</h2>
             </div>
-            <div class="methodology-grid">
-                <div class="methodology-image">
-                    <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=800&q=80" alt="Website Build Process">
+            <div class="methodology-steps">
+                <div class="m-step">
+                    <div class="m-step-num">01</div>
+                    <div class="m-step-content">
+                        <h4><i class="fa-solid fa-lightbulb"></i> Discover &amp; Plan</h4>
+                        <p>We establish your goals, required pages and functionality, then map the website structure and customer journey.</p>
+                    </div>
                 </div>
-                <div class="methodology-steps">
-                    <div class="m-step">
-                        <div class="m-step-num">01</div>
-                        <div class="m-step-content">
-                            <h4><i class="fa-solid fa-lightbulb"></i> Discovery &amp; Wireframing</h4>
-                            <p>We map out your site structure and user journey before a single pixel is designed.</p>
-                        </div>
+                <div class="m-step">
+                    <div class="m-step-num">02</div>
+                    <div class="m-step-content">
+                        <h4><i class="fa-solid fa-palette"></i> Design &amp; Review</h4>
+                        <p>We develop a visual direction and page layouts, incorporating your feedback through the agreed review stages.</p>
                     </div>
-                    <div class="m-step">
-                        <div class="m-step-num">02</div>
-                        <div class="m-step-content">
-                            <h4><i class="fa-solid fa-palette"></i> Design</h4>
-                            <p>We design a custom, on-brand look and feel across every key page and device size.</p>
-                        </div>
+                </div>
+                <div class="m-step">
+                    <div class="m-step-num">03</div>
+                    <div class="m-step-content">
+                        <h4><i class="fa-solid fa-code"></i> Develop &amp; Test</h4>
+                        <p>We build the website and test its layouts, links, forms and agreed features across relevant browsers and devices.</p>
                     </div>
-                    <div class="m-step">
-                        <div class="m-step-num">03</div>
-                        <div class="m-step-content">
-                            <h4><i class="fa-solid fa-code"></i> Development &amp; QA</h4>
-                            <p>We build, test, and QA across browsers and devices before anything goes live.</p>
-                        </div>
-                    </div>
-                    <div class="m-step">
-                        <div class="m-step-num">04</div>
-                        <div class="m-step-content">
-                            <h4><i class="fa-solid fa-rocket"></i> Launch &amp; Optimize</h4>
-                            <p>We launch, monitor performance, and keep refining based on real visitor behavior.</p>
-                        </div>
+                </div>
+                <div class="m-step">
+                    <div class="m-step-num">04</div>
+                    <div class="m-step-content">
+                        <h4><i class="fa-solid fa-rocket"></i> Launch &amp; Handover</h4>
+                        <p>We prepare the site for launch, explain how to manage it and confirm the support included after delivery.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- STATS -->
+    <?php if ($webdevCaseStudies): ?>
+    <!-- CLIENT PROJECTS: a curated set of 2 real case studies (see
+         $webdevProjectSlugs above), pulled live from the same table the Case
+         Studies admin section manages. -->
+    <section class="services-section fade-up">
+        <div class="container">
+            <div class="section-header">
+                <span class="eyebrow">CLIENT PROJECTS</span>
+                <h2 style="font-size: clamp(1.8rem, 4vw, 2.8rem); margin-top: 10px;">Websites Built Around Real Business Needs</h2>
+                <p style="color: var(--text-muted); max-width: 700px; margin: 15px auto 0; font-size: 1.05rem;">Explore examples of service websites designed to explain business offerings and make customer enquiries straightforward.</p>
+            </div>
+            <div class="case-grid">
+                <?php foreach ($webdevCaseStudies as $cs): ?>
+                <article class="case-card">
+                    <div class="case-image">
+                        <span class="case-tag"><?php echo htmlspecialchars($cs['tag'], ENT_QUOTES, 'UTF-8'); ?></span>
+                        <img loading="lazy" decoding="async" src="<?php echo htmlspecialchars($cs['image_path'], ENT_QUOTES, 'UTF-8'); ?>" alt="<?php echo htmlspecialchars($cs['image_alt'], ENT_QUOTES, 'UTF-8'); ?>">
+                        <h3><?php echo htmlspecialchars(strtoupper($cs['name']), ENT_QUOTES, 'UTF-8'); ?></h3>
+                    </div>
+                    <div class="case-content">
+                        <div>
+                            <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px;"><?php echo htmlspecialchars(strip_tags($cs['summary']), ENT_QUOTES, 'UTF-8'); ?></p>
+                        </div>
+                        <div>
+                            <a href="/case-studies/<?php echo htmlspecialchars($cs['slug'], ENT_QUOTES, 'UTF-8'); ?>" class="service-link">View Project <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </article>
+                <?php endforeach; ?>
+            </div>
+            <div style="text-align: center; margin-top: clamp(30px, 4vw, 40px);">
+                <a href="/case-studies" class="btn-secondary">VIEW ALL CASE STUDIES <i class="fa-solid fa-arrow-right" style="margin-left: 6px;"></i></a>
+            </div>
+        </div>
+    </section>
+    <?php endif; ?>
+
+    <?php if ($webdevStats): ?>
+    <!-- STATS: combined real "Results At A Glance" stats from the case
+         studies above, pulled live -- adding stats to one of them from the
+         admin dashboard makes them appear here automatically. -->
     <section class="stats-section fade-up">
         <div class="container">
             <div class="section-header">
@@ -124,28 +206,35 @@ include 'header.php';
                 <h2 style="color: #fff; font-size: clamp(1.8rem, 4vw, 2.8rem);">Websites That Perform, Not Just Impress</h2>
             </div>
             <div class="stats-4-grid">
-                <div class="stat-box"><div class="stat-icon"><i class="fa-solid fa-bolt"></i></div><h3>&lt;2s</h3><p>Avg. Page Load Time</p></div>
-                <div class="stat-box"><div class="stat-icon"><i class="fa-solid fa-gauge-high"></i></div><h3>+63%</h3><p>Avg. Conversion Rate Lift</p></div>
-                <div class="stat-box"><div class="stat-icon"><i class="fa-solid fa-mobile-screen"></i></div><h3>100%</h3><p>Mobile-Responsive Builds</p></div>
-                <div class="stat-box"><div class="stat-icon"><i class="fa-solid fa-face-smile"></i></div><h3>98%</h3><p>Client Satisfaction</p></div>
+                <?php foreach ($webdevStats as [$value, $label]): ?>
+                <div class="stat-box">
+                    <div class="stat-icon"><i class="fa-solid fa-arrow-trend-up"></i></div>
+                    <h3><?php echo htmlspecialchars($value, ENT_QUOTES, 'UTF-8'); ?></h3>
+                    <p><?php echo htmlspecialchars($label, ENT_QUOTES, 'UTF-8'); ?></p>
+                </div>
+                <?php endforeach; ?>
             </div>
         </div>
     </section>
+    <?php endif; ?>
 
     <!-- FINAL CTA -->
     <section class="cta-section" id="contact">
         <div class="container">
-            <div class="cta-box fade-up">
-                <div class="cta-badge"><i class="fa-solid fa-rocket"></i> Let's Scale Together</div>
-                <h2>Ready For A Website That Converts?</h2>
-                <p>Get a free audit of your current site and a clear plan to turn more visitors into enquiries.</p>
-                <div class="cta-features">
+            <div class="cta-box cta-box-split fade-up">
+                <div class="cta-info">
+                    <div class="cta-badge"><i class="fa-solid fa-rocket"></i> Let's Scale Together</div>
+                    <h2>Ready For A Website That Converts?</h2>
+                    <p>Get a free audit of your current site and a clear plan to turn more visitors into enquiries.</p>
+                    <div class="cta-features">
                     <span><i class="fa-solid fa-check" style="color: var(--cyan-neon);"></i> Zero Obligation Audit</span>
                     <span><i class="fa-solid fa-check" style="color: var(--cyan-neon);"></i> Custom Growth Strategy</span>
                     <span><i class="fa-solid fa-check" style="color: var(--cyan-neon);"></i> Proven Australian Results</span>
+                    </div>
                 </div>
-                <div class="cta-btn-wrapper">
-                    <a href="contact.php" class="btn-primary" style="padding: 18px 45px; font-size: 1.1rem;">GET MY FREE WEBSITE AUDIT <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
+                <div class="cta-form-wrap">
+                <?php $cta_default_service = 'Website Design & Development'; ?>
+                    <?php $cta_button_label = 'GET MY FREE WEBSITE AUDIT'; include __DIR__ . '/includes/cta-form.php'; ?>
                 </div>
             </div>
         </div>
