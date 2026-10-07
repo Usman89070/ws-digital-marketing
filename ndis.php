@@ -1,18 +1,19 @@
 <?php
 require_once __DIR__ . '/includes/cta-form-handler.php';
-$page_title = 'NDIS';
-$page_description = 'Digital marketing for NDIS providers including trust-focused SEO and websites built to grow participant enquiries and referrals.';
+$page_title = 'NDIS Provider Digital Marketing';
+$page_description = 'Explore websites, local search and service content for NDIS providers. Help participants and their chosen supporters understand your services and make enquiries.';
 include 'header.php';
 ?>
 
     <!-- NDIS HERO SECTION -->
     <section class="hero" style="padding-bottom: clamp(40px, 8vw, 80px);">
         <div class="container hero-content">
-            <span class="eyebrow fade-up">NDIS</span>
-            <h1 class="fade-up">MORE PARTICIPANTS. <br><span class="text-gradient">BUILT ON TRUST.</span></h1>
-            <p class="hero-subtitle fade-up">Digital marketing for NDIS providers &mdash; built to build trust with participants and families and grow your referral pipeline.</p>
+            <span class="eyebrow fade-up">NDIS PROVIDERS</span>
+            <h1 class="fade-up">CLEAR SERVICES. <br><span class="text-gradient">INFORMED PARTICIPANT CHOICES.</span></h1>
+            <p class="hero-subtitle fade-up">We help NDIS providers communicate their services clearly, connect with support coordinators and referrers, and make it easier for participants and their chosen supporters to enquire online.</p>
+            <p class="hero-subtitle fade-up" style="margin-top: 15px;">Navigating NDIS marketing requires more than standard digital marketing. It requires trust, careful attention to compliance, clear communication and genuine empathy. We build practical online strategies for disability service providers, from high-intent local search and participant-first content to considered campaigns that help the right people find and understand your services.</p>
             <div class="hero-buttons fade-up">
-                <a href="#contact" class="btn-primary">GET MY FREE PROVIDER AUDIT <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
+                <a href="#contact" class="btn-primary">GET MY FREE MARKETING AUDIT <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
                 <a href="/industries" class="btn-secondary">VIEW ALL INDUSTRIES</a>
             </div>
         </div>
@@ -27,46 +28,46 @@ include 'header.php';
                 </div>
                 <div class="agency-text">
                     <span class="eyebrow">WHY IT MATTERS</span>
-                    <h2>Families Choose Providers They Trust</h2>
-                    <p>Participants and their families do careful research before choosing a provider. We build a warm, trustworthy digital presence that clearly explains your services and makes it easy to reach out with confidence.</p>
+                    <h2>Help Participants Understand Their Options</h2>
+                    <p>Participants need clear information to decide whether a provider's services suit their needs and preferences. We help you explain the supports you offer, where you work and how to enquire, using plain language and straightforward website navigation. Your team reviews service details before publication.</p>
                     <ul class="agency-list" style="margin-top: 20px;">
-                        <li><i class="fa-solid fa-check"></i> Local &amp; Service-Specific SEO</li>
-                        <li><i class="fa-solid fa-check"></i> Accessible, Trust-First Website Design</li>
-                        <li><i class="fa-solid fa-check"></i> Referral &amp; Enquiry Generation Campaigns</li>
+                        <li><i class="fa-solid fa-check"></i> Clear Support Descriptions &amp; Service Areas</li>
+                        <li><i class="fa-solid fa-check"></i> Readable Content &amp; Straightforward Navigation</li>
+                        <li><i class="fa-solid fa-check"></i> Enquiry Information For Participants &amp; Coordinators</li>
                     </ul>
-                    <a href="#contact" class="btn-primary" style="margin-top: 10px;">Speak With An NDIS Marketing Strategist</a>
+                    <a href="#contact" class="btn-primary" style="margin-top: 10px;">Speak With Our Team</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- WHAT WE OFFER -->
+    <!-- HOW WE CAN HELP -->
     <section class="services-section fade-up">
         <div class="container">
             <div class="section-header">
-                <span class="eyebrow">WHAT WE OFFER</span>
-                <h2 style="font-size: clamp(1.8rem, 4vw, 2.8rem); margin-top: 10px;">Marketing Built For NDIS Providers</h2>
+                <span class="eyebrow">HOW WE CAN HELP</span>
+                <h2 style="font-size: clamp(1.8rem, 4vw, 2.8rem); margin-top: 10px;">Marketing Built Around Your Support Services</h2>
             </div>
             <div class="industry-tile-grid">
                 <div class="industry-tile">
                     <div class="industry-tile-icon"><i class="fa-solid fa-hand-holding-heart"></i></div>
-                    <h5>Trust-First Website Design</h5>
-                    <p>An accessible, reassuring website that explains your services clearly.</p>
+                    <h5>Clear Provider Websites</h5>
+                    <p>Present your supports, team and contact options through readable content and organised layouts, with accessibility requirements agreed during planning.</p>
                 </div>
                 <div class="industry-tile">
                     <div class="industry-tile-icon"><i class="fa-solid fa-magnifying-glass-location"></i></div>
-                    <h5>Local &amp; Service SEO</h5>
-                    <p>Rank for the specific supports and locations you provide.</p>
+                    <h5>Local &amp; Service Search</h5>
+                    <p>Improve website content and business information around the supports you provide and the locations you serve.</p>
                 </div>
                 <div class="industry-tile">
                     <div class="industry-tile-icon"><i class="fa-solid fa-people-arrows"></i></div>
-                    <h5>Referral Partner Campaigns</h5>
-                    <p>Build relationships and visibility with support coordinators and allied health.</p>
+                    <h5>Coordinator &amp; Referrer Information</h5>
+                    <p>Develop clear service pages and information materials that help support coordinators and other referrers understand your offering.</p>
                 </div>
                 <div class="industry-tile">
                     <div class="industry-tile-icon"><i class="fa-solid fa-comments"></i></div>
-                    <h5>Enquiry &amp; Intake Optimisation</h5>
-                    <p>Turn more enquiries into a smooth, well-managed intake process.</p>
+                    <h5>Enquiry Pathway Improvements</h5>
+                    <p>Simplify contact forms and explain what happens after an enquiry, helping people reach the appropriate member of your team.</p>
                 </div>
             </div>
         </div>
@@ -87,7 +88,7 @@ include 'header.php';
                     </div>
                 </div>
                 <div class="cta-form-wrap">
-                    <?php $cta_button_label = 'GET MY FREE PROVIDER AUDIT'; include __DIR__ . '/includes/cta-form.php'; ?>
+                    <?php $cta_button_label = 'GET MY FREE MARKETING AUDIT'; include __DIR__ . '/includes/cta-form.php'; ?>
                 </div>
             </div>
         </div>
