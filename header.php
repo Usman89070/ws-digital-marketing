@@ -2,6 +2,15 @@
 // Pages can set these before including this file; sensible defaults otherwise.
 $page_title = $page_title ?? 'Premium Agency';
 $page_description = $page_description ?? 'Data-driven Google Ads, Meta Ads, SEO and web design strategies that generate high-intent leads, sales, and revenue for ambitious Australian businesses.';
+
+// Canonical URL: the current clean path (query string stripped) on the one
+// true apex domain, regardless of which host/query variant the request
+// actually came in on. Stale/garbage query strings indexed from before this
+// site existed on this stack (WordPress search/AJAX URLs like ?s=... or
+// ?wc-ajax=... hitting "/") collapse to the same canonical as a plain
+// request for that path -- for "/" specifically, that's the homepage.
+$canonical_path = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH) ?: '/';
+$canonical_url = 'https://wsdigitalmarketing.com.au' . $canonical_path;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -10,6 +19,7 @@ $page_description = $page_description ?? 'Data-driven Google Ads, Meta Ads, SEO 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo htmlspecialchars($page_title, ENT_QUOTES, 'UTF-8'); ?> | W&amp;S Digital Marketing</title>
     <meta name="description" content="<?php echo htmlspecialchars($page_description, ENT_QUOTES, 'UTF-8'); ?>">
+    <link rel="canonical" href="<?php echo htmlspecialchars($canonical_url, ENT_QUOTES, 'UTF-8'); ?>">
 
     <!-- Favicon: the W&S logo, shown in every browser tab/bookmark on every page since
          this file is included everywhere. favicon.ico covers old browsers and anything
