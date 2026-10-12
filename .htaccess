@@ -75,6 +75,12 @@
     RewriteCond %{THE_REQUEST} \s/+blog-post(\.php)?\?slug=([^\s&]+)[\s&] [NC]
     RewriteRule ^ /blog/%2? [R=301,L]
 
+    # 0.7) Alternate/shorter URLs people search for or might type directly,
+    #      redirected to the real service page so they don't 404 and so any
+    #      external links/search listings consolidate onto the one real URL.
+    RewriteRule ^web-design/?$ /website-development [R=301,L]
+    RewriteRule ^ppc/?$ /ppc-advertising [R=301,L]
+
     # 1) A browser that actually requests a URL ending in .php gets sent to
     #    the same URL minus .php, permanently (301) so bookmarks and search
     #    engines update. THE_REQUEST is the raw request line as the browser
