@@ -22,7 +22,12 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           server-dir: ${{ secrets.FTP_SERVER_DIR }}
-          protocol: ftps
+          # Plain FTP, not FTPS: the first run with "ftps" failed with
+          # "ECONNRESET (data socket)" -- a known FTPS data-channel
+          # incompatibility between this action and Hostinger shared
+          # hosting's FTP server. Login itself worked fine; only the
+          # encrypted data connection broke.
+          protocol: ftp
           # Never delete files that exist on the live server but not in this
           # repo -- config.php (real DB credentials, gitignored, never
           # committed here) and anything uploaded through the admin panel
