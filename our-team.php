@@ -45,9 +45,6 @@ include 'header.php';
                             <h5><?php echo htmlspecialchars($member['name'], ENT_QUOTES, 'UTF-8'); ?></h5>
                             <span class="team-role"><?php echo htmlspecialchars($member['role'], ENT_QUOTES, 'UTF-8'); ?></span>
                             <?php if ($member['description']): ?><p class="team-card-desc"><?php echo htmlspecialchars($member['description'], ENT_QUOTES, 'UTF-8'); ?></p><?php endif; ?>
-                            <div class="team-socials">
-                                <a href="<?php echo htmlspecialchars($member['linkedin_url'], ENT_QUOTES, 'UTF-8'); ?>" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-                            </div>
                         </div>
                     </div>
                 </div>
