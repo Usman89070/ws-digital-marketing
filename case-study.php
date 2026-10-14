@@ -49,6 +49,10 @@ $services = array_filter(array_map('trim', explode("\n", $study['services'] ?? '
 // Both fall back to the project name/summary when the admin panel's
 // dedicated SEO fields are left blank, so existing case studies keep
 // working exactly as before without needing to be edited.
+// (Forced re-deploy marker: the live server kept serving the pre-SEO-field
+// version of this exact file after the first deploy, likely a stale
+// PHP opcode cache entry -- this comment guarantees a fresh file size/
+// timestamp so the next deploy genuinely overwrites it.)
 $page_title = ($study['meta_title'] ?? '') !== '' ? $study['meta_title'] : $study['name'];
 // The summary field allows HTML (edited via the admin panel), so the meta
 // description -- which must be plain text -- strips tags rather than
