@@ -1,0 +1,41 @@
+name: Deploy to Hostinger (FTP)
+
+# Runs on every push to main -- the branch this repo treats as "live".
+# Feature branches (e.g. claude/...) are NOT deployed; merge to main first.
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch: {}
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: FTP deploy
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          server-dir: ${{ secrets.FTP_SERVER_DIR }}
+          protocol: ftps
+          # Never delete files that exist on the live server but not in this
+          # repo -- config.php (real DB credentials, gitignored, never
+          # committed here) and anything uploaded through the admin panel
+          # (images/case-studies, images/blog, etc.) must survive every
+          # deploy untouched. This only uploads new/changed files.
+          dangerous-clean-slate: false
+          exclude: |
+            .git*
+            .git*/**
+            **/.git*
+            **/.git*/**
+            .github/**
+            config.php
+            config.sample.php
+            *.sql
+            node_modules/**
