@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . '/includes/cta-form-handler.php';
-$page_title = 'Healthcare & Medical Marketing';
-$page_description = 'Explore local search, website design and content for healthcare and medical practices. Help people find your services and understand appointment options.';
+$page_title = 'Healthcare Digital Marketing';
+$page_description = 'Help people find your clinic or medical practice with local search, clear service information and useful websites. Support straightforward enquiries.';
 include 'header.php';
 ?>
 

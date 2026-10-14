@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . '/includes/cta-form-handler.php';
-$page_title = 'Ecommerce Marketing Australia';
-$page_description = 'Explore SEO, paid advertising, shopping experience improvements and email marketing for online retailers with W&S Digital Marketing.';
+$page_title = 'Ecommerce Marketing Services';
+$page_description = 'Connect SEO, paid advertising, email campaigns and store improvements around your products and customers. Explore digital marketing for online retailers.';
 include 'header.php';
 ?>
 

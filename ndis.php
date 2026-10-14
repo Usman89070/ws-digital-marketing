@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . '/includes/cta-form-handler.php';
 $page_title = 'NDIS Provider Digital Marketing';
-$page_description = 'Explore websites, local search and service content for NDIS providers. Help participants and their chosen supporters understand your services and make enquiries.';
+$page_description = 'Help participants, supporters and referrers understand your NDIS services with clear websites, local search and content. Make service enquiries easier.';
 include 'header.php';
 ?>
 

@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . '/includes/cta-form-handler.php';
-$page_title = 'Google Ads & Paid Social';
-$page_description = 'Reach relevant customers with Google Ads and paid social campaigns from W&S Digital Marketing. Explore campaign setup, management and conversion tracking.';
+$page_title = 'Google Ads & Paid Social Management';
+$page_description = 'Reach relevant customers with Google Ads and paid social campaigns. Explore targeting, campaign testing and reporting, with ad spend separate from our fees.';
 include 'header.php';
 ?>
 

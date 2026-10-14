@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . '/includes/cta-form-handler.php';
 $page_title = 'Hospitality & Tourism Marketing';
-$page_description = 'Digital marketing for restaurants, cafes, venues and tour operators. Explore local search, websites and campaigns that support enquiries and bookings.';
+$page_description = 'Help diners and visitors discover your restaurant, café, venue or tour business with search, websites and campaigns that support enquiries and bookings.';
 include 'header.php';
 ?>
 

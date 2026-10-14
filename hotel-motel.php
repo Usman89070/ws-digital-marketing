@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . '/includes/cta-form-handler.php';
 $page_title = 'Hotel & Motel Digital Marketing';
-$page_description = 'Help travellers discover your hotel or motel and explore direct booking options through search, website improvements and campaigns from W&S Digital Marketing.';
+$page_description = 'Showcase your hotel or motel with clear room information, search visibility and targeted campaigns. Help guests explore your property and book direct.';
 include 'header.php';
 ?>
 

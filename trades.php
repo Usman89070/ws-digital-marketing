@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . '/includes/cta-form-handler.php';
 $page_title = 'Digital Marketing for Trades';
-$page_description = 'Digital marketing for plumbers, electricians and trade businesses. Explore local search, websites and advertising that support calls and quote requests.';
+$page_description = 'Help customers find your trade business with local search, clear service pages and targeted advertising. Support calls, quote requests and repair enquiries.';
 include 'header.php';
 ?>
 

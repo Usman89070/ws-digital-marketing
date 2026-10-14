@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . '/includes/cta-form-handler.php';
-$page_title = 'Content Writing Services Australia';
-$page_description = 'Clear website copy, blog articles and email content for Australian businesses. Explore content writing from W&S Digital Marketing and request a free audit.';
+$page_title = 'SEO Content Writing & Copywriting';
+$page_description = 'Explain your business clearly with website copy, blog articles and email content shaped around your audience and relevant searches. Explore our services.';
 include 'header.php';
 ?>
 

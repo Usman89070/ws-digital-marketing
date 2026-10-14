@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . '/includes/cta-form-handler.php';
-$page_title = 'About Us';
-$page_description = 'Meet W&S Digital Marketing, an Australian growth agency delivering transparent, data-driven digital strategies with a relentless focus on real ROI.';
+$page_title = 'About Our Agency';
+$page_description = 'Learn about W&S Digital Marketing, our approach and the people behind our services. Explore how we plan marketing around Australian businesses and their goals.';
 
 require_once __DIR__ . '/config.php';
 try {

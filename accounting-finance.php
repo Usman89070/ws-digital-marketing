@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . '/includes/cta-form-handler.php';
-$page_title = 'Accounting & Finance Marketing';
-$page_description = 'Digital marketing for accountants, bookkeepers and financial advisers. Explore SEO, website design and content tailored to your firm and clients.';
+$page_title = 'Marketing for Accountants & Finance';
+$page_description = 'Help clients find your accounting, bookkeeping or financial advice firm with local search, clear website content and straightforward enquiry options.';
 include 'header.php';
 ?>
 

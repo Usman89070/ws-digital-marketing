@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . '/includes/cta-form-handler.php';
-$page_title = 'Industries We Serve';
-$page_description = 'Explore digital marketing for Australian businesses across accounting, automotive, construction, dental, ecommerce and other industries.';
+$page_title = 'Digital Marketing by Industry';
+$page_description = 'Explore digital marketing for trades, healthcare, ecommerce and other industries. Find website, search and advertising support suited to your sector.';
 include 'header.php';
 ?>
 

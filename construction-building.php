@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . '/includes/cta-form-handler.php';
-$page_title = 'Construction & Building Marketing';
-$page_description = 'Showcase your projects and attract relevant enquiries with website design, SEO and advertising for Australian builders and construction businesses.';
+$page_title = 'Digital Marketing for Builders';
+$page_description = 'Showcase your building and construction expertise with project portfolios, clear websites and targeted marketing. Help relevant clients enquire.';
 include 'header.php';
 ?>
 

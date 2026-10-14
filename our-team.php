@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . '/includes/cta-form-handler.php';
-$page_title = 'Our Team';
-$page_description = 'Meet the strategists, developers, and creatives behind W&S Digital Marketing — the team driving measurable growth for Australian businesses.';
+$page_title = 'Meet Our Digital Marketing Team';
+$page_description = "Meet the people behind W&S Digital Marketing. Explore our team's roles across strategy, SEO, advertising, website development, content and design.";
 
 require_once __DIR__ . '/config.php';
 try {

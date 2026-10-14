@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . '/includes/cta-form-handler.php';
 $page_title = 'Graphic Design Services Australia';
-$page_description = 'Build a consistent brand with logo design, social media graphics and marketing materials from W&S Digital Marketing. Request your free brand review.';
+$page_description = 'Build a consistent brand with logo design, advertising creative, social graphics and print materials. Discuss your graphic design needs with W&S.';
 include 'header.php';
 ?>
 

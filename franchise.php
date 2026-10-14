@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . '/includes/cta-form-handler.php';
 $page_title = 'Franchise Digital Marketing';
-$page_description = 'Coordinate local search, location pages and advertising across your franchise network with W&S Digital Marketing. Request a free marketing audit.';
+$page_description = 'Support your franchise locations with local search, location pages and coordinated advertising. Keep your brand consistent across the network.';
 include 'header.php';
 ?>
 

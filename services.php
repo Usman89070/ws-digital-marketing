@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . '/includes/cta-form-handler.php';
 $page_title = 'Digital Marketing Services';
-$page_description = 'SEO, PPC, eCommerce, web design, social media, graphic design and content writing services engineered to generate measurable growth for Australian businesses.';
+$page_description = 'Explore SEO, Google Ads, social media, websites, ecommerce, graphic design and copywriting. Find practical marketing services suited to your business.';
 include 'header.php';
 ?>
 

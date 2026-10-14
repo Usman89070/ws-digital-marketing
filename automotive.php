@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . '/includes/cta-form-handler.php';
-$page_title = 'Automotive';
-$page_description = 'Digital marketing for automotive repair shops, dealerships, and detailers including local SEO and ads built to keep your bays booked.';
+$page_title = 'Automotive Digital Marketing';
+$page_description = 'Explore local SEO, websites and advertising for automotive repair shops, dealerships and detailers. Help customers find your services and make enquiries.';
 include 'header.php';
 ?>
 

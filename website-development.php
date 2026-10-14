@@ -47,7 +47,7 @@ try {
 }
 
 $page_title = 'Website Design & Development';
-$page_description = 'Explore website design and development for Australian businesses. W&S Digital Marketing creates mobile-friendly sites with clear navigation and enquiry options.';
+$page_description = 'Create a mobile-friendly business website with clear service information, easy navigation and enquiry options. Talk to W&S about your website project.';
 include 'header.php';
 ?>
 

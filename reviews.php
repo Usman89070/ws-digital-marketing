@@ -9,8 +9,8 @@ try {
     $reviews = [];
 }
 
-$page_title = 'Client Reviews';
-$page_description = 'Read verified client reviews and testimonials for W&S Digital Marketing from Australian businesses across trades, healthcare, hospitality and more.';
+$page_title = 'Client Reviews & Testimonials';
+$page_description = 'Read client reviews of W&S Digital Marketing covering websites, SEO, ecommerce and advertising. Explore feedback on our work, communication and support.';
 include 'header.php';
 ?>
 

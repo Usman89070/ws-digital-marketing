@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . '/includes/cta-form-handler.php';
 $page_title = 'Small Business Digital Marketing';
-$page_description = 'Explore website design, local search and advertising for Australian small businesses, with marketing priorities shaped around your goals and budget.';
+$page_description = 'Explore websites, local search and focused advertising for Australian small businesses. Get clear marketing priorities shaped around your goals and budget.';
 include 'header.php';
 ?>
 

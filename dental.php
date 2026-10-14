@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . '/includes/cta-form-handler.php';
 $page_title = 'Dental Digital Marketing';
-$page_description = 'Explore local SEO, website design and advertising for dental practices. Help prospective patients find your practice and request an appointment.';
+$page_description = 'Help patients find your dental practice with local search, clear service content and useful websites. Make appointment enquiries more straightforward.';
 include 'header.php';
 ?>
 

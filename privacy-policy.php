@@ -1,6 +1,6 @@
 <?php
 $page_title = 'Privacy Policy';
-$page_description = 'How W&S Digital Marketing collects, uses, and protects your personal information.';
+$page_description = 'Read how W&S Digital Marketing collects, uses and protects personal information, including enquiry details, cookies, third-party services and your rights.';
 include 'header.php';
 ?>
 

@@ -9,8 +9,8 @@ try {
     $caseStudies = [];
 }
 
-$page_title = 'Case Studies';
-$page_description = 'Explore real client success stories and results from W&S Digital Marketing across SEO, PPC, eCommerce and web design campaigns.';
+$page_title = 'Website & Marketing Case Studies';
+$page_description = 'Explore W&S Digital Marketing projects across Shopify stores, business websites and SEO. See the clients, project goals and work delivered by our team.';
 include 'header.php';
 ?>
 

@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . '/includes/cta-form-handler.php';
 $page_title = 'Real Estate Digital Marketing';
-$page_description = 'Digital marketing for real estate agents and agencies. Explore local search, agent branding and campaigns for property enquiries and appraisal requests.';
+$page_description = "Build your agency's local presence with search, agent branding and property campaigns. Support listing enquiries, inspection requests and appraisals.";
 include 'header.php';
 ?>
 

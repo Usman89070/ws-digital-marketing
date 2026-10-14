@@ -8,8 +8,8 @@ $valid_plans = ['Starter', 'Growth', 'Scale'];
 $selected_plan = $_POST['plan'] ?? $_GET['plan'] ?? '';
 $selected_plan = in_array($selected_plan, $valid_plans, true) ? $selected_plan : '';
 
-$page_title = 'Pricing Plans';
-$page_description = 'Transparent digital marketing pricing plans for Australian businesses. Choose Starter, Growth or Scale, or request a custom quote tailored to your goals.';
+$page_title = 'Digital Marketing Pricing & Plans';
+$page_description = 'Compare Starter, Growth and Scale marketing plans, explore inclusions and request a tailored quote. Advertising spend is separate from management fees.';
 include 'header.php';
 ?>
 

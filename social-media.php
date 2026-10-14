@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . '/includes/cta-form-handler.php';
-$page_title = 'Social Media Marketing Australia';
-$page_description = 'Plan content, manage your social channels and reach relevant audiences with W&S Digital Marketing. Explore social media services for Australian businesses.';
+$page_title = 'Social Media Management Australia';
+$page_description = 'Keep your social channels active with content planning, regular posting and community engagement. Explore social media management for your business.';
 include 'header.php';
 ?>
 

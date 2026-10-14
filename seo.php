@@ -62,7 +62,7 @@ try {
 }
 
 $page_title = 'SEO Services Australia';
-$page_description = 'Help customers find your business with technical SEO, local search optimisation and content from W&S Digital Marketing. Request your free SEO audit.';
+$page_description = 'Help customers find your business with technical SEO, local search optimisation and useful content. Request a free review of your search visibility.';
 include 'header.php';
 ?>
 

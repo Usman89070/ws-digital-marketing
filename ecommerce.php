@@ -48,7 +48,7 @@ try {
 }
 
 $page_title = 'Shopify & WooCommerce Development';
-$page_description = 'Build or improve your Shopify or WooCommerce store with W&S Digital Marketing. Explore ecommerce design, migration and shopping experience improvements.';
+$page_description = 'Build or improve your Shopify or WooCommerce store with clear product pages, organised collections and straightforward checkout. Discuss your project.';
 include 'header.php';
 ?>
 

@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . '/includes/cta-form-handler.php';
-$page_title = 'Frequently Asked Questions';
-$page_description = 'Answers to common questions about working with W&S Digital Marketing, our pricing, contracts, reporting, and how our growth strategies work.';
+$page_title = 'Digital Marketing FAQs';
+$page_description = 'Find answers about W&S Digital Marketing services, pricing, contracts, reporting and getting started. Understand what to expect before making an enquiry.';
 include 'header.php';
 ?>
 

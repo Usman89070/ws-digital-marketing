@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . '/includes/cta-form-handler.php';
 $page_title = 'Law Firm Digital Marketing';
-$page_description = 'Digital marketing for law firms and legal practices. Explore local search, website design and content that explain your services and support relevant enquiries.';
+$page_description = 'Help prospective clients find your law firm with local search, clear practice area content and professional websites. Support relevant legal enquiries.';
 include 'header.php';
 ?>
 

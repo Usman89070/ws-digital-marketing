@@ -1,6 +1,6 @@
 <?php
 $page_title = 'Terms of Service';
-$page_description = 'The terms and conditions that govern your use of the W&S Digital Marketing website and services.';
+$page_description = 'Read the terms for using the W&S Digital Marketing website and services, including project agreements, payments, intellectual property and termination.';
 include 'header.php';
 ?>
 

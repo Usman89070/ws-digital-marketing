@@ -55,7 +55,7 @@ $selected_plan = $_POST['plan'] ?? $_GET['plan'] ?? '';
 $selected_plan = in_array($selected_plan, $valid_plans, true) ? $selected_plan : '';
 
 $page_title = 'Contact Us';
-$page_description = 'Get in touch with W&S Digital Marketing for a zero-obligation growth audit. Call, email, or request your free custom growth plan today.';
+$page_description = 'Contact W&S Digital Marketing to discuss your website, SEO or advertising needs. Request a free growth plan shaped around your business and goals.';
 include 'header.php';
 ?>
 
