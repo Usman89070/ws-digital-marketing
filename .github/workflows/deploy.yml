@@ -15,32 +15,41 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: FTP deploy
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
-        with:
-          server: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          server-dir: ${{ secrets.FTP_SERVER_DIR }}
-          # Plain FTP, not FTPS: the first run with "ftps" failed with
-          # "ECONNRESET (data socket)" -- a known FTPS data-channel
-          # incompatibility between this action and Hostinger shared
-          # hosting's FTP server. Login itself worked fine; only the
-          # encrypted data connection broke.
-          protocol: ftp
-          # Never delete files that exist on the live server but not in this
-          # repo -- config.php (real DB credentials, gitignored, never
-          # committed here) and anything uploaded through the admin panel
-          # (images/case-studies, images/blog, etc.) must survive every
-          # deploy untouched. This only uploads new/changed files.
-          dangerous-clean-slate: false
-          exclude: |
-            .git*
-            .git*/**
-            **/.git*
-            **/.git*/**
-            .github/**
-            config.php
-            config.sample.php
-            *.sql
-            node_modules/**
+      - name: Deploy via lftp (FTP, explicit passive mode)
+        env:
+          FTP_SERVER: ${{ secrets.FTP_SERVER }}
+          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+          FTP_SERVER_DIR: ${{ secrets.FTP_SERVER_DIR }}
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq lftp
+
+          # Plain FTP (not FTPS) with passive mode forced on: the previous
+          # attempt using a third-party action failed with "ECONNRESET
+          # (data socket)" on both ftp and ftps, which this gives much
+          # finer control over (retries, timeout, explicit passive mode)
+          # to try to work around.
+          #
+          # mirror --reverse (local -> remote) never deletes files that
+          # exist on the server but not in this repo unless --delete is
+          # also passed, which it deliberately isn't -- config.php (real
+          # DB credentials, gitignored, never committed here) and anything
+          # uploaded through the admin panel (images/case-studies,
+          # images/blog, etc.) must survive every deploy untouched.
+          lftp -c "
+            set ftp:ssl-allow no;
+            set ftp:passive-mode true;
+            set net:max-retries 2;
+            set net:reconnect-interval-base 5;
+            set net:timeout 30;
+            open -u \"$FTP_USERNAME\",\"$FTP_PASSWORD\" \"$FTP_SERVER\";
+            mirror --reverse --verbose --parallel=2 \
+              --exclude-glob .git* \
+              --exclude-glob .github \
+              --exclude-glob config.php \
+              --exclude-glob config.sample.php \
+              --exclude-glob '*.sql' \
+              --exclude-glob node_modules \
+              ./ \"$FTP_SERVER_DIR\"
+          "
