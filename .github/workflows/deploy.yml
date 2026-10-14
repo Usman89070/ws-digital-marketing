@@ -1,11 +1,11 @@
 name: Deploy to Hostinger (FTP)
 
-# Runs on every push to main -- the branch this repo treats as "live".
-# Feature branches (e.g. claude/...) are NOT deployed; merge to main first.
+# Runs on every push to claude/repo-review-3d-animation-n8216x -- the
+# branch this repo treats as "live" for deploy purposes.
 on:
   push:
     branches:
-      - main
+      - claude/repo-review-3d-animation-n8216x
   workflow_dispatch: {}
 
 jobs:
