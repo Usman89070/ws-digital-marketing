@@ -73,6 +73,7 @@ $canonical_url = 'https://wsdigitalmarketing.com.au' . $canonical_path;
          dropping it removes one whole font-file fetch for every visitor. -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
+    <?php if (!empty($extra_head)) echo $extra_head; ?>
 </head>
 <body>
 

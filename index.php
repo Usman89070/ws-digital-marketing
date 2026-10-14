@@ -3,6 +3,32 @@ require_once __DIR__ . '/includes/cta-form-handler.php';
 
 $page_title = 'Digital Marketing Agency Australia';
 $page_description = 'Grow your Australian business with SEO, Google Ads, social media and website design from W&S Digital Marketing. Request your free growth plan today.';
+$extra_head = <<<'HTML'
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": "https://wsdigitalmarketing.com.au/#organization",
+  "name": "W&S Digital Marketing",
+  "url": "https://wsdigitalmarketing.com.au/",
+  "description": "Digital marketing agency providing SEO, Google Ads, social media management, website development, ecommerce development, graphic design and content writing services for Australian businesses.",
+  "logo": {
+    "@type": "ImageObject",
+    "url": "https://wsdigitalmarketing.com.au/images/logo-ws.webp",
+    "contentUrl": "https://wsdigitalmarketing.com.au/images/logo-ws.webp",
+    "width": 766,
+    "height": 326
+  },
+  "telephone": "+61403889630",
+  "email": "info@wsdigitalmarketing.com.au",
+  "sameAs": [
+    "https://www.facebook.com/w.and.s.digital.marketing",
+    "https://www.instagram.com/wsdigitalmarketing",
+    "https://www.linkedin.com/company/w-s-digital-marketing/"
+  ]
+}
+</script>
+HTML;
 include 'header.php';
 ?>
 
