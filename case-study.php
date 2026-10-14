@@ -46,11 +46,14 @@ foreach ([1, 2, 3, 4] as $n) {
 $hasResults = (bool) $study['has_data'] || !empty($stats);
 $services = array_filter(array_map('trim', explode("\n", $study['services'] ?? '')), fn($s) => $s !== '');
 
-$page_title = $study['name'];
+// Both fall back to the project name/summary when the admin panel's
+// dedicated SEO fields are left blank, so existing case studies keep
+// working exactly as before without needing to be edited.
+$page_title = ($study['meta_title'] ?? '') !== '' ? $study['meta_title'] : $study['name'];
 // The summary field allows HTML (edited via the admin panel), so the meta
 // description -- which must be plain text -- strips tags rather than
 // echoing the markup itself.
-$page_description = trim(strip_tags($study['summary']));
+$page_description = ($study['meta_description'] ?? '') !== '' ? $study['meta_description'] : trim(strip_tags($study['summary']));
 
 // A small "More Case Studies" strip below the content -- next 3 entries in
 // display order after the current one (wrapping around), excluding itself.

@@ -8,7 +8,7 @@ $study = [
     'summary' => '', 'services' => '', 'has_data' => 0, 'period' => '',
     'stat1_value' => '', 'stat1_label' => '', 'stat2_value' => '', 'stat2_label' => '',
     'stat3_value' => '', 'stat3_label' => '', 'stat4_value' => '', 'stat4_label' => '',
-    'display_order' => 0,
+    'display_order' => 0, 'meta_title' => '', 'meta_description' => '',
 ];
 $error = '';
 
@@ -31,6 +31,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $study['tag'] = trim($_POST['tag'] ?? '');
     $study['image_alt'] = trim($_POST['image_alt'] ?? '');
     $study['summary'] = trim($_POST['summary'] ?? '');
+    $study['meta_title'] = trim($_POST['meta_title'] ?? '');
+    $study['meta_description'] = trim($_POST['meta_description'] ?? '');
     $servicesLines = preg_split('/\r\n|\r|\n/', trim($_POST['services'] ?? ''));
     $study['services'] = implode("\n", array_filter(array_map('trim', $servicesLines), fn($l) => $l !== ''));
     $study['period'] = trim($_POST['period'] ?? '');
@@ -84,14 +86,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $study['summary'], $study['services'], $study['has_data'], $study['period'],
                 $study['stat1_value'], $study['stat1_label'], $study['stat2_value'], $study['stat2_label'],
                 $study['stat3_value'], $study['stat3_label'], $study['stat4_value'], $study['stat4_label'],
-                $study['display_order'],
+                $study['display_order'], $study['meta_title'], $study['meta_description'],
             ];
 
             if ($id) {
-                $stmt = $pdo->prepare('UPDATE case_studies SET name=?, slug=?, tag=?, image_path=?, image_alt=?, summary=?, services=?, has_data=?, period=?, stat1_value=?, stat1_label=?, stat2_value=?, stat2_label=?, stat3_value=?, stat3_label=?, stat4_value=?, stat4_label=?, display_order=? WHERE id=?');
+                $stmt = $pdo->prepare('UPDATE case_studies SET name=?, slug=?, tag=?, image_path=?, image_alt=?, summary=?, services=?, has_data=?, period=?, stat1_value=?, stat1_label=?, stat2_value=?, stat2_label=?, stat3_value=?, stat3_label=?, stat4_value=?, stat4_label=?, display_order=?, meta_title=?, meta_description=? WHERE id=?');
                 $stmt->execute([...$params, $id]);
             } else {
-                $stmt = $pdo->prepare('INSERT INTO case_studies (name, slug, tag, image_path, image_alt, summary, services, has_data, period, stat1_value, stat1_label, stat2_value, stat2_label, stat3_value, stat3_label, stat4_value, stat4_label, display_order) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)');
+                $stmt = $pdo->prepare('INSERT INTO case_studies (name, slug, tag, image_path, image_alt, summary, services, has_data, period, stat1_value, stat1_label, stat2_value, stat2_label, stat3_value, stat3_label, stat4_value, stat4_label, display_order, meta_title, meta_description) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)');
                 $stmt->execute($params);
             }
             header('Location: case-list.php?saved=1');
@@ -162,6 +164,12 @@ include __DIR__ . '/includes/layout-header.php';
 
         <label for="display_order" style="margin-top:20px;">Display Order (lower numbers appear first)</label>
         <input type="number" id="display_order" name="display_order" value="<?php echo (int) $study['display_order']; ?>">
+
+        <label for="meta_title" style="margin-top:20px;">SEO Meta Title (optional -- leave blank to use the project name above)</label>
+        <input type="text" id="meta_title" name="meta_title" value="<?php echo htmlspecialchars($study['meta_title'], ENT_QUOTES, 'UTF-8'); ?>">
+
+        <label for="meta_description">SEO Meta Description (optional -- leave blank to use the summary above)</label>
+        <textarea id="meta_description" name="meta_description" rows="3"><?php echo htmlspecialchars($study['meta_description'], ENT_QUOTES, 'UTF-8'); ?></textarea>
 
         <button type="submit" class="btn btn-primary" style="margin-top:20px;">Save Case Study</button>
         <a href="case-list.php" class="btn btn-secondary" style="margin-top:20px;">Cancel</a>
