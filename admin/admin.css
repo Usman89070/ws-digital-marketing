@@ -1,0 +1,75 @@
+:root {
+    --navy: #0B0F25;
+    --cyan: #00F2FE;
+    --magenta: #FF007F;
+    --bg: #F4F6FA;
+    --border: #E2E6ED;
+    --text-muted: #64748B;
+}
+* { box-sizing: border-box; }
+body {
+    margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    background: var(--bg); color: var(--navy);
+}
+a { color: inherit; }
+
+.admin-shell { display: flex; min-height: 100vh; }
+.admin-nav {
+    width: 220px; flex-shrink: 0; background: var(--navy); color: #fff;
+    display: flex; flex-direction: column; padding: 20px 0; position: sticky; top: 0; height: 100vh;
+}
+.admin-nav-brand { font-weight: 800; font-size: 1.1rem; padding: 0 20px 20px; border-bottom: 1px solid rgba(255,255,255,0.1); margin-bottom: 10px; }
+.admin-nav a {
+    display: block; padding: 12px 20px; text-decoration: none; color: rgba(255,255,255,0.7);
+    font-size: 0.92rem; font-weight: 600; border-left: 3px solid transparent;
+}
+.admin-nav a:hover { color: #fff; background: rgba(255,255,255,0.05); }
+.admin-nav a.active { color: #fff; border-left-color: var(--cyan); background: rgba(0,242,254,0.08); }
+.admin-nav-logout { margin-top: auto; color: #ff8fa3 !important; }
+
+.admin-main { flex: 1; padding: 32px 40px; max-width: 1100px; }
+.admin-main h1 { font-size: 1.6rem; margin: 0 0 24px; }
+
+.admin-card { background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin-bottom: 20px; }
+
+.admin-table { width: 100%; border-collapse: collapse; background: #fff; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
+.admin-table th, .admin-table td { padding: 12px 16px; text-align: left; border-bottom: 1px solid var(--border); font-size: 0.92rem; }
+.admin-table th { background: #F9FAFC; font-weight: 700; color: var(--text-muted); text-transform: uppercase; font-size: 0.72rem; letter-spacing: 0.5px; }
+.admin-table tr:last-child td { border-bottom: none; }
+.admin-table img { width: 44px; height: 44px; border-radius: 8px; object-fit: cover; display: block; }
+
+.btn {
+    display: inline-block; padding: 10px 18px; border-radius: 8px; font-weight: 700; font-size: 0.85rem;
+    text-decoration: none; border: none; cursor: pointer; transition: opacity 0.2s;
+}
+.btn:hover { opacity: 0.85; }
+.btn-primary { background: linear-gradient(135deg, var(--cyan), var(--magenta)); color: #fff; }
+.btn-secondary { background: #fff; border: 1px solid var(--border); color: var(--navy); }
+.btn-danger { background: #fff; border: 1px solid #f5c2c7; color: #b02a37; }
+.btn-sm { padding: 6px 12px; font-size: 0.78rem; }
+
+.page-actions { margin-bottom: 20px; display: flex; justify-content: space-between; align-items: center; }
+
+form.admin-form label { display: block; font-weight: 700; font-size: 0.85rem; margin: 16px 0 6px; }
+form.admin-form label:first-child { margin-top: 0; }
+form.admin-form input[type=text], form.admin-form input[type=url], form.admin-form input[type=password],
+form.admin-form input[type=number], form.admin-form select, form.admin-form textarea {
+    width: 100%; padding: 10px 12px; border: 1px solid var(--border); border-radius: 8px; font-size: 0.92rem; font-family: inherit;
+}
+form.admin-form textarea { min-height: 120px; resize: vertical; }
+form.admin-form .hint { color: var(--text-muted); font-size: 0.8rem; margin-top: 4px; }
+form.admin-form .current-image { margin-top: 8px; }
+form.admin-form .current-image img { max-width: 160px; border-radius: 8px; display: block; }
+
+.alert { padding: 14px 18px; border-radius: 8px; margin-bottom: 20px; font-size: 0.9rem; font-weight: 600; }
+.alert-success { background: #D1E7DD; color: #0F5132; border: 1px solid #badbcc; }
+.alert-error { background: #F8D7DA; color: #842029; border: 1px solid #f5c2c7; }
+
+.login-wrap { min-height: 100vh; display: flex; align-items: center; justify-content: center; width: 100%; }
+.login-box { background: #fff; padding: 40px; border-radius: 16px; width: 100%; max-width: 380px; box-shadow: 0 20px 50px rgba(0,0,0,0.08); }
+.login-box h1 { font-size: 1.3rem; margin: 0 0 20px; text-align: center; }
+
+.dashboard-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
+.dashboard-grid .admin-card { text-align: center; }
+.dashboard-grid .admin-card .num { font-size: 2.2rem; font-weight: 800; }
+.dashboard-grid .admin-card .label { color: var(--text-muted); font-size: 0.85rem; }

@@ -1,0 +1,72 @@
+name: Compress Live Images (FTP)
+
+# Manual only -- this touches images that only exist on the live server
+# (uploaded through the admin panel: case studies, blog, team photos),
+# never committed to this repo, so there's no git diff to review before
+# it runs. It downloads them, uploads an untouched backup as a workflow
+# artifact, compresses in place, then uploads the compressed versions
+# back. Never deletes anything.
+on:
+  workflow_dispatch: {}
+
+jobs:
+  compress:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout (for scripts/compress-images.php)
+        uses: actions/checkout@v4
+
+      - name: Install lftp and PHP GD
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq lftp php-cli php-gd
+
+      - name: Download live-only image folders from server
+        env:
+          FTP_SERVER: ${{ secrets.FTP_SERVER }}
+          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+          FTP_SERVER_DIR: ${{ secrets.FTP_SERVER_DIR }}
+        run: |
+          mkdir -p live-images
+          lftp -c "
+            set ftp:ssl-allow no;
+            set ftp:passive-mode true;
+            set net:max-retries 2;
+            set net:reconnect-interval-base 5;
+            set net:timeout 30;
+            open -u \"$FTP_USERNAME\",\"$FTP_PASSWORD\" \"$FTP_SERVER\";
+            mirror \"${FTP_SERVER_DIR}images/case-studies\" live-images/case-studies;
+            mirror \"${FTP_SERVER_DIR}images/blog\" live-images/blog;
+            mirror \"${FTP_SERVER_DIR}images/team\" live-images/team;
+          "
+          find live-images -type f | wc -l
+
+      - name: Upload untouched backup (in case anything needs restoring)
+        uses: actions/upload-artifact@v4
+        with:
+          name: live-images-backup-before-compression
+          path: live-images
+          retention-days: 30
+
+      - name: Compress everything over 100KB
+        run: php scripts/compress-images.php live-images
+
+      - name: Upload compressed images back to the server
+        env:
+          FTP_SERVER: ${{ secrets.FTP_SERVER }}
+          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+          FTP_SERVER_DIR: ${{ secrets.FTP_SERVER_DIR }}
+        run: |
+          lftp -c "
+            set ftp:ssl-allow no;
+            set ftp:passive-mode true;
+            set net:max-retries 2;
+            set net:reconnect-interval-base 5;
+            set net:timeout 30;
+            open -u \"$FTP_USERNAME\",\"$FTP_PASSWORD\" \"$FTP_SERVER\";
+            mirror --reverse --verbose live-images/case-studies \"${FTP_SERVER_DIR}images/case-studies\";
+            mirror --reverse --verbose live-images/blog \"${FTP_SERVER_DIR}images/blog\";
+            mirror --reverse --verbose live-images/team \"${FTP_SERVER_DIR}images/team\";
+          "
