@@ -32,8 +32,11 @@ if (!$post) {
     exit;
 }
 
-$page_title = $post['title'];
-$page_description = $post['excerpt'] ?: $post['title'];
+// Both fall back to the title/excerpt when the admin panel's dedicated SEO
+// fields are left blank, so existing posts keep working exactly as before
+// without needing to be edited.
+$page_title = ($post['meta_title'] ?? '') !== '' ? $post['meta_title'] : $post['title'];
+$page_description = ($post['meta_description'] ?? '') !== '' ? $post['meta_description'] : ($post['excerpt'] ?: $post['title']);
 
 $recentPosts = [];
 try {

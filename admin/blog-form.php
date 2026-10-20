@@ -3,7 +3,7 @@ require_once __DIR__ . '/includes/auth.php';
 $pdo = get_db();
 
 $id = isset($_GET['id']) ? (int) $_GET['id'] : (isset($_POST['id']) ? (int) $_POST['id'] : 0);
-$post = ['title' => '', 'category' => '', 'excerpt' => '', 'content' => '', 'image_path' => '', 'is_published' => 1];
+$post = ['title' => '', 'category' => '', 'excerpt' => '', 'content' => '', 'image_path' => '', 'is_published' => 1, 'meta_title' => '', 'meta_description' => ''];
 $error = '';
 
 if ($id) {
@@ -25,6 +25,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $post['category'] = trim($_POST['category'] ?? '');
     $post['excerpt'] = trim($_POST['excerpt'] ?? '');
     $post['content'] = $_POST['content'] ?? '';
+    $post['meta_title'] = trim($_POST['meta_title'] ?? '');
+    $post['meta_description'] = trim($_POST['meta_description'] ?? '');
     $post['is_published'] = isset($_POST['is_published']) ? 1 : 0;
     $imageUrl = trim($_POST['image_url'] ?? '');
 
@@ -54,11 +56,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             }
 
             if ($id) {
-                $stmt = $pdo->prepare('UPDATE blog_posts SET title=?, slug=?, category=?, excerpt=?, content=?, image_path=?, is_published=? WHERE id=?');
-                $stmt->execute([$post['title'], $slug, $post['category'], $post['excerpt'], $post['content'], $post['image_path'], $post['is_published'], $id]);
+                $stmt = $pdo->prepare('UPDATE blog_posts SET title=?, slug=?, category=?, excerpt=?, content=?, image_path=?, is_published=?, meta_title=?, meta_description=? WHERE id=?');
+                $stmt->execute([$post['title'], $slug, $post['category'], $post['excerpt'], $post['content'], $post['image_path'], $post['is_published'], $post['meta_title'], $post['meta_description'], $id]);
             } else {
-                $stmt = $pdo->prepare('INSERT INTO blog_posts (title, slug, category, excerpt, content, image_path, is_published) VALUES (?,?,?,?,?,?,?)');
-                $stmt->execute([$post['title'], $slug, $post['category'], $post['excerpt'], $post['content'], $post['image_path'], $post['is_published']]);
+                $stmt = $pdo->prepare('INSERT INTO blog_posts (title, slug, category, excerpt, content, image_path, is_published, meta_title, meta_description) VALUES (?,?,?,?,?,?,?,?,?)');
+                $stmt->execute([$post['title'], $slug, $post['category'], $post['excerpt'], $post['content'], $post['image_path'], $post['is_published'], $post['meta_title'], $post['meta_description']]);
             }
             header('Location: blog-list.php?saved=1');
             exit;
@@ -104,6 +106,12 @@ include __DIR__ . '/includes/layout-header.php';
                 <img src="<?php echo htmlspecialchars($post['image_path'], ENT_QUOTES, 'UTF-8'); ?>" alt="">
             </div>
         <?php endif; ?>
+
+        <label for="meta_title" style="margin-top:20px;">SEO Meta Title (optional -- leave blank to use the title above)</label>
+        <input type="text" id="meta_title" name="meta_title" value="<?php echo htmlspecialchars($post['meta_title'], ENT_QUOTES, 'UTF-8'); ?>">
+
+        <label for="meta_description">SEO Meta Description (optional -- leave blank to use the excerpt above)</label>
+        <textarea id="meta_description" name="meta_description" rows="3"><?php echo htmlspecialchars($post['meta_description'], ENT_QUOTES, 'UTF-8'); ?></textarea>
 
         <label style="display:flex; align-items:center; gap:8px; margin-top:20px;">
             <input type="checkbox" name="is_published" value="1" style="width:auto;" <?php echo $post['is_published'] ? 'checked' : ''; ?>>

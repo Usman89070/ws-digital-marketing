@@ -243,10 +243,12 @@
         .blog-post-body p { margin-bottom: 22px; }
         .blog-post-body h3 { color: var(--navy); font-size: 1.35rem; font-weight: 800; margin: 34px 0 14px; }
         .blog-post-body h3:first-child { margin-top: 0; }
+        .blog-post-body h4 { color: var(--navy); font-size: 1.1rem; font-weight: 700; margin: 26px 0 10px; }
         .blog-post-body ul, .blog-post-body ol { margin: 0 0 22px 22px; }
         .blog-post-body li { margin-bottom: 8px; }
         .blog-post-body a { color: var(--cyan-neon); font-weight: 600; }
         .blog-post-body img { max-width: 100%; height: auto; border-radius: 12px; margin: 20px 0; }
+        .blog-post-body table { color: var(--text-muted); }
 
         /* === BLOG POST LAYOUT (blog-post.php: article + "More From The Blog" sidebar) === */
         .blog-post-layout { max-width: 1140px; display: grid; grid-template-columns: 1fr 340px; gap: clamp(30px, 5vw, 60px); align-items: start; }
