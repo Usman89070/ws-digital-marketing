@@ -47,6 +47,13 @@
     RewriteEngine On
     Options -MultiViews
 
+    # -2) Block access to .git and other dotfiles (defense in depth). The
+    #     deploy workflow also excludes .git from upload, but this blocks it
+    #     at the web server level too in case it (or any other dotfile)
+    #     ever lands here.
+    RewriteCond %{REQUEST_URI} /\.(git|github|gitignore)
+    RewriteRule .* - [F,L]
+
     # -1) Force HTTPS site-wide, admin panel included -- the admin login form
     #     posts a username/password and every request afterward carries the
     #     session cookie, neither of which should ever be able to travel over

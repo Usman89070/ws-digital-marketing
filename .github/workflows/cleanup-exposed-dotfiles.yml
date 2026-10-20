@@ -1,0 +1,39 @@
+name: Clean Up Exposed .git/.github (FTP)
+
+# One-off / as-needed manual job. An earlier version of deploy.yml's
+# --exclude-glob patterns (".git*", ".github") didn't actually prune those
+# directories in lftp (a glob needs a trailing slash to match a directory
+# for pruning), so every past deploy uploaded the full .git and .github
+# folders into public_html, publicly reachable over HTTP. deploy.yml is
+# already fixed to exclude them correctly going forward; this removes the
+# copies that are already sitting on the live server from past deploys.
+on:
+  workflow_dispatch: {}
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install lftp
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq lftp
+
+      - name: Remove .git and .github from the live server
+        env:
+          FTP_SERVER: ${{ secrets.FTP_SERVER }}
+          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+          FTP_SERVER_DIR: ${{ secrets.FTP_SERVER_DIR }}
+        run: |
+          lftp -c "
+            set ftp:ssl-allow no;
+            set ftp:passive-mode true;
+            set net:max-retries 2;
+            set net:reconnect-interval-base 5;
+            set net:timeout 30;
+            open -u \"$FTP_USERNAME\",\"$FTP_PASSWORD\" \"$FTP_SERVER\";
+            cd \"$FTP_SERVER_DIR\";
+            rm -rf .git;
+            rm -rf .github;
+          "

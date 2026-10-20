@@ -45,11 +45,20 @@ jobs:
             set net:timeout 30;
             open -u \"$FTP_USERNAME\",\"$FTP_PASSWORD\" \"$FTP_SERVER\";
             mirror --reverse --verbose --parallel=2 \
-              --exclude-glob .git* \
-              --exclude-glob .github \
+              --exclude-glob '.git/' \
+              --exclude-glob '.github/' \
               --exclude-glob config.php \
               --exclude-glob config.sample.php \
               --exclude-glob '*.sql' \
               --exclude-glob node_modules \
               ./ \"$FTP_SERVER_DIR\"
           "
+
+      - name: Clear PHP opcache on the live server
+        if: ${{ secrets.CACHE_RESET_TOKEN != '' }}
+        # Non-fatal: if this secret isn't set up yet, or the request fails
+        # for any reason, that should never fail the deploy itself -- the
+        # files are already uploaded either way.
+        continue-on-error: true
+        run: |
+          curl -fsS "https://wsdigitalmarketing.com.au/cache-reset.php?token=${{ secrets.CACHE_RESET_TOKEN }}" || true

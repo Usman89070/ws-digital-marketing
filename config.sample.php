@@ -24,6 +24,19 @@ define('DB_NAME', 'your_database_name');
 define('DB_USER', 'your_database_user');
 define('DB_PASS', 'your_database_password');
 
+// Lets the deploy workflow clear this server's PHP opcode cache (opcache)
+// right after every deploy, by calling cache-reset.php?token=... with this
+// same value. Without this, a changed PHP file can keep running its OLD
+// compiled version for a while after upload, even though the new file
+// content is genuinely sitting on disk -- opcache only revalidates a file
+// on its own schedule, not the instant it changes.
+//
+// SETUP: replace this with your own long random string (anything works,
+// e.g. generate one at random.org or run `openssl rand -hex 32`), then add
+// the exact same value as a "CACHE_RESET_TOKEN" secret in this repo's
+// GitHub Settings -> Secrets and variables -> Actions.
+define('CACHE_RESET_TOKEN', 'change-this-to-a-long-random-string');
+
 function get_db(): PDO
 {
     static $pdo = null;
