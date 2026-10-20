@@ -3,7 +3,7 @@ require_once __DIR__ . '/includes/auth.php';
 $pdo = get_db();
 
 $id = isset($_GET['id']) ? (int) $_GET['id'] : (isset($_POST['id']) ? (int) $_POST['id'] : 0);
-$post = ['title' => '', 'category' => '', 'excerpt' => '', 'content' => '', 'image_path' => '', 'is_published' => 1, 'meta_title' => '', 'meta_description' => ''];
+$post = ['title' => '', 'slug' => '', 'category' => '', 'excerpt' => '', 'content' => '', 'image_path' => '', 'is_published' => 1, 'meta_title' => '', 'meta_description' => ''];
 $error = '';
 
 if ($id) {
@@ -41,8 +41,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $post['image_path'] = $imageUrl;
             }
 
-            // Slug: derived from the title, made unique by appending -2/-3/... if needed.
-            $baseSlug = trim(preg_replace('/[^a-z0-9]+/', '-', strtolower($post['title'])), '-') ?: 'post';
+            // Slug: uses the admin's own URL field if they typed one, otherwise
+            // derived from the title -- either way, sanitised the same way and
+            // made unique by appending -2/-3/... if needed.
+            $slugSource = trim($_POST['slug'] ?? '') !== '' ? $_POST['slug'] : $post['title'];
+            $baseSlug = trim(preg_replace('/[^a-z0-9]+/', '-', strtolower($slugSource)), '-') ?: 'post';
             $slug = $baseSlug;
             $suffix = 2;
             while (true) {
@@ -83,6 +86,10 @@ include __DIR__ . '/includes/layout-header.php';
 
         <label for="title">Title</label>
         <input type="text" id="title" name="title" required value="<?php echo htmlspecialchars($post['title'], ENT_QUOTES, 'UTF-8'); ?>">
+
+        <label for="slug">URL (e.g. my-post-title -- leave blank to generate one from the title above)</label>
+        <input type="text" id="slug" name="slug" placeholder="my-post-title" value="<?php echo htmlspecialchars($post['slug'], ENT_QUOTES, 'UTF-8'); ?>">
+        <div class="hint">This becomes wsdigitalmarketing.com.au/blog/<?php echo htmlspecialchars($post['slug'] ?: 'your-url-here', ENT_QUOTES, 'UTF-8'); ?>. Only letters, numbers and hyphens are kept -- spaces and other characters are converted automatically.</div>
 
         <label for="category">Category (e.g. SEO, PPC, CRO)</label>
         <input type="text" id="category" name="category" value="<?php echo htmlspecialchars($post['category'], ENT_QUOTES, 'UTF-8'); ?>">
