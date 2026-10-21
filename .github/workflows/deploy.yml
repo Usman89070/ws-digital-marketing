@@ -61,8 +61,13 @@ jobs:
         # in an `if:` condition, so this just always runs and no-ops safely
         # when the token is empty -- cache-reset.php itself rejects an
         # empty/wrong token with a harmless 403.)
+        #
+        # Deliberately the clean URL (no .php) -- .htaccess 301-redirects any
+        # *.php request to its clean-URL equivalent but drops the query
+        # string doing so, which silently stripped ?token=... on the first
+        # version of this step and left the opcache never actually cleared.
         continue-on-error: true
         env:
           CACHE_RESET_TOKEN: ${{ secrets.CACHE_RESET_TOKEN }}
         run: |
-          curl -fsS "https://wsdigitalmarketing.com.au/cache-reset.php?token=${CACHE_RESET_TOKEN}" || true
+          curl -fsS "https://wsdigitalmarketing.com.au/cache-reset?token=${CACHE_RESET_TOKEN}" || true
