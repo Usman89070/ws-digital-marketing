@@ -30,6 +30,17 @@
     </FilesMatch>
 </IfModule>
 
+# === Missing pages: send visitors to the homepage instead of a 404 ===
+# Any URL that doesn't match a real file or route (mistyped address, old
+# bookmark, stale search-engine link) redirects straight to the homepage.
+# An absolute URL here makes Apache issue a real redirect (so the browser's
+# address bar updates to "/"), not just silently serve homepage content
+# under the broken URL. This only fires for genuine server-level 404s --
+# the dedicated "Not Found" pages blog-post.php and case-study.php render
+# for an unknown slug are full responses those scripts generate themselves,
+# so they're unaffected.
+ErrorDocument 404 https://wsdigitalmarketing.com.au/
+
 # === Security: block direct download of the raw SQL import file ===
 # database.sql only needs to exist here long enough to import through
 # phpMyAdmin -- leaving it downloadable would expose the schema and the
