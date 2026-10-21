@@ -93,7 +93,11 @@
     #    engines update. THE_REQUEST is the raw request line as the browser
     #    sent it, so this only matches real incoming requests -- never the
     #    internal rewrite in step 2 below, which avoids a redirect loop.
+    #    cache-reset.php is also excluded: this redirect drops the query
+    #    string, which silently stripped its ?token=... (deploy.yml calls
+    #    it by its real .php name on purpose so it never hits this rule).
     RewriteCond %{REQUEST_URI} !^/admin/
+    RewriteCond %{REQUEST_URI} !^/cache-reset\.php$
     RewriteCond %{THE_REQUEST} \s/+(.*)\.php[\s?] [NC]
     RewriteRule ^ /%1 [R=301,L]
 

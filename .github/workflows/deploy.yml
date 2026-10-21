@@ -62,12 +62,15 @@ jobs:
         # when the token is empty -- cache-reset.php itself rejects an
         # empty/wrong token with a harmless 403.)
         #
-        # Deliberately the clean URL (no .php) -- .htaccess 301-redirects any
-        # *.php request to its clean-URL equivalent but drops the query
-        # string doing so, which silently stripped ?token=... on the first
-        # version of this step and left the opcache never actually cleared.
+        # Calls the real .php filename on purpose -- .htaccess now carries
+        # a specific exception for cache-reset.php in its .php-stripping
+        # redirect rule, since that redirect drops the query string and
+        # would otherwise silently strip ?token=... before it ever reaches
+        # the script (confirmed in two earlier deploy runs: the .php URL
+        # got redirected losing the token, and the clean /cache-reset URL
+        # 404'd instead of reaching the script some other way).
         continue-on-error: true
         env:
           CACHE_RESET_TOKEN: ${{ secrets.CACHE_RESET_TOKEN }}
         run: |
-          curl -fsS "https://wsdigitalmarketing.com.au/cache-reset?token=${CACHE_RESET_TOKEN}" || true
+          curl -fsS "https://wsdigitalmarketing.com.au/cache-reset.php?token=${CACHE_RESET_TOKEN}" || true
