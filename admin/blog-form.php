@@ -1,0 +1,133 @@
+<?php
+require_once __DIR__ . '/includes/auth.php';
+$pdo = get_db();
+
+$id = isset($_GET['id']) ? (int) $_GET['id'] : (isset($_POST['id']) ? (int) $_POST['id'] : 0);
+$post = ['title' => '', 'slug' => '', 'category' => '', 'excerpt' => '', 'content' => '', 'image_path' => '', 'is_published' => 1, 'meta_title' => '', 'meta_description' => ''];
+$error = '';
+
+if ($id) {
+    $stmt = $pdo->prepare('SELECT * FROM blog_posts WHERE id = ?');
+    $stmt->execute([$id]);
+    $existing = $stmt->fetch();
+    if (!$existing) {
+        header('Location: blog-list.php');
+        exit;
+    }
+    $post = $existing;
+}
+
+$page_title = $id ? 'Edit Blog Post' : 'Add Blog Post';
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    csrf_check();
+    $post['title'] = trim($_POST['title'] ?? '');
+    $post['category'] = trim($_POST['category'] ?? '');
+    $post['excerpt'] = trim($_POST['excerpt'] ?? '');
+    $post['content'] = $_POST['content'] ?? '';
+    $post['meta_title'] = trim($_POST['meta_title'] ?? '');
+    $post['meta_description'] = trim($_POST['meta_description'] ?? '');
+    $post['is_published'] = isset($_POST['is_published']) ? 1 : 0;
+    $imageUrl = trim($_POST['image_url'] ?? '');
+
+    if ($post['title'] === '') {
+        $error = 'Title is required.';
+    } else {
+        try {
+            $uploaded = handle_image_upload('image_file', 'images/blog', $post['title']);
+            if ($uploaded) {
+                $post['image_path'] = $uploaded;
+            } elseif ($imageUrl !== '') {
+                $post['image_path'] = $imageUrl;
+            }
+
+            // Slug: uses the admin's own URL field if they typed one, otherwise
+            // derived from the title -- either way, sanitised the same way and
+            // made unique by appending -2/-3/... if needed.
+            $slugSource = trim($_POST['slug'] ?? '') !== '' ? $_POST['slug'] : $post['title'];
+            $baseSlug = trim(preg_replace('/[^a-z0-9]+/', '-', strtolower($slugSource)), '-') ?: 'post';
+            $slug = $baseSlug;
+            $suffix = 2;
+            while (true) {
+                $check = $pdo->prepare('SELECT id FROM blog_posts WHERE slug = ? AND id != ?');
+                $check->execute([$slug, $id]);
+                if (!$check->fetch()) {
+                    break;
+                }
+                $slug = $baseSlug . '-' . $suffix;
+                $suffix++;
+            }
+
+            if ($id) {
+                $stmt = $pdo->prepare('UPDATE blog_posts SET title=?, slug=?, category=?, excerpt=?, content=?, image_path=?, is_published=?, meta_title=?, meta_description=? WHERE id=?');
+                $stmt->execute([$post['title'], $slug, $post['category'], $post['excerpt'], $post['content'], $post['image_path'], $post['is_published'], $post['meta_title'], $post['meta_description'], $id]);
+            } else {
+                $stmt = $pdo->prepare('INSERT INTO blog_posts (title, slug, category, excerpt, content, image_path, is_published, meta_title, meta_description) VALUES (?,?,?,?,?,?,?,?,?)');
+                $stmt->execute([$post['title'], $slug, $post['category'], $post['excerpt'], $post['content'], $post['image_path'], $post['is_published'], $post['meta_title'], $post['meta_description']]);
+            }
+            header('Location: blog-list.php?saved=1');
+            exit;
+        } catch (RuntimeException $e) {
+            $error = $e->getMessage();
+        }
+    }
+}
+
+include __DIR__ . '/includes/layout-header.php';
+?>
+<?php if ($error): ?>
+    <div class="alert alert-error"><?php echo htmlspecialchars($error, ENT_QUOTES, 'UTF-8'); ?></div>
+<?php endif; ?>
+
+<div class="admin-card">
+    <form method="post" enctype="multipart/form-data" class="admin-form">
+        <?php echo csrf_field(); ?>
+        <input type="hidden" name="id" value="<?php echo (int) $id; ?>">
+
+        <label for="title">Title</label>
+        <input type="text" id="title" name="title" required value="<?php echo htmlspecialchars($post['title'], ENT_QUOTES, 'UTF-8'); ?>">
+
+        <label for="slug">URL (e.g. my-post-title -- leave blank to generate one from the title above)</label>
+        <input type="text" id="slug" name="slug" placeholder="my-post-title" value="<?php echo htmlspecialchars($post['slug'], ENT_QUOTES, 'UTF-8'); ?>">
+        <div class="hint">This becomes wsdigitalmarketing.com.au/blog/<?php echo htmlspecialchars($post['slug'] ?: 'your-url-here', ENT_QUOTES, 'UTF-8'); ?>. Only letters, numbers and hyphens are kept -- spaces and other characters are converted automatically.</div>
+
+        <label for="category">Category (e.g. SEO, PPC, CRO)</label>
+        <input type="text" id="category" name="category" value="<?php echo htmlspecialchars($post['category'], ENT_QUOTES, 'UTF-8'); ?>">
+
+        <label for="excerpt">Excerpt (short summary shown on the blog listing card)</label>
+        <textarea id="excerpt" name="excerpt" rows="3"><?php echo htmlspecialchars($post['excerpt'], ENT_QUOTES, 'UTF-8'); ?></textarea>
+
+        <label for="content">Full Content (HTML allowed -- e.g. &lt;p&gt;, &lt;h3&gt;)</label>
+        <textarea id="content" name="content" rows="14"><?php echo htmlspecialchars($post['content'], ENT_QUOTES, 'UTF-8'); ?></textarea>
+
+        <label for="image_file">Cover Image (upload)</label>
+        <input type="file" id="image_file" name="image_file" accept="image/jpeg,image/png,image/webp">
+        <div class="hint">JPG, PNG, or WEBP, up to 5MB. Leave blank to keep the current image.</div>
+
+        <label for="image_url">...or paste an image URL instead</label>
+        <input type="url" id="image_url" name="image_url" placeholder="https://example.com/photo.jpg">
+
+        <?php if ($post['image_path']): ?>
+            <div class="current-image">
+                <div class="hint">Current image:</div>
+                <img src="<?php echo htmlspecialchars($post['image_path'], ENT_QUOTES, 'UTF-8'); ?>" alt="">
+            </div>
+        <?php endif; ?>
+
+        <label for="meta_title" style="margin-top:20px;">SEO Meta Title (optional -- leave blank to use the title above)</label>
+        <input type="text" id="meta_title" name="meta_title" value="<?php echo htmlspecialchars($post['meta_title'], ENT_QUOTES, 'UTF-8'); ?>">
+
+        <label for="meta_description">SEO Meta Description (optional -- leave blank to use the excerpt above)</label>
+        <textarea id="meta_description" name="meta_description" rows="3"><?php echo htmlspecialchars($post['meta_description'], ENT_QUOTES, 'UTF-8'); ?></textarea>
+
+        <label style="display:flex; align-items:center; gap:8px; margin-top:20px;">
+            <input type="checkbox" name="is_published" value="1" style="width:auto;" <?php echo $post['is_published'] ? 'checked' : ''; ?>>
+            Published (visible on the live site)
+        </label>
+
+        <button type="submit" class="btn btn-primary" style="margin-top:20px;">Save Blog Post</button>
+        <a href="blog-list.php" class="btn btn-secondary" style="margin-top:20px;">Cancel</a>
+    </form>
+</div>
+
+<?php include __DIR__ . '/includes/layout-footer.php'; ?>
