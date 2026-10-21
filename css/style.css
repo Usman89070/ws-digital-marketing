@@ -504,7 +504,10 @@
         }
         .stat-box h3 { font-size: clamp(2.2rem, 4vw, 3.2rem); font-weight: 800; margin-bottom: 10px; background: linear-gradient(135deg, var(--cyan-neon), var(--magenta-neon)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .stat-box p { font-size: clamp(0.85rem, 1.5vw, 1rem); color: rgba(255,255,255,0.8); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
-        .stats-proof-image { display: block; max-width: 760px; width: 100%; margin: 36px auto 0; border-radius: 14px; border: 1px solid rgba(255,255,255,0.15); box-shadow: 0 20px 40px rgba(0,0,0,0.35); position: relative; z-index: 2; }
+        .proof-gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 24px; margin: 36px auto 0; max-width: 1040px; position: relative; z-index: 2; }
+        .proof-gallery-item { margin: 0; }
+        .proof-gallery-item img { display: block; width: 100%; border-radius: 12px; border: 1px solid rgba(255,255,255,0.15); box-shadow: 0 16px 32px rgba(0,0,0,0.35); }
+        .proof-gallery-item figcaption { margin-top: 10px; text-align: center; font-size: 0.85rem; font-weight: 600; color: rgba(255,255,255,0.75); text-transform: uppercase; letter-spacing: 0.5px; }
 
         /* === UPGRADED SERVICES SECTION === */
         .services-section {

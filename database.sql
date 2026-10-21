@@ -116,8 +116,11 @@ CREATE TABLE IF NOT EXISTS case_studies (
     meta_description VARCHAR(500) DEFAULT '',
     gsc_clicks VARCHAR(50) DEFAULT '', gsc_impressions VARCHAR(50) DEFAULT '',
     gsc_ctr VARCHAR(20) DEFAULT '', gsc_position VARCHAR(20) DEFAULT '', gsc_image VARCHAR(255) DEFAULT '',
-    gbp_interactions VARCHAR(50) DEFAULT '', gbp_calls VARCHAR(50) DEFAULT '',
-    gbp_directions VARCHAR(50) DEFAULT '', gbp_website_clicks VARCHAR(50) DEFAULT '', gbp_image VARCHAR(255) DEFAULT '',
+    gsc_ai_value VARCHAR(50) DEFAULT '', gsc_ai_image VARCHAR(255) DEFAULT '',
+    gbp_interactions VARCHAR(50) DEFAULT '', gbp_calls VARCHAR(50) DEFAULT '', gbp_calls_image VARCHAR(255) DEFAULT '',
+    gbp_directions VARCHAR(50) DEFAULT '', gbp_directions_image VARCHAR(255) DEFAULT '',
+    gbp_website_clicks VARCHAR(50) DEFAULT '', gbp_website_image VARCHAR(255) DEFAULT '', gbp_image VARCHAR(255) DEFAULT '',
+    gbp_extra_label VARCHAR(100) DEFAULT '', gbp_extra_value VARCHAR(50) DEFAULT '', gbp_extra_image VARCHAR(255) DEFAULT '',
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;

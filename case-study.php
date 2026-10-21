@@ -54,14 +54,30 @@ if (($study['gsc_clicks'] ?? '') !== '') { $gscStats[] = [$study['gsc_clicks'], 
 if (($study['gsc_impressions'] ?? '') !== '') { $gscStats[] = [$study['gsc_impressions'], 'Search Impressions']; }
 if (($study['gsc_ctr'] ?? '') !== '') { $gscStats[] = [$study['gsc_ctr'] . '%', 'Average CTR']; }
 if (($study['gsc_position'] ?? '') !== '') { $gscStats[] = [$study['gsc_position'], 'Average Position']; }
+if (($study['gsc_ai_value'] ?? '') !== '') { $gscStats[] = [$study['gsc_ai_value'], 'AI Overview Impressions']; }
 $hasGsc = !empty($gscStats);
+
+// Proof-gallery images shown below the GSC/GBP stat grids -- one small
+// captioned screenshot per individual metric (not just one combined
+// overview), so every stat on the page has its own visible source.
+$gscGallery = [];
+if (($study['gsc_image'] ?? '') !== '') { $gscGallery[] = [$study['gsc_image'], 'Search Performance']; }
+if (($study['gsc_ai_image'] ?? '') !== '') { $gscGallery[] = [$study['gsc_ai_image'], 'Generative AI Features']; }
 
 $gbpStats = [];
 if (($study['gbp_interactions'] ?? '') !== '') { $gbpStats[] = [$study['gbp_interactions'], 'Total Interactions']; }
 if (($study['gbp_calls'] ?? '') !== '') { $gbpStats[] = [$study['gbp_calls'], 'Phone Calls']; }
 if (($study['gbp_directions'] ?? '') !== '') { $gbpStats[] = [$study['gbp_directions'], 'Direction Requests']; }
 if (($study['gbp_website_clicks'] ?? '') !== '') { $gbpStats[] = [$study['gbp_website_clicks'], 'Website Clicks']; }
+if (($study['gbp_extra_value'] ?? '') !== '' && ($study['gbp_extra_label'] ?? '') !== '') { $gbpStats[] = [$study['gbp_extra_value'], $study['gbp_extra_label']]; }
 $hasGbp = !empty($gbpStats);
+
+$gbpGallery = [];
+if (($study['gbp_image'] ?? '') !== '') { $gbpGallery[] = [$study['gbp_image'], 'Overview']; }
+if (($study['gbp_calls_image'] ?? '') !== '') { $gbpGallery[] = [$study['gbp_calls_image'], 'Phone Calls']; }
+if (($study['gbp_directions_image'] ?? '') !== '') { $gbpGallery[] = [$study['gbp_directions_image'], 'Direction Requests']; }
+if (($study['gbp_website_image'] ?? '') !== '') { $gbpGallery[] = [$study['gbp_website_image'], 'Website Clicks']; }
+if (($study['gbp_extra_image'] ?? '') !== '' && ($study['gbp_extra_label'] ?? '') !== '') { $gbpGallery[] = [$study['gbp_extra_image'], $study['gbp_extra_label']]; }
 
 // Both fall back to the project name/summary when the admin panel's
 // dedicated SEO fields are left blank, so existing case studies keep
@@ -165,8 +181,15 @@ include 'header.php';
                 </div>
                 <?php endforeach; ?>
             </div>
-            <?php if ($study['gsc_image']): ?>
-            <img class="stats-proof-image" loading="lazy" decoding="async" src="<?php echo htmlspecialchars($study['gsc_image'], ENT_QUOTES, 'UTF-8'); ?>" alt="<?php echo htmlspecialchars($study['name'], ENT_QUOTES, 'UTF-8'); ?> Google Search Console performance" onerror="this.remove()">
+            <?php if ($gscGallery): ?>
+            <div class="proof-gallery">
+                <?php foreach ($gscGallery as [$imgPath, $caption]): ?>
+                <figure class="proof-gallery-item">
+                    <img loading="lazy" decoding="async" src="<?php echo htmlspecialchars($imgPath, ENT_QUOTES, 'UTF-8'); ?>" alt="<?php echo htmlspecialchars($study['name'], ENT_QUOTES, 'UTF-8'); ?> &ndash; <?php echo htmlspecialchars($caption, ENT_QUOTES, 'UTF-8'); ?>" onerror="this.closest('figure').remove()">
+                    <figcaption><?php echo htmlspecialchars($caption, ENT_QUOTES, 'UTF-8'); ?></figcaption>
+                </figure>
+                <?php endforeach; ?>
+            </div>
             <?php endif; ?>
         </div>
     </section>
@@ -189,8 +212,15 @@ include 'header.php';
                 </div>
                 <?php endforeach; ?>
             </div>
-            <?php if ($study['gbp_image']): ?>
-            <img class="stats-proof-image" loading="lazy" decoding="async" src="<?php echo htmlspecialchars($study['gbp_image'], ENT_QUOTES, 'UTF-8'); ?>" alt="<?php echo htmlspecialchars($study['name'], ENT_QUOTES, 'UTF-8'); ?> Google Business Profile performance" onerror="this.remove()">
+            <?php if ($gbpGallery): ?>
+            <div class="proof-gallery">
+                <?php foreach ($gbpGallery as [$imgPath, $caption]): ?>
+                <figure class="proof-gallery-item">
+                    <img loading="lazy" decoding="async" src="<?php echo htmlspecialchars($imgPath, ENT_QUOTES, 'UTF-8'); ?>" alt="<?php echo htmlspecialchars($study['name'], ENT_QUOTES, 'UTF-8'); ?> &ndash; <?php echo htmlspecialchars($caption, ENT_QUOTES, 'UTF-8'); ?>" onerror="this.closest('figure').remove()">
+                    <figcaption><?php echo htmlspecialchars($caption, ENT_QUOTES, 'UTF-8'); ?></figcaption>
+                </figure>
+                <?php endforeach; ?>
+            </div>
             <?php endif; ?>
         </div>
     </section>
