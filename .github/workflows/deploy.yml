@@ -15,6 +15,17 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Minify CSS/JS for deploy
+        # Minifies the runner's own checkout in place -- the source files
+        # in git stay fully readable/commented for future edits; only the
+        # copy that gets uploaded below is minified. Browsers cache these
+        # files for a year (see .htaccess), so this mainly helps first-time
+        # visitors' initial load, not repeat visits.
+        run: |
+          npx --yes clean-css-cli@5.6.3 -o css/style.css css/style.css
+          npx --yes terser@5.36.0 js/main.js -c -m -o js/main.js
+          npx --yes terser@5.36.0 js/bg-animation.js -c -m -o js/bg-animation.js
+
       - name: Deploy via lftp (FTP, explicit passive mode)
         env:
           FTP_SERVER: ${{ secrets.FTP_SERVER }}
