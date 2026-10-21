@@ -55,10 +55,14 @@ jobs:
           "
 
       - name: Clear PHP opcache on the live server
-        if: ${{ secrets.CACHE_RESET_TOKEN != '' }}
-        # Non-fatal: if this secret isn't set up yet, or the request fails
-        # for any reason, that should never fail the deploy itself -- the
-        # files are already uploaded either way.
+        # Non-fatal: if CACHE_RESET_TOKEN isn't set up yet, or the request
+        # fails for any reason, that should never fail the deploy itself --
+        # the files are already uploaded either way. (secrets aren't usable
+        # in an `if:` condition, so this just always runs and no-ops safely
+        # when the token is empty -- cache-reset.php itself rejects an
+        # empty/wrong token with a harmless 403.)
         continue-on-error: true
+        env:
+          CACHE_RESET_TOKEN: ${{ secrets.CACHE_RESET_TOKEN }}
         run: |
-          curl -fsS "https://wsdigitalmarketing.com.au/cache-reset.php?token=${{ secrets.CACHE_RESET_TOKEN }}" || true
+          curl -fsS "https://wsdigitalmarketing.com.au/cache-reset.php?token=${CACHE_RESET_TOKEN}" || true
