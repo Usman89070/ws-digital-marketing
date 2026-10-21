@@ -46,6 +46,23 @@ foreach ([1, 2, 3, 4] as $n) {
 $hasResults = (bool) $study['has_data'] || !empty($stats);
 $services = array_filter(array_map('trim', explode("\n", $study['services'] ?? '')), fn($s) => $s !== '');
 
+// Dedicated Search Console / Business Profile stat sections -- separate from
+// the combined "Results At A Glance" grid above, each only shows if the
+// admin has actually filled in at least one of its own values.
+$gscStats = [];
+if (($study['gsc_clicks'] ?? '') !== '') { $gscStats[] = [$study['gsc_clicks'], 'Organic Clicks']; }
+if (($study['gsc_impressions'] ?? '') !== '') { $gscStats[] = [$study['gsc_impressions'], 'Search Impressions']; }
+if (($study['gsc_ctr'] ?? '') !== '') { $gscStats[] = [$study['gsc_ctr'] . '%', 'Average CTR']; }
+if (($study['gsc_position'] ?? '') !== '') { $gscStats[] = [$study['gsc_position'], 'Average Position']; }
+$hasGsc = !empty($gscStats);
+
+$gbpStats = [];
+if (($study['gbp_interactions'] ?? '') !== '') { $gbpStats[] = [$study['gbp_interactions'], 'Total Interactions']; }
+if (($study['gbp_calls'] ?? '') !== '') { $gbpStats[] = [$study['gbp_calls'], 'Phone Calls']; }
+if (($study['gbp_directions'] ?? '') !== '') { $gbpStats[] = [$study['gbp_directions'], 'Direction Requests']; }
+if (($study['gbp_website_clicks'] ?? '') !== '') { $gbpStats[] = [$study['gbp_website_clicks'], 'Website Clicks']; }
+$hasGbp = !empty($gbpStats);
+
 // Both fall back to the project name/summary when the admin panel's
 // dedicated SEO fields are left blank, so existing case studies keep
 // working exactly as before without needing to be edited.
@@ -148,6 +165,54 @@ include 'header.php';
                 </div>
                 <?php endforeach; ?>
             </div>
+        </div>
+    </section>
+    <?php endif; ?>
+
+    <?php if ($hasGsc): ?>
+    <!-- GOOGLE SEARCH CONSOLE PERFORMANCE -->
+    <section class="stats-section fade-up">
+        <div class="container">
+            <div class="section-header">
+                <span class="eyebrow" style="color: var(--cyan-neon);">SEARCH CONSOLE DATA</span>
+                <h2 style="color: #fff; font-size: clamp(1.8rem, 4vw, 2.8rem);">Google Search Console Performance</h2>
+            </div>
+            <div class="stats-4-grid">
+                <?php foreach ($gscStats as [$value, $label]): ?>
+                <div class="stat-box">
+                    <div class="stat-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
+                    <h3><?php echo htmlspecialchars($value, ENT_QUOTES, 'UTF-8'); ?></h3>
+                    <p><?php echo htmlspecialchars($label, ENT_QUOTES, 'UTF-8'); ?></p>
+                </div>
+                <?php endforeach; ?>
+            </div>
+            <?php if ($study['gsc_image']): ?>
+            <img class="stats-proof-image" loading="lazy" decoding="async" src="<?php echo htmlspecialchars($study['gsc_image'], ENT_QUOTES, 'UTF-8'); ?>" alt="<?php echo htmlspecialchars($study['name'], ENT_QUOTES, 'UTF-8'); ?> Google Search Console performance" onerror="this.remove()">
+            <?php endif; ?>
+        </div>
+    </section>
+    <?php endif; ?>
+
+    <?php if ($hasGbp): ?>
+    <!-- GOOGLE BUSINESS PROFILE PERFORMANCE -->
+    <section class="stats-section fade-up">
+        <div class="container">
+            <div class="section-header">
+                <span class="eyebrow" style="color: var(--cyan-neon);">GOOGLE BUSINESS PROFILE DATA</span>
+                <h2 style="color: #fff; font-size: clamp(1.8rem, 4vw, 2.8rem);">Google Business Profile Performance</h2>
+            </div>
+            <div class="stats-4-grid">
+                <?php foreach ($gbpStats as [$value, $label]): ?>
+                <div class="stat-box">
+                    <div class="stat-icon"><i class="fa-solid fa-location-dot"></i></div>
+                    <h3><?php echo htmlspecialchars($value, ENT_QUOTES, 'UTF-8'); ?></h3>
+                    <p><?php echo htmlspecialchars($label, ENT_QUOTES, 'UTF-8'); ?></p>
+                </div>
+                <?php endforeach; ?>
+            </div>
+            <?php if ($study['gbp_image']): ?>
+            <img class="stats-proof-image" loading="lazy" decoding="async" src="<?php echo htmlspecialchars($study['gbp_image'], ENT_QUOTES, 'UTF-8'); ?>" alt="<?php echo htmlspecialchars($study['name'], ENT_QUOTES, 'UTF-8'); ?> Google Business Profile performance" onerror="this.remove()">
+            <?php endif; ?>
         </div>
     </section>
     <?php endif; ?>

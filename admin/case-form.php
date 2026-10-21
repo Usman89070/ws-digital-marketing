@@ -9,6 +9,8 @@ $study = [
     'stat1_value' => '', 'stat1_label' => '', 'stat2_value' => '', 'stat2_label' => '',
     'stat3_value' => '', 'stat3_label' => '', 'stat4_value' => '', 'stat4_label' => '',
     'display_order' => 0, 'meta_title' => '', 'meta_description' => '',
+    'gsc_clicks' => '', 'gsc_impressions' => '', 'gsc_ctr' => '', 'gsc_position' => '', 'gsc_image' => '',
+    'gbp_interactions' => '', 'gbp_calls' => '', 'gbp_directions' => '', 'gbp_website_clicks' => '', 'gbp_image' => '',
 ];
 $error = '';
 
@@ -53,6 +55,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
     $study['display_order'] = (int) ($_POST['display_order'] ?? 0);
+    $study['gsc_clicks'] = trim($_POST['gsc_clicks'] ?? '');
+    $study['gsc_impressions'] = trim($_POST['gsc_impressions'] ?? '');
+    $study['gsc_ctr'] = trim($_POST['gsc_ctr'] ?? '');
+    $study['gsc_position'] = trim($_POST['gsc_position'] ?? '');
+    $study['gsc_image'] = trim($_POST['gsc_image'] ?? '');
+    $study['gbp_interactions'] = trim($_POST['gbp_interactions'] ?? '');
+    $study['gbp_calls'] = trim($_POST['gbp_calls'] ?? '');
+    $study['gbp_directions'] = trim($_POST['gbp_directions'] ?? '');
+    $study['gbp_website_clicks'] = trim($_POST['gbp_website_clicks'] ?? '');
+    $study['gbp_image'] = trim($_POST['gbp_image'] ?? '');
     $imageUrl = trim($_POST['image_url'] ?? '');
 
     if ($study['name'] === '') {
@@ -87,13 +99,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $study['stat1_value'], $study['stat1_label'], $study['stat2_value'], $study['stat2_label'],
                 $study['stat3_value'], $study['stat3_label'], $study['stat4_value'], $study['stat4_label'],
                 $study['display_order'], $study['meta_title'], $study['meta_description'],
+                $study['gsc_clicks'], $study['gsc_impressions'], $study['gsc_ctr'], $study['gsc_position'], $study['gsc_image'],
+                $study['gbp_interactions'], $study['gbp_calls'], $study['gbp_directions'], $study['gbp_website_clicks'], $study['gbp_image'],
             ];
 
             if ($id) {
-                $stmt = $pdo->prepare('UPDATE case_studies SET name=?, slug=?, tag=?, image_path=?, image_alt=?, summary=?, services=?, has_data=?, period=?, stat1_value=?, stat1_label=?, stat2_value=?, stat2_label=?, stat3_value=?, stat3_label=?, stat4_value=?, stat4_label=?, display_order=?, meta_title=?, meta_description=? WHERE id=?');
+                $stmt = $pdo->prepare('UPDATE case_studies SET name=?, slug=?, tag=?, image_path=?, image_alt=?, summary=?, services=?, has_data=?, period=?, stat1_value=?, stat1_label=?, stat2_value=?, stat2_label=?, stat3_value=?, stat3_label=?, stat4_value=?, stat4_label=?, display_order=?, meta_title=?, meta_description=?, gsc_clicks=?, gsc_impressions=?, gsc_ctr=?, gsc_position=?, gsc_image=?, gbp_interactions=?, gbp_calls=?, gbp_directions=?, gbp_website_clicks=?, gbp_image=? WHERE id=?');
                 $stmt->execute([...$params, $id]);
             } else {
-                $stmt = $pdo->prepare('INSERT INTO case_studies (name, slug, tag, image_path, image_alt, summary, services, has_data, period, stat1_value, stat1_label, stat2_value, stat2_label, stat3_value, stat3_label, stat4_value, stat4_label, display_order, meta_title, meta_description) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)');
+                $stmt = $pdo->prepare('INSERT INTO case_studies (name, slug, tag, image_path, image_alt, summary, services, has_data, period, stat1_value, stat1_label, stat2_value, stat2_label, stat3_value, stat3_label, stat4_value, stat4_label, display_order, meta_title, meta_description, gsc_clicks, gsc_impressions, gsc_ctr, gsc_position, gsc_image, gbp_interactions, gbp_calls, gbp_directions, gbp_website_clicks, gbp_image) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)');
                 $stmt->execute($params);
             }
             header('Location: case-list.php?saved=1');
@@ -161,6 +175,28 @@ include __DIR__ . '/includes/layout-header.php';
                 <input type="text" name="stat<?php echo $n; ?>_label" placeholder="Label" value="<?php echo htmlspecialchars($study["stat{$n}_label"], ENT_QUOTES, 'UTF-8'); ?>">
             </div>
         <?php endforeach; ?>
+
+        <div class="hint" style="margin-top:24px; font-weight:700;">Google Search Console Performance (optional separate section, shown below the stats above)</div>
+        <div style="display:flex; gap:10px; margin-top:8px; flex-wrap:wrap;">
+            <input type="text" name="gsc_clicks" placeholder="Organic Clicks (e.g. 886)" value="<?php echo htmlspecialchars($study['gsc_clicks'], ENT_QUOTES, 'UTF-8'); ?>">
+            <input type="text" name="gsc_impressions" placeholder="Search Impressions (e.g. 152K)" value="<?php echo htmlspecialchars($study['gsc_impressions'], ENT_QUOTES, 'UTF-8'); ?>">
+        </div>
+        <div style="display:flex; gap:10px; margin-top:8px; flex-wrap:wrap;">
+            <input type="text" name="gsc_ctr" placeholder="Average CTR, no % sign (e.g. 0.6)" value="<?php echo htmlspecialchars($study['gsc_ctr'], ENT_QUOTES, 'UTF-8'); ?>">
+            <input type="text" name="gsc_position" placeholder="Average Position (e.g. 23.9)" value="<?php echo htmlspecialchars($study['gsc_position'], ENT_QUOTES, 'UTF-8'); ?>">
+        </div>
+        <input type="text" name="gsc_image" placeholder="/images/case-studies/your-screenshot.png (optional proof screenshot)" style="margin-top:8px;" value="<?php echo htmlspecialchars($study['gsc_image'], ENT_QUOTES, 'UTF-8'); ?>">
+
+        <div class="hint" style="margin-top:24px; font-weight:700;">Google Business Profile Performance (optional separate section)</div>
+        <div style="display:flex; gap:10px; margin-top:8px; flex-wrap:wrap;">
+            <input type="text" name="gbp_interactions" placeholder="Total Interactions (e.g. 533)" value="<?php echo htmlspecialchars($study['gbp_interactions'], ENT_QUOTES, 'UTF-8'); ?>">
+            <input type="text" name="gbp_calls" placeholder="Phone Calls (e.g. 135)" value="<?php echo htmlspecialchars($study['gbp_calls'], ENT_QUOTES, 'UTF-8'); ?>">
+        </div>
+        <div style="display:flex; gap:10px; margin-top:8px; flex-wrap:wrap;">
+            <input type="text" name="gbp_directions" placeholder="Direction Requests (e.g. 254)" value="<?php echo htmlspecialchars($study['gbp_directions'], ENT_QUOTES, 'UTF-8'); ?>">
+            <input type="text" name="gbp_website_clicks" placeholder="Website Clicks (e.g. 131)" value="<?php echo htmlspecialchars($study['gbp_website_clicks'], ENT_QUOTES, 'UTF-8'); ?>">
+        </div>
+        <input type="text" name="gbp_image" placeholder="/images/case-studies/your-screenshot.png (optional proof screenshot)" style="margin-top:8px;" value="<?php echo htmlspecialchars($study['gbp_image'], ENT_QUOTES, 'UTF-8'); ?>">
 
         <label for="display_order" style="margin-top:20px;">Display Order (lower numbers appear first)</label>
         <input type="number" id="display_order" name="display_order" value="<?php echo (int) $study['display_order']; ?>">
