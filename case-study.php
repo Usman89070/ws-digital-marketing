@@ -109,7 +109,7 @@ include 'header.php';
         <div class="container">
             <div class="agency-grid case-study-feature">
                 <div class="agency-image-wrapper">
-                    <img loading="lazy" decoding="async" src="<?php echo htmlspecialchars($study['image_path'], ENT_QUOTES, 'UTF-8'); ?>" alt="<?php echo htmlspecialchars($study['image_alt'], ENT_QUOTES, 'UTF-8'); ?>">
+                    <img loading="lazy" decoding="async" src="<?php echo htmlspecialchars($study['image_path'], ENT_QUOTES, 'UTF-8'); ?>" alt="<?php echo htmlspecialchars($study['image_alt'], ENT_QUOTES, 'UTF-8'); ?>" onerror="this.remove()">
                 </div>
                 <div class="agency-text">
                     <span class="eyebrow">
@@ -164,7 +164,7 @@ include 'header.php';
                 <article class="case-card">
                     <div class="case-image">
                         <span class="case-tag"><?php echo htmlspecialchars($item['tag'], ENT_QUOTES, 'UTF-8'); ?></span>
-                        <img loading="lazy" decoding="async" src="<?php echo htmlspecialchars($item['image_path'], ENT_QUOTES, 'UTF-8'); ?>" alt="<?php echo htmlspecialchars($item['image_alt'], ENT_QUOTES, 'UTF-8'); ?>">
+                        <img loading="lazy" decoding="async" src="<?php echo htmlspecialchars($item['image_path'], ENT_QUOTES, 'UTF-8'); ?>" alt="<?php echo htmlspecialchars($item['image_alt'], ENT_QUOTES, 'UTF-8'); ?>" onerror="this.remove()">
                         <h3><?php echo htmlspecialchars(strtoupper($item['name']), ENT_QUOTES, 'UTF-8'); ?></h3>
                     </div>
                     <div class="case-content">
