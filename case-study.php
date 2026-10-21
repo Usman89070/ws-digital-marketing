@@ -148,27 +148,6 @@ include 'header.php';
         </div>
     </section>
 
-    <?php if ($hasResults): ?>
-    <!-- RESULTS AT A GLANCE -->
-    <section class="stats-section fade-up">
-        <div class="container">
-            <div class="section-header">
-                <span class="eyebrow" style="color: var(--cyan-neon);">RESULTS AT A GLANCE</span>
-                <h2 style="color: #fff; font-size: clamp(1.8rem, 4vw, 2.8rem);">Real Numbers, Verified From Search Console &amp; GBP</h2>
-            </div>
-            <div class="stats-4-grid">
-                <?php foreach ($stats as [$value, $label]): ?>
-                <div class="stat-box">
-                    <div class="stat-icon"><i class="fa-solid fa-arrow-trend-up"></i></div>
-                    <h3><?php echo htmlspecialchars($value, ENT_QUOTES, 'UTF-8'); ?></h3>
-                    <p><?php echo htmlspecialchars($label, ENT_QUOTES, 'UTF-8'); ?></p>
-                </div>
-                <?php endforeach; ?>
-            </div>
-        </div>
-    </section>
-    <?php endif; ?>
-
     <?php if ($hasGsc): ?>
     <!-- GOOGLE SEARCH CONSOLE PERFORMANCE -->
     <section class="stats-section fade-up">
