@@ -21,7 +21,7 @@ SET @col_exists = (
     WHERE TABLE_SCHEMA = DATABASE() AND TABLE_NAME = 'case_studies' AND COLUMN_NAME = 'gsc_clicks'
 );
 SET @sql = IF(@col_exists = 0,
-    'ALTER TABLE case_studies ADD COLUMN gsc_clicks VARCHAR(50) DEFAULT ''',
+    'ALTER TABLE case_studies ADD COLUMN gsc_clicks VARCHAR(50) DEFAULT ''''',
     'SELECT ''gsc_clicks already exists, skipping'''
 );
 PREPARE stmt FROM @sql;
@@ -33,7 +33,7 @@ SET @col_exists = (
     WHERE TABLE_SCHEMA = DATABASE() AND TABLE_NAME = 'case_studies' AND COLUMN_NAME = 'gsc_impressions'
 );
 SET @sql = IF(@col_exists = 0,
-    'ALTER TABLE case_studies ADD COLUMN gsc_impressions VARCHAR(50) DEFAULT ''',
+    'ALTER TABLE case_studies ADD COLUMN gsc_impressions VARCHAR(50) DEFAULT ''''',
     'SELECT ''gsc_impressions already exists, skipping'''
 );
 PREPARE stmt FROM @sql;
@@ -45,7 +45,7 @@ SET @col_exists = (
     WHERE TABLE_SCHEMA = DATABASE() AND TABLE_NAME = 'case_studies' AND COLUMN_NAME = 'gsc_ctr'
 );
 SET @sql = IF(@col_exists = 0,
-    'ALTER TABLE case_studies ADD COLUMN gsc_ctr VARCHAR(20) DEFAULT ''',
+    'ALTER TABLE case_studies ADD COLUMN gsc_ctr VARCHAR(20) DEFAULT ''''',
     'SELECT ''gsc_ctr already exists, skipping'''
 );
 PREPARE stmt FROM @sql;
@@ -57,7 +57,7 @@ SET @col_exists = (
     WHERE TABLE_SCHEMA = DATABASE() AND TABLE_NAME = 'case_studies' AND COLUMN_NAME = 'gsc_position'
 );
 SET @sql = IF(@col_exists = 0,
-    'ALTER TABLE case_studies ADD COLUMN gsc_position VARCHAR(20) DEFAULT ''',
+    'ALTER TABLE case_studies ADD COLUMN gsc_position VARCHAR(20) DEFAULT ''''',
     'SELECT ''gsc_position already exists, skipping'''
 );
 PREPARE stmt FROM @sql;
@@ -69,7 +69,7 @@ SET @col_exists = (
     WHERE TABLE_SCHEMA = DATABASE() AND TABLE_NAME = 'case_studies' AND COLUMN_NAME = 'gsc_image'
 );
 SET @sql = IF(@col_exists = 0,
-    'ALTER TABLE case_studies ADD COLUMN gsc_image VARCHAR(255) DEFAULT ''',
+    'ALTER TABLE case_studies ADD COLUMN gsc_image VARCHAR(255) DEFAULT ''''',
     'SELECT ''gsc_image already exists, skipping'''
 );
 PREPARE stmt FROM @sql;
@@ -81,7 +81,7 @@ SET @col_exists = (
     WHERE TABLE_SCHEMA = DATABASE() AND TABLE_NAME = 'case_studies' AND COLUMN_NAME = 'gbp_interactions'
 );
 SET @sql = IF(@col_exists = 0,
-    'ALTER TABLE case_studies ADD COLUMN gbp_interactions VARCHAR(50) DEFAULT ''',
+    'ALTER TABLE case_studies ADD COLUMN gbp_interactions VARCHAR(50) DEFAULT ''''',
     'SELECT ''gbp_interactions already exists, skipping'''
 );
 PREPARE stmt FROM @sql;
@@ -93,7 +93,7 @@ SET @col_exists = (
     WHERE TABLE_SCHEMA = DATABASE() AND TABLE_NAME = 'case_studies' AND COLUMN_NAME = 'gbp_calls'
 );
 SET @sql = IF(@col_exists = 0,
-    'ALTER TABLE case_studies ADD COLUMN gbp_calls VARCHAR(50) DEFAULT ''',
+    'ALTER TABLE case_studies ADD COLUMN gbp_calls VARCHAR(50) DEFAULT ''''',
     'SELECT ''gbp_calls already exists, skipping'''
 );
 PREPARE stmt FROM @sql;
@@ -105,7 +105,7 @@ SET @col_exists = (
     WHERE TABLE_SCHEMA = DATABASE() AND TABLE_NAME = 'case_studies' AND COLUMN_NAME = 'gbp_directions'
 );
 SET @sql = IF(@col_exists = 0,
-    'ALTER TABLE case_studies ADD COLUMN gbp_directions VARCHAR(50) DEFAULT ''',
+    'ALTER TABLE case_studies ADD COLUMN gbp_directions VARCHAR(50) DEFAULT ''''',
     'SELECT ''gbp_directions already exists, skipping'''
 );
 PREPARE stmt FROM @sql;
@@ -117,7 +117,7 @@ SET @col_exists = (
     WHERE TABLE_SCHEMA = DATABASE() AND TABLE_NAME = 'case_studies' AND COLUMN_NAME = 'gbp_website_clicks'
 );
 SET @sql = IF(@col_exists = 0,
-    'ALTER TABLE case_studies ADD COLUMN gbp_website_clicks VARCHAR(50) DEFAULT ''',
+    'ALTER TABLE case_studies ADD COLUMN gbp_website_clicks VARCHAR(50) DEFAULT ''''',
     'SELECT ''gbp_website_clicks already exists, skipping'''
 );
 PREPARE stmt FROM @sql;
@@ -129,7 +129,7 @@ SET @col_exists = (
     WHERE TABLE_SCHEMA = DATABASE() AND TABLE_NAME = 'case_studies' AND COLUMN_NAME = 'gbp_image'
 );
 SET @sql = IF(@col_exists = 0,
-    'ALTER TABLE case_studies ADD COLUMN gbp_image VARCHAR(255) DEFAULT ''',
+    'ALTER TABLE case_studies ADD COLUMN gbp_image VARCHAR(255) DEFAULT ''''',
     'SELECT ''gbp_image already exists, skipping'''
 );
 PREPARE stmt FROM @sql;
