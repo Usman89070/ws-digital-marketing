@@ -1,12 +1,27 @@
-name: Clean Up Exposed .git/.github (FTP)
+name: Clean Up Stray Files On Live Server (FTP)
 
-# One-off / as-needed manual job. An earlier version of deploy.yml's
-# --exclude-glob patterns (".git*", ".github") didn't actually prune those
-# directories in lftp (a glob needs a trailing slash to match a directory
-# for pruning), so every past deploy uploaded the full .git and .github
-# folders into public_html, publicly reachable over HTTP. deploy.yml is
-# already fixed to exclude them correctly going forward; this removes the
-# copies that are already sitting on the live server from past deploys.
+# One-off / as-needed manual job. Removes three categories of leftover
+# cruft from public_html, none of which should still be there:
+#
+# 1. .git and .github -- an earlier version of deploy.yml's --exclude-glob
+#    patterns (".git*", ".github") didn't actually prune those directories
+#    in lftp (a glob needs a trailing slash to match a directory for
+#    pruning), so every deploy before that fix uploaded the full folders
+#    into public_html, publicly reachable over HTTP.
+#
+# 2. home/ -- every deploy.yml/cleanup/compress run before the FTP target
+#    directory fix re-prefixed the already-chrooted FTP session with the
+#    full FTP_SERVER_DIR absolute path, which lftp resolved into a bogus
+#    nested public_html/home/u446606276/domains/.../public_html/ directory
+#    and silently wrote everything there for roughly a week instead of the
+#    real document root. Confirmed via Hostinger File Manager.
+#
+# 3. sitemap.xml -- a static leftover file (not part of this repo, which
+#    only has sitemap.php) that was shadowing the intended
+#    /sitemap.xml -> sitemap.php rewrite rule: Apache serves a real
+#    existing file before considering rewrite rules for that same path, so
+#    visitors and search engines were getting this stale file instead of
+#    the live, database-driven sitemap.
 on:
   workflow_dispatch: {}
 
@@ -19,17 +34,16 @@ jobs:
           sudo apt-get update -qq
           sudo apt-get install -y -qq lftp
 
-      - name: Remove .git and .github from the live server
+      - name: Remove stray files/folders from the live server
         env:
           FTP_SERVER: ${{ secrets.FTP_SERVER }}
           FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
           FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
         run: |
           # No "cd" to FTP_SERVER_DIR -- this FTP account already logs in
-          # chrooted into public_html, so cd-ing there again landed in a
-          # bogus nested public_html/home/.../public_html/ directory
-          # instead of the real document root (see deploy.yml for the full
-          # story). Operates directly on the session's own root.
+          # chrooted into public_html, so cd-ing there again landed in the
+          # bogus nested directory described above. Operates directly on
+          # the session's own root.
           lftp -c "
             set ftp:ssl-allow no;
             set ftp:passive-mode true;
@@ -39,4 +53,6 @@ jobs:
             open -u \"$FTP_USERNAME\",\"$FTP_PASSWORD\" \"$FTP_SERVER\";
             rm -rf .git;
             rm -rf .github;
+            rm -rf home;
+            rm -f sitemap.xml;
           "
