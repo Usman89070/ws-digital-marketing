@@ -102,7 +102,7 @@ include 'header.php';
                                 </div>
                                 <div>
                                     <h5 style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); font-weight: 700; margin-bottom: 2px; letter-spacing: 1px;">Call Us</h5>
-                                    <a href="tel:1300123456" style="color: var(--navy); font-weight: 700; font-size: 1.05rem; text-decoration: none; transition: color 0.3s;">1300 123 456</a>
+                                    <a href="tel:+61403889630" style="color: var(--navy); font-weight: 700; font-size: 1.05rem; text-decoration: none; transition: color 0.3s;">+61 403 889 630</a>
                                 </div>
                             </li>
                             
