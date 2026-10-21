@@ -1,4 +1,6 @@
-<!-- PREMIUM FOOTER -->
+    </main>
+
+    <!-- PREMIUM FOOTER -->
 
     <footer>
         <div class="container">
@@ -20,7 +22,7 @@
                 
                 <!-- Quick Links -->
                 <div>
-                    <h4 class="footer-heading">Company</h4>
+                    <h3 class="footer-heading">Company</h3>
                     <ul class="footer-links">
                         <li><a href="/">Home</a></li>
                         <li><a href="/about">About Us</a></li>
@@ -37,7 +39,7 @@
 
                 <!-- Services -->
                 <div>
-                    <h4 class="footer-heading">Services</h4>
+                    <h3 class="footer-heading">Services</h3>
                     <ul class="footer-links">
                         <li><a href="/seo">Search Engine Optimisation</a></li>
                         <li><a href="/ecommerce">Ecommerce</a></li>
@@ -51,7 +53,7 @@
 
                 <!-- Contact -->
                 <div>
-                    <h4 class="footer-heading">Get In Touch</h4>
+                    <h3 class="footer-heading">Get In Touch</h3>
                     <ul class="footer-contact">
                         <li><i class="fa-solid fa-phone"></i> <a href="tel:+61403889630"><span>+61 403 889 630</span></a></li>
                         <li><i class="fa-solid fa-envelope"></i> <a href="mailto:info@wsdigitalmarketing.com.au"><span>info@wsdigitalmarketing.com.au</span></a></li>

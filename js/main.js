@@ -103,11 +103,13 @@ if (window.matchMedia('(hover: none)').matches) {
             const wrapEl = document.querySelector('.nav-wrapper');
             const rollEdge = document.getElementById('navRollEdge');
             const header = document.querySelector('header');
+            const toggleBtn = document.querySelector('.mobile-btn');
             const toggleIcon = document.querySelector('.mobile-btn i');
             const isOpening = !menu.classList.contains('active');
             const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
             if (toggleIcon) toggleIcon.className = isOpening ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
+            if (toggleBtn) toggleBtn.setAttribute('aria-expanded', String(isOpening));
             if (navRollTween) navRollTween.kill();
 
             const finishClose = () => {

@@ -67,11 +67,15 @@ $canonical_url = 'https://wsdigitalmarketing.com.au' . $canonical_path;
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"></noscript>
 
-    <!-- Google Fonts (already using font-display: swap so text never waits on it) -->
-    <!-- Only the weights actually used anywhere in css/style.css or inline styles
+    <!-- Google Fonts: loaded non-render-blocking the same way as FontAwesome above
+         (font-display: swap already means text never waits on the font file itself,
+         but the stylesheet request was still blocking first paint until this). Only
+         the weights actually used anywhere in css/style.css or inline styles
          (400/500/600/700/800) -- 300 was requested but never referenced, so
          dropping it removes one whole font-file fetch for every visitor. -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
 
     <?php if (!empty($extra_head)) echo $extra_head; ?>
 </head>
@@ -154,6 +158,8 @@ $canonical_url = 'https://wsdigitalmarketing.com.au' . $canonical_path;
             </div>
             
             <!-- Mobile Menu Button -->
-            <button class="mobile-btn" onclick="toggleMenu()"><i class="fa-solid fa-bars"></i></button>
+            <button class="mobile-btn" onclick="toggleMenu()" aria-label="Toggle menu" aria-expanded="false" aria-controls="navMenu"><i class="fa-solid fa-bars"></i></button>
         </div>
     </header>
+
+    <main>
