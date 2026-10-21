@@ -24,8 +24,12 @@ jobs:
           FTP_SERVER: ${{ secrets.FTP_SERVER }}
           FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
           FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
-          FTP_SERVER_DIR: ${{ secrets.FTP_SERVER_DIR }}
         run: |
+          # No "cd" to FTP_SERVER_DIR -- this FTP account already logs in
+          # chrooted into public_html, so cd-ing there again landed in a
+          # bogus nested public_html/home/.../public_html/ directory
+          # instead of the real document root (see deploy.yml for the full
+          # story). Operates directly on the session's own root.
           lftp -c "
             set ftp:ssl-allow no;
             set ftp:passive-mode true;
@@ -33,7 +37,6 @@ jobs:
             set net:reconnect-interval-base 5;
             set net:timeout 30;
             open -u \"$FTP_USERNAME\",\"$FTP_PASSWORD\" \"$FTP_SERVER\";
-            cd \"$FTP_SERVER_DIR\";
             rm -rf .git;
             rm -rf .github;
           "

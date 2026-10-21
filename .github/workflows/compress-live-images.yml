@@ -26,8 +26,13 @@ jobs:
           FTP_SERVER: ${{ secrets.FTP_SERVER }}
           FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
           FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
-          FTP_SERVER_DIR: ${{ secrets.FTP_SERVER_DIR }}
         run: |
+          # Paths are relative to the FTP session's own root (this account
+          # logs in chrooted into public_html already) -- prefixing
+          # FTP_SERVER_DIR here previously landed in a bogus nested
+          # public_html/home/.../public_html/images/... directory instead
+          # of the real one (see deploy.yml for the full story), so this
+          # job's "compression" never actually touched the live images.
           mkdir -p live-images
           lftp -c "
             set ftp:ssl-allow no;
@@ -36,9 +41,9 @@ jobs:
             set net:reconnect-interval-base 5;
             set net:timeout 30;
             open -u \"$FTP_USERNAME\",\"$FTP_PASSWORD\" \"$FTP_SERVER\";
-            mirror \"${FTP_SERVER_DIR}images/case-studies\" live-images/case-studies;
-            mirror \"${FTP_SERVER_DIR}images/blog\" live-images/blog;
-            mirror \"${FTP_SERVER_DIR}images/team\" live-images/team;
+            mirror images/case-studies live-images/case-studies;
+            mirror images/blog live-images/blog;
+            mirror images/team live-images/team;
           "
           find live-images -type f | wc -l
 
@@ -57,7 +62,6 @@ jobs:
           FTP_SERVER: ${{ secrets.FTP_SERVER }}
           FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
           FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
-          FTP_SERVER_DIR: ${{ secrets.FTP_SERVER_DIR }}
         run: |
           lftp -c "
             set ftp:ssl-allow no;
@@ -66,7 +70,7 @@ jobs:
             set net:reconnect-interval-base 5;
             set net:timeout 30;
             open -u \"$FTP_USERNAME\",\"$FTP_PASSWORD\" \"$FTP_SERVER\";
-            mirror --reverse --verbose live-images/case-studies \"${FTP_SERVER_DIR}images/case-studies\";
-            mirror --reverse --verbose live-images/blog \"${FTP_SERVER_DIR}images/blog\";
-            mirror --reverse --verbose live-images/team \"${FTP_SERVER_DIR}images/team\";
+            mirror --reverse --verbose live-images/case-studies images/case-studies;
+            mirror --reverse --verbose live-images/blog images/blog;
+            mirror --reverse --verbose live-images/team images/team;
           "
