@@ -97,6 +97,51 @@ if (window.matchMedia('(hover: none)').matches) {
             });
         }
 
+        // Lightbox for case study proof-gallery screenshots (case-study.php) --
+        // event delegation on document so it needs no per-image listeners and
+        // still works regardless of how many proof images a given page has.
+        const lightbox = document.getElementById('imageLightbox');
+        if (lightbox) {
+            const lightboxImg = lightbox.querySelector('img');
+            const lightboxCaption = lightbox.querySelector('.image-lightbox-caption');
+            let lightboxReturnFocus = null;
+
+            const openLightbox = (img) => {
+                lightboxReturnFocus = img;
+                lightboxImg.src = img.currentSrc || img.src;
+                lightboxImg.alt = img.alt || '';
+                lightboxCaption.textContent = img.closest('figure')?.querySelector('figcaption')?.textContent || '';
+                lightbox.classList.add('is-open');
+                lightbox.setAttribute('aria-hidden', 'false');
+                document.body.style.overflow = 'hidden';
+            };
+            const closeLightbox = () => {
+                lightbox.classList.remove('is-open');
+                lightbox.setAttribute('aria-hidden', 'true');
+                document.body.style.overflow = '';
+                if (lightboxReturnFocus) lightboxReturnFocus.focus({ preventScroll: true });
+            };
+
+            document.addEventListener('click', (e) => {
+                const img = e.target.closest('.proof-gallery-item img');
+                if (img) openLightbox(img);
+            });
+            document.addEventListener('keydown', (e) => {
+                const img = e.target.closest('.proof-gallery-item img');
+                if (img && (e.key === 'Enter' || e.key === ' ')) {
+                    e.preventDefault();
+                    openLightbox(img);
+                }
+            });
+            lightbox.querySelector('.image-lightbox-close').addEventListener('click', closeLightbox);
+            lightbox.addEventListener('click', (e) => {
+                if (e.target === lightbox) closeLightbox();
+            });
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && lightbox.classList.contains('is-open')) closeLightbox();
+            });
+        }
+
         let navRollTween = null;
         function toggleMenu() {
             const menu = document.getElementById('navMenu');

@@ -185,7 +185,7 @@ include 'header.php';
             <div class="proof-gallery">
                 <?php foreach ($gscGallery as [$imgPath, $caption]): ?>
                 <figure class="proof-gallery-item">
-                    <img loading="lazy" decoding="async" src="<?php echo htmlspecialchars($imgPath, ENT_QUOTES, 'UTF-8'); ?>" alt="<?php echo htmlspecialchars($study['name'], ENT_QUOTES, 'UTF-8'); ?> &ndash; <?php echo htmlspecialchars($caption, ENT_QUOTES, 'UTF-8'); ?>" onerror="this.closest('figure').remove()">
+                    <img loading="lazy" decoding="async" src="<?php echo htmlspecialchars($imgPath, ENT_QUOTES, 'UTF-8'); ?>" alt="<?php echo htmlspecialchars($study['name'], ENT_QUOTES, 'UTF-8'); ?> &ndash; <?php echo htmlspecialchars($caption, ENT_QUOTES, 'UTF-8'); ?>" onerror="this.closest('figure').remove()" tabindex="0" role="button" aria-haspopup="dialog">
                     <figcaption><?php echo htmlspecialchars($caption, ENT_QUOTES, 'UTF-8'); ?></figcaption>
                 </figure>
                 <?php endforeach; ?>
@@ -216,7 +216,7 @@ include 'header.php';
             <div class="proof-gallery">
                 <?php foreach ($gbpGallery as [$imgPath, $caption]): ?>
                 <figure class="proof-gallery-item">
-                    <img loading="lazy" decoding="async" src="<?php echo htmlspecialchars($imgPath, ENT_QUOTES, 'UTF-8'); ?>" alt="<?php echo htmlspecialchars($study['name'], ENT_QUOTES, 'UTF-8'); ?> &ndash; <?php echo htmlspecialchars($caption, ENT_QUOTES, 'UTF-8'); ?>" onerror="this.closest('figure').remove()">
+                    <img loading="lazy" decoding="async" src="<?php echo htmlspecialchars($imgPath, ENT_QUOTES, 'UTF-8'); ?>" alt="<?php echo htmlspecialchars($study['name'], ENT_QUOTES, 'UTF-8'); ?> &ndash; <?php echo htmlspecialchars($caption, ENT_QUOTES, 'UTF-8'); ?>" onerror="this.closest('figure').remove()" tabindex="0" role="button" aria-haspopup="dialog">
                     <figcaption><?php echo htmlspecialchars($caption, ENT_QUOTES, 'UTF-8'); ?></figcaption>
                 </figure>
                 <?php endforeach; ?>
@@ -278,5 +278,12 @@ include 'header.php';
             </div>
         </div>
     </section>
+
+    <!-- Lightbox for proof-gallery screenshots -- markup populated by JS on click -->
+    <div class="image-lightbox" id="imageLightbox" role="dialog" aria-modal="true" aria-label="Enlarged screenshot" aria-hidden="true">
+        <button type="button" class="image-lightbox-close" aria-label="Close">&times;</button>
+        <img src="" alt="">
+        <p class="image-lightbox-caption"></p>
+    </div>
 
 <?php include 'footer.php'; ?>

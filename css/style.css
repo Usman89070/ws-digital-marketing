@@ -506,8 +506,16 @@
         .stat-box p { font-size: clamp(0.85rem, 1.5vw, 1rem); color: rgba(255,255,255,0.8); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
         .proof-gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 24px; margin: 36px auto 0; max-width: 1040px; position: relative; z-index: 2; }
         .proof-gallery-item { margin: 0; }
-        .proof-gallery-item img { display: block; width: 100%; border-radius: 12px; border: 1px solid rgba(255,255,255,0.15); box-shadow: 0 16px 32px rgba(0,0,0,0.35); }
+        .proof-gallery-item img { display: block; width: 100%; border-radius: 12px; border: 1px solid rgba(255,255,255,0.15); box-shadow: 0 16px 32px rgba(0,0,0,0.35); cursor: zoom-in; transition: transform 0.25s ease, box-shadow 0.25s ease; }
+        .proof-gallery-item img:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(0,0,0,0.45); }
         .proof-gallery-item figcaption { margin-top: 10px; text-align: center; font-size: 0.85rem; font-weight: 600; color: rgba(255,255,255,0.75); text-transform: uppercase; letter-spacing: 0.5px; }
+
+        .image-lightbox { display: none; position: fixed; inset: 0; z-index: 2000; background: rgba(5, 8, 20, 0.92); padding: 40px 20px; align-items: center; justify-content: center; flex-direction: column; cursor: zoom-out; }
+        .image-lightbox.is-open { display: flex; }
+        .image-lightbox img { max-width: min(92vw, 1100px); max-height: 80vh; width: auto; border-radius: 12px; box-shadow: 0 30px 60px rgba(0,0,0,0.5); cursor: default; }
+        .image-lightbox-caption { margin-top: 16px; color: #fff; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; font-size: 0.95rem; text-align: center; }
+        .image-lightbox-close { position: absolute; top: 20px; right: 24px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.25); color: #fff; width: 44px; height: 44px; border-radius: 50%; font-size: 1.6rem; line-height: 1; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.2s ease; }
+        .image-lightbox-close:hover { background: rgba(255,255,255,0.2); }
 
         /* === UPGRADED SERVICES SECTION === */
         .services-section {
