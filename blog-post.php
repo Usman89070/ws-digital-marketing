@@ -12,6 +12,25 @@ try {
     $post = null;
 }
 
+// An old or hand-written link to a post whose slug has since changed (e.g.
+// re-saved from the admin with a new title): if exactly one published post
+// starts with the same first few words, send visitors there permanently
+// instead of showing "Not Found".
+if (!$post && $slug !== '') {
+    $leadWords = implode('-', array_slice(explode('-', $slug), 0, 4));
+    try {
+        $stmt = get_db()->prepare('SELECT slug FROM blog_posts WHERE is_published = 1 AND slug LIKE ?');
+        $stmt->execute([str_replace(['%', '_'], ['\\%', '\\_'], $leadWords) . '%']);
+        $matches = $stmt->fetchAll(PDO::FETCH_COLUMN);
+    } catch (PDOException $e) {
+        $matches = [];
+    }
+    if (count($matches) === 1 && $matches[0] !== $slug) {
+        header('Location: /blog/' . rawurlencode($matches[0]), true, 301);
+        exit;
+    }
+}
+
 if (!$post) {
     header('HTTP/1.0 404 Not Found');
     $page_title = 'Post Not Found';
