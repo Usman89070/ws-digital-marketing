@@ -227,7 +227,7 @@ INSERT INTO blog_posts (title, slug, category, excerpt, content, image_path, is_
 <p>W&amp;S Digital Marketing helps automotive businesses improve local visibility, present their services clearly and make online enquiries easier.</p>
 <p>Whether your workshop needs clearer service pages, Google Business Profile improvements or a review of its booking journey, we can help identify practical next steps. Explore our <a href="/automotive">automotive digital marketing services</a> or <a href="/contact">get in touch</a> to talk about your workshop.</p>
 ',
-    '',
+    '/images/industries/automotive.webp',
     1,
     'Local SEO for Mechanics',
     'Help nearby drivers find your workshop with practical local SEO tips for mechanics, covering Google Business Profile, reviews, service pages and booking enquiries.'
