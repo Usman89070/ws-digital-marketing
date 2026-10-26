@@ -1,8 +1,16 @@
 <?php
 require_once __DIR__ . '/includes/auth.php';
+require_once __DIR__ . '/../includes/case-study-helpers.php';
 $page_title = 'Case Studies';
 $pdo = get_db();
-$studies = $pdo->query('SELECT id, name, tag, image_path, has_data, display_order FROM case_studies ORDER BY display_order ASC, name ASC')->fetchAll();
+try {
+    $studies = $pdo->query('SELECT id, name, tag, image_path, has_data, display_order, related_services FROM case_studies ORDER BY display_order ASC, name ASC')->fetchAll();
+    $hasRelatedServices = true;
+} catch (PDOException $e) {
+    // related_services column not added yet -- list still works without it.
+    $studies = $pdo->query('SELECT id, name, tag, image_path, has_data, display_order FROM case_studies ORDER BY display_order ASC, name ASC')->fetchAll();
+    $hasRelatedServices = false;
+}
 
 include __DIR__ . '/includes/layout-header.php';
 ?>
@@ -25,13 +33,14 @@ include __DIR__ . '/includes/layout-header.php';
             <th>Name</th>
             <th>Tag</th>
             <th>Results Data</th>
+            <th>Shown On Service Pages</th>
             <th>Order</th>
             <th></th>
         </tr>
     </thead>
     <tbody>
         <?php if (!$studies): ?>
-            <tr><td colspan="6">No case studies yet.</td></tr>
+            <tr><td colspan="7">No case studies yet.</td></tr>
         <?php endif; ?>
         <?php foreach ($studies as $study): ?>
             <tr>
@@ -39,6 +48,18 @@ include __DIR__ . '/includes/layout-header.php';
                 <td><?php echo htmlspecialchars($study['name'], ENT_QUOTES, 'UTF-8'); ?></td>
                 <td><?php echo htmlspecialchars($study['tag'], ENT_QUOTES, 'UTF-8'); ?></td>
                 <td><?php echo $study['has_data'] ? 'Yes' : 'Scope only'; ?></td>
+                <td>
+                    <?php
+                    $shownOn = $hasRelatedServices ? parse_related_services($study['related_services']) : [];
+                    if (!$hasRelatedServices) {
+                        echo '&mdash;';
+                    } elseif (!$shownOn) {
+                        echo 'Case Studies page only';
+                    } else {
+                        echo htmlspecialchars(implode(', ', array_map(fn($s) => CASE_STUDY_SERVICE_PAGES[$s], $shownOn)), ENT_QUOTES, 'UTF-8');
+                    }
+                    ?>
+                </td>
                 <td><?php echo (int) $study['display_order']; ?></td>
                 <td>
                     <a href="case-form.php?id=<?php echo (int) $study['id']; ?>" class="btn btn-secondary btn-sm">Edit</a>

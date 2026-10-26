@@ -121,6 +121,7 @@ CREATE TABLE IF NOT EXISTS case_studies (
     gbp_directions VARCHAR(50) DEFAULT '', gbp_directions_image VARCHAR(255) DEFAULT '',
     gbp_website_clicks VARCHAR(50) DEFAULT '', gbp_website_image VARCHAR(255) DEFAULT '', gbp_image VARCHAR(255) DEFAULT '',
     gbp_extra_label VARCHAR(100) DEFAULT '', gbp_extra_value VARCHAR(50) DEFAULT '', gbp_extra_image VARCHAR(255) DEFAULT '',
+    related_services VARCHAR(255) NOT NULL DEFAULT '',
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;

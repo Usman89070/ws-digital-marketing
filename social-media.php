@@ -148,6 +148,12 @@ include 'header.php';
         </div>
     </section>
 
+    <?php
+    $relatedServiceSlug = 'social-media';
+    $relatedHeading = 'Explore Our Social Media Work';
+    include __DIR__ . '/includes/related-case-studies-section.php';
+    ?>
+
     <!-- FINAL CTA -->
     <section class="cta-section" id="contact">
         <div class="container">

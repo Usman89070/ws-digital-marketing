@@ -1,5 +1,33 @@
 <?php
 require_once __DIR__ . '/includes/cta-form-handler.php';
+require_once __DIR__ . '/config.php';
+require_once __DIR__ . '/includes/case-study-helpers.php';
+
+// Reporting period shown in the laptop dashboard chip, the mobile overview
+// chip and under the "Combined Results From Our Client Work" heading --
+// change it here only.
+$statsPeriod = 'May - Sept 2026';
+
+// Every case study's "Results At A Glance" stats combined, read live from
+// the database on each page load -- adding, editing or deleting a case
+// study (or its stats) in the admin updates every number below with no
+// code change. The headline four feed the scatter boxes, laptop cards and
+// mobile overview; the full list feeds the Combined Results section.
+$combinedStats = fetch_all_combined_stats();
+$headlineStats = array_slice($combinedStats, 0, 4);
+$hasRealStats = count($headlineStats) > 0;
+if (!$hasRealStats) {
+    // Fallback only -- shown when the database is unreachable or no case
+    // study has stats yet.
+    $headlineStats = [
+        ['2.71K', 'Total Clicks'],
+        ['71.9K', 'Total Impressions'],
+        ['3.8%', 'Average CTR'],
+        ['12.5', 'Average Position'],
+    ];
+}
+$dashTitle = $hasRealStats ? 'Combined Client Results' : 'SEO Ranking Results';
+$scatterIcons = ['fa-arrow-trend-up', 'fa-chart-column', 'fa-bullseye', 'fa-trophy'];
 
 $page_title = 'Digital Marketing Agency Australia';
 $page_description = 'Grow your Australian business with SEO, Google Ads, social media and website design from W&S Digital Marketing. Request your free growth plan today.';
@@ -54,10 +82,9 @@ include 'header.php';
                 <h2>MARKETING THAT MOVES THE NUMBERS</h2>
             </div>
             
-            <div class="scatter-item fs-1"><span>Total Clicks</span> <div class="val">2.71K <i class="fa-solid fa-arrow-trend-up"></i></div></div>
-            <div class="scatter-item fs-2"><span>Total Impressions</span> <div class="val">71.9K <i class="fa-solid fa-chart-column"></i></div></div>
-            <div class="scatter-item fs-3"><span>Average CTR</span> <div class="val">3.8% <i class="fa-solid fa-bullseye"></i></div></div>
-            <div class="scatter-item fs-4"><span>Average Position</span> <div class="val">12.5 <i class="fa-solid fa-trophy"></i></div></div>
+            <?php foreach ($headlineStats as $i => [$value, $label]): ?>
+            <div class="scatter-item fs-<?php echo $i + 1; ?>"><span><?php echo htmlspecialchars($label, ENT_QUOTES, 'UTF-8'); ?></span> <div class="val"><?php echo htmlspecialchars($value, ENT_QUOTES, 'UTF-8'); ?> <i class="fa-solid <?php echo $scatterIcons[$i]; ?>"></i></div></div>
+            <?php endforeach; ?>
             
             <!-- Laptop (Hidden on Mobile) -->
             <div class="laptop-container">
@@ -70,14 +97,14 @@ include 'header.php';
                             <div class="icon"></div>
                         </div>
                         <div class="dash-main">
-                            <div class="dash-topbar">
-                                <div class="dash-title">SEO Ranking Results</div>
+                            <div class="dash-topbar" style="display: flex; justify-content: space-between; align-items: center;">
+                                <div class="dash-title"><?php echo htmlspecialchars($dashTitle, ENT_QUOTES, 'UTF-8'); ?></div>
+                                <span style="font-size: 11px; color: var(--text-muted); background: var(--bg-secondary); padding: 4px 12px; border-radius: 15px; border: 1px solid var(--border-light);"><?php echo htmlspecialchars($statsPeriod, ENT_QUOTES, 'UTF-8'); ?></span>
                             </div>
                             <div class="dash-cards">
-                                <div class="dash-card"><div class="dash-card-title">Total Clicks</div><div class="dash-card-value">2.71K</div></div>
-                                <div class="dash-card"><div class="dash-card-title">Total Impressions</div><div class="dash-card-value">71.9K</div></div>
-                                <div class="dash-card"><div class="dash-card-title">Average CTR</div><div class="dash-card-value">3.8%</div></div>
-                                <div class="dash-card"><div class="dash-card-title">Average Position</div><div class="dash-card-value">12.5</div></div>
+                                <?php foreach ($headlineStats as [$value, $label]): ?>
+                                <div class="dash-card"><div class="dash-card-title"><?php echo htmlspecialchars($label, ENT_QUOTES, 'UTF-8'); ?></div><div class="dash-card-value"><?php echo htmlspecialchars($value, ENT_QUOTES, 'UTF-8'); ?></div></div>
+                                <?php endforeach; ?>
                             </div>
                             <div class="dash-chart-area">
                                 <span style="font-weight: 700; font-size: 0.85rem; color: var(--navy); z-index: 10; position: relative;">SEO Ranking Growth Analytics</span>
@@ -145,18 +172,40 @@ include 'header.php';
         <div class="container">
             <div class="dash-ui-mobile">
                 <div class="dash-topbar" style="margin-bottom: 15px; display: flex; justify-content: space-between; align-items: center;">
-                    <div class="dash-title" style="font-weight: 700; font-size: 1.1rem; color: var(--navy);">SEO Ranking Results</div>
-                    <span style="font-size: 11px; color: var(--text-muted); background: var(--bg-secondary); padding: 5px 12px; border-radius: 15px; border: 1px solid var(--border-light);">Last 30 Days <i class="fa-solid fa-chevron-down" style="margin-left:3px;"></i></span>
+                    <div class="dash-title" style="font-weight: 700; font-size: 1.1rem; color: var(--navy);"><?php echo htmlspecialchars($dashTitle, ENT_QUOTES, 'UTF-8'); ?></div>
+                    <span style="font-size: 11px; color: var(--text-muted); background: var(--bg-secondary); padding: 5px 12px; border-radius: 15px; border: 1px solid var(--border-light);"><?php echo htmlspecialchars($statsPeriod, ENT_QUOTES, 'UTF-8'); ?></span>
                 </div>
                 <div class="mobile-dash-cards">
-                    <div class="m-dash-card"><div class="m-dash-card-title">Total Clicks</div><div class="m-dash-card-value">2.71K</div></div>
-                    <div class="m-dash-card"><div class="m-dash-card-title">Impressions</div><div class="m-dash-card-value">71.9K</div></div>
-                    <div class="m-dash-card"><div class="m-dash-card-title">Avg CTR</div><div class="m-dash-card-value">3.8%</div></div>
-                    <div class="m-dash-card"><div class="m-dash-card-title">Avg Position</div><div class="m-dash-card-value">12.5</div></div>
+                    <?php foreach ($headlineStats as [$value, $label]): ?>
+                    <div class="m-dash-card"><div class="m-dash-card-title"><?php echo htmlspecialchars($label, ENT_QUOTES, 'UTF-8'); ?></div><div class="m-dash-card-value"><?php echo htmlspecialchars($value, ENT_QUOTES, 'UTF-8'); ?></div></div>
+                    <?php endforeach; ?>
                 </div>
             </div>
         </div>
     </div>
+
+    <?php if ($combinedStats): ?>
+    <!-- COMBINED RESULTS: every case study's "Results At A Glance" stats
+         combined, pulled live (see fetch_all_combined_stats()). -->
+    <section class="stats-section fade-up">
+        <div class="container">
+            <div class="section-header">
+                <span class="eyebrow" style="color: var(--cyan-neon);">PROVEN RESULTS</span>
+                <h2 style="color: #fff; font-size: clamp(1.8rem, 4vw, 2.8rem);">Combined Results From Our Client Work</h2>
+                <span style="display: inline-block; margin-top: 12px; font-size: 0.85rem; font-weight: 600; color: rgba(255,255,255,0.85); background: rgba(255,255,255,0.08); padding: 6px 16px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.2);"><?php echo htmlspecialchars($statsPeriod, ENT_QUOTES, 'UTF-8'); ?></span>
+            </div>
+            <div class="stats-4-grid">
+                <?php foreach ($combinedStats as [$value, $label]): ?>
+                <div class="stat-box">
+                    <div class="stat-icon"><i class="fa-solid fa-arrow-trend-up"></i></div>
+                    <h3><?php echo htmlspecialchars($value, ENT_QUOTES, 'UTF-8'); ?></h3>
+                    <p><?php echo htmlspecialchars($label, ENT_QUOTES, 'UTF-8'); ?></p>
+                </div>
+                <?php endforeach; ?>
+            </div>
+        </div>
+    </section>
+    <?php endif; ?>
 
     <!-- TRUSTED STRIP (MARQUEE) -->
     <div class="trusted-strip-wrapper fade-up">

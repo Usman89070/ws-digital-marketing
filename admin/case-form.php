@@ -1,6 +1,18 @@
 <?php
 require_once __DIR__ . '/includes/auth.php';
+require_once __DIR__ . '/../includes/case-study-helpers.php';
 $pdo = get_db();
+
+// "Show on these Service Pages" is stored in case_studies.related_services
+// (added by case-studies-related-services-migration.sql). If that column is
+// ever missing, the form still saves everything else and says so, rather
+// than failing outright.
+try {
+    $pdo->query('SELECT related_services FROM case_studies LIMIT 1');
+    $hasRelatedServices = true;
+} catch (PDOException $e) {
+    $hasRelatedServices = false;
+}
 
 $id = isset($_GET['id']) ? (int) $_GET['id'] : (isset($_POST['id']) ? (int) $_POST['id'] : 0);
 $study = [
@@ -15,6 +27,7 @@ $study = [
     'gbp_directions' => '', 'gbp_directions_image' => '',
     'gbp_website_clicks' => '', 'gbp_website_image' => '', 'gbp_image' => '',
     'gbp_extra_label' => '', 'gbp_extra_value' => '', 'gbp_extra_image' => '',
+    'related_services' => 'none',
 ];
 $error = '';
 
@@ -59,6 +72,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
     $study['display_order'] = (int) ($_POST['display_order'] ?? 0);
+    // Only known service slugs are kept; nothing ticked is stored as 'none'
+    // (the study then only appears on /case-studies).
+    $ticked = array_values(array_intersect(array_keys(CASE_STUDY_SERVICE_PAGES), (array) ($_POST['related_services'] ?? [])));
+    $study['related_services'] = $ticked ? implode(',', $ticked) : 'none';
     $study['gsc_clicks'] = trim($_POST['gsc_clicks'] ?? '');
     $study['gsc_impressions'] = trim($_POST['gsc_impressions'] ?? '');
     $study['gsc_ctr'] = trim($_POST['gsc_ctr'] ?? '');
@@ -119,12 +136,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $study['gbp_extra_label'], $study['gbp_extra_value'], $study['gbp_extra_image'],
             ];
 
+            if ($hasRelatedServices && $id) {
+                $stmt = $pdo->prepare('UPDATE case_studies SET related_services=? WHERE id=?');
+                $stmt->execute([$study['related_services'], $id]);
+            }
             if ($id) {
                 $stmt = $pdo->prepare('UPDATE case_studies SET name=?, slug=?, tag=?, image_path=?, image_alt=?, summary=?, services=?, has_data=?, period=?, stat1_value=?, stat1_label=?, stat2_value=?, stat2_label=?, stat3_value=?, stat3_label=?, stat4_value=?, stat4_label=?, display_order=?, meta_title=?, meta_description=?, gsc_clicks=?, gsc_impressions=?, gsc_ctr=?, gsc_position=?, gsc_image=?, gsc_ai_value=?, gsc_ai_image=?, gbp_interactions=?, gbp_calls=?, gbp_calls_image=?, gbp_directions=?, gbp_directions_image=?, gbp_website_clicks=?, gbp_website_image=?, gbp_image=?, gbp_extra_label=?, gbp_extra_value=?, gbp_extra_image=? WHERE id=?');
                 $stmt->execute([...$params, $id]);
             } else {
                 $stmt = $pdo->prepare('INSERT INTO case_studies (name, slug, tag, image_path, image_alt, summary, services, has_data, period, stat1_value, stat1_label, stat2_value, stat2_label, stat3_value, stat3_label, stat4_value, stat4_label, display_order, meta_title, meta_description, gsc_clicks, gsc_impressions, gsc_ctr, gsc_position, gsc_image, gsc_ai_value, gsc_ai_image, gbp_interactions, gbp_calls, gbp_calls_image, gbp_directions, gbp_directions_image, gbp_website_clicks, gbp_website_image, gbp_image, gbp_extra_label, gbp_extra_value, gbp_extra_image) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)');
                 $stmt->execute($params);
+                if ($hasRelatedServices) {
+                    $stmt = $pdo->prepare('UPDATE case_studies SET related_services=? WHERE id=?');
+                    $stmt->execute([$study['related_services'], (int) $pdo->lastInsertId()]);
+                }
             }
             header('Location: case-list.php?saved=1');
             exit;
@@ -229,6 +254,22 @@ include __DIR__ . '/includes/layout-header.php';
             <input type="text" name="gbp_extra_value" placeholder="Value (e.g. 13)" value="<?php echo htmlspecialchars($study['gbp_extra_value'], ENT_QUOTES, 'UTF-8'); ?>">
             <input type="text" name="gbp_extra_image" placeholder="/images/case-studies/your-screenshot.png (proof)" value="<?php echo htmlspecialchars($study['gbp_extra_image'], ENT_QUOTES, 'UTF-8'); ?>">
         </div>
+
+        <div class="hint" style="margin-top:24px; font-weight:700;">Show on these Service Pages</div>
+        <?php if ($hasRelatedServices): ?>
+            <?php $selectedServices = parse_related_services($study['related_services'] ?? ''); ?>
+            <div style="display:flex; flex-wrap:wrap; gap:8px 20px; margin-top:8px;">
+                <?php foreach (CASE_STUDY_SERVICE_PAGES as $serviceSlug => $serviceName): ?>
+                    <label style="display:flex; align-items:center; gap:8px; margin:0; font-weight:normal;">
+                        <input type="checkbox" name="related_services[]" value="<?php echo htmlspecialchars($serviceSlug, ENT_QUOTES, 'UTF-8'); ?>" style="width:auto;" <?php echo in_array($serviceSlug, $selectedServices, true) ? 'checked' : ''; ?>>
+                        <?php echo htmlspecialchars($serviceName, ENT_QUOTES, 'UTF-8'); ?>
+                    </label>
+                <?php endforeach; ?>
+            </div>
+            <div class="hint">This case study appears in the "Client Projects" section of each ticked service page. Leave all unticked to show it only on the main Case Studies page.</div>
+        <?php else: ?>
+            <div class="hint">Not available yet -- the database is missing the related_services column. Run case-studies-related-services-migration.sql once in phpMyAdmin to enable it.</div>
+        <?php endif; ?>
 
         <label for="display_order" style="margin-top:20px;">Display Order (lower numbers appear first)</label>
         <input type="number" id="display_order" name="display_order" value="<?php echo (int) $study['display_order']; ?>">

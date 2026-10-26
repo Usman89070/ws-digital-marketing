@@ -3,8 +3,7 @@ require_once __DIR__ . '/includes/cta-form-handler.php';
 require_once __DIR__ . '/config.php';
 require_once __DIR__ . '/includes/case-study-helpers.php';
 
-// This page's "Client Projects" section is a curated showcase (not every
-// case study, and not in the admin's display_order) -- these 3 slugs, in
+// This page's original curated "Client Projects" showcase -- these slugs, in
 // this exact order, with a short page-specific blurb for each. The blurb is
 // page-specific copy, kept here rather than overwriting the case study's own
 // (longer) summary field, which other pages and /case-studies/{slug} still
@@ -15,37 +14,15 @@ $ecommerceProjectSlugs = [
     'fast-fridge-spares' => 'An online refrigeration-parts store structured to help customers browse components, review product information and find the parts they need.',
 ];
 
-$ecommerceCaseStudies = [];
-$ecommerceStats = [];
-try {
-    // Pulled live from the same table the Case Studies admin section
-    // manages, keyed by slug so editing one of these 3 case studies'
-    // image/tag/stats from the dashboard updates this page automatically.
-    $rows = get_db()->query("SELECT slug, name, tag, image_path, image_alt, summary, stat1_value, stat1_label, stat2_value, stat2_label, stat3_value, stat3_label, stat4_value, stat4_label FROM case_studies")->fetchAll();
-    $rowsBySlug = [];
-    foreach ($rows as $row) {
-        $rowsBySlug[$row['slug']] = $row;
-    }
-    foreach ($ecommerceProjectSlugs as $slug => $blurb) {
-        if (!isset($rowsBySlug[$slug])) {
-            continue;
-        }
-        $row = $rowsBySlug[$slug];
-        $row['summary'] = $blurb;
-        $ecommerceCaseStudies[] = $row;
-        foreach ([1, 2, 3, 4] as $n) {
-            if ($row["stat{$n}_value"] !== '' || $row["stat{$n}_label"] !== '') {
-                $ecommerceStats[] = [$row["stat{$n}_value"], $row["stat{$n}_label"]];
-            }
-        }
-    }
-    // Stats sharing the same label (e.g. multiple businesses' "Organic
-    // Clicks") are combined into one box instead of shown per-business.
-    $ecommerceStats = combine_stats($ecommerceStats);
-} catch (PDOException $e) {
-    $ecommerceCaseStudies = [];
-    $ecommerceStats = [];
-}
+// Shows every case study ticked for this page under "Show on these Service
+// Pages" in the admin (stored in case_studies.related_services), read live
+// so ticking/unticking a study there updates this page immediately. The
+// curated studies above keep their order and blurb; newly ticked ones
+// follow in display_order.
+$ecommerceCaseStudies = service_page_case_studies('ecommerce', $ecommerceProjectSlugs);
+// Stats sharing the same label (e.g. multiple businesses' "Organic
+// Clicks") are combined into one box instead of shown per-business.
+$ecommerceStats = combine_stats(collect_case_study_stats($ecommerceCaseStudies));
 
 $page_title = 'Shopify & WooCommerce Development';
 $page_description = 'Build or improve your Shopify or WooCommerce store with clear product pages, organised collections and straightforward checkout. Discuss your project.';
@@ -160,9 +137,8 @@ include 'header.php';
     </section>
 
     <?php if ($ecommerceCaseStudies): ?>
-    <!-- CLIENT PROJECTS: a curated set of 3 real case studies (see
-         $ecommerceProjectSlugs above), pulled live from the same table the
-         Case Studies admin section manages. -->
+    <!-- CLIENT PROJECTS: the case studies ticked for this page in the admin
+         ("Show on these Service Pages"), pulled live -- see $ecommerceProjectSlugs above. -->
     <section class="services-section fade-up">
         <div class="container">
             <div class="section-header">

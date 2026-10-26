@@ -112,6 +112,12 @@ include 'header.php';
         </div>
     </section>
 
+    <?php
+    $relatedServiceSlug = 'ppc-advertising';
+    $relatedHeading = 'Explore Our Paid Advertising Work';
+    include __DIR__ . '/includes/related-case-studies-section.php';
+    ?>
+
     <!-- FINAL CTA -->
     <section class="cta-section" id="contact">
         <div class="container">
