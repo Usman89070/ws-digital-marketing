@@ -14,6 +14,16 @@ try {
     $hasRelatedServices = false;
 }
 
+// Shopify store performance fields (case-studies-shopify-stats-migration.sql),
+// saved separately for the same reason.
+$shopFields = ['shop_period', 'shop_sales', 'shop_sales_growth', 'shop_sessions', 'shop_sessions_growth', 'shop_orders', 'shop_orders_growth', 'shop_conversion', 'shop_conversion_growth', 'shop_image'];
+try {
+    $pdo->query('SELECT shop_sales FROM case_studies LIMIT 1');
+    $hasShopFields = true;
+} catch (PDOException $e) {
+    $hasShopFields = false;
+}
+
 $id = isset($_GET['id']) ? (int) $_GET['id'] : (isset($_POST['id']) ? (int) $_POST['id'] : 0);
 $study = [
     'name' => '', 'tag' => '', 'image_path' => '', 'image_alt' => '',
@@ -29,6 +39,9 @@ $study = [
     'gbp_extra_label' => '', 'gbp_extra_value' => '', 'gbp_extra_image' => '',
     'related_services' => 'none',
 ];
+foreach ($shopFields as $field) {
+    $study[$field] = '';
+}
 $error = '';
 
 if ($id) {
@@ -76,6 +89,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // (the study then only appears on /case-studies).
     $ticked = array_values(array_intersect(array_keys(CASE_STUDY_SERVICE_PAGES), (array) ($_POST['related_services'] ?? [])));
     $study['related_services'] = $ticked ? implode(',', $ticked) : 'none';
+    foreach ($shopFields as $field) {
+        $study[$field] = trim($_POST[$field] ?? '');
+    }
     $study['gsc_clicks'] = trim($_POST['gsc_clicks'] ?? '');
     $study['gsc_impressions'] = trim($_POST['gsc_impressions'] ?? '');
     $study['gsc_ctr'] = trim($_POST['gsc_ctr'] ?? '');
@@ -140,15 +156,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $stmt = $pdo->prepare('UPDATE case_studies SET related_services=? WHERE id=?');
                 $stmt->execute([$study['related_services'], $id]);
             }
+            if ($hasShopFields && $id) {
+                $stmt = $pdo->prepare('UPDATE case_studies SET ' . implode('=?, ', $shopFields) . '=? WHERE id=?');
+                $stmt->execute([...array_map(fn($f) => $study[$f], $shopFields), $id]);
+            }
             if ($id) {
                 $stmt = $pdo->prepare('UPDATE case_studies SET name=?, slug=?, tag=?, image_path=?, image_alt=?, summary=?, services=?, has_data=?, period=?, stat1_value=?, stat1_label=?, stat2_value=?, stat2_label=?, stat3_value=?, stat3_label=?, stat4_value=?, stat4_label=?, display_order=?, meta_title=?, meta_description=?, gsc_clicks=?, gsc_impressions=?, gsc_ctr=?, gsc_position=?, gsc_image=?, gsc_ai_value=?, gsc_ai_image=?, gbp_interactions=?, gbp_calls=?, gbp_calls_image=?, gbp_directions=?, gbp_directions_image=?, gbp_website_clicks=?, gbp_website_image=?, gbp_image=?, gbp_extra_label=?, gbp_extra_value=?, gbp_extra_image=? WHERE id=?');
                 $stmt->execute([...$params, $id]);
             } else {
                 $stmt = $pdo->prepare('INSERT INTO case_studies (name, slug, tag, image_path, image_alt, summary, services, has_data, period, stat1_value, stat1_label, stat2_value, stat2_label, stat3_value, stat3_label, stat4_value, stat4_label, display_order, meta_title, meta_description, gsc_clicks, gsc_impressions, gsc_ctr, gsc_position, gsc_image, gsc_ai_value, gsc_ai_image, gbp_interactions, gbp_calls, gbp_calls_image, gbp_directions, gbp_directions_image, gbp_website_clicks, gbp_website_image, gbp_image, gbp_extra_label, gbp_extra_value, gbp_extra_image) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)');
                 $stmt->execute($params);
+                $newId = (int) $pdo->lastInsertId();
                 if ($hasRelatedServices) {
                     $stmt = $pdo->prepare('UPDATE case_studies SET related_services=? WHERE id=?');
-                    $stmt->execute([$study['related_services'], (int) $pdo->lastInsertId()]);
+                    $stmt->execute([$study['related_services'], $newId]);
+                }
+                if ($hasShopFields) {
+                    $stmt = $pdo->prepare('UPDATE case_studies SET ' . implode('=?, ', $shopFields) . '=? WHERE id=?');
+                    $stmt->execute([...array_map(fn($f) => $study[$f], $shopFields), $newId]);
                 }
             }
             header('Location: case-list.php?saved=1');
@@ -254,6 +279,21 @@ include __DIR__ . '/includes/layout-header.php';
             <input type="text" name="gbp_extra_value" placeholder="Value (e.g. 13)" value="<?php echo htmlspecialchars($study['gbp_extra_value'], ENT_QUOTES, 'UTF-8'); ?>">
             <input type="text" name="gbp_extra_image" placeholder="/images/case-studies/your-screenshot.png (proof)" value="<?php echo htmlspecialchars($study['gbp_extra_image'], ENT_QUOTES, 'UTF-8'); ?>">
         </div>
+
+        <div class="hint" style="margin-top:24px; font-weight:700;">Shopify Store Performance (optional separate section, for online stores)</div>
+        <?php if ($hasShopFields): ?>
+            <input type="text" name="shop_period" placeholder="Period (e.g. 1 May – 30 Sept 2026 vs previous period)" style="margin-top:8px;" value="<?php echo htmlspecialchars($study['shop_period'] ?? '', ENT_QUOTES, 'UTF-8'); ?>">
+            <?php foreach (['shop_sales' => 'Total Sales (e.g. A$247.9K)', 'shop_sessions' => 'Sessions (e.g. 12.2K)', 'shop_orders' => 'Orders (e.g. 1,998)', 'shop_conversion' => 'Conversion Rate (e.g. 0.94%)'] as $field => $placeholder): ?>
+                <div style="display:flex; gap:10px; margin-top:8px; flex-wrap:wrap;">
+                    <input type="text" name="<?php echo $field; ?>" placeholder="<?php echo htmlspecialchars($placeholder, ENT_QUOTES, 'UTF-8'); ?>" value="<?php echo htmlspecialchars($study[$field] ?? '', ENT_QUOTES, 'UTF-8'); ?>">
+                    <input type="text" name="<?php echo $field; ?>_growth" placeholder="Growth vs previous period (e.g. +228%)" value="<?php echo htmlspecialchars($study[$field . '_growth'] ?? '', ENT_QUOTES, 'UTF-8'); ?>">
+                </div>
+            <?php endforeach; ?>
+            <input type="text" name="shop_image" placeholder="/images/case-studies/your-screenshot.jpg (Shopify proof screenshot)" style="margin-top:8px;" value="<?php echo htmlspecialchars($study['shop_image'] ?? '', ENT_QUOTES, 'UTF-8'); ?>">
+            <div class="hint">Shown as its own section on the case study page. Does not change the homepage combined stats.</div>
+        <?php else: ?>
+            <div class="hint">Not available yet -- run case-studies-shopify-stats-migration.sql once in phpMyAdmin to enable it.</div>
+        <?php endif; ?>
 
         <div class="hint" style="margin-top:24px; font-weight:700;">Show on these Service Pages</div>
         <?php if ($hasRelatedServices): ?>

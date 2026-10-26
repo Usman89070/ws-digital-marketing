@@ -122,6 +122,12 @@ CREATE TABLE IF NOT EXISTS case_studies (
     gbp_website_clicks VARCHAR(50) DEFAULT '', gbp_website_image VARCHAR(255) DEFAULT '', gbp_image VARCHAR(255) DEFAULT '',
     gbp_extra_label VARCHAR(100) DEFAULT '', gbp_extra_value VARCHAR(50) DEFAULT '', gbp_extra_image VARCHAR(255) DEFAULT '',
     related_services VARCHAR(255) NOT NULL DEFAULT '',
+    shop_period VARCHAR(100) DEFAULT '',
+    shop_sales VARCHAR(50) DEFAULT '', shop_sales_growth VARCHAR(20) DEFAULT '',
+    shop_sessions VARCHAR(50) DEFAULT '', shop_sessions_growth VARCHAR(20) DEFAULT '',
+    shop_orders VARCHAR(50) DEFAULT '', shop_orders_growth VARCHAR(20) DEFAULT '',
+    shop_conversion VARCHAR(50) DEFAULT '', shop_conversion_growth VARCHAR(20) DEFAULT '',
+    shop_image VARCHAR(255) DEFAULT '',
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;

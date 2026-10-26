@@ -79,6 +79,25 @@ if (($study['gbp_directions_image'] ?? '') !== '') { $gbpGallery[] = [$study['gb
 if (($study['gbp_website_image'] ?? '') !== '') { $gbpGallery[] = [$study['gbp_website_image'], 'Website Clicks']; }
 if (($study['gbp_extra_image'] ?? '') !== '' && ($study['gbp_extra_label'] ?? '') !== '') { $gbpGallery[] = [$study['gbp_extra_image'], $study['gbp_extra_label']]; }
 
+// Dedicated Shopify store performance section (sales, sessions, orders,
+// conversion rate), each with an optional "vs previous period" growth
+// figure. Separate from the "Results At A Glance" stats, so it never
+// changes the homepage combined totals. Only shows if a value is filled in.
+$shopStats = [];
+foreach ([
+    'shop_sales' => 'Total Sales',
+    'shop_sessions' => 'Sessions',
+    'shop_orders' => 'Orders',
+    'shop_conversion' => 'Conversion Rate',
+] as $field => $label) {
+    if (($study[$field] ?? '') !== '') {
+        $shopStats[] = [$study[$field], $label, $study[$field . '_growth'] ?? ''];
+    }
+}
+$hasShop = !empty($shopStats);
+$shopGallery = [];
+if (($study['shop_image'] ?? '') !== '') { $shopGallery[] = [$study['shop_image'], 'Shopify Sales Overview']; }
+
 // Both fall back to the project name/summary when the admin panel's
 // dedicated SEO fields are left blank, so existing case studies keep
 // working exactly as before without needing to be edited.
@@ -215,6 +234,43 @@ include 'header.php';
             <?php if ($gbpGallery): ?>
             <div class="proof-gallery">
                 <?php foreach ($gbpGallery as [$imgPath, $caption]): ?>
+                <figure class="proof-gallery-item">
+                    <img loading="lazy" decoding="async" src="<?php echo htmlspecialchars($imgPath, ENT_QUOTES, 'UTF-8'); ?>" alt="<?php echo htmlspecialchars($study['name'], ENT_QUOTES, 'UTF-8'); ?> &ndash; <?php echo htmlspecialchars($caption, ENT_QUOTES, 'UTF-8'); ?>" onerror="this.closest('figure').remove()" tabindex="0" role="button" aria-haspopup="dialog">
+                    <figcaption><?php echo htmlspecialchars($caption, ENT_QUOTES, 'UTF-8'); ?></figcaption>
+                </figure>
+                <?php endforeach; ?>
+            </div>
+            <?php endif; ?>
+        </div>
+    </section>
+    <?php endif; ?>
+
+    <?php if ($hasShop): ?>
+    <!-- SHOPIFY STORE PERFORMANCE -->
+    <section class="stats-section fade-up">
+        <div class="container">
+            <div class="section-header">
+                <span class="eyebrow" style="color: var(--cyan-neon);">SHOPIFY STORE DATA</span>
+                <h2 style="color: #fff; font-size: clamp(1.8rem, 4vw, 2.8rem);">Online Store Performance</h2>
+                <?php if (($study['shop_period'] ?? '') !== ''): ?>
+                <p style="color: rgba(255,255,255,0.75); margin-top: 10px;"><?php echo htmlspecialchars($study['shop_period'], ENT_QUOTES, 'UTF-8'); ?></p>
+                <?php endif; ?>
+            </div>
+            <div class="stats-4-grid">
+                <?php foreach ($shopStats as [$value, $label, $growth]): ?>
+                <div class="stat-box">
+                    <div class="stat-icon"><i class="fa-solid fa-cart-shopping"></i></div>
+                    <h3><?php echo htmlspecialchars($value, ENT_QUOTES, 'UTF-8'); ?></h3>
+                    <p><?php echo htmlspecialchars($label, ENT_QUOTES, 'UTF-8'); ?></p>
+                    <?php if ($growth !== ''): ?>
+                    <p style="margin-top: 8px; color: #4ade80; text-transform: none; letter-spacing: normal;"><i class="fa-solid fa-arrow-trend-up"></i> <?php echo htmlspecialchars($growth, ENT_QUOTES, 'UTF-8'); ?> vs previous period</p>
+                    <?php endif; ?>
+                </div>
+                <?php endforeach; ?>
+            </div>
+            <?php if ($shopGallery): ?>
+            <div class="proof-gallery">
+                <?php foreach ($shopGallery as [$imgPath, $caption]): ?>
                 <figure class="proof-gallery-item">
                     <img loading="lazy" decoding="async" src="<?php echo htmlspecialchars($imgPath, ENT_QUOTES, 'UTF-8'); ?>" alt="<?php echo htmlspecialchars($study['name'], ENT_QUOTES, 'UTF-8'); ?> &ndash; <?php echo htmlspecialchars($caption, ENT_QUOTES, 'UTF-8'); ?>" onerror="this.closest('figure').remove()" tabindex="0" role="button" aria-haspopup="dialog">
                     <figcaption><?php echo htmlspecialchars($caption, ENT_QUOTES, 'UTF-8'); ?></figcaption>
