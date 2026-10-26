@@ -11,8 +11,8 @@ $statsPeriod = 'May - Sept 2026';
 // Every case study's "Results At A Glance" stats combined, read live from
 // the database on each page load -- adding, editing or deleting a case
 // study (or its stats) in the admin updates every number below with no
-// code change. The headline four feed the scatter boxes, laptop cards and
-// mobile overview; the full list feeds the Combined Results section.
+// code change. The headline four feed the scatter boxes, laptop cards,
+// mobile overview and the Combined Results section.
 $combinedStats = fetch_all_combined_stats();
 $headlineStats = array_slice($combinedStats, 0, 4);
 $hasRealStats = count($headlineStats) > 0;
@@ -184,9 +184,9 @@ include 'header.php';
         </div>
     </div>
 
-    <?php if ($combinedStats): ?>
-    <!-- COMBINED RESULTS: every case study's "Results At A Glance" stats
-         combined, pulled live (see fetch_all_combined_stats()). -->
+    <?php if ($hasRealStats): ?>
+    <!-- COMBINED RESULTS: the same headline four combined stats as the
+         dashboards above, pulled live (see fetch_all_combined_stats()). -->
     <section class="stats-section fade-up">
         <div class="container">
             <div class="section-header">
@@ -195,7 +195,7 @@ include 'header.php';
                 <span style="display: inline-block; margin-top: 12px; font-size: 0.85rem; font-weight: 600; color: rgba(255,255,255,0.85); background: rgba(255,255,255,0.08); padding: 6px 16px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.2);"><?php echo htmlspecialchars($statsPeriod, ENT_QUOTES, 'UTF-8'); ?></span>
             </div>
             <div class="stats-4-grid">
-                <?php foreach ($combinedStats as [$value, $label]): ?>
+                <?php foreach ($headlineStats as [$value, $label]): ?>
                 <div class="stat-box">
                     <div class="stat-icon"><i class="fa-solid fa-arrow-trend-up"></i></div>
                     <h3><?php echo htmlspecialchars($value, ENT_QUOTES, 'UTF-8'); ?></h3>
