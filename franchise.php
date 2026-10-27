@@ -23,7 +23,7 @@ include 'header.php';
         <div class="container">
             <div class="agency-grid">
                 <div class="agency-image-wrapper">
-                    <img loading="lazy" decoding="async" src="/images/illustrations/franchise.webp" alt="Illustration of franchise locations connected across a map">
+                    <img loading="lazy" decoding="async" src="/images/photos/franchise.webp" alt="Row of matching franchise café shopfronts with awnings and outdoor seating on a busy Australian shopping street">
                 </div>
                 <div class="agency-text">
                     <span class="eyebrow">WHY IT MATTERS</span>
