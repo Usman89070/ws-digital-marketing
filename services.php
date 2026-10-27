@@ -30,7 +30,7 @@ include 'header.php';
                             <h3>Search Engine Optimisation</h3>
                         </div>
                         <div class="service-card-back">
-                            <img loading="lazy" decoding="async" class="service-card-back-img" src="/images/illustrations/seo.webp" alt="Illustration of a search results page with a business ranked first and a rising traffic chart">
+                            <img loading="lazy" decoding="async" class="service-card-back-img" src="/images/photos/seo.webp" alt="Laptop on an office desk showing a website analytics dashboard with a rising traffic graph">
                             <div class="service-card-back-overlay"></div>
                             <div class="service-card-back-content">
                                 <p class="service-card-back-title" aria-hidden="true">Search Engine Optimisation</p>
