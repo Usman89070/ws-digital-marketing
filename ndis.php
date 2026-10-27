@@ -24,7 +24,7 @@ include 'header.php';
         <div class="container">
             <div class="agency-grid">
                 <div class="agency-image-wrapper">
-                    <img loading="lazy" decoding="async" src="/images/illustrations/ndis.webp" alt="Illustration of NDIS participants and supporters alongside a mobile enquiry form">
+                    <img loading="lazy" decoding="async" src="/images/photos/ndis.webp" alt="Support worker and a smiling NDIS participant in a wheelchair planning together on a tablet at a community centre">
                 </div>
                 <div class="agency-text">
                     <span class="eyebrow">WHY IT MATTERS</span>
