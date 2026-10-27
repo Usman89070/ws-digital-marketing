@@ -423,6 +423,11 @@
         .agency-image-wrapper { position: relative; border-radius: 20px; overflow: hidden; box-shadow: var(--shadow-hover); }
         .agency-image-wrapper img { width: 100%; height: auto; display: block; object-fit: cover; transition: transform 0.5s ease; }
         .agency-image-wrapper:hover img { transform: scale(1.03); }
+        /* Service and industry page photos all show as the same square frame
+           (like the Social Media page), whatever the source photo's shape --
+           cropped from the centre. The case study page and About page keep
+           their own image shapes. */
+        .agency-grid:not(.case-study-feature) .agency-image-wrapper:not(.agency-image-natural) img { aspect-ratio: 1 / 1; height: auto; object-fit: cover; object-position: center; }
 
         /* === CASE STUDY DETAIL PAGE: feature image full-width above the text,
            instead of the side-by-side layout every other .agency-grid page uses.

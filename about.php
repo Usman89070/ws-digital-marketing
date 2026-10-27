@@ -26,7 +26,7 @@ include 'header.php';
     <section class="agency-section fade-up">
         <div class="container">
             <div class="agency-grid">
-                <div class="agency-image-wrapper" style="min-height: 400px; background: linear-gradient(160deg, rgba(0, 242, 254, 0.1), rgba(255, 0, 127, 0.08));">
+                <div class="agency-image-wrapper agency-image-natural" style="min-height: 400px; background: linear-gradient(160deg, rgba(0, 242, 254, 0.1), rgba(255, 0, 127, 0.08));">
                     <img loading="lazy" decoding="async" src="/images/about-ws.webp" alt="W&S Digital Marketing" onerror="this.remove()">
                 </div>
                 <div class="agency-text">
