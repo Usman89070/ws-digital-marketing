@@ -281,7 +281,7 @@ include 'header.php';
                             <h3>Website Design & Development</h3>
                         </div>
                         <div class="service-card-back">
-                            <img loading="lazy" decoding="async" class="service-card-back-img" src="/images/illustrations/website-development.webp" alt="Illustration of a responsive website design shown on a laptop and a mobile phone">
+                            <img loading="lazy" decoding="async" class="service-card-back-img" src="/images/photos/website-development.webp" alt="Web developer working on website code and a WordPress page builder across two monitors, with the finished site shown on a laptop and smartphone">
                             <div class="service-card-back-overlay"></div>
                             <div class="service-card-back-content">
                                 <p class="service-card-back-title" aria-hidden="true">Website Design & Development</p>

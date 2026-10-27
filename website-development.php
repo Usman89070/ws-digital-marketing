@@ -46,7 +46,7 @@ include 'header.php';
         <div class="container">
             <div class="agency-grid">
                 <div class="agency-image-wrapper">
-                    <img loading="lazy" decoding="async" src="/images/illustrations/website-development.webp" alt="Illustration of a responsive website design shown on a laptop and a mobile phone">
+                    <img loading="lazy" decoding="async" src="/images/photos/website-development.webp" alt="Web developer working on website code and a WordPress page builder across two monitors, with the finished site shown on a laptop and smartphone">
                 </div>
                 <div class="agency-text">
                     <span class="eyebrow">WHY IT MATTERS</span>
