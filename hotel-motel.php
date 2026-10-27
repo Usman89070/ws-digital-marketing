@@ -23,7 +23,7 @@ include 'header.php';
         <div class="container">
             <div class="agency-grid">
                 <div class="agency-image-wrapper">
-                    <img loading="lazy" decoding="async" src="/images/industries/hotelMotel.webp" alt="Hotel & Motel Digital Marketing" onerror="this.remove()">
+                    <img loading="lazy" decoding="async" src="/images/photos/hotel-motel.webp" alt="Hotel receptionist welcoming a smiling couple with a suitcase who show their direct booking confirmation on a phone" onerror="this.remove()">
                 </div>
                 <div class="agency-text">
                     <span class="eyebrow">WHY IT MATTERS</span>
