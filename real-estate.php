@@ -23,7 +23,7 @@ include 'header.php';
         <div class="container">
             <div class="agency-grid">
                 <div class="agency-image-wrapper">
-                    <img loading="lazy" decoding="async" src="/images/industries/realEstate.webp" alt="Real Estate Digital Marketing" onerror="this.remove()">
+                    <img loading="lazy" decoding="async" src="/images/photos/real-estate.webp" alt="Hand holding a tablet showing an online property listing in front of a modern Australian home with a for sale sign at dusk" onerror="this.remove()">
                 </div>
                 <div class="agency-text">
                     <span class="eyebrow">WHY IT MATTERS</span>
