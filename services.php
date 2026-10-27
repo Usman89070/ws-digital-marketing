@@ -30,7 +30,7 @@ include 'header.php';
                             <h3>Search Engine Optimisation</h3>
                         </div>
                         <div class="service-card-back">
-                            <img loading="lazy" decoding="async" class="service-card-back-img" src="https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?auto=format&fit=crop&w=800&q=80" alt="">
+                            <img loading="lazy" decoding="async" class="service-card-back-img" src="/images/illustrations/seo.webp" alt="Illustration of a search results page with a business ranked first and a rising traffic chart">
                             <div class="service-card-back-overlay"></div>
                             <div class="service-card-back-content">
                                 <p class="service-card-back-title" aria-hidden="true">Search Engine Optimisation</p>
@@ -48,7 +48,7 @@ include 'header.php';
                             <h3>Ecommerce</h3>
                         </div>
                         <div class="service-card-back">
-                            <img loading="lazy" decoding="async" class="service-card-back-img" src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=80" alt="">
+                            <img loading="lazy" decoding="async" class="service-card-back-img" src="/images/illustrations/ecommerce.webp" alt="Illustration of an online store with product listings, a shopping cart and a payment card">
                             <div class="service-card-back-overlay"></div>
                             <div class="service-card-back-content">
                                 <p class="service-card-back-title" aria-hidden="true">Ecommerce</p>
@@ -66,7 +66,7 @@ include 'header.php';
                             <h3>Website Design &amp; Development</h3>
                         </div>
                         <div class="service-card-back">
-                            <img loading="lazy" decoding="async" class="service-card-back-img" src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80" alt="">
+                            <img loading="lazy" decoding="async" class="service-card-back-img" src="/images/illustrations/website-development.webp" alt="Illustration of a responsive website design shown on a laptop and a mobile phone">
                             <div class="service-card-back-overlay"></div>
                             <div class="service-card-back-content">
                                 <p class="service-card-back-title" aria-hidden="true">Website Design &amp; Development</p>
@@ -84,7 +84,7 @@ include 'header.php';
                             <h3>Social Media Marketing</h3>
                         </div>
                         <div class="service-card-back">
-                            <img loading="lazy" decoding="async" class="service-card-back-img" src="/images/socialMedia.webp" alt="">
+                            <img loading="lazy" decoding="async" class="service-card-back-img" src="/images/socialMedia.webp" alt="Social media app icons floating around a smartphone">
                             <div class="service-card-back-overlay"></div>
                             <div class="service-card-back-content">
                                 <p class="service-card-back-title" aria-hidden="true">Social Media Marketing</p>
@@ -102,7 +102,7 @@ include 'header.php';
                             <h3>Paid Advertising</h3>
                         </div>
                         <div class="service-card-back">
-                            <img loading="lazy" decoding="async" class="service-card-back-img" src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" alt="">
+                            <img loading="lazy" decoding="async" class="service-card-back-img" src="/images/illustrations/paid-advertising.webp" alt="Illustration of a sponsored search ad being clicked, with a target and a campaign performance chart">
                             <div class="service-card-back-overlay"></div>
                             <div class="service-card-back-content">
                                 <p class="service-card-back-title" aria-hidden="true">Paid Advertising</p>
@@ -120,7 +120,7 @@ include 'header.php';
                             <h3>Graphic Design</h3>
                         </div>
                         <div class="service-card-back">
-                            <img loading="lazy" decoding="async" class="service-card-back-img" src="https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=800&q=80" alt="">
+                            <img loading="lazy" decoding="async" class="service-card-back-img" src="/images/illustrations/graphic-design.webp" alt="Illustration of a logo being designed on an artboard with a colour palette and pen tool">
                             <div class="service-card-back-overlay"></div>
                             <div class="service-card-back-content">
                                 <p class="service-card-back-title" aria-hidden="true">Graphic Design</p>
@@ -138,7 +138,7 @@ include 'header.php';
                             <h3>Content Writing</h3>
                         </div>
                         <div class="service-card-back">
-                            <img loading="lazy" decoding="async" class="service-card-back-img" src="https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=800&q=80" alt="">
+                            <img loading="lazy" decoding="async" class="service-card-back-img" src="/images/illustrations/content-writing.webp" alt="Illustration of a written article page with a pen nib and a comment bubble">
                             <div class="service-card-back-overlay"></div>
                             <div class="service-card-back-content">
                                 <p class="service-card-back-title" aria-hidden="true">Content Writing</p>

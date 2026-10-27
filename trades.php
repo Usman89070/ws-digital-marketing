@@ -23,7 +23,7 @@ include 'header.php';
         <div class="container">
             <div class="agency-grid">
                 <div class="agency-image-wrapper">
-                    <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=800&q=80" alt="Trades Digital Marketing">
+                    <img loading="lazy" decoding="async" src="/images/illustrations/trades.webp" alt="Illustration of trade tools and a hard hat next to a phone showing location, reviews and a call button">
                 </div>
                 <div class="agency-text">
                     <span class="eyebrow">WHY IT MATTERS</span>

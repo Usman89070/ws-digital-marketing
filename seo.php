@@ -58,7 +58,7 @@ include 'header.php';
         <div class="container">
             <div class="agency-grid">
                 <div class="agency-image-wrapper">
-                    <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?auto=format&fit=crop&w=800&q=80" alt="Search Engine Optimisation Strategy">
+                    <img loading="lazy" decoding="async" src="/images/illustrations/seo.webp" alt="Illustration of a search results page with a business ranked first and a rising traffic chart">
                 </div>
                 <div class="agency-text">
                     <span class="eyebrow">WHY SEO</span>

@@ -36,9 +36,7 @@ $canonical_url = 'https://wsdigitalmarketing.com.au' . $canonical_path;
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://images.unsplash.com">
     <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
-    <link rel="dns-prefetch" href="https://images.unsplash.com">
 
     <!-- The logo renders immediately (splash screen + header on every page) -->
     <link rel="preload" as="image" href="/images/logo-ws.webp" fetchpriority="high">
