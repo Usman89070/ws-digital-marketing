@@ -102,7 +102,7 @@ include 'header.php';
                             <h3>Paid Advertising</h3>
                         </div>
                         <div class="service-card-back">
-                            <img loading="lazy" decoding="async" class="service-card-back-img" src="/images/illustrations/paid-advertising.webp" alt="Illustration of a sponsored search ad being clicked, with a target and a campaign performance chart">
+                            <img loading="lazy" decoding="async" class="service-card-back-img" src="/images/photos/paid-advertising.webp" alt="Marketing specialist reviewing paid advertising campaign charts on a laptop and taking notes in an office">
                             <div class="service-card-back-overlay"></div>
                             <div class="service-card-back-content">
                                 <p class="service-card-back-title" aria-hidden="true">Paid Advertising</p>

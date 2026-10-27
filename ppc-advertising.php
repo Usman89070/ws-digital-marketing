@@ -23,7 +23,7 @@ include 'header.php';
         <div class="container">
             <div class="agency-grid">
                 <div class="agency-image-wrapper">
-                    <img loading="lazy" decoding="async" src="/images/illustrations/paid-advertising.webp" alt="Illustration of a sponsored search ad being clicked, with a target and a campaign performance chart">
+                    <img loading="lazy" decoding="async" src="/images/photos/paid-advertising.webp" alt="Marketing specialist reviewing paid advertising campaign charts on a laptop and taking notes in an office">
                 </div>
                 <div class="agency-text">
                     <span class="eyebrow">WHY IT MATTERS</span>
