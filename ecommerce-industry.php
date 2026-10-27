@@ -23,7 +23,7 @@ include 'header.php';
         <div class="container">
             <div class="agency-grid">
                 <div class="agency-image-wrapper">
-                    <img loading="lazy" decoding="async" src="/images/illustrations/ecommerce-industry.webp" alt="Illustration of mobile shopping, a delivery parcel and a growing sales chart">
+                    <img loading="lazy" decoding="async" src="/images/photos/ecommerce-industry.webp" alt="Woman shopping online on her smartphone at home, with an online store open on a laptop and a delivered parcel on the coffee table">
                 </div>
                 <div class="agency-text">
                     <span class="eyebrow">WHY IT MATTERS</span>
