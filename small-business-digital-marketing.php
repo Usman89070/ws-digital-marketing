@@ -23,7 +23,7 @@ include 'header.php';
         <div class="container">
             <div class="agency-grid">
                 <div class="agency-image-wrapper">
-                    <img loading="lazy" decoding="async" src="/images/illustrations/small-business.webp" alt="Illustration of a small business shopfront with an open sign and customer reviews on a phone">
+                    <img loading="lazy" decoding="async" src="/images/photos/small-business.webp" alt="Smiling local shop owner handing a wrapped gift to a customer across the counter, with an open sign on the door">
                 </div>
                 <div class="agency-text">
                     <span class="eyebrow">WHY IT MATTERS</span>
