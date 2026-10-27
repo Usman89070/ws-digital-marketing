@@ -23,7 +23,7 @@ include 'header.php';
         <div class="container">
             <div class="agency-grid">
                 <div class="agency-image-wrapper">
-                    <img loading="lazy" decoding="async" src="/images/industries/healthcare.webp" alt="Healthcare & Medical Digital Marketing" onerror="this.remove()">
+                    <img loading="lazy" decoding="async" src="/images/photos/healthcare.webp" alt="Patient being welcomed at the reception desk of a bright, modern medical clinic, with people in the waiting area" onerror="this.remove()">
                 </div>
                 <div class="agency-text">
                     <span class="eyebrow">WHY IT MATTERS</span>
