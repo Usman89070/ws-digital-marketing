@@ -47,7 +47,7 @@ include 'header.php';
         <div class="container">
             <div class="agency-grid">
                 <div class="agency-image-wrapper">
-                    <img loading="lazy" decoding="async" src="/images/illustrations/ecommerce.webp" alt="Illustration of an online store with product listings, a shopping cart and a payment card">
+                    <img loading="lazy" decoding="async" src="/images/photos/ecommerce.webp" alt="Online store owner taping up a customer order in a packing room, with a laptop showing sales and parcels ready to ship">
                 </div>
                 <div class="agency-text">
                     <span class="eyebrow">WHY IT MATTERS</span>

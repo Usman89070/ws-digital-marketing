@@ -48,7 +48,7 @@ include 'header.php';
                             <h3>Ecommerce</h3>
                         </div>
                         <div class="service-card-back">
-                            <img loading="lazy" decoding="async" class="service-card-back-img" src="/images/illustrations/ecommerce.webp" alt="Illustration of an online store with product listings, a shopping cart and a payment card">
+                            <img loading="lazy" decoding="async" class="service-card-back-img" src="/images/photos/ecommerce.webp" alt="Online store owner taping up a customer order in a packing room, with a laptop showing sales and parcels ready to ship">
                             <div class="service-card-back-overlay"></div>
                             <div class="service-card-back-content">
                                 <p class="service-card-back-title" aria-hidden="true">Ecommerce</p>
