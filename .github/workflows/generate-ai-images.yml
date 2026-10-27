@@ -1,0 +1,54 @@
+name: Generate AI Images
+
+# Generates the photo-style images listed in scripts/ai-image-prompts.txt
+# with Pollinations (free, no account or API key) and commits them to
+# ai-images-raw/ on the same branch for review. Nothing is deployed --
+# the images are only placed on the site after review.
+on:
+  push:
+    branches:
+      - claude/epic-davinci-6psbmv
+    paths:
+      - scripts/ai-image-prompts.txt
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Generate images
+        run: |
+          mkdir -p ai-images-raw
+          style="photorealistic, dark navy background with purple, cyan and magenta neon lighting, cinematic, high detail, no text, no logos, no watermark"
+          seed=1
+          grep -v '^#' scripts/ai-image-prompts.txt | grep '|' | while IFS='|' read -r name prompt; do
+            seed=$((seed + 1))
+            width=1200; height=800
+            if [ "$name" = "analytics-background" ]; then width=1920; height=1080; fi
+            q=$(python3 -c 'import sys, urllib.parse; print(urllib.parse.quote(sys.argv[1]))' "$prompt, $style")
+            for attempt in 1 2 3; do
+              if curl -sSfL --max-time 180 -o "ai-images-raw/$name.jpg" \
+                "https://image.pollinations.ai/prompt/$q?width=$width&height=$height&model=flux&nologo=true&seed=$seed"; then
+                if file "ai-images-raw/$name.jpg" | grep -qiE 'image|JPEG|PNG|WebP'; then
+                  echo "ok $name"; break
+                fi
+              fi
+              echo "retry $name ($attempt)"; rm -f "ai-images-raw/$name.jpg"; sleep 15
+            done
+            sleep 5
+          done
+          ls -la ai-images-raw
+
+      - name: Commit generated images
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add ai-images-raw
+          git diff --cached --quiet && { echo "nothing generated"; exit 1; }
+          git commit -m "Generate AI images for review"
+          git push
