@@ -138,7 +138,7 @@ include 'header.php';
                             <h3>Content Writing</h3>
                         </div>
                         <div class="service-card-back">
-                            <img loading="lazy" decoding="async" class="service-card-back-img" src="/images/illustrations/content-writing.webp" alt="Illustration of a written article page with a pen nib and a comment bubble">
+                            <img loading="lazy" decoding="async" class="service-card-back-img" src="/images/photos/content-writing.webp" alt="Content writer typing a blog article on a laptop at a home office desk with a notebook of headline ideas">
                             <div class="service-card-back-overlay"></div>
                             <div class="service-card-back-content">
                                 <p class="service-card-back-title" aria-hidden="true">Content Writing</p>
