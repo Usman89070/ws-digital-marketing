@@ -23,7 +23,7 @@ include 'header.php';
         <div class="container">
             <div class="agency-grid">
                 <div class="agency-image-wrapper">
-                    <img loading="lazy" decoding="async" src="/images/illustrations/graphic-design.webp" alt="Illustration of a logo being designed on an artboard with a colour palette and pen tool">
+                    <img loading="lazy" decoding="async" src="/images/photos/graphic-design.webp" alt="Graphic designer creating a logo in design software with a drawing tablet, colour swatches and logo sketches on the desk">
                 </div>
                 <div class="agency-text">
                     <span class="eyebrow">WHY IT MATTERS</span>

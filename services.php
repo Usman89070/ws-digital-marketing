@@ -120,7 +120,7 @@ include 'header.php';
                             <h3>Graphic Design</h3>
                         </div>
                         <div class="service-card-back">
-                            <img loading="lazy" decoding="async" class="service-card-back-img" src="/images/illustrations/graphic-design.webp" alt="Illustration of a logo being designed on an artboard with a colour palette and pen tool">
+                            <img loading="lazy" decoding="async" class="service-card-back-img" src="/images/photos/graphic-design.webp" alt="Graphic designer creating a logo in design software with a drawing tablet, colour swatches and logo sketches on the desk">
                             <div class="service-card-back-overlay"></div>
                             <div class="service-card-back-content">
                                 <p class="service-card-back-title" aria-hidden="true">Graphic Design</p>
