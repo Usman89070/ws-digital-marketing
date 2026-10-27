@@ -23,7 +23,7 @@ include 'header.php';
         <div class="container">
             <div class="agency-grid">
                 <div class="agency-image-wrapper">
-                    <img loading="lazy" decoding="async" src="/images/illustrations/construction.webp" alt="Illustration of building plans and a construction site with a crane and a hard hat">
+                    <img loading="lazy" decoding="async" src="/images/photos/construction.webp" alt="Two construction workers in hard hats and high-visibility vests reviewing plans on a tablet at a building site with a tower crane">
                 </div>
                 <div class="agency-text">
                     <span class="eyebrow">WHY IT MATTERS</span>
