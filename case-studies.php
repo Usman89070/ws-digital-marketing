@@ -44,7 +44,7 @@ include 'header.php';
                             <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px;"><?php echo htmlspecialchars(strip_tags($cs['summary']), ENT_QUOTES, 'UTF-8'); ?></p>
                         </div>
                         <div>
-                            <a href="/case-studies/<?php echo htmlspecialchars($cs['slug'], ENT_QUOTES, 'UTF-8'); ?>" class="service-link">View Details <i class="fa-solid fa-arrow-right"></i></a>
+                            <a href="/case-studies/<?php echo htmlspecialchars($cs['slug'], ENT_QUOTES, 'UTF-8'); ?>" class="service-link" aria-label="View Details &ndash; <?php echo htmlspecialchars($cs['name'], ENT_QUOTES, 'UTF-8'); ?>">View Details <i class="fa-solid fa-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>

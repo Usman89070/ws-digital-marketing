@@ -42,7 +42,7 @@ include 'header.php';
                             <p><?php echo htmlspecialchars($post['excerpt'], ENT_QUOTES, 'UTF-8'); ?></p>
                         </div>
                         <div>
-                            <a href="/blog/<?php echo urlencode($post['slug']); ?>" class="service-link">Read More <i class="fa-solid fa-arrow-right"></i></a>
+                            <a href="/blog/<?php echo urlencode($post['slug']); ?>" class="service-link" aria-label="Read More &ndash; <?php echo htmlspecialchars($post['title'], ENT_QUOTES, 'UTF-8'); ?>">Read More <i class="fa-solid fa-arrow-right"></i></a>
                         </div>
                     </div>
                 </article>

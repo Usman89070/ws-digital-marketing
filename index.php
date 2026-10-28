@@ -250,7 +250,7 @@ include 'header.php';
                             <div class="service-card-back-content">
                                 <p class="service-card-back-title" aria-hidden="true">Search Engine Optimisation</p>
                                 <p>Improve your visibility in Google Search and Maps with technical improvements, useful content and local optimisation that help relevant customers find your business.</p>
-                                <a href="/seo" class="service-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+                                <a href="/seo" class="service-link" aria-label="Learn More &ndash; Search Engine Optimisation">Learn More <i class="fa-solid fa-arrow-right"></i></a>
                             </div>
                         </div>
                     </div>
@@ -268,7 +268,7 @@ include 'header.php';
                             <div class="service-card-back-content">
                                 <p class="service-card-back-title" aria-hidden="true">Ecommerce</p>
                                 <p>Build or improve your Shopify or WooCommerce store with clear product information, organised collections and a straightforward shopping experience from browsing to checkout.</p>
-                                <a href="/ecommerce" class="service-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+                                <a href="/ecommerce" class="service-link" aria-label="Learn More &ndash; Ecommerce">Learn More <i class="fa-solid fa-arrow-right"></i></a>
                             </div>
                         </div>
                     </div>
@@ -286,7 +286,7 @@ include 'header.php';
                             <div class="service-card-back-content">
                                 <p class="service-card-back-title" aria-hidden="true">Website Design & Development</p>
                                 <p>Fast, mobile-friendly websites with clear navigation and practical features that make it easier for customers to enquire, book a service or buy.</p>
-                                <a href="/website-development" class="service-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+                                <a href="/website-development" class="service-link" aria-label="Learn More &ndash; Website Design &amp; Development">Learn More <i class="fa-solid fa-arrow-right"></i></a>
                             </div>
                         </div>
                     </div>
@@ -304,7 +304,7 @@ include 'header.php';
                             <div class="service-card-back-content">
                                 <p class="service-card-back-title" aria-hidden="true">Social Media Marketing</p>
                                 <p>Keep your social channels active with planned content, consistent posting and community engagement that help customers understand and connect with your business.</p>
-                                <a href="/social-media" class="service-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+                                <a href="/social-media" class="service-link" aria-label="Learn More &ndash; Social Media Marketing">Learn More <i class="fa-solid fa-arrow-right"></i></a>
                             </div>
                         </div>
                     </div>
@@ -322,7 +322,7 @@ include 'header.php';
                             <div class="service-card-back-content">
                                 <p class="service-card-back-title" aria-hidden="true">Paid Advertising</p>
                                 <p>Reach relevant customers through Google Ads and paid social campaigns, with ongoing testing and reporting focused on enquiries, purchases and advertising costs.</p>
-                                <a href="/ppc-advertising" class="service-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+                                <a href="/ppc-advertising" class="service-link" aria-label="Learn More &ndash; Paid Advertising">Learn More <i class="fa-solid fa-arrow-right"></i></a>
                             </div>
                         </div>
                     </div>
@@ -340,7 +340,7 @@ include 'header.php';
                             <div class="service-card-back-content">
                                 <p class="service-card-back-title" aria-hidden="true">Graphic Design</p>
                                 <p>Create a consistent business identity with logo design, social media graphics, advertising creative and marketing materials that reflect your brand across every channel.</p>
-                                <a href="/graphic-design" class="service-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+                                <a href="/graphic-design" class="service-link" aria-label="Learn More &ndash; Graphic Design">Learn More <i class="fa-solid fa-arrow-right"></i></a>
                             </div>
                         </div>
                     </div>
@@ -358,7 +358,7 @@ include 'header.php';
                             <div class="service-card-back-content">
                                 <p class="service-card-back-title" aria-hidden="true">Content Writing</p>
                                 <p>Clear website copy, product descriptions and blog articles shaped around customer questions, helping people understand your services and supporting your visibility in search.</p>
-                                <a href="/content-writing" class="service-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+                                <a href="/content-writing" class="service-link" aria-label="Learn More &ndash; Content Writing">Learn More <i class="fa-solid fa-arrow-right"></i></a>
                             </div>
                         </div>
                     </div>

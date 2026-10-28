@@ -302,7 +302,7 @@ include 'header.php';
                             <p><?php echo htmlspecialchars(strip_tags($item['summary']), ENT_QUOTES, 'UTF-8'); ?></p>
                         </div>
                         <div>
-                            <a href="/case-studies/<?php echo htmlspecialchars($moreSlug, ENT_QUOTES, 'UTF-8'); ?>" class="service-link">View Details <i class="fa-solid fa-arrow-right"></i></a>
+                            <a href="/case-studies/<?php echo htmlspecialchars($moreSlug, ENT_QUOTES, 'UTF-8'); ?>" class="service-link" aria-label="View Details &ndash; <?php echo htmlspecialchars($item['name'], ENT_QUOTES, 'UTF-8'); ?>">View Details <i class="fa-solid fa-arrow-right"></i></a>
                         </div>
                     </div>
                 </article>
