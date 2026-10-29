@@ -229,146 +229,52 @@ include 'header.php';
         </div>
     </div>
 
-    <!-- UPGRADED SERVICES SECTION WITH REAL IMAGES -->
-    <section id="services" class="services-section fade-up">
+    <!-- SERVICES SECTION: image-forward cards. Every photo is visible as soon
+         as the section scrolls into view (js/main.js reveals the cards with a
+         staggered wipe); nothing needs a click or hover to show its image.
+         services.php keeps its own flip-card layout. -->
+    <?php
+    // [icon, title, image, image alt, description, link, link aria-label]
+    $homeServices = [
+        ['fa-magnifying-glass-chart', 'Search Engine Optimisation', '/images/photos/seo.webp', 'Laptop on an office desk showing a website analytics dashboard with a rising traffic graph', 'Improve your visibility in Google Search and Maps with technical improvements, useful content and local optimisation that help relevant customers find your business.', '/seo', 'Learn More &ndash; Search Engine Optimisation'],
+        ['fa-cart-shopping', 'Ecommerce', '/images/photos/ecommerce.webp', 'Online store owner taping up a customer order in a packing room, with a laptop showing sales and parcels ready to ship', 'Build or improve your Shopify or WooCommerce store with clear product information, organised collections and a straightforward shopping experience from browsing to checkout.', '/ecommerce', 'Learn More &ndash; Ecommerce'],
+        ['fa-laptop-code', 'Website Design & Development', '/images/photos/website-development.webp', 'Web developer working on website code and a WordPress page builder across two monitors, with the finished site shown on a laptop and smartphone', 'Fast, mobile-friendly websites with clear navigation and practical features that make it easier for customers to enquire, book a service or buy.', '/website-development', 'Learn More &ndash; Website Design &amp; Development'],
+        ['fa-share-nodes', 'Social Media Marketing', '/images/socialMedia.webp', 'Social media app icons floating around a smartphone', 'Keep your social channels active with planned content, consistent posting and community engagement that help customers understand and connect with your business.', '/social-media', 'Learn More &ndash; Social Media Marketing'],
+        ['fa-hand-pointer', 'Paid Advertising', '/images/photos/paid-advertising.webp', 'Marketing specialist reviewing paid advertising campaign charts on a laptop and taking notes in an office', 'Reach relevant customers through Google Ads and paid social campaigns, with ongoing testing and reporting focused on enquiries, purchases and advertising costs.', '/ppc-advertising', 'Learn More &ndash; Paid Advertising'],
+        ['fa-palette', 'Graphic Design', '/images/photos/graphic-design.webp', 'Graphic designer creating a logo in design software with a drawing tablet, colour swatches and logo sketches on the desk', 'Create a consistent business identity with logo design, social media graphics, advertising creative and marketing materials that reflect your brand across every channel.', '/graphic-design', 'Learn More &ndash; Graphic Design'],
+        ['fa-pen-nib', 'Content Writing', '/images/photos/content-writing.webp', 'Content writer typing a blog article on a laptop at a home office desk with a notebook of headline ideas', 'Clear website copy, product descriptions and blog articles shaped around customer questions, helping people understand your services and supporting your visibility in search.', '/content-writing', 'Learn More &ndash; Content Writing'],
+    ];
+    ?>
+    <section id="services" class="services-section svc-section fade-up">
         <div class="container">
             <div class="section-header">
                 <span class="eyebrow">OUR EXPERTISE</span>
                 <h2 style="font-size: clamp(1.8rem, 4vw, 2.8rem); margin-top: 10px;">Digital Services For Your Business</h2>
             </div>
-            <div class="services-grid">
-                <!-- Service 1: SEO -->
-                <div class="service-card service-card-flip">
-                    <div class="service-card-inner">
-                        <div class="service-card-front">
-                            <div class="service-icon-badge"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
-                            <h3>Search Engine Optimisation</h3>
+            <div class="svc-grid">
+                <?php foreach ($homeServices as $i => [$icon, $title, $img, $alt, $desc, $href, $aria]): ?>
+                <article class="svc-card">
+                    <div class="svc-media"><img <?php echo $i < 3 ? '' : 'loading="lazy" '; ?>decoding="async" src="<?php echo $img; ?>" alt="<?php echo htmlspecialchars($alt, ENT_QUOTES, 'UTF-8'); ?>"></div>
+                    <div class="svc-shade"></div>
+                    <div class="svc-body">
+                        <div class="svc-top">
+                            <span class="svc-icon"><i class="fa-solid <?php echo $icon; ?>"></i></span>
+                            <span class="svc-num" aria-hidden="true"><?php echo sprintf('%02d', $i + 1); ?></span>
                         </div>
-                        <div class="service-card-back">
-                            <img loading="lazy" decoding="async" class="service-card-back-img" src="/images/photos/seo.webp" alt="Laptop on an office desk showing a website analytics dashboard with a rising traffic graph">
-                            <div class="service-card-back-overlay"></div>
-                            <div class="service-card-back-content">
-                                <p class="service-card-back-title" aria-hidden="true">Search Engine Optimisation</p>
-                                <p>Improve your visibility in Google Search and Maps with technical improvements, useful content and local optimisation that help relevant customers find your business.</p>
-                                <a href="/seo" class="service-link" aria-label="Learn More &ndash; Search Engine Optimisation">Learn More <i class="fa-solid fa-arrow-right"></i></a>
-                            </div>
-                        </div>
+                        <h3><?php echo $title; ?></h3>
+                        <p><?php echo $desc; ?></p>
+                        <a href="<?php echo $href; ?>" class="svc-link" aria-label="<?php echo $aria; ?>">Learn More <i class="fa-solid fa-arrow-right"></i></a>
                     </div>
-                </div>
-                <!-- Service 2: Ecommerce -->
-                <div class="service-card service-card-flip">
-                    <div class="service-card-inner">
-                        <div class="service-card-front">
-                            <div class="service-icon-badge"><i class="fa-solid fa-cart-shopping"></i></div>
-                            <h3>Ecommerce</h3>
-                        </div>
-                        <div class="service-card-back">
-                            <img loading="lazy" decoding="async" class="service-card-back-img" src="/images/photos/ecommerce.webp" alt="Online store owner taping up a customer order in a packing room, with a laptop showing sales and parcels ready to ship">
-                            <div class="service-card-back-overlay"></div>
-                            <div class="service-card-back-content">
-                                <p class="service-card-back-title" aria-hidden="true">Ecommerce</p>
-                                <p>Build or improve your Shopify or WooCommerce store with clear product information, organised collections and a straightforward shopping experience from browsing to checkout.</p>
-                                <a href="/ecommerce" class="service-link" aria-label="Learn More &ndash; Ecommerce">Learn More <i class="fa-solid fa-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Service 3: Website Design & Development -->
-                <div class="service-card service-card-flip">
-                    <div class="service-card-inner">
-                        <div class="service-card-front">
-                            <div class="service-icon-badge"><i class="fa-solid fa-laptop-code"></i></div>
-                            <h3>Website Design & Development</h3>
-                        </div>
-                        <div class="service-card-back">
-                            <img loading="lazy" decoding="async" class="service-card-back-img" src="/images/photos/website-development.webp" alt="Web developer working on website code and a WordPress page builder across two monitors, with the finished site shown on a laptop and smartphone">
-                            <div class="service-card-back-overlay"></div>
-                            <div class="service-card-back-content">
-                                <p class="service-card-back-title" aria-hidden="true">Website Design & Development</p>
-                                <p>Fast, mobile-friendly websites with clear navigation and practical features that make it easier for customers to enquire, book a service or buy.</p>
-                                <a href="/website-development" class="service-link" aria-label="Learn More &ndash; Website Design &amp; Development">Learn More <i class="fa-solid fa-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Service 4: Social Media -->
-                <div class="service-card service-card-flip">
-                    <div class="service-card-inner">
-                        <div class="service-card-front">
-                            <div class="service-icon-badge"><i class="fa-solid fa-share-nodes"></i></div>
-                            <h3>Social Media Marketing</h3>
-                        </div>
-                        <div class="service-card-back">
-                            <img loading="lazy" decoding="async" class="service-card-back-img" src="/images/socialMedia.webp" alt="Social media app icons floating around a smartphone">
-                            <div class="service-card-back-overlay"></div>
-                            <div class="service-card-back-content">
-                                <p class="service-card-back-title" aria-hidden="true">Social Media Marketing</p>
-                                <p>Keep your social channels active with planned content, consistent posting and community engagement that help customers understand and connect with your business.</p>
-                                <a href="/social-media" class="service-link" aria-label="Learn More &ndash; Social Media Marketing">Learn More <i class="fa-solid fa-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Service 5: Paid Advertising -->
-                <div class="service-card service-card-flip">
-                    <div class="service-card-inner">
-                        <div class="service-card-front">
-                            <div class="service-icon-badge"><i class="fa-solid fa-hand-pointer"></i></div>
-                            <h3>Paid Advertising</h3>
-                        </div>
-                        <div class="service-card-back">
-                            <img loading="lazy" decoding="async" class="service-card-back-img" src="/images/photos/paid-advertising.webp" alt="Marketing specialist reviewing paid advertising campaign charts on a laptop and taking notes in an office">
-                            <div class="service-card-back-overlay"></div>
-                            <div class="service-card-back-content">
-                                <p class="service-card-back-title" aria-hidden="true">Paid Advertising</p>
-                                <p>Reach relevant customers through Google Ads and paid social campaigns, with ongoing testing and reporting focused on enquiries, purchases and advertising costs.</p>
-                                <a href="/ppc-advertising" class="service-link" aria-label="Learn More &ndash; Paid Advertising">Learn More <i class="fa-solid fa-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Service 6: Graphic Design -->
-                <div class="service-card service-card-flip">
-                    <div class="service-card-inner">
-                        <div class="service-card-front">
-                            <div class="service-icon-badge"><i class="fa-solid fa-palette"></i></div>
-                            <h3>Graphic Design</h3>
-                        </div>
-                        <div class="service-card-back">
-                            <img loading="lazy" decoding="async" class="service-card-back-img" src="/images/photos/graphic-design.webp" alt="Graphic designer creating a logo in design software with a drawing tablet, colour swatches and logo sketches on the desk">
-                            <div class="service-card-back-overlay"></div>
-                            <div class="service-card-back-content">
-                                <p class="service-card-back-title" aria-hidden="true">Graphic Design</p>
-                                <p>Create a consistent business identity with logo design, social media graphics, advertising creative and marketing materials that reflect your brand across every channel.</p>
-                                <a href="/graphic-design" class="service-link" aria-label="Learn More &ndash; Graphic Design">Learn More <i class="fa-solid fa-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Service 7: Content Writing -->
-                <div class="service-card service-card-flip">
-                    <div class="service-card-inner">
-                        <div class="service-card-front">
-                            <div class="service-icon-badge"><i class="fa-solid fa-pen-nib"></i></div>
-                            <h3>Content Writing</h3>
-                        </div>
-                        <div class="service-card-back">
-                            <img loading="lazy" decoding="async" class="service-card-back-img" src="/images/photos/content-writing.webp" alt="Content writer typing a blog article on a laptop at a home office desk with a notebook of headline ideas">
-                            <div class="service-card-back-overlay"></div>
-                            <div class="service-card-back-content">
-                                <p class="service-card-back-title" aria-hidden="true">Content Writing</p>
-                                <p>Clear website copy, product descriptions and blog articles shaped around customer questions, helping people understand your services and supporting your visibility in search.</p>
-                                <a href="/content-writing" class="service-link" aria-label="Learn More &ndash; Content Writing">Learn More <i class="fa-solid fa-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                </article>
+                <?php endforeach; ?>
             </div>
             <div style="text-align: center; margin-top: clamp(30px, 4vw, 40px);">
                 <a href="/services" class="btn-secondary">VIEW ALL SERVICES <i class="fa-solid fa-arrow-right" style="margin-left: 6px;"></i></a>
             </div>
         </div>
     </section>
+
+    <?php include __DIR__ . '/includes/home-sections.php'; ?>
 
     <!-- PREMIUM FINAL CTA SECTION -->
     <section class="cta-section" id="contact">
