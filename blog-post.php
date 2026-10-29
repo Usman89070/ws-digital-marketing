@@ -57,10 +57,22 @@ if (!$post) {
 $page_title = ($post['meta_title'] ?? '') !== '' ? $post['meta_title'] : $post['title'];
 $page_description = ($post['meta_description'] ?? '') !== '' ? $post['meta_description'] : ($post['excerpt'] ?: $post['title']);
 
+// Social sharing + image SEO: the cover image doubles as the share image, and
+// its alt text is whatever admin -> SEO -> Image SEO set (falling back to the title).
+$page_og_type = 'article';
+$page_og_image = $post['image_path'] ?? '';
+$postImageAlt = ($post['image_alt'] ?? '') !== '' ? $post['image_alt'] : $post['title'];
+
 $recentPosts = [];
 try {
-    $stmt = get_db()->prepare('SELECT title, slug, category, image_path FROM blog_posts WHERE is_published = 1 AND id != ? ORDER BY created_at DESC LIMIT 4');
-    $stmt->execute([$post['id']]);
+    try {
+        $stmt = get_db()->prepare('SELECT title, slug, category, image_path, image_alt FROM blog_posts WHERE is_published = 1 AND id != ? ORDER BY created_at DESC LIMIT 4');
+        $stmt->execute([$post['id']]);
+    } catch (PDOException $e) {
+        // image_alt column not added yet (SEO migration pending)
+        $stmt = get_db()->prepare('SELECT title, slug, category, image_path FROM blog_posts WHERE is_published = 1 AND id != ? ORDER BY created_at DESC LIMIT 4');
+        $stmt->execute([$post['id']]);
+    }
     $recentPosts = $stmt->fetchAll();
 } catch (PDOException $e) {
     $recentPosts = [];
@@ -83,7 +95,7 @@ include 'header.php';
             <div class="blog-post-main">
                 <?php if ($post['image_path']): ?>
                     <div style="border-radius: 20px; overflow: hidden; box-shadow: var(--shadow-hover); margin-bottom: 40px;">
-                        <img loading="lazy" decoding="async" src="<?php echo htmlspecialchars($post['image_path'], ENT_QUOTES, 'UTF-8'); ?>" alt="<?php echo htmlspecialchars($post['title'], ENT_QUOTES, 'UTF-8'); ?>" style="width:100%; height:auto; display:block;">
+                        <img loading="lazy" decoding="async" src="<?php echo htmlspecialchars($post['image_path'], ENT_QUOTES, 'UTF-8'); ?>" alt="<?php echo htmlspecialchars($postImageAlt, ENT_QUOTES, 'UTF-8'); ?>" style="width:100%; height:auto; display:block;">
                     </div>
                 <?php endif; ?>
                 <div class="blog-post-body">
@@ -103,7 +115,7 @@ include 'header.php';
                         <a class="blog-sidebar-item" href="/blog/<?php echo urlencode($recent['slug']); ?>">
                             <?php if ($recent['image_path']): ?>
                             <div class="blog-sidebar-thumb">
-                                <img loading="lazy" decoding="async" src="<?php echo htmlspecialchars($recent['image_path'], ENT_QUOTES, 'UTF-8'); ?>" alt="<?php echo htmlspecialchars($recent['title'], ENT_QUOTES, 'UTF-8'); ?>">
+                                <img loading="lazy" decoding="async" src="<?php echo htmlspecialchars($recent['image_path'], ENT_QUOTES, 'UTF-8'); ?>" alt="<?php echo htmlspecialchars(($recent['image_alt'] ?? '') !== '' ? $recent['image_alt'] : $recent['title'], ENT_QUOTES, 'UTF-8'); ?>">
                             </div>
                             <?php endif; ?>
                             <div class="blog-sidebar-item-text">

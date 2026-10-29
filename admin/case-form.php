@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__ . '/includes/auth.php';
+require_role(['admin']);
 require_once __DIR__ . '/../includes/case-study-helpers.php';
 $pdo = get_db();
 
@@ -163,6 +164,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if ($id) {
                 $stmt = $pdo->prepare('UPDATE case_studies SET name=?, slug=?, tag=?, image_path=?, image_alt=?, summary=?, services=?, has_data=?, period=?, stat1_value=?, stat1_label=?, stat2_value=?, stat2_label=?, stat3_value=?, stat3_label=?, stat4_value=?, stat4_label=?, display_order=?, meta_title=?, meta_description=?, gsc_clicks=?, gsc_impressions=?, gsc_ctr=?, gsc_position=?, gsc_image=?, gsc_ai_value=?, gsc_ai_image=?, gbp_interactions=?, gbp_calls=?, gbp_calls_image=?, gbp_directions=?, gbp_directions_image=?, gbp_website_clicks=?, gbp_website_image=?, gbp_image=?, gbp_extra_label=?, gbp_extra_value=?, gbp_extra_image=? WHERE id=?');
                 $stmt->execute([...$params, $id]);
+                // A changed URL (e.g. the name was edited) must keep working: add a 301 from the old address.
+                if (($existing['slug'] ?? $slug) !== $slug) {
+                    require_once __DIR__ . '/includes/seo-admin.php';
+                    seo_redirect_for_slug_change('/case-studies/' . $existing['slug'], '/case-studies/' . $slug, (string) $_SESSION['admin_username']);
+                }
             } else {
                 $stmt = $pdo->prepare('INSERT INTO case_studies (name, slug, tag, image_path, image_alt, summary, services, has_data, period, stat1_value, stat1_label, stat2_value, stat2_label, stat3_value, stat3_label, stat4_value, stat4_label, display_order, meta_title, meta_description, gsc_clicks, gsc_impressions, gsc_ctr, gsc_position, gsc_image, gsc_ai_value, gsc_ai_image, gbp_interactions, gbp_calls, gbp_calls_image, gbp_directions, gbp_directions_image, gbp_website_clicks, gbp_website_image, gbp_image, gbp_extra_label, gbp_extra_value, gbp_extra_image) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)');
                 $stmt->execute($params);

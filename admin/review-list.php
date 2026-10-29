@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__ . '/includes/auth.php';
+require_role(['admin']);
 $page_title = 'Reviews';
 $pdo = get_db();
 $reviews = $pdo->query('SELECT id, author_name, author_role, rating, photo_path, display_order FROM reviews ORDER BY display_order ASC, id ASC')->fetchAll();

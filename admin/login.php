@@ -24,17 +24,34 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         try {
             $pdo = get_db();
-            $stmt = $pdo->prepare('SELECT id, password_hash FROM admin_users WHERE username = ?');
-            $stmt->execute([$username]);
-            $user = $stmt->fetch();
+            try {
+                $stmt = $pdo->prepare('SELECT id, password_hash, role, is_active FROM admin_users WHERE username = ?');
+                $stmt->execute([$username]);
+                $user = $stmt->fetch();
+                $hasRoles = true;
+            } catch (PDOException $roleColumnsMissing) {
+                // SEO migration not run yet: every account is a full admin.
+                $stmt = $pdo->prepare('SELECT id, password_hash FROM admin_users WHERE username = ?');
+                $stmt->execute([$username]);
+                $user = $stmt->fetch();
+                $hasRoles = false;
+            }
 
             if ($user && password_verify($password, $user['password_hash'])) {
-                session_regenerate_id(true);
-                $_SESSION['admin_id'] = $user['id'];
-                $_SESSION['admin_username'] = $username;
-                unset($_SESSION['login_attempts'], $_SESSION['login_locked_until']);
-                header('Location: index.php');
-                exit;
+                if ($hasRoles && !(int) $user['is_active']) {
+                    $error = 'This account has been disabled. Please contact the site administrator.';
+                } else {
+                    session_regenerate_id(true);
+                    $_SESSION['admin_id'] = $user['id'];
+                    $_SESSION['admin_username'] = $username;
+                    $_SESSION['admin_role'] = $hasRoles ? (string) $user['role'] : 'admin';
+                    unset($_SESSION['login_attempts'], $_SESSION['login_locked_until']);
+                    if ($hasRoles) {
+                        $pdo->prepare('UPDATE admin_users SET last_login_at = NOW() WHERE id = ?')->execute([$user['id']]);
+                    }
+                    header('Location: index.php');
+                    exit;
+                }
             }
 
             $_SESSION['login_attempts']++;
@@ -42,7 +59,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $_SESSION['login_locked_until'] = time() + 60;
                 $_SESSION['login_attempts'] = 0;
             }
-            $error = 'Incorrect username or password.';
+            if ($error === '') {
+                $error = 'Incorrect username or password.';
+            }
         } catch (PDOException $e) {
             $error = 'Could not connect to the database. Check config.php credentials.';
         }

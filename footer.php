@@ -1,3 +1,4 @@
+<?php if (function_exists('seo_render_extra_content')) seo_render_extra_content(); ?>
     </main>
 
     <!-- PREMIUM FOOTER -->
@@ -114,6 +115,7 @@
         });
     </script>
 
+<?php if (function_exists('seo_setting') && (string) seo_setting('footer_code', '') !== '') echo seo_setting('footer_code') . "\n"; ?>
     <!-- Developed and designed by Usman Zahid -->
 </body>
 </html>

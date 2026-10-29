@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__ . '/includes/auth.php';
+require_role(['admin']);
 $page_title = 'Blog Posts';
 $pdo = get_db();
 $posts = $pdo->query('SELECT id, title, category, image_path, is_published, created_at FROM blog_posts ORDER BY created_at DESC')->fetchAll();

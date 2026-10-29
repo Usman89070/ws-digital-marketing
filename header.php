@@ -11,15 +11,66 @@ $page_description = $page_description ?? 'Data-driven Google Ads, Meta Ads, SEO 
 // request for that path -- for "/" specifically, that's the homepage.
 $canonical_path = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH) ?: '/';
 $canonical_url = 'https://wsdigitalmarketing.com.au' . $canonical_path;
+
+// SEO dashboard overrides (admin -> SEO): per-page title/description/
+// canonical/robots/social tags/schema, site-wide head code, and any active
+// redirect for this URL. All of it silently does nothing until the SEO
+// migration has been run, so the page renders as before in the meantime.
+require_once __DIR__ . '/includes/seo.php';
+$seo = seo_context(!empty($seo_skip_redirect));
+$seo_page = $seo['page'];
+$seo_settings = $seo['settings'];
+if ($seo_page) {
+    if ($seo_page['meta_title'] !== '') {
+        $page_title = $seo_page['meta_title'];
+    }
+    if ($seo_page['meta_description'] !== '') {
+        $page_description = $seo_page['meta_description'];
+    }
+    if ($seo_page['canonical_url'] !== '') {
+        $canonical_url = seo_abs_url($seo_page['canonical_url']);
+    }
+}
+$seo_title_suffix = $seo_settings['title_suffix'] ?? SEO_DEFAULT_TITLE_SUFFIX;
+if ($seo_page && !empty($seo_page['no_suffix'])) {
+    $seo_title_suffix = '';
+}
+$seo_noindex = $seo_page && !empty($seo_page['noindex']);
+$seo_nofollow = $seo_page && !empty($seo_page['nofollow']);
+$seo_og_title = ($seo_page['og_title'] ?? '') !== '' ? $seo_page['og_title'] : $page_title;
+$seo_og_description = ($seo_page['og_description'] ?? '') !== '' ? $seo_page['og_description'] : $page_description;
+$seo_og_image = ($seo_page['og_image'] ?? '') !== '' ? $seo_page['og_image'] : (!empty($page_og_image) ? $page_og_image : ($seo_settings['default_og_image'] ?? ''));
+$seo_og_image = seo_abs_url((string) $seo_og_image);
+$seo_og_type = !empty($page_og_type) ? $page_og_type : 'website';
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo htmlspecialchars($page_title, ENT_QUOTES, 'UTF-8'); ?> | W&amp;S Digital Marketing</title>
+    <title><?php echo htmlspecialchars($page_title . $seo_title_suffix, ENT_QUOTES, 'UTF-8'); ?></title>
     <meta name="description" content="<?php echo htmlspecialchars($page_description, ENT_QUOTES, 'UTF-8'); ?>">
     <link rel="canonical" href="<?php echo htmlspecialchars($canonical_url, ENT_QUOTES, 'UTF-8'); ?>">
+<?php if ($seo_noindex || $seo_nofollow): ?>
+    <meta name="robots" content="<?php echo $seo_noindex ? 'noindex' : 'index'; ?>, <?php echo $seo_nofollow ? 'nofollow' : 'follow'; ?>">
+<?php endif; ?>
+
+    <!-- Social sharing (Open Graph / Twitter) -->
+    <meta property="og:locale" content="en_AU">
+    <meta property="og:type" content="<?php echo htmlspecialchars($seo_og_type, ENT_QUOTES, 'UTF-8'); ?>">
+    <meta property="og:site_name" content="W&amp;S Digital Marketing">
+    <meta property="og:title" content="<?php echo htmlspecialchars($seo_og_title, ENT_QUOTES, 'UTF-8'); ?>">
+    <meta property="og:description" content="<?php echo htmlspecialchars($seo_og_description, ENT_QUOTES, 'UTF-8'); ?>">
+    <meta property="og:url" content="<?php echo htmlspecialchars($canonical_url, ENT_QUOTES, 'UTF-8'); ?>">
+<?php if ($seo_og_image !== ''): ?>
+    <meta property="og:image" content="<?php echo htmlspecialchars($seo_og_image, ENT_QUOTES, 'UTF-8'); ?>">
+<?php endif; ?>
+    <meta name="twitter:card" content="<?php echo $seo_og_image !== '' ? 'summary_large_image' : 'summary'; ?>">
+    <meta name="twitter:title" content="<?php echo htmlspecialchars($seo_og_title, ENT_QUOTES, 'UTF-8'); ?>">
+    <meta name="twitter:description" content="<?php echo htmlspecialchars($seo_og_description, ENT_QUOTES, 'UTF-8'); ?>">
+<?php if ($seo_og_image !== ''): ?>
+    <meta name="twitter:image" content="<?php echo htmlspecialchars($seo_og_image, ENT_QUOTES, 'UTF-8'); ?>">
+<?php endif; ?>
 
     <!-- Favicon: the W&S logo, shown in every browser tab/bookmark on every page since
          this file is included everywhere. favicon.ico covers old browsers and anything
@@ -76,8 +127,17 @@ $canonical_url = 'https://wsdigitalmarketing.com.au' . $canonical_path;
     <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
 
     <?php if (!empty($extra_head)) echo $extra_head; ?>
+<?php
+    // Structured data (JSON-LD): site-wide first, then anything specific to this page.
+    echo seo_json_ld_tag($seo_settings['schema_json'] ?? '');
+    echo seo_json_ld_tag($seo_page['schema_json'] ?? '');
+    // Custom code from admin -> SEO -> Site Code (Analytics, Search Console
+    // verification, etc.) -- printed as-is, it's trusted admin-entered markup.
+    if (($seo_settings['head_code'] ?? '') !== '') echo "\n" . $seo_settings['head_code'] . "\n";
+?>
 </head>
 <body>
+<?php if (($seo_settings['body_code'] ?? '') !== '') echo $seo_settings['body_code'] . "\n"; ?>
 
     <!-- SPLASH SCREEN: plays on every page load/navigation and on refresh -->
     <div id="splash-screen" aria-hidden="true">

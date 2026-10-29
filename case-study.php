@@ -106,6 +106,7 @@ if (($study['shop_image'] ?? '') !== '') { $shopGallery[] = [$study['shop_image'
 // PHP opcode cache entry -- this comment guarantees a fresh file size/
 // timestamp so the next deploy genuinely overwrites it.)
 $page_title = ($study['meta_title'] ?? '') !== '' ? $study['meta_title'] : $study['name'];
+$page_og_image = $study['image_path'] ?? '';
 // The summary field allows HTML (edited via the admin panel), so the meta
 // description -- which must be plain text -- strips tags rather than
 // echoing the markup itself.
