@@ -3,30 +3,37 @@
 // (index.php). Edit the text here -- no layout/PHP knowledge needed. Keep the
 // quotes and commas as they are.
 //
-// Items marked PROVISIONAL are written only from claims already made
-// elsewhere on this site (FAQ, CTA, pricing) so nothing invented goes live;
-// swap in the final copy when it is ready.
+// The Author Bio stays hidden until its details are filled in.
 
 // ---------------------------------------------------------------- Why Choose
-// PROVISIONAL copy. 'image' is any site path or full URL (square-ish or 4:5
-// photos look best, ~1000px wide, under 100KB).
+// 'image' is any site path or full URL. The supplied brief names the final
+// file ws-digital-marketing-team-sydney.webp -- upload it to /images/ and
+// change the path below (keep it under 150 KB; set image_w / image_h to its
+// real pixel size so the page does not jump while loading).
+// Each point is [icon, title, text, link-or-null]; a link turns the title
+// into an internal link.
 $whyChoose = [
-    'enabled' => true,
-    'eyebrow' => 'WHY CHOOSE US',
-    'heading' => 'Why Australian Businesses Choose W&S Digital Marketing',
-    'intro'   => 'We keep marketing simple: a plan built around your numbers, honest monthly reporting and a team that stays accountable to results.',
-    'image'   => '/images/about-ws.webp',
-    'image_alt' => 'The W&S Digital Marketing team',
-    'points'  => [
-        ['fa-handshake',         'No Lock-In Contracts',     'All plans are month-to-month. We earn your business through results, not cancellation fees.'],
-        ['fa-chart-line',        'Transparent Reporting',    'Clear monthly reports covering clicks, impressions, conversions, cost per lead and ROAS, with a strategist call to walk you through them.'],
-        ['fa-bullseye',          'Custom Growth Strategy',   'Every plan starts with a zero-obligation audit and is built around your goals, not a one-size-fits-all package.'],
-        ['fa-layer-group',       'Full-Service Team',        'SEO, Google Ads, social media, websites, design and content from one team that works together.'],
-        ['fa-wallet',            'You Control Ad Spend',     'Your ad budget is paid directly to Google or Meta and stays fully in your control.'],
-        ['fa-location-dot',      'Built For Australia',      'We work with Australian trades, healthcare, ecommerce, hospitality and service businesses every day.'],
+    'enabled'   => true,
+    'eyebrow'   => 'WHY BUSINESSES CHOOSE US',
+    'heading'   => 'Why Choose W&S Digital Marketing?',
+    'intro'     => 'Choosing a digital marketing agency comes down to one question: will they actually grow your business? W&S Digital Marketing is a Sydney-based company helping Australian businesses win more customers through SEO, Google Ads, social media, website design and content. We don’t judge success by likes or “brand awareness”. We judge it by calls, enquiries and sales, and we show you those numbers every single month.',
+    'image'     => '/images/about-ws.webp',
+    'image_w'   => 1448,
+    'image_h'   => 1086,
+    'image_alt' => 'WS Digital Marketing team in Sydney planning SEO and Google Ads campaigns for Australian businesses',
+    'points'    => [
+        ['fa-chart-line', 'Proven, Measurable Results', 'Between May and September 2026, our combined client work generated 6.54K organic clicks, 782K search impressions and 1,070 phone calls straight from Google Business Profiles. These are real numbers from real Australian businesses, not projections.', '/case-studies'],
+        ['fa-handshake', 'Month-to-Month, No Lock-In Contracts', 'We keep clients by delivering results, not by tying them into long contracts. Every plan runs month to month, so you stay because the work is paying off.', null],
+        ['fa-file-lines', 'Reporting You Can Actually Understand', 'Each month you get a clear report on clicks, impressions, conversions, cost per lead and ROAS, plus a call with your strategist to explain what is working and what comes next.', null],
+        ['fa-users', 'A Team You Know by Name', 'Your campaigns are run by people you can meet, led by our CEOs, Managing Director and Digital Marketing Manager. You will always know who is working on your account and who to call.', '/our-team'],
+        ['fa-diagram-project', 'Every Channel, One Connected Strategy', 'SEO, Google Ads, Meta advertising, social media, website design, graphic design and content writing are planned together, so every channel pushes toward the same goal.', null],
+        ['fa-briefcase', 'Industry Know-How Across 14 Sectors', 'From appliance repairs and construction to dental, legal, real estate, car detailing, healthcare and ecommerce, we adapt keywords, messaging and ads to how customers in your industry actually search and buy.', '/industries'],
     ],
-    // Optional row of headline numbers under the points (leave [] to hide).
-    'badges'  => [],
+    // Results strip under the cards: [value, label]. Always keep the date range.
+    'results'      => [['782K', 'search impressions'], ['6.54K', 'organic clicks'], ['4.19K', 'Google Business Profile interactions'], ['1.07K', 'calls from Google']],
+    'results_note' => 'Combined client results, May–September 2026',
+    'cta_primary'   => ['Get My Free Growth Plan', '/contact'],
+    'cta_secondary' => ['See Our Case Studies', '/case-studies'],
 ];
 
 // ---------------------------------------------------------------- Author bio
@@ -64,13 +71,15 @@ $reviewsSection = [
 ];
 
 // ---------------------------------------------------------------- FAQs
-// PROVISIONAL: the first six answers from the FAQ page. Answers may contain
-// simple HTML links. 5-7 items work best.
+// Answers may contain simple HTML links. The FAQPage structured data is built
+// from this same list, so the visible answers and the schema always match.
+$homeFaqsIntro = 'Straight answers to the questions Australian business owners ask us most before getting started. Need more detail? Visit our <a href="/faq">full FAQ page</a> or <a href="/contact">speak with our team</a>.';
 $homeFaqs = [
-    ['How quickly will I see results?', 'PPC campaigns typically start generating leads within days of launch. SEO is a longer-term investment, with most clients seeing meaningful ranking improvements within 3-6 months, depending on competition and starting position.'],
-    ['Do you require long-term contracts?', 'No. All of our plans are month-to-month with no lock-in contracts. We earn your business through results, not through cancellation fees.'],
-    ['What industries do you work with?', 'We work across trades &amp; services, healthcare, professional services, eCommerce, hospitality and automotive. See our <a href="/industries">Industries</a> page for how we tailor strategy per sector.'],
-    ['How does your reporting work?', 'Every client gets transparent, easy-to-read monthly reporting covering clicks, impressions, conversions, cost per lead and ROAS, plus a strategist call to walk through what is working and what is next.'],
-    ['Do you manage the ad spend budget?', 'Our plans cover strategy, management and optimisation. Ad spend (what you pay directly to Google or Meta) is billed separately and stays fully in your control.'],
-    ['How do I get started?', 'Book a zero-obligation growth audit through our <a href="/contact">contact page</a>. We will review your current marketing, identify opportunities and recommend a plan tailored to your goals.'],
+    ['What does W&S Digital Marketing do?', 'W&S Digital Marketing (often searched as WS Digital Marketing) is an Australian digital marketing agency that helps businesses attract more customers online. Our services include search engine optimisation (SEO), Google Ads and paid social advertising, social media marketing, website design and development, Shopify and WooCommerce ecommerce stores, graphic design and content writing. Every service is planned around one outcome: more enquiries, calls and sales for your business.'],
+    ['Where is W&S Digital Marketing located, and which areas do you serve?', 'W&S Digital Marketing is based at 3 Weebill St, Melonba NSW 2765, in Sydney’s north-west, and works with businesses right across Australia. Because most of our work is delivered online, location is no barrier. Whether you run a local trades business in Sydney or an online store shipping nationwide, we build your strategy around the suburbs, cities or regions where your customers are searching.'],
+    ['How can local SEO help my business get more calls from Google Maps?', 'Local SEO puts your business in front of nearby customers at the exact moment they search for your service. We optimise your Google Business Profile, keep your business details consistent across directories, strengthen your location pages and help you earn genuine reviews, so you appear more often in Google Maps and the local pack. From May to September 2026, our clients’ Google Business Profiles generated 4,190 interactions and 1,070 phone calls.'],
+    ['Which industries does W&S Digital Marketing work with?', 'We work with businesses across 14 industries, including appliance repairs, construction and building, dental, healthcare and medical, legal, accounting and finance, real estate, automotive, hospitality and tourism, hotels and motels, NDIS providers, franchises, ecommerce and small businesses. Each sector has different customers, search habits and advertising rules, so we tailor keywords, messaging and campaigns to your industry instead of using a one-size-fits-all template.'],
+    ['Who will manage my marketing at W&S Digital Marketing?', 'Your marketing is handled by the W&S team, led by CEOs Wishal Khan Mohammadi and Shawal Khan Mohammadi and Managing Director Sahar Afridi, who also leads social media strategy. Day-to-day work across SEO, ads and content is managed by our Digital Marketing Manager, Hammad Hassan. You will always know who is working on your campaigns, with a strategist available to walk you through your results.'],
+    ['Can W&S Digital Marketing help my business appear in AI search results like Google AI Overviews and GEO?', 'Yes. Alongside traditional SEO, we make your business easier for AI search tools to understand and recommend. That includes clear, question-led website content, consistent business details across Google, directories and social profiles, structured data, and mentions on trusted Australian websites. No agency can guarantee an AI citation, but these same foundations strengthen your visibility in both Google results and AI-generated answers.'],
+    ['What happens when I request a free growth plan?', 'You receive a zero-obligation review of your current marketing. Our team looks at your website, search visibility, Google Business Profile, ads and social channels, identifies your biggest opportunities, and recommends a plan built around your goals. There is no pressure to sign up, and if you go ahead, every plan runs month to month with no lock-in contract. Request yours on our <a href="/contact">contact page</a> or call <a href="tel:+61403889630">+61 403 889 630</a>.'],
 ];

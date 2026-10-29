@@ -35,9 +35,10 @@ $extra_head = <<<'HTML'
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Organization",
+  "@type": ["Organization", "ProfessionalService"],
   "@id": "https://wsdigitalmarketing.com.au/#organization",
   "name": "W&S Digital Marketing",
+  "alternateName": ["WS Digital Marketing", "W and S Digital Marketing"],
   "url": "https://wsdigitalmarketing.com.au/",
   "description": "Digital marketing agency providing SEO, Google Ads, social media management, website development, ecommerce development, graphic design and content writing services for Australian businesses.",
   "logo": {
@@ -49,6 +50,15 @@ $extra_head = <<<'HTML'
   },
   "telephone": "+61403889630",
   "email": "info@wsdigitalmarketing.com.au",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "3 Weebill St",
+    "addressLocality": "Melonba",
+    "addressRegion": "NSW",
+    "postalCode": "2765",
+    "addressCountry": "AU"
+  },
+  "areaServed": "AU",
   "sameAs": [
     "https://www.facebook.com/w.and.s.digital.marketing",
     "https://www.instagram.com/wsdigitalmarketing",

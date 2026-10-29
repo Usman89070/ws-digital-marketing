@@ -65,31 +65,42 @@ try {
 <?php if (!empty($whyChoose['enabled'])): ?>
     <!-- WHY CHOOSE -->
     <section class="why-section fade-up" id="why-choose">
-        <div class="container why-layout">
-            <div class="why-media">
-                <img loading="lazy" decoding="async" src="<?php echo $hs($whyChoose['image']); ?>" alt="<?php echo $hs($whyChoose['image_alt']); ?>">
-                <?php if ($whyChoose['badges']): ?>
-                <div class="why-badges">
-                    <?php foreach ($whyChoose['badges'] as [$bv, $bl]): ?>
-                    <div><strong><?php echo $hs($bv); ?></strong><span><?php echo $hs($bl); ?></span></div>
-                    <?php endforeach; ?>
+        <div class="container">
+            <div class="why-top">
+                <div class="why-media">
+                    <img loading="lazy" decoding="async" width="<?php echo (int) $whyChoose['image_w']; ?>" height="<?php echo (int) $whyChoose['image_h']; ?>" src="<?php echo $hs($whyChoose['image']); ?>" alt="<?php echo $hs($whyChoose['image_alt']); ?>">
                 </div>
-                <?php endif; ?>
+                <div class="why-copy">
+                    <span class="eyebrow"><?php echo $hs($whyChoose['eyebrow']); ?></span>
+                    <h2><?php echo $hs($whyChoose['heading']); ?></h2>
+                    <p class="why-intro"><?php echo $hs($whyChoose['intro']); ?></p>
+                    <div class="why-cta">
+                        <a href="<?php echo $hs($whyChoose['cta_primary'][1]); ?>" class="btn-primary"><?php echo $hs(mb_strtoupper($whyChoose['cta_primary'][0])); ?> <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
+                        <a href="<?php echo $hs($whyChoose['cta_secondary'][1]); ?>" class="btn-secondary"><?php echo $hs(mb_strtoupper($whyChoose['cta_secondary'][0])); ?></a>
+                    </div>
+                </div>
             </div>
-            <div class="why-copy">
-                <span class="eyebrow"><?php echo $hs($whyChoose['eyebrow']); ?></span>
-                <h2><?php echo $hs($whyChoose['heading']); ?></h2>
-                <p class="why-intro"><?php echo $hs($whyChoose['intro']); ?></p>
-                <ul class="why-points">
-                    <?php foreach ($whyChoose['points'] as [$wi, $wt, $wd]): ?>
-                    <li>
-                        <span class="why-icon"><i class="fa-solid <?php echo $hs($wi); ?>"></i></span>
-                        <div><h3><?php echo $hs($wt); ?></h3><p><?php echo $hs($wd); ?></p></div>
-                    </li>
+
+            <ul class="why-cards">
+                <?php foreach ($whyChoose['points'] as [$wi, $wt, $wd, $wl]): ?>
+                <li class="why-card">
+                    <span class="why-icon"><i class="fa-solid <?php echo $hs($wi); ?>"></i></span>
+                    <h3><?php echo $wl ? '<a href="' . $hs($wl) . '">' . $hs($wt) . '</a>' : $hs($wt); ?></h3>
+                    <p><?php echo $hs($wd); ?></p>
+                </li>
+                <?php endforeach; ?>
+            </ul>
+
+            <?php if ($whyChoose['results']): ?>
+            <div class="why-results">
+                <ul>
+                    <?php foreach ($whyChoose['results'] as [$rv, $rl]): ?>
+                    <li><strong><?php echo $hs($rv); ?></strong><span><?php echo $hs($rl); ?></span></li>
                     <?php endforeach; ?>
                 </ul>
-                <a href="#contact" class="btn-primary">GET MY FREE GROWTH PLAN <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
+                <p><?php echo $hs($whyChoose['results_note']); ?></p>
             </div>
+            <?php endif; ?>
         </div>
     </section>
 <?php endif; ?>
@@ -260,21 +271,23 @@ try {
         'acceptedAnswer' => ['@type' => 'Answer', 'text' => trim(html_entity_decode(strip_tags($f[1]), ENT_QUOTES, 'UTF-8'))],
     ], $homeFaqs)];
 ?>
-    <!-- FAQS -->
+    <!-- FAQS: every answer is in the HTML on load; js/main.js collapses them
+         into an accordion (buttons with aria-expanded), so without JS they all
+         simply stay open. -->
     <section class="hfaq-section fade-up" id="faqs">
         <div class="container hfaq-layout">
             <div class="hfaq-intro">
                 <span class="eyebrow">FAQS</span>
-                <h2>Questions We Hear Before Getting Started</h2>
-                <p>Straight answers about results, contracts, reporting and pricing. Cannot find yours? Ask us directly.</p>
-                <a href="/contact" class="btn-secondary">ASK A QUESTION <i class="fa-solid fa-arrow-right" style="margin-left: 6px;"></i></a>
+                <h2>WS Digital Marketing FAQs</h2>
+                <p><?php echo $homeFaqsIntro; ?></p>
+                <a href="/contact" class="btn-secondary">SPEAK WITH OUR TEAM <i class="fa-solid fa-arrow-right" style="margin-left: 6px;"></i></a>
             </div>
-            <div class="hfaq-list">
+            <div class="hfaq-list" data-faq>
                 <?php foreach ($homeFaqs as $i => [$q, $a]): ?>
-                <details class="hfaq-item"<?php echo $i === 0 ? ' open' : ''; ?>>
-                    <summary><?php echo $q; ?></summary>
-                    <div class="hfaq-answer"><p><?php echo $a; ?></p></div>
-                </details>
+                <div class="hfaq-item">
+                    <h3><button type="button" class="hfaq-q" id="hfaq-q<?php echo $i + 1; ?>" aria-expanded="true" aria-controls="hfaq-a<?php echo $i + 1; ?>"><?php echo $hs($q); ?></button></h3>
+                    <div class="hfaq-answer" id="hfaq-a<?php echo $i + 1; ?>" role="region" aria-labelledby="hfaq-q<?php echo $i + 1; ?>"><p><?php echo $a; ?></p></div>
+                </div>
                 <?php endforeach; ?>
             </div>
         </div>

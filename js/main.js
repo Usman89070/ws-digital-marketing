@@ -718,3 +718,26 @@ if (window.matchMedia('(hover: none)').matches) {
         else go(1);
     }, 6000);
 })();
+
+// Homepage FAQ accordion. The answers are all in the HTML on load (so crawlers
+// and no-JS visitors see everything); this collapses all but the first into an
+// accordion made of <button aria-expanded> triggers.
+(function () {
+    const list = document.querySelector('[data-faq]');
+    if (!list) return;
+    const items = Array.from(list.querySelectorAll('.hfaq-item'));
+    const setOpen = (item, open) => {
+        const btn = item.querySelector('.hfaq-q');
+        const panel = item.querySelector('.hfaq-answer');
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        panel.hidden = !open;
+        item.classList.toggle('is-open', open);
+    };
+    items.forEach((item, i) => setOpen(item, i === 0));
+    list.addEventListener('click', e => {
+        const btn = e.target.closest('.hfaq-q');
+        if (!btn) return;
+        const item = btn.closest('.hfaq-item');
+        setOpen(item, btn.getAttribute('aria-expanded') !== 'true');
+    });
+})();
