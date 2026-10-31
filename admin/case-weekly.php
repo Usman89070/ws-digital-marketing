@@ -164,8 +164,17 @@ include __DIR__ . '/includes/layout-header.php';
 <p class="hint" style="margin:-8px 0 20px; color:#5A6482; font-size:0.85rem;">Total period: <?php echo htmlspecialchars($summary['period'], ENT_QUOTES, 'UTF-8'); ?><?php if ($summary['latest']): ?> &middot; Latest week: <?php echo htmlspecialchars($summary['latest_period'], ENT_QUOTES, 'UTF-8'); ?><?php endif; ?></p>
 <?php endif; ?>
 
-<div class="admin-card">
-    <h2 style="font-size:1.1rem; margin-bottom:14px;"><?php echo $editing ? ((int) $form['is_baseline'] ? 'Edit Starting Entry' : 'Edit Week') : 'Add This Week'; ?></h2>
+<div class="admin-card" id="weekly-form"<?php echo $editing ? ' style="border:2px solid #00C2CB; background:#F0FDFF; scroll-margin-top:20px;"' : ''; ?>>
+    <h2 style="font-size:1.1rem; margin-bottom:14px;"><?php
+        if (!$editing) {
+            echo 'Add This Week';
+        } elseif ((int) $form['is_baseline']) {
+            echo 'Editing: Starting Entry';
+        } else {
+            echo 'Editing: Week of ' . htmlspecialchars(format_week_range($editing['week_start'], $editing['week_end']), ENT_QUOTES, 'UTF-8');
+        }
+    ?></h2>
+    <?php if ($editing): ?><div class="hint" style="margin:-6px 0 14px;">Change the numbers below and click "Save Changes". The website updates straight away.</div><?php endif; ?>
     <form method="post" class="admin-form">
         <?php echo csrf_field(); ?>
         <input type="hidden" name="id" value="<?php echo (int) $id; ?>">
@@ -218,7 +227,7 @@ include __DIR__ . '/includes/layout-header.php';
             <td><?php echo ($row[$metric] ?? null) === null || $row[$metric] === '' ? '&ndash;' : htmlspecialchars(format_weekly_value($metric, (float) $row[$metric]), ENT_QUOTES, 'UTF-8'); ?></td>
             <?php endforeach; ?>
             <td style="white-space:nowrap;">
-                <a href="<?php echo htmlspecialchars($self . '&edit=' . (int) $row['id'], ENT_QUOTES, 'UTF-8'); ?>" class="btn btn-secondary btn-sm">Edit</a>
+                <a href="<?php echo htmlspecialchars($self . '&edit=' . (int) $row['id'] . '#weekly-form', ENT_QUOTES, 'UTF-8'); ?>" class="btn btn-secondary btn-sm">Edit</a>
                 <form method="post" style="display:inline;" onsubmit="return confirm('Delete this entry? The totals on the website will go down by these numbers.');">
                     <?php echo csrf_field(); ?>
                     <input type="hidden" name="id" value="<?php echo (int) $id; ?>">
