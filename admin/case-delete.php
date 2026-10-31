@@ -16,6 +16,11 @@ $study = $stmt->fetch();
 
 if ($study) {
     $pdo->prepare('DELETE FROM case_studies WHERE id = ?')->execute([$id]);
+    try {
+        $pdo->prepare('DELETE FROM case_study_weekly_stats WHERE case_study_id = ?')->execute([$id]);
+    } catch (PDOException $e) {
+        // Weekly stats not set up yet -- nothing to remove.
+    }
     // Only remove the file if it's a local upload (/images/case-studies/...),
     // never an external URL, and never anything outside that one directory.
     if ($study['image_path'] && str_starts_with($study['image_path'], '/images/case-studies/')) {

@@ -63,6 +63,7 @@ include __DIR__ . '/includes/layout-header.php';
                 <td><?php echo (int) $study['display_order']; ?></td>
                 <td>
                     <a href="case-form.php?id=<?php echo (int) $study['id']; ?>" class="btn btn-secondary btn-sm">Edit</a>
+                    <a href="case-weekly.php?id=<?php echo (int) $study['id']; ?>" class="btn btn-secondary btn-sm">Weekly Stats</a>
                     <form method="post" action="case-delete.php" style="display:inline;" onsubmit="return confirm('Delete this case study? This cannot be undone.');">
                         <?php echo csrf_field(); ?>
                         <input type="hidden" name="id" value="<?php echo (int) $study['id']; ?>">

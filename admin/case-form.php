@@ -190,6 +190,13 @@ include __DIR__ . '/includes/layout-header.php';
     <div class="alert alert-error"><?php echo htmlspecialchars($error, ENT_QUOTES, 'UTF-8'); ?></div>
 <?php endif; ?>
 
+<?php if ($id): ?>
+<div class="page-actions">
+    <span></span>
+    <a href="case-weekly.php?id=<?php echo (int) $id; ?>" class="btn btn-secondary btn-sm">Weekly Stats &rarr;</a>
+</div>
+<?php endif; ?>
+
 <div class="admin-card">
     <form method="post" enctype="multipart/form-data" class="admin-form">
         <?php echo csrf_field(); ?>

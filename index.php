@@ -4,9 +4,14 @@ require_once __DIR__ . '/config.php';
 require_once __DIR__ . '/includes/case-study-helpers.php';
 
 // Reporting period shown in the laptop dashboard chip, the mobile overview
-// chip and under the "Combined Results From Our Client Work" heading --
-// change it here only.
+// chip and under the "Combined Results From Our Client Work" heading. Once
+// weekly stats are being entered in the admin it runs up to the latest
+// week automatically (e.g. "May 2026 - 26 Oct 2026").
 $statsPeriod = 'May - Sept 2026';
+$latestWeekEnd = weekly_stats_latest_end();
+if ($latestWeekEnd !== null) {
+    $statsPeriod = 'May 2026 - ' . format_week_date($latestWeekEnd);
+}
 
 // Every case study's "Results At A Glance" stats combined, read live from
 // the database on each page load -- adding, editing or deleting a case

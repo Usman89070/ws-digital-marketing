@@ -182,7 +182,7 @@ function parse_related_services(?string $value): array
 function fetch_related_case_studies(string $serviceSlug): ?array
 {
     try {
-        $rows = get_db()->query('SELECT slug, name, tag, image_path, image_alt, summary, related_services, stat1_value, stat1_label, stat2_value, stat2_label, stat3_value, stat3_label, stat4_value, stat4_label FROM case_studies ORDER BY display_order ASC, name ASC')->fetchAll();
+        $rows = get_db()->query('SELECT id, slug, name, tag, image_path, image_alt, summary, related_services, stat1_value, stat1_label, stat2_value, stat2_label, stat3_value, stat3_label, stat4_value, stat4_label FROM case_studies ORDER BY display_order ASC, name ASC')->fetchAll();
     } catch (PDOException $e) {
         return null;
     }
@@ -192,19 +192,15 @@ function fetch_related_case_studies(string $serviceSlug): ?array
     ));
 }
 
-// Flattens the "Results At A Glance" stats (stat1..stat4) of the given case
-// study rows into [value, label] pairs, skipping empty slots.
+// Flattens the stats of the given case study rows into [value, label]
+// pairs: its weekly totals where it has weekly data (see weekly-stats.php),
+// otherwise its "Results At A Glance" stats (stat1..stat4).
 function collect_case_study_stats(array $rows): array
 {
     $stats = [];
     foreach ($rows as $row) {
-        foreach ([1, 2, 3, 4] as $n) {
-            $value = trim((string) ($row["stat{$n}_value"] ?? ''));
-            $label = trim((string) ($row["stat{$n}_label"] ?? ''));
-            if ($value === '' && $label === '') {
-                continue;
-            }
-            $stats[] = [$value, $label];
+        foreach (case_study_combined_stats($row) as $stat) {
+            $stats[] = $stat;
         }
     }
     return $stats;
@@ -219,7 +215,7 @@ function collect_case_study_stats(array $rows): array
 function fetch_all_combined_stats(): array
 {
     try {
-        $rows = get_db()->query('SELECT stat1_value, stat1_label, stat2_value, stat2_label, stat3_value, stat3_label, stat4_value, stat4_label FROM case_studies ORDER BY display_order ASC, name ASC')->fetchAll();
+        $rows = get_db()->query('SELECT id, stat1_value, stat1_label, stat2_value, stat2_label, stat3_value, stat3_label, stat4_value, stat4_label FROM case_studies ORDER BY display_order ASC, name ASC')->fetchAll();
     } catch (PDOException $e) {
         return [];
     }
@@ -250,7 +246,7 @@ function service_page_case_studies(string $serviceSlug, array $blurbs = []): arr
     if ($related === null) {
         try {
             $related = array_values(array_filter(
-                get_db()->query('SELECT slug, name, tag, image_path, image_alt, summary, stat1_value, stat1_label, stat2_value, stat2_label, stat3_value, stat3_label, stat4_value, stat4_label FROM case_studies')->fetchAll(),
+                get_db()->query('SELECT id, slug, name, tag, image_path, image_alt, summary, stat1_value, stat1_label, stat2_value, stat2_label, stat3_value, stat3_label, stat4_value, stat4_label FROM case_studies')->fetchAll(),
                 fn($row) => isset($blurbs[$row['slug']])
             ));
         } catch (PDOException $e) {
@@ -268,3 +264,5 @@ function service_page_case_studies(string $serviceSlug, array $blurbs = []): arr
     usort($indexed, fn($a, $b) => [$a[0], $a[1]] <=> [$b[0], $b[1]]);
     return array_map(fn($item) => $item[2], $indexed);
 }
+
+require_once __DIR__ . '/weekly-stats.php';

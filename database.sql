@@ -417,3 +417,26 @@ INSERT INTO reviews (author_name, author_role, quote, rating, photo_path, displa
 ('Sarah Collins', 'Owner, Luxe Homes', 'Our overall online bookings increased by a massive 68% in just 3 short months. I highly recommend their custom strategies and clear monthly reporting processes!', 5, 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=150&q=80', 2),
 ('Michael Brown', 'CEO, Premium Brands', 'Extremely professional, incredibly proactive and they always deliver exactly the results they promise. Our ROAS has quite frankly never been better since we switched to them!', 5, 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=150&q=80', 3),
 ('Emma Rodriguez', 'Marketing Manager, Bright Dental Group', 'The reporting alone is worth it -- for the first time we can actually see where every dollar goes. Bookings are up and our front desk isn''t drowning in no-shows anymore.', 5, 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&q=80', 4);
+
+-- Weekly results per case study (admin: Case Studies -> Weekly Stats).
+-- On an existing site the "Set Up Weekly Stats" button in the admin creates
+-- this table and imports each case study's current stats; no SQL needed.
+CREATE TABLE IF NOT EXISTS case_study_weekly_stats (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    case_study_id INT NOT NULL,
+    is_baseline TINYINT(1) NOT NULL DEFAULT 0,
+    label VARCHAR(100) NOT NULL DEFAULT '',
+    week_start DATE NULL,
+    week_end DATE NULL,
+    organic_clicks DECIMAL(14,2) NULL,
+    search_impressions DECIMAL(14,2) NULL,
+    gbp_interactions DECIMAL(14,2) NULL,
+    gbp_calls DECIMAL(14,2) NULL,
+    gbp_directions DECIMAL(14,2) NULL,
+    gbp_website_clicks DECIMAL(14,2) NULL,
+    shop_sales DECIMAL(14,2) NULL,
+    shop_orders DECIMAL(14,2) NULL,
+    shop_sessions DECIMAL(14,2) NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    INDEX idx_case_study (case_study_id)
+);

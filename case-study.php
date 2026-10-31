@@ -1,6 +1,7 @@
 <?php
 require_once __DIR__ . '/includes/cta-form-handler.php';
 require_once __DIR__ . '/config.php';
+require_once __DIR__ . '/includes/case-study-helpers.php';
 
 $slug = $_GET['slug'] ?? '';
 $study = null;
@@ -78,6 +79,13 @@ if (($study['gbp_calls_image'] ?? '') !== '') { $gbpGallery[] = [$study['gbp_cal
 if (($study['gbp_directions_image'] ?? '') !== '') { $gbpGallery[] = [$study['gbp_directions_image'], 'Direction Requests']; }
 if (($study['gbp_website_image'] ?? '') !== '') { $gbpGallery[] = [$study['gbp_website_image'], 'Website Clicks']; }
 if (($study['gbp_extra_image'] ?? '') !== '' && ($study['gbp_extra_label'] ?? '') !== '') { $gbpGallery[] = [$study['gbp_extra_image'], $study['gbp_extra_label']]; }
+
+// Weekly results entered in the admin ("Weekly Stats"): the latest week
+// (with the change from the week before) and the running total. Only shows
+// once the case study has weekly data.
+$weekly = summarise_weekly_stats(fetch_weekly_stats((int) $study['id']));
+$weeklyLatestBoxes = $weekly && $weekly['latest'] ? weekly_stat_boxes($weekly['latest'], $weekly['previous']) : [];
+$weeklyTotalBoxes = $weekly ? weekly_stat_boxes($weekly['totals']) : [];
 
 // Dedicated Shopify store performance section (sales, sessions, orders,
 // conversion rate), each with an optional "vs previous period" growth
@@ -182,6 +190,48 @@ include 'header.php';
             </div>
         </div>
     </section>
+
+    <?php if ($weeklyTotalBoxes): ?>
+    <!-- WEEKLY RESULTS: latest week + running total, from the admin's
+         weekly stats (see includes/weekly-stats.php) -->
+    <section class="stats-section fade-up">
+        <div class="container">
+            <?php if ($weeklyLatestBoxes): ?>
+            <div class="section-header">
+                <span class="eyebrow" style="color: var(--cyan-neon);">LATEST WEEK</span>
+                <h2 style="color: #fff; font-size: clamp(1.8rem, 4vw, 2.8rem);">This Week's Results</h2>
+                <p style="color: rgba(255,255,255,0.75); margin-top: 10px;"><?php echo htmlspecialchars($weekly['latest_period'], ENT_QUOTES, 'UTF-8'); ?></p>
+            </div>
+            <div class="stats-4-grid" style="margin-bottom: clamp(50px, 7vw, 80px);">
+                <?php foreach ($weeklyLatestBoxes as [$value, $label, $change]): ?>
+                <div class="stat-box">
+                    <div class="stat-icon"><i class="fa-solid fa-calendar-week"></i></div>
+                    <h3><?php echo htmlspecialchars($value, ENT_QUOTES, 'UTF-8'); ?></h3>
+                    <p><?php echo htmlspecialchars($label, ENT_QUOTES, 'UTF-8'); ?></p>
+                    <?php if ($change !== null): ?>
+                    <p style="margin-top: 8px; color: <?php echo $change >= 0 ? '#4ade80' : '#f87171'; ?>; text-transform: none; letter-spacing: normal;"><i class="fa-solid <?php echo $change >= 0 ? 'fa-arrow-trend-up' : 'fa-arrow-trend-down'; ?>"></i> <?php echo ($change >= 0 ? '+' : '') . htmlspecialchars(number_format($change, 1), ENT_QUOTES, 'UTF-8'); ?>% vs previous week</p>
+                    <?php endif; ?>
+                </div>
+                <?php endforeach; ?>
+            </div>
+            <?php endif; ?>
+            <div class="section-header">
+                <span class="eyebrow" style="color: var(--cyan-neon);">TOTAL TO DATE</span>
+                <h2 style="color: #fff; font-size: clamp(1.8rem, 4vw, 2.8rem);">Total Results</h2>
+                <p style="color: rgba(255,255,255,0.75); margin-top: 10px;"><?php echo htmlspecialchars($weekly['period'], ENT_QUOTES, 'UTF-8'); ?></p>
+            </div>
+            <div class="stats-4-grid">
+                <?php foreach ($weeklyTotalBoxes as [$value, $label]): ?>
+                <div class="stat-box">
+                    <div class="stat-icon"><i class="fa-solid fa-chart-line"></i></div>
+                    <h3><?php echo htmlspecialchars($value, ENT_QUOTES, 'UTF-8'); ?></h3>
+                    <p><?php echo htmlspecialchars($label, ENT_QUOTES, 'UTF-8'); ?></p>
+                </div>
+                <?php endforeach; ?>
+            </div>
+        </div>
+    </section>
+    <?php endif; ?>
 
     <?php if ($hasGsc): ?>
     <!-- GOOGLE SEARCH CONSOLE PERFORMANCE -->

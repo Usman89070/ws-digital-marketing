@@ -1,0 +1,244 @@
+<?php
+// Weekly Stats for one case study: add this week's numbers, edit or delete
+// past weeks, and see the running total. Everything here feeds the case
+// study page, the service pages and the homepage combined stats live (see
+// includes/weekly-stats.php).
+require_once __DIR__ . '/includes/auth.php';
+require_once __DIR__ . '/../includes/case-study-helpers.php';
+$pdo = get_db();
+
+$id = isset($_GET['id']) ? (int) $_GET['id'] : (int) ($_POST['id'] ?? 0);
+$stmt = $pdo->prepare('SELECT id, name FROM case_studies WHERE id = ?');
+$stmt->execute([$id]);
+$study = $stmt->fetch();
+if (!$study) {
+    header('Location: case-list.php');
+    exit;
+}
+
+try {
+    $pdo->query('SELECT id FROM case_study_weekly_stats LIMIT 1');
+    $tableReady = true;
+} catch (PDOException $e) {
+    $tableReady = false;
+}
+
+$error = '';
+$self = 'case-weekly.php?id=' . (int) $id;
+$metricCols = array_keys(WEEKLY_METRICS);
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    csrf_check();
+    $action = $_POST['action'] ?? '';
+
+    if ($action === 'setup') {
+        $added = weekly_stats_setup($pdo);
+        header('Location: ' . $self . '&setup=' . $added);
+        exit;
+    }
+
+    if ($tableReady && $action === 'delete') {
+        $pdo->prepare('DELETE FROM case_study_weekly_stats WHERE id = ? AND case_study_id = ?')->execute([(int) ($_POST['row_id'] ?? 0), $id]);
+        header('Location: ' . $self . '&deleted=1');
+        exit;
+    }
+
+    if ($tableReady && $action === 'save') {
+        $rowId = (int) ($_POST['row_id'] ?? 0);
+        $isBaseline = false;
+        if ($rowId) {
+            $check = $pdo->prepare('SELECT is_baseline FROM case_study_weekly_stats WHERE id = ? AND case_study_id = ?');
+            $check->execute([$rowId, $id]);
+            $existingRow = $check->fetch();
+            if (!$existingRow) {
+                header('Location: ' . $self);
+                exit;
+            }
+            $isBaseline = (int) $existingRow['is_baseline'] === 1;
+        }
+
+        $start = trim($_POST['week_start'] ?? '');
+        $end = trim($_POST['week_end'] ?? '');
+        $label = trim($_POST['label'] ?? '');
+        $values = [];
+        foreach ($metricCols as $metric) {
+            $values[] = parse_weekly_number($_POST[$metric] ?? '');
+        }
+
+        if (!$isBaseline && !preg_match('/^\d{4}-\d{2}-\d{2}$/', $start)) {
+            $error = 'Please choose the week start date.';
+        } elseif (count(array_filter($values, fn($v) => $v !== null)) === 0) {
+            $error = 'Please enter at least one number.';
+        } else {
+            if (!$isBaseline && !preg_match('/^\d{4}-\d{2}-\d{2}$/', $end)) {
+                $end = date('Y-m-d', strtotime($start . ' +6 days'));
+            }
+            if ($isBaseline) {
+                $sql = 'UPDATE case_study_weekly_stats SET label = ?, ' . implode(' = ?, ', $metricCols) . ' = ? WHERE id = ?';
+                $pdo->prepare($sql)->execute([mb_substr($label ?: 'Before weekly tracking', 0, 100), ...$values, $rowId]);
+            } elseif ($rowId) {
+                $sql = 'UPDATE case_study_weekly_stats SET week_start = ?, week_end = ?, ' . implode(' = ?, ', $metricCols) . ' = ? WHERE id = ?';
+                $pdo->prepare($sql)->execute([$start, $end, ...$values, $rowId]);
+            } else {
+                $sql = 'INSERT INTO case_study_weekly_stats (case_study_id, is_baseline, label, week_start, week_end, ' . implode(', ', $metricCols) . ') VALUES (?, 0, \'\', ?, ?, ' . implode(', ', array_fill(0, count($metricCols), '?')) . ')';
+                $pdo->prepare($sql)->execute([$id, $start, $end, ...$values]);
+            }
+            header('Location: ' . $self . '&saved=1');
+            exit;
+        }
+    }
+}
+
+$rows = [];
+if ($tableReady) {
+    $stmt = $pdo->prepare('SELECT * FROM case_study_weekly_stats WHERE case_study_id = ? ORDER BY is_baseline DESC, week_start ASC, id ASC');
+    $stmt->execute([$id]);
+    $rows = $stmt->fetchAll();
+}
+$summary = summarise_weekly_stats($rows);
+
+// The row being edited (?edit=<row id>), or a blank new week starting the
+// day after the latest one.
+$editing = null;
+if (isset($_GET['edit'])) {
+    foreach ($rows as $row) {
+        if ((int) $row['id'] === (int) $_GET['edit']) {
+            $editing = $row;
+        }
+    }
+}
+$nextStart = date('Y-m-d', strtotime('monday last week'));
+if ($summary && $summary['latest']) {
+    $nextStart = date('Y-m-d', strtotime(($summary['latest']['week_end'] ?: $summary['latest']['week_start']) . ' +1 day'));
+}
+$form = $editing ?? ['id' => 0, 'is_baseline' => 0, 'label' => '', 'week_start' => $nextStart, 'week_end' => date('Y-m-d', strtotime($nextStart . ' +6 days'))];
+if ($error) {
+    $form = array_merge($form, $_POST);
+}
+
+// Plain number for a form field (no commas or K suffix, so it saves back
+// exactly as shown).
+function weekly_input_value($v): string
+{
+    if ($v === null || $v === '') {
+        return '';
+    }
+    $f = (float) $v;
+    return $f == floor($f) ? (string) (int) $f : rtrim(rtrim(number_format($f, 2, '.', ''), '0'), '.');
+}
+
+$page_title = 'Weekly Stats: ' . $study['name'];
+include __DIR__ . '/includes/layout-header.php';
+?>
+<div class="page-actions">
+    <a href="case-list.php" class="btn btn-secondary btn-sm">&larr; All Case Studies</a>
+    <a href="case-form.php?id=<?php echo (int) $id; ?>" class="btn btn-secondary btn-sm">Edit Case Study</a>
+</div>
+
+<?php if (isset($_GET['setup'])): ?><div class="alert alert-success">Weekly stats are set up. Starting entries added from current stats: <?php echo (int) $_GET['setup']; ?>.</div><?php endif; ?>
+<?php if (!empty($_GET['saved'])): ?><div class="alert alert-success">Week saved. The website is already showing the new numbers.</div><?php endif; ?>
+<?php if (!empty($_GET['deleted'])): ?><div class="alert alert-success">Week deleted.</div><?php endif; ?>
+<?php if ($error): ?><div class="alert alert-error"><?php echo htmlspecialchars($error, ENT_QUOTES, 'UTF-8'); ?></div><?php endif; ?>
+
+<?php if (!$tableReady): ?>
+<div class="admin-card">
+    <p style="margin-bottom:12px;"><strong>Weekly stats are not set up yet.</strong></p>
+    <p class="hint" style="margin-bottom:16px;">Click once to turn them on. Every case study's current stats are saved as its starting entry, so totals continue from today's numbers. This only needs doing once, for all case studies.</p>
+    <form method="post">
+        <?php echo csrf_field(); ?>
+        <input type="hidden" name="id" value="<?php echo (int) $id; ?>">
+        <input type="hidden" name="action" value="setup">
+        <button type="submit" class="btn btn-primary">Set Up Weekly Stats</button>
+    </form>
+</div>
+<?php else: ?>
+
+<?php if ($summary): ?>
+<div class="dashboard-grid" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(170px, 1fr)); gap:14px; margin-bottom:20px;">
+    <?php foreach (weekly_stat_boxes($summary['totals']) as [$value, $label]): ?>
+    <div class="admin-card" style="margin:0;"><div class="num" style="font-size:1.6rem;"><?php echo htmlspecialchars($value, ENT_QUOTES, 'UTF-8'); ?></div><div class="label">Total <?php echo htmlspecialchars($label, ENT_QUOTES, 'UTF-8'); ?></div></div>
+    <?php endforeach; ?>
+</div>
+<p class="hint" style="margin:-8px 0 20px; color:#5A6482; font-size:0.85rem;">Total period: <?php echo htmlspecialchars($summary['period'], ENT_QUOTES, 'UTF-8'); ?><?php if ($summary['latest']): ?> &middot; Latest week: <?php echo htmlspecialchars($summary['latest_period'], ENT_QUOTES, 'UTF-8'); ?><?php endif; ?></p>
+<?php endif; ?>
+
+<div class="admin-card">
+    <h2 style="font-size:1.1rem; margin-bottom:14px;"><?php echo $editing ? ((int) $form['is_baseline'] ? 'Edit Starting Entry' : 'Edit Week') : 'Add This Week'; ?></h2>
+    <form method="post" class="admin-form">
+        <?php echo csrf_field(); ?>
+        <input type="hidden" name="id" value="<?php echo (int) $id; ?>">
+        <input type="hidden" name="action" value="save">
+        <input type="hidden" name="row_id" value="<?php echo (int) ($form['id'] ?? 0); ?>">
+
+        <?php if ((int) ($form['is_baseline'] ?? 0)): ?>
+            <label for="label">Starting entry name (shown as the start of the total period, e.g. "May – Sept 2026")</label>
+            <input type="text" id="label" name="label" value="<?php echo htmlspecialchars($form['label'] ?? '', ENT_QUOTES, 'UTF-8'); ?>">
+        <?php else: ?>
+            <div style="display:flex; gap:10px; flex-wrap:wrap;">
+                <div style="flex:1; min-width:180px;"><label for="week_start">Week start</label><input type="date" id="week_start" name="week_start" required value="<?php echo htmlspecialchars($form['week_start'] ?? '', ENT_QUOTES, 'UTF-8'); ?>"></div>
+                <div style="flex:1; min-width:180px;"><label for="week_end">Week end</label><input type="date" id="week_end" name="week_end" value="<?php echo htmlspecialchars($form['week_end'] ?? '', ENT_QUOTES, 'UTF-8'); ?>"></div>
+            </div>
+            <div class="hint">Leave "Week end" blank to use 7 days from the start.</div>
+        <?php endif; ?>
+
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:10px; margin-top:12px;">
+            <?php foreach (WEEKLY_METRICS as $metric => $label): ?>
+            <div>
+                <label for="<?php echo $metric; ?>"><?php echo htmlspecialchars($label, ENT_QUOTES, 'UTF-8'); ?><?php echo $metric === 'shop_sales' ? ' (A$)' : ''; ?></label>
+                <input type="text" inputmode="decimal" id="<?php echo $metric; ?>" name="<?php echo $metric; ?>" value="<?php echo htmlspecialchars($error ? (string) ($form[$metric] ?? '') : weekly_input_value($form[$metric] ?? null), ENT_QUOTES, 'UTF-8'); ?>">
+            </div>
+            <?php endforeach; ?>
+        </div>
+        <div class="hint">Leave a box blank if it isn't tracked for this client. "1,998", "7.2K" and "A$1,250" all work. CTR and conversion rate are worked out automatically.</div>
+
+        <button type="submit" class="btn btn-primary" style="margin-top:16px;"><?php echo $editing ? 'Save Changes' : 'Add Week'; ?></button>
+        <?php if ($editing): ?><a href="<?php echo htmlspecialchars($self, ENT_QUOTES, 'UTF-8'); ?>" class="btn btn-secondary" style="margin-top:16px;">Cancel</a><?php endif; ?>
+    </form>
+</div>
+
+<div style="overflow-x:auto;">
+<table class="admin-table">
+    <thead>
+        <tr>
+            <th>Period</th>
+            <?php foreach (WEEKLY_METRICS as $label): ?><th><?php echo htmlspecialchars($label, ENT_QUOTES, 'UTF-8'); ?></th><?php endforeach; ?>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php if (!$rows): ?>
+            <tr><td colspan="<?php echo count(WEEKLY_METRICS) + 2; ?>">No weekly stats yet. Add the first week above.</td></tr>
+        <?php endif; ?>
+        <?php foreach ($rows as $row): ?>
+        <tr<?php echo $summary && $summary['latest'] && (int) $summary['latest']['id'] === (int) $row['id'] ? ' style="background:#F0FDFF;"' : ''; ?>>
+            <td><?php echo (int) $row['is_baseline'] ? '<strong>Starting entry</strong><br>' . htmlspecialchars($row['label'], ENT_QUOTES, 'UTF-8') : htmlspecialchars(format_week_range($row['week_start'], $row['week_end']), ENT_QUOTES, 'UTF-8'); ?></td>
+            <?php foreach ($metricCols as $metric): ?>
+            <td><?php echo $row[$metric] === null || $row[$metric] === '' ? '&ndash;' : htmlspecialchars(format_weekly_value($metric, (float) $row[$metric]), ENT_QUOTES, 'UTF-8'); ?></td>
+            <?php endforeach; ?>
+            <td style="white-space:nowrap;">
+                <a href="<?php echo htmlspecialchars($self . '&edit=' . (int) $row['id'], ENT_QUOTES, 'UTF-8'); ?>" class="btn btn-secondary btn-sm">Edit</a>
+                <form method="post" style="display:inline;" onsubmit="return confirm('Delete this entry? The totals on the website will go down by these numbers.');">
+                    <?php echo csrf_field(); ?>
+                    <input type="hidden" name="id" value="<?php echo (int) $id; ?>">
+                    <input type="hidden" name="action" value="delete">
+                    <input type="hidden" name="row_id" value="<?php echo (int) $row['id']; ?>">
+                    <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                </form>
+            </td>
+        </tr>
+        <?php endforeach; ?>
+        <?php if ($summary): ?>
+        <tr style="background:#F9FAFC; font-weight:700;">
+            <td>Total</td>
+            <?php foreach ($metricCols as $metric): ?>
+            <td><?php echo $summary['totals'][$metric] === null ? '&ndash;' : htmlspecialchars(format_weekly_value($metric, $summary['totals'][$metric]), ENT_QUOTES, 'UTF-8'); ?></td>
+            <?php endforeach; ?>
+            <td></td>
+        </tr>
+        <?php endif; ?>
+    </tbody>
+</table>
+</div>
+<?php endif; ?>
+
+<?php include __DIR__ . '/includes/layout-footer.php'; ?>
