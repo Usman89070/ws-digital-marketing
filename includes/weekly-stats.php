@@ -17,6 +17,7 @@ const WEEKLY_METRICS = [
     'gbp_calls' => 'Calls From GBP',
     'gbp_directions' => 'Direction Requests',
     'gbp_website_clicks' => 'Website Clicks',
+    'gbp_chat_clicks' => 'Chat Clicks',
     'shop_sales' => 'Total Sales',
     'shop_orders' => 'Orders',
     'shop_sessions' => 'Sessions',
@@ -25,7 +26,7 @@ const WEEKLY_METRICS = [
 // The metrics that also count toward the combined stats on the homepage and
 // service pages. Shop figures stay on each case study's own page -- adding
 // different stores' sales together would not mean much.
-const WEEKLY_COMBINED_METRICS = ['organic_clicks', 'search_impressions', 'gbp_interactions', 'gbp_calls', 'gbp_directions', 'gbp_website_clicks'];
+const WEEKLY_COMBINED_METRICS = ['organic_clicks', 'search_impressions', 'gbp_interactions', 'gbp_calls', 'gbp_directions', 'gbp_website_clicks', 'gbp_chat_clicks'];
 
 function weekly_stats_create_table_sql(): string
 {
@@ -108,8 +109,9 @@ function summarise_weekly_stats(array $rows): ?array
     $weeks = [];
     foreach ($rows as $row) {
         foreach (WEEKLY_METRICS as $metric => $label) {
-            if ($row[$metric] !== null && $row[$metric] !== '') {
-                $totals[$metric] = ($totals[$metric] ?? 0) + (float) $row[$metric];
+            $value = $row[$metric] ?? null;
+            if ($value !== null && $value !== '') {
+                $totals[$metric] = ($totals[$metric] ?? 0) + (float) $value;
             }
         }
         if ((int) $row['is_baseline'] === 1) {
@@ -226,6 +228,19 @@ function weekly_stats_latest_end(): ?string
         }
     }
     return $latest;
+}
+
+// Adds any metric column the table doesn't have yet (e.g. a metric added
+// after the table was first set up). Run from the admin's Weekly Stats page.
+function weekly_stats_ensure_columns(PDO $pdo): void
+{
+    foreach (array_keys(WEEKLY_METRICS) as $metric) {
+        try {
+            $pdo->query("SELECT $metric FROM case_study_weekly_stats LIMIT 1");
+        } catch (PDOException $e) {
+            $pdo->exec("ALTER TABLE case_study_weekly_stats ADD COLUMN $metric DECIMAL(14,2) NULL");
+        }
+    }
 }
 
 // One-time setup from the admin: creates the table if missing, then gives

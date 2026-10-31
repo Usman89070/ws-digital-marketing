@@ -4,6 +4,7 @@
 // study page, the service pages and the homepage combined stats live (see
 // includes/weekly-stats.php).
 require_once __DIR__ . '/includes/auth.php';
+require_role(['admin']);
 require_once __DIR__ . '/../includes/case-study-helpers.php';
 $pdo = get_db();
 
@@ -19,6 +20,7 @@ if (!$study) {
 try {
     $pdo->query('SELECT id FROM case_study_weekly_stats LIMIT 1');
     $tableReady = true;
+    weekly_stats_ensure_columns($pdo);
 } catch (PDOException $e) {
     $tableReady = false;
 }
@@ -213,7 +215,7 @@ include __DIR__ . '/includes/layout-header.php';
         <tr<?php echo $summary && $summary['latest'] && (int) $summary['latest']['id'] === (int) $row['id'] ? ' style="background:#F0FDFF;"' : ''; ?>>
             <td><?php echo (int) $row['is_baseline'] ? '<strong>Starting entry</strong><br>' . htmlspecialchars($row['label'], ENT_QUOTES, 'UTF-8') : htmlspecialchars(format_week_range($row['week_start'], $row['week_end']), ENT_QUOTES, 'UTF-8'); ?></td>
             <?php foreach ($metricCols as $metric): ?>
-            <td><?php echo $row[$metric] === null || $row[$metric] === '' ? '&ndash;' : htmlspecialchars(format_weekly_value($metric, (float) $row[$metric]), ENT_QUOTES, 'UTF-8'); ?></td>
+            <td><?php echo ($row[$metric] ?? null) === null || $row[$metric] === '' ? '&ndash;' : htmlspecialchars(format_weekly_value($metric, (float) $row[$metric]), ENT_QUOTES, 'UTF-8'); ?></td>
             <?php endforeach; ?>
             <td style="white-space:nowrap;">
                 <a href="<?php echo htmlspecialchars($self . '&edit=' . (int) $row['id'], ENT_QUOTES, 'UTF-8'); ?>" class="btn btn-secondary btn-sm">Edit</a>

@@ -434,6 +434,7 @@ CREATE TABLE IF NOT EXISTS case_study_weekly_stats (
     gbp_calls DECIMAL(14,2) NULL,
     gbp_directions DECIMAL(14,2) NULL,
     gbp_website_clicks DECIMAL(14,2) NULL,
+    gbp_chat_clicks DECIMAL(14,2) NULL,
     shop_sales DECIMAL(14,2) NULL,
     shop_orders DECIMAL(14,2) NULL,
     shop_sessions DECIMAL(14,2) NULL,
