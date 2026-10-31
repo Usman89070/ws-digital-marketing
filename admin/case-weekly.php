@@ -200,7 +200,7 @@ include __DIR__ . '/includes/layout-header.php';
             </div>
             <?php endforeach; ?>
         </div>
-        <div class="hint">Leave a box blank if it isn't tracked for this client. "1,998", "7.2K" and "A$1,250" all work. CTR and conversion rate are worked out automatically.</div>
+        <div class="hint">Leave a box blank if it isn't tracked for this client. "1,998", "7.2K" and "A$1,250" all work. Average CTR is worked out automatically from clicks and impressions.</div>
 
         <button type="submit" class="btn btn-primary" style="margin-top:16px;"><?php echo $editing ? 'Save Changes' : 'Add Week'; ?></button>
         <?php if ($editing): ?><a href="<?php echo htmlspecialchars($self, ENT_QUOTES, 'UTF-8'); ?>" class="btn btn-secondary" style="margin-top:16px;">Cancel</a><?php endif; ?>

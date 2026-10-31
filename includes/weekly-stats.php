@@ -105,9 +105,19 @@ function summarise_weekly_stats(array $rows): ?array
         return null;
     }
     $totals = array_fill_keys(array_keys(WEEKLY_METRICS), null);
+    // CTR over the total period only uses entries that have both numbers:
+    // an entry with clicks but no impressions (common for the starting
+    // entry) would otherwise inflate it.
+    $rateSums = ['clicks' => 0.0, 'impressions' => 0.0];
     $baseline = null;
     $weeks = [];
     foreach ($rows as $row) {
+        $clicks = $row['organic_clicks'] ?? null;
+        $impressions = $row['search_impressions'] ?? null;
+        if ($clicks !== null && $clicks !== '' && $impressions !== null && $impressions !== '' && (float) $impressions > 0) {
+            $rateSums['clicks'] += (float) $clicks;
+            $rateSums['impressions'] += (float) $impressions;
+        }
         foreach (WEEKLY_METRICS as $metric => $label) {
             $value = $row[$metric] ?? null;
             if ($value !== null && $value !== '') {
@@ -128,6 +138,8 @@ function summarise_weekly_stats(array $rows): ?array
 
     $start = $baseline ? ($baseline['label'] !== '' ? $baseline['label'] : 'Before weekly tracking') : format_week_date($weeks[0]['week_start'] ?? null);
     $end = $latest ? format_week_date($latest['week_end'] ?: $latest['week_start']) : '';
+
+    $totals['_ctr'] = $rateSums['impressions'] > 0 ? $rateSums['clicks'] / $rateSums['impressions'] * 100 : null;
 
     return [
         'totals' => $totals,
@@ -158,7 +170,7 @@ function format_week_range(?string $start, ?string $end): string
 }
 
 // The stat boxes for one week (or the totals): [value, label, change] for
-// every metric with a value, plus click-through and conversion rates worked
+// every metric with a value, plus the click-through rate worked
 // out from the underlying numbers rather than added up.
 function weekly_stat_boxes(array $values, ?array $previous = null): array
 {
@@ -175,17 +187,29 @@ function weekly_stat_boxes(array $values, ?array $previous = null): array
         }
         $boxes[] = [format_weekly_value($metric, (float) $v), $label, $change];
     }
-    $clicks = $values['organic_clicks'] ?? null;
-    $impressions = $values['search_impressions'] ?? null;
-    if ($clicks !== null && $clicks !== '' && $impressions !== null && (float) $impressions > 0) {
-        $boxes[] = [rtrim(rtrim(number_format((float) $clicks / (float) $impressions * 100, 2), '0'), '.') . '%', 'Average CTR', null];
-    }
-    $orders = $values['shop_orders'] ?? null;
-    $sessions = $values['shop_sessions'] ?? null;
-    if ($orders !== null && $orders !== '' && $sessions !== null && (float) $sessions > 0) {
-        $boxes[] = [rtrim(rtrim(number_format((float) $orders / (float) $sessions * 100, 2), '0'), '.') . '%', 'Conversion Rate', null];
+    // Totals carry their CTR precomputed (_ctr, see summarise_weekly_stats());
+    // a single week's CTR comes straight from its own numbers. Conversion
+    // rate is deliberately not worked out here: Shopify calculates it its own
+    // way (converted sessions, not orders / sessions), so ours would not
+    // match the figure clients see in Shopify.
+    $ctr = array_key_exists('_ctr', $values) ? $values['_ctr'] : weekly_rate($values['organic_clicks'] ?? null, $values['search_impressions'] ?? null);
+    if ($ctr !== null) {
+        $boxes[] = [weekly_percent($ctr), 'Average CTR', null];
     }
     return $boxes;
+}
+
+function weekly_rate($part, $whole): ?float
+{
+    if ($part === null || $part === '' || $whole === null || $whole === '' || (float) $whole <= 0) {
+        return null;
+    }
+    return (float) $part / (float) $whole * 100;
+}
+
+function weekly_percent(float $v): string
+{
+    return rtrim(rtrim(number_format($v, 2), '0'), '.') . '%';
 }
 
 // A case study's stats for the combined totals: once it has weekly data,
