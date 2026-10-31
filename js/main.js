@@ -463,6 +463,30 @@ if (window.matchMedia('(hover: none)').matches) {
                 });
             });
 
+            // Homepage "Digital Services" cards: every photo is already on the card,
+            // so instead of a hover/click reveal each card wipes in from the bottom
+            // as the grid scrolls into view (photo settling from a zoom, then the
+            // icon, title, copy and link rising in turn). clearProps hands the
+            // card back to CSS afterwards so its hover lift/zoom still works.
+            const svcCards = gsap.utils.toArray('.svc-card');
+            if (svcCards.length) {
+                const svcParts = card => card.querySelectorAll('.svc-top, .svc-body h3, .svc-body p, .svc-link');
+                svcCards.forEach(card => {
+                    gsap.set(card, { clipPath: 'inset(100% 0% 0% 0% round 22px)', y: 50 });
+                    gsap.set(card.querySelector('.svc-media img'), { scale: 1.4 });
+                    gsap.set(svcParts(card), { opacity: 0, y: 26 });
+                });
+                ScrollTrigger.batch(svcCards, {
+                    start: 'top 90%', once: true, interval: 0.1,
+                    onEnter: batch => batch.forEach((card, i) => {
+                        gsap.timeline({ delay: i * 0.12 })
+                            .to(card, { clipPath: 'inset(0% 0% 0% 0% round 22px)', y: 0, duration: 0.9, ease: 'power3.out', clearProps: 'clipPath,transform' }, 0)
+                            .to(card.querySelector('.svc-media img'), { scale: 1.03, duration: 1.4, ease: 'power2.out', clearProps: 'transform' }, 0)
+                            .to(svcParts(card), { opacity: 1, y: 0, duration: 0.6, stagger: 0.09, ease: 'power2.out', clearProps: 'opacity,transform' }, 0.35);
+                    })
+                });
+            }
+
             // seo.php "Organic Clicks By Campaign" bars grow left-to-right (scaleX
             // 0 -> 1, transform-origin: left) once the chart scrolls into view --
             // one ScrollTrigger for the whole card, individual bars staggered so
@@ -632,3 +656,88 @@ if (window.matchMedia('(hover: none)').matches) {
             });
         });
 
+
+// Homepage Google reviews slider: prev/next buttons scroll the snap track one
+// card at a time, "Read more" appears only on cards whose text is clamped, and
+// the track advances itself every few seconds until the visitor hovers, focuses
+// or touches it (never when reduced motion is requested).
+(function () {
+    const track = document.querySelector('.rv-track');
+    if (!track) return;
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const prev = document.querySelector('[data-rv="prev"]');
+    const next = document.querySelector('[data-rv="next"]');
+    const step = () => {
+        const card = track.querySelector('.rv-card');
+        return card ? card.getBoundingClientRect().width + 22 : 300;
+    };
+    const atEnd = () => track.scrollLeft + track.clientWidth >= track.scrollWidth - 4;
+    const sync = () => {
+        if (prev) prev.disabled = track.scrollLeft <= 4;
+        if (next) next.disabled = atEnd();
+    };
+    const go = dir => track.scrollBy({ left: dir * step(), behavior: reduce ? 'auto' : 'smooth' });
+    if (prev) prev.addEventListener('click', () => go(-1));
+    if (next) next.addEventListener('click', () => go(1));
+    track.addEventListener('scroll', sync, { passive: true });
+    track.addEventListener('keydown', e => {
+        if (e.key === 'ArrowRight') { e.preventDefault(); go(1); }
+        if (e.key === 'ArrowLeft') { e.preventDefault(); go(-1); }
+    });
+
+    const markClamped = () => {
+        track.querySelectorAll('.rv-card').forEach(card => {
+            const text = card.querySelector('.rv-text');
+            const more = card.querySelector('.rv-more');
+            if (!text || !more || card.classList.contains('is-open')) return;
+            more.hidden = text.scrollHeight <= text.clientHeight + 1;
+        });
+    };
+    track.addEventListener('click', e => {
+        const more = e.target.closest('.rv-more');
+        if (!more) return;
+        const card = more.closest('.rv-card');
+        const open = card.classList.toggle('is-open');
+        more.textContent = open ? 'Read less' : 'Read more';
+    });
+    markClamped();
+    window.addEventListener('load', () => { markClamped(); sync(); });
+    window.addEventListener('resize', () => { markClamped(); sync(); });
+    sync();
+
+    if (reduce) return;
+    let paused = false, visible = false;
+    ['mouseenter', 'focusin', 'touchstart'].forEach(ev => track.addEventListener(ev, () => { paused = true; }, { passive: true }));
+    ['mouseleave', 'focusout'].forEach(ev => track.addEventListener(ev, () => { paused = false; }));
+    if ('IntersectionObserver' in window) {
+        new IntersectionObserver(entries => { visible = entries[0].isIntersecting; }).observe(track);
+    }
+    setInterval(() => {
+        if (paused || !visible || track.querySelector('.rv-card.is-open')) return;
+        if (atEnd()) track.scrollTo({ left: 0, behavior: 'smooth' });
+        else go(1);
+    }, 6000);
+})();
+
+// Homepage FAQ accordion. The answers are all in the HTML on load (so crawlers
+// and no-JS visitors see everything); this collapses all but the first into an
+// accordion made of <button aria-expanded> triggers.
+(function () {
+    const list = document.querySelector('[data-faq]');
+    if (!list) return;
+    const items = Array.from(list.querySelectorAll('.hfaq-item'));
+    const setOpen = (item, open) => {
+        const btn = item.querySelector('.hfaq-q');
+        const panel = item.querySelector('.hfaq-answer');
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        panel.hidden = !open;
+        item.classList.toggle('is-open', open);
+    };
+    items.forEach((item, i) => setOpen(item, i === 0));
+    list.addEventListener('click', e => {
+        const btn = e.target.closest('.hfaq-q');
+        if (!btn) return;
+        const item = btn.closest('.hfaq-item');
+        setOpen(item, btn.getAttribute('aria-expanded') !== 'true');
+    });
+})();

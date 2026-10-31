@@ -37,6 +37,19 @@ define('DB_PASS', 'your_database_password');
 // GitHub Settings -> Secrets and variables -> Actions.
 define('CACHE_RESET_TOKEN', 'change-this-to-a-long-random-string');
 
+// OPTIONAL -- live Google reviews on the homepage. Without these two lines the
+// homepage shows the reviews managed in Admin -> Reviews instead.
+//   1. Google Cloud Console -> create a project -> enable "Places API (New)"
+//      (billing must be switched on; a few lookups a day cost almost nothing).
+//   2. Credentials -> create an API key, and restrict it to "Places API (New)"
+//      and to this server's IP address.
+//   3. GOOGLE_PLACE_ID is your Business Profile's Place ID: find it with the
+//      "Place ID Finder" (developers.google.com/maps/documentation/places/web-service/place-id)
+//      by searching your business name.
+// Google returns up to the 5 most relevant reviews; new ones appear within an hour.
+// define('GOOGLE_PLACES_API_KEY', 'your-api-key');
+// define('GOOGLE_PLACE_ID', 'your-place-id');
+
 function get_db(): PDO
 {
     static $pdo = null;

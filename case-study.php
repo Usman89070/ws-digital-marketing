@@ -114,6 +114,7 @@ if (($study['shop_image'] ?? '') !== '') { $shopGallery[] = [$study['shop_image'
 // PHP opcode cache entry -- this comment guarantees a fresh file size/
 // timestamp so the next deploy genuinely overwrites it.)
 $page_title = ($study['meta_title'] ?? '') !== '' ? $study['meta_title'] : $study['name'];
+$page_og_image = $study['image_path'] ?? '';
 // The summary field allows HTML (edited via the admin panel), so the meta
 // description -- which must be plain text -- strips tags rather than
 // echoing the markup itself.
@@ -352,7 +353,7 @@ include 'header.php';
                             <p><?php echo htmlspecialchars(strip_tags($item['summary']), ENT_QUOTES, 'UTF-8'); ?></p>
                         </div>
                         <div>
-                            <a href="/case-studies/<?php echo htmlspecialchars($moreSlug, ENT_QUOTES, 'UTF-8'); ?>" class="service-link">View Details <i class="fa-solid fa-arrow-right"></i></a>
+                            <a href="/case-studies/<?php echo htmlspecialchars($moreSlug, ENT_QUOTES, 'UTF-8'); ?>" class="service-link" aria-label="View Details &ndash; <?php echo htmlspecialchars($item['name'], ENT_QUOTES, 'UTF-8'); ?>">View Details <i class="fa-solid fa-arrow-right"></i></a>
                         </div>
                     </div>
                 </article>

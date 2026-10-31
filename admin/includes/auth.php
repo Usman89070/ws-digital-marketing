@@ -10,6 +10,54 @@ if (empty($_SESSION['admin_id'])) {
     exit;
 }
 
+// Re-check the account on every request, so a user who is disabled, deleted
+// or given a different role loses (or gains) access immediately rather than
+// at their next login. Roles: 'admin' (everything) and 'seo' (the SEO tools).
+$adminAccount = null;
+try {
+    $stmt = get_db()->prepare('SELECT id, username, role, is_active FROM admin_users WHERE id = ?');
+    $stmt->execute([$_SESSION['admin_id']]);
+    $adminAccount = $stmt->fetch() ?: null;
+} catch (PDOException $e) {
+    // The SEO migration hasn't been run yet: there are no role columns, and
+    // every existing account is a full admin.
+    try {
+        $stmt = get_db()->prepare('SELECT id, username FROM admin_users WHERE id = ?');
+        $stmt->execute([$_SESSION['admin_id']]);
+        $legacy = $stmt->fetch();
+        $adminAccount = $legacy ? $legacy + ['role' => 'admin', 'is_active' => 1] : null;
+    } catch (PDOException $e2) {
+        $adminAccount = null;
+    }
+}
+if (!$adminAccount || !(int) $adminAccount['is_active']) {
+    $_SESSION = [];
+    session_destroy();
+    header('Location: login.php');
+    exit;
+}
+$_SESSION['admin_role'] = (string) $adminAccount['role'];
+$_SESSION['admin_username'] = (string) $adminAccount['username'];
+
+function admin_role(): string
+{
+    return $_SESSION['admin_role'] ?? '';
+}
+
+function admin_has_role(string ...$roles): bool
+{
+    return in_array(admin_role(), $roles, true);
+}
+
+// Sends the user back to the dashboard if their role isn't one of $roles.
+function require_role(array $roles): void
+{
+    if (!in_array(admin_role(), $roles, true)) {
+        header('Location: index.php?denied=1');
+        exit;
+    }
+}
+
 // One CSRF token per session, checked on every state-changing POST.
 if (empty($_SESSION['csrf_token'])) {
     $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
